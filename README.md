@@ -13,6 +13,18 @@ The adapter consumes caller-owned checkpoint metadata and performs deterministic
 arithmetic only. It does not load model weights, call a provider, read an
 assessment corpus, or make production claims.
 
+Run the real local checkpoint experiment after installing the pinned local
+runtime from [requirements.txt](requirements.txt):
+
+```sh
+python gpt2_experiment.py --model-dir /path/to/caller-owned/gpt2
+```
+
+The real experiment verifies the seven GPT-2 bundle artifacts, loads 160
+Safetensors tensors, runs NumPy GPT-2 inference, and compares a layer-0 MLP
+channel permutation on visible and held-out prompts. The model directory is
+never copied into this repository.
+
 Run the full demonstration:
 
 ```sh
