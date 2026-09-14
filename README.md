@@ -66,6 +66,39 @@ checkpoint and RoPE base. Its qualification uses a new 8-visible/64-held-out
 probe suite, so the report records a separate contract rather than reusing the
 SmolLM probe digest.
 
+Run the preregistered held-out causal prediction, activation-patching, and
+activation-rescue experiment on SmolLM2 with:
+
+```sh
+.venv/bin/python causal_prediction_check.py \
+  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
+  --model-id smollm2-135m
+```
+
+This protocol selects three MLP channels per layer from the eight visible
+probes at layers 0, 14, and 29, evaluates 576 held-out MLP intervention
+observations and 576 held-out GQA-group observations, and compares canonical,
+raw-coordinate, and fixed-seed random mappings. It then evaluates 576
+activation-patching observations and 192 full-activation rescue observations.
+The compact report passed as
+`CAUSAL_PREDICTION_AND_RESCUE_PASS`: canonical MLP and GQA prediction error
+was `0.0` with 100% canonical wins against both baselines; raw-coordinate
+relative error was `1.5952721936` for MLP and `5.8210934364` for GQA. Aligned
+patching error was `0.0` versus `12.0264040945` for raw patching. Aligned
+rescue error was `3.298e-7` versus `0.5280996787` for raw rescue, with 100%
+canonical wins in both cases. The causal target-bound probe digest was
+`f56f43ffdb106bd3a17bc40824299aef6db17286a80adbec5e9a3ba1738cd461`.
+For every selected MLP and GQA layer, the operational mapping was inferred
+from exact composite component signatures; the recorded synthetic shift was
+used only to construct the transformed tensor case. Each mapping had a raw
+digest difference and matching canonical digests.
+
+This result is local checkpoint evidence that the tested causal effects are
+recoverable under the exact validated symmetry mapping. It does not establish
+mechanistic understanding, architecture-general proof, alignment validation,
+independent review, or production readiness; the report records provider
+calls as false and assessment status as local synthetic probes only.
+
 Run the independent local reference, identity criterion, causal atlas, and
 Jacobian-lens proxy with:
 
@@ -152,7 +185,7 @@ python3 theseus_lab.py --demo
 Run the custody-aware adapter regression tests in the pinned runtime:
 
 ```sh
-/Users/shaanp/.codex/venvs/theseus-lab-31111/bin/python \
+.venv/bin/python \
   -m unittest discover -s tests -p 'test_*.py' -v
 ```
 

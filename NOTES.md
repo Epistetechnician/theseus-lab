@@ -248,3 +248,47 @@ replication across two Llama-family model instances but remains local,
 checkpoint- and probe-contract-bound evidence. It does not establish
 architecture-general proof, mechanistic understanding, alignment validation,
 or production readiness.
+
+Causal-prediction and activation-rescue result: the preregistered
+`smollm2-causal-prediction-v1` protocol ran against the owner-custodied
+SmolLM2-135M bundle in the repo-local Python 3.12.13 environment. The
+runtime-bound checkpoint digest was
+`b7a550fb21bc0b5a342f97a467ce2c554105919e0f35a75bc798f4dc9872d16d`; the
+causal target-bound probe digest was
+`f56f43ffdb106bd3a17bc40824299aef6db17286a80adbec5e9a3ba1738cd461`.
+The model weights loaded from external custody; no provider was called and no
+real assessment corpus was consumed.
+
+Channel selection used only the eight visible probes and selected three
+channels at each of layers 0, 14, and 29: `(898, 1297, 223)`, `(226, 75, 87)`,
+and `(675, 385, 1233)`. The held-out set contained 64 probes. The mapping
+comparison evaluated 576 MLP and 576 GQA-group observations. Canonical MLP
+and GQA prediction error was `0.0` with 100% wins against both raw-coordinate
+and fixed-seed random mappings. Raw-coordinate mean relative L2 was
+`1.5952721936` for MLP and `5.8210934364` for GQA; fixed-seed random means
+were `1.4276475126` and `8.1362257084`. The corresponding canonical 95%
+bootstrap intervals were `[0.0, 0.0]`.
+
+The operational alignment was blind to the recorded synthetic shift: each
+selected layer/family mapping was inferred from exact composite component
+signatures, then checked for raw-digest difference and canonical-digest
+equality before it was used in the held-out predictions, patches, or rescues.
+
+Activation patching evaluated 576 observations. The aligned canonical mean
+relative L2 was `0.0`, with 95% interval `[0.0, 0.0]` and 100% wins against
+raw patching; raw patching mean relative L2 was `12.0264040945`, with interval
+`[6.26960088, 22.16632128]`. Full activation rescue evaluated 192
+observations. Aligned rescue mean relative L2 was `3.298e-7`, interval
+`[2.5e-7, 4.2e-7]`, and 100% of observations beat raw rescue; raw rescue mean
+relative L2 was `0.5280996787`, interval `[0.45776913, 0.60728439]`.
+
+The run reported `CAUSAL_PREDICTION_AND_RESCUE_PASS`. This is a stronger,
+falsifiable local observation: for the tested SmolLM2 transformations, a
+mapping inferred from component identity predicts held-out ablation effects
+and restores held-out activation interventions, while raw and random mappings
+do not. It remains an equivalence-class observation for one checkpoint,
+architecture family, target-logit projection, and fixed probe contract. The
+claim ceiling is
+`LOCAL_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY`; it is not mechanistic
+understanding, architecture-general proof, alignment validation, independent
+review, or production readiness.

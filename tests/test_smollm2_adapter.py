@@ -64,3 +64,24 @@ class TestSmolLM2Adapter(unittest.TestCase):
             rtol=1e-4,
             atol=1e-4,
         ))
+
+    def test_smollm2_activation_patch_is_a_noop_for_the_source_activation(self) -> None:
+        ids = self.tokenizer("The color of the daytime sky is", add_special_tokens=False)["input_ids"]
+        layer = 14
+        activation = self.numpy_model.mlp_activation_trace(ids)[layer]
+        original = self.numpy_model.forward(ids)
+        patched = self.numpy_model.forward(
+            ids,
+            patch_mlp_activation=activation,
+            patch_mlp_activation_layer=layer,
+        )
+        self.assertTrue(np.array_equal(original, patched))
+
+    def test_smollm2_activation_patch_rejects_wrong_width(self) -> None:
+        ids = self.tokenizer("The color of the daytime sky is", add_special_tokens=False)["input_ids"]
+        with self.assertRaisesRegex(ValueError, "patched SmolLM activation"):
+            self.numpy_model.forward(
+                ids,
+                patch_mlp_activation=np.zeros(self.numpy_model.ffn_dim - 1),
+                patch_mlp_activation_layer=14,
+            )

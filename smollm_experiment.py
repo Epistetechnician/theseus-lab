@@ -144,6 +144,8 @@ class NumpySmolLM:
         ablate_channel_layer: int = 0,
         ablate_channels: np.ndarray | None = None,
         replacement_channel: tuple[int, int] | None = None,
+        patch_mlp_activation: np.ndarray | None = None,
+        patch_mlp_activation_layer: int = 0,
         attention_permutation: np.ndarray | None = None,
         attention_permutation_layer: int = 0,
         ablate_head_group: int | None = None,
@@ -156,7 +158,6 @@ class NumpySmolLM:
             raise ValueError("precision must be float32 or float64")
         compute_dtype = np.float64 if precision == "float64" else np.float32
         embeddings = self.tensors["model.embed_tokens.weight"].astype(compute_dtype, copy=False)
-        positions = np.arange(len(token_ids), dtype=np.int64)
         x = (embeddings[token_ids]).copy()
         for layer in range(self.n_layer):
             x = x + self._attention(
@@ -176,6 +177,8 @@ class NumpySmolLM:
                 ablate_channel_layer,
                 ablate_channels,
                 replacement_channel,
+                patch_mlp_activation,
+                patch_mlp_activation_layer,
             )
         x = self._rms_norm(x, self.tensors["model.norm.weight"])
         return x[-1] @ embeddings.T
@@ -263,6 +266,8 @@ class NumpySmolLM:
         ablate_channel_layer: int,
         ablate_channels: np.ndarray | None,
         replacement_channel: tuple[int, int] | None,
+        patch_mlp_activation: np.ndarray | None = None,
+        patch_mlp_activation_layer: int = 0,
         capture: list[np.ndarray] | None = None,
     ) -> np.ndarray:
         prefix = f"model.layers.{layer}"
@@ -294,6 +299,12 @@ class NumpySmolLM:
         gate = normalized @ gate_weight.T
         up = normalized @ up_weight.T
         activated = self._silu(gate) * up
+        if layer == patch_mlp_activation_layer and patch_mlp_activation is not None:
+            patch = np.asarray(patch_mlp_activation, dtype=activated.dtype)
+            if patch.shape != (self.ffn_dim,):
+                raise ValueError("patched SmolLM activation must match the MLP width")
+            activated = activated.copy()
+            activated[-1] = patch
         if capture is not None:
             capture.append(activated[-1].copy())
         return activated @ down_weight.T
