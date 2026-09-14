@@ -47,6 +47,8 @@ HELDOUT_PROMPTS = (
 )
 PERMUTATION_SHIFT = 17
 INTERVENTION_CHANNEL = 17
+BOOTSTRAP_RESAMPLES = 2000
+BOOTSTRAP_SEED = 20260914
 
 
 def full_digest(value: object) -> str:
@@ -298,6 +300,19 @@ class NumpyGPT2:
         ))
 
 
+def bootstrap_ci(values: Iterable[float], seed_offset: int) -> list[float]:
+    values_array = np.asarray(list(values), dtype=np.float64)
+    if not len(values_array):
+        raise ValueError("cannot bootstrap an empty metric")
+    generator = np.random.default_rng(BOOTSTRAP_SEED + seed_offset)
+    indexes = generator.integers(0, len(values_array), size=(BOOTSTRAP_RESAMPLES, len(values_array)))
+    means = values_array[indexes].mean(axis=1)
+    return [
+        round(float(np.quantile(means, 0.025)), 8),
+        round(float(np.quantile(means, 0.975)), 8),
+    ]
+
+
 def compare_logits(before: Iterable[np.ndarray], after: Iterable[np.ndarray]) -> dict[str, object]:
     pairs = list(zip(before, after))
     top1 = [int(np.argmax(left) == np.argmax(right)) for left, right in pairs]
@@ -306,25 +321,37 @@ def compare_logits(before: Iterable[np.ndarray], after: Iterable[np.ndarray]) ->
         for left, right in pairs
     ]
     cosine = [
-        float(np.dot(left, right) / max(np.linalg.norm(left) * np.linalg.norm(right), 1e-12))
+        float(np.clip(
+            np.dot(left, right) / max(np.linalg.norm(left) * np.linalg.norm(right), 1e-12),
+            -1.0,
+            1.0,
+        ))
         for left, right in pairs
     ]
     return {
         "prompt_count": len(pairs),
         "top1_agreement": round(sum(top1) / len(top1), 6),
+        "top1_agreement_ci95": bootstrap_ci(top1, 1),
         "mean_relative_l2": round(sum(relative_l2) / len(relative_l2), 8),
+        "mean_relative_l2_ci95": bootstrap_ci(relative_l2, 2),
         "mean_logit_cosine": round(sum(cosine) / len(cosine), 8),
+        "mean_logit_cosine_ci95": bootstrap_ci(cosine, 3),
         "baseline_top1_ids": [int(np.argmax(logits)) for logits in before],
         "variant_top1_ids": [int(np.argmax(logits)) for logits in after],
     }
 
 
 def vector_similarity(before: np.ndarray, after: np.ndarray) -> dict[str, float]:
+    cosine = np.clip(
+        np.dot(before, after) / max(np.linalg.norm(before) * np.linalg.norm(after), 1e-12),
+        -1.0,
+        1.0,
+    )
     return {
         "relative_l2": round(float(np.linalg.norm(before - after) / max(np.linalg.norm(before), 1e-12)), 8),
         "absolute_l2": round(float(np.linalg.norm(before - after)), 8),
         "max_abs": round(float(np.max(np.abs(before - after))), 8),
-        "cosine": round(float(np.dot(before, after) / max(np.linalg.norm(before) * np.linalg.norm(after), 1e-12)), 8),
+        "cosine": round(float(cosine), 8),
     }
 
 

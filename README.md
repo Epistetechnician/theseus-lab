@@ -24,7 +24,8 @@ Safetensors tensors, runs NumPy GPT-2 inference, and compares a layer-0 MLP
 channel permutation on visible and held-out prompts. The model directory is
 never copied into this repository.
 
-Run the independent reference and layer/head sweep with:
+Run the independent local reference, identity criterion, causal atlas, and
+Jacobian-lens proxy with:
 
 ```sh
 python reference_check.py --model-dir /path/to/caller-owned/gpt2
@@ -32,9 +33,25 @@ python reference_check.py --model-dir /path/to/caller-owned/gpt2
 
 This cross-checks the NumPy logits against PyTorch/Transformers on 16 fixed
 prompts, then tests function-preserving MLP-channel and attention-head
-permutations at layers 0, 5, and 11. It also measures non-symmetry sensitivity
-for channel ablation, block pruning, and channel replacement. It reports both
-scale-free and absolute intervention differences.
+permutations at layers 0, 5, and 11. A symmetry case is accepted only when
+raw component digests differ, inverse-mapped canonical digests match, visible
+and held-out behavior matches, and the aligned intervention matches. Ablation,
+pruning, and replacement retain distinct canonical digests and are treated as
+non-symmetry controls.
+
+The causal atlas covers three MLP channels and three attention heads at each
+of the three selected layers, with deterministic 95% bootstrap intervals. The
+local Jacobian-lens proxy fits an average derivative from eight visible probes
+to four fixed target-token logits, then evaluates eight held-out probes. It is
+an operational diagnostic for this checkpoint, not a full J-space
+implementation, mechanistic proof, or consciousness claim.
+
+The formal identity criterion is:
+
+```text
+raw digest differs + canonical digest matches + behavior matches
++ aligned interventions match
+```
 
 Run the full demonstration:
 

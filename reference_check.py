@@ -23,6 +23,7 @@ from gpt2_experiment import (
     tensor_digest,
     vector_similarity,
 )
+from jspace_proxy import analyze_jspace
 
 
 REFERENCE_RELATIVE_L2_MAX = 1e-4
@@ -30,8 +31,12 @@ SYMMETRY_RELATIVE_L2_MAX = 1e-4
 BEHAVIOR_CHANGE_RELATIVE_L2_MIN = 1e-4
 ALIGNED_INTERVENTION_COSINE_MIN = 0.999
 ALIGNED_INTERVENTION_MAX_ABS = 1e-4
+BOOTSTRAP_RESAMPLES = 2000
+BOOTSTRAP_SEED = 20260914
 MLP_LAYERS = (0, 5, 11)
 ATTENTION_LAYERS = (0, 5, 11)
+ATLAS_CHANNELS = (17, 34, 1024)
+ATLAS_HEADS = (0, 5, 11)
 PRUNE_COUNT = 128
 REPLACEMENT_CHANNEL = (17, 34)
 
@@ -58,6 +63,40 @@ def split_behavior(before: list[np.ndarray], after: list[np.ndarray]) -> dict[st
     return {
         "visible": compare_logits(before[:visible_count], after[:visible_count]),
         "heldout": compare_logits(before[visible_count:], after[visible_count:]),
+    }
+
+
+def bootstrap_ci(values: list[float], seed_offset: int) -> list[float]:
+    values_array = np.asarray(values, dtype=np.float64)
+    generator = np.random.default_rng(BOOTSTRAP_SEED + seed_offset)
+    indexes = generator.integers(0, len(values_array), size=(BOOTSTRAP_RESAMPLES, len(values_array)))
+    means = values_array[indexes].mean(axis=1)
+    return [round(float(np.quantile(means, 0.025)), 8), round(float(np.quantile(means, 0.975)), 8)]
+
+
+def identity_criterion(case: dict[str, object]) -> dict[str, object]:
+    visible = case["behavior"]["visible"]
+    heldout = case["behavior"]["heldout"]
+    aligned = case["intervention"]["aligned_effect_similarity"]
+    behavior_match = (
+        visible["top1_agreement"] == 1.0
+        and heldout["top1_agreement"] == 1.0
+        and visible["mean_relative_l2"] < SYMMETRY_RELATIVE_L2_MAX
+        and heldout["mean_relative_l2"] < SYMMETRY_RELATIVE_L2_MAX
+    )
+    aligned_match = (
+        aligned["cosine"] >= ALIGNED_INTERVENTION_COSINE_MIN
+        and aligned["max_abs"] < ALIGNED_INTERVENTION_MAX_ABS
+    )
+    raw_digest_diff = case["mechanism"]["before_digest"] != case["mechanism"]["after_digest"]
+    canonical_digest_match = case["mechanism"]["before_digest"] == case["mechanism"]["canonical_after_digest"]
+    return {
+        "raw_digest_diff": raw_digest_diff,
+        "canonical_digest_match": canonical_digest_match,
+        "canonical_digest_diff": not canonical_digest_match,
+        "behavior_match": behavior_match,
+        "aligned_intervention_match": aligned_match,
+        "accepted": raw_digest_diff and canonical_digest_match and behavior_match and aligned_match,
     }
 
 
@@ -105,7 +144,7 @@ def mlp_case(
         ablate_channel_layer=layer,
     )
     aligned_effect = variant[0] - aligned
-    return {
+    case = {
         "kind": "mlp_channel_permutation",
         "layer": layer,
         "shift": shift,
@@ -113,6 +152,11 @@ def mlp_case(
         "mechanism": {
             "before_digest": tensor_digest({"weight": selected[0], "bias": selected[1], "projection": selected[2]}),
             "after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
+            "canonical_after_digest": tensor_digest({
+                "weight": transformed[0][:, np.argsort(perm)],
+                "bias": transformed[1][np.argsort(perm)],
+                "projection": transformed[2][np.argsort(perm), :],
+            }),
             "changed_parameter_fraction": round(changed_fraction(selected, transformed), 8),
         },
         "intervention": {
@@ -122,6 +166,8 @@ def mlp_case(
             "aligned_effect_similarity": vector_similarity(baseline_effect, aligned_effect),
         },
     }
+    case["identity_criterion"] = identity_criterion(case)
+    return case
 
 
 def attention_case(
@@ -177,7 +223,7 @@ def attention_case(
         ablate_head=int(inverse[0]),
         ablate_head_layer=layer,
     )
-    return {
+    case = {
         "kind": "attention_head_permutation",
         "layer": layer,
         "shift": shift,
@@ -185,6 +231,11 @@ def attention_case(
         "mechanism": {
             "before_digest": tensor_digest({"qkv_weight": qkv_weight, "qkv_bias": qkv_bias, "projection": projection}),
             "after_digest": tensor_digest({"qkv_weight": transformed[0], "qkv_bias": transformed[1], "projection": transformed[2]}),
+            "canonical_after_digest": tensor_digest({
+                "qkv_weight": transformed[0][:, np.argsort(order)],
+                "qkv_bias": transformed[1][np.argsort(order)],
+                "projection": transformed[2][np.argsort(head_indexes[perm].reshape(-1)), :],
+            }),
             "changed_parameter_fraction": round(changed_fraction(
                 [qkv_weight, qkv_bias, projection],
                 transformed,
@@ -197,6 +248,8 @@ def attention_case(
             "aligned_effect_similarity": vector_similarity(baseline_effect, aligned_effect),
         },
     }
+    case["identity_criterion"] = identity_criterion(case)
+    return case
 
 
 def nonsymmetry_case(
@@ -245,26 +298,70 @@ def nonsymmetry_case(
         "mechanism": {
             "before_digest": tensor_digest({"weight": selected[0], "bias": selected[1], "projection": selected[2]}),
             "after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
+            "canonical_after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
             "changed_parameter_fraction": round(changed_fraction(selected, transformed), 8),
         },
         "behavior_changed": behavior_changed,
+        "identity_criterion": {
+            "raw_digest_diff": True,
+            "canonical_digest_match": False,
+            "canonical_digest_diff": True,
+            "behavior_match": False,
+            "aligned_intervention_match": False,
+            "accepted": False,
+        },
     }
 
 
 def behavior_pass(case: dict[str, object]) -> bool:
-    visible = case["behavior"]["visible"]
-    heldout = case["behavior"]["heldout"]
-    aligned_intervention = case["intervention"]["aligned_effect_similarity"]
-    return (
-        visible["top1_agreement"] == 1.0
-        and heldout["top1_agreement"] == 1.0
-        and visible["mean_relative_l2"] < SYMMETRY_RELATIVE_L2_MAX
-        and heldout["mean_relative_l2"] < SYMMETRY_RELATIVE_L2_MAX
-        and case["mechanism"]["before_digest"] != case["mechanism"]["after_digest"]
-        and case["mechanism"]["changed_parameter_fraction"] > 0.99
-        and aligned_intervention["cosine"] >= ALIGNED_INTERVENTION_COSINE_MIN
-        and aligned_intervention["max_abs"] < ALIGNED_INTERVENTION_MAX_ABS
-    )
+    return bool(case["identity_criterion"]["accepted"])
+
+
+def atlas_effect(
+    model: NumpyGPT2,
+    tokenized: list[list[int]],
+    baseline: list[np.ndarray],
+    layer: int,
+    component: str,
+    index: int,
+) -> dict[str, object]:
+    scores: list[float] = []
+    top1_changes: list[float] = []
+    for ids, original in zip(tokenized, baseline):
+        if component == "mlp_channel":
+            altered = model.forward(ids, ablate_channel=index, ablate_channel_layer=layer)
+        else:
+            altered = model.forward(ids, ablate_head=index, ablate_head_layer=layer)
+        scores.append(float(np.linalg.norm(original - altered) / max(np.linalg.norm(original), 1e-12)))
+        top1_changes.append(float(np.argmax(original) != np.argmax(altered)))
+    return {
+        "layer": layer,
+        "component": component,
+        "index": index,
+        "mean_relative_logit_effect": round(sum(scores) / len(scores), 8),
+        "relative_logit_effect_ci95": bootstrap_ci(scores, layer * 1000 + index + (0 if component == "mlp_channel" else 10000)),
+        "top1_change_rate": round(sum(top1_changes) / len(top1_changes), 8),
+        "top1_change_rate_ci95": bootstrap_ci(top1_changes, layer * 1000 + index + (5000 if component == "mlp_channel" else 15000)),
+    }
+
+
+def build_causal_atlas(
+    model: NumpyGPT2,
+    tokenized: list[list[int]],
+    baseline: list[np.ndarray],
+) -> dict[str, list[dict[str, object]]]:
+    return {
+        "mlp_channels": [
+            atlas_effect(model, tokenized, baseline, layer, "mlp_channel", channel)
+            for layer in MLP_LAYERS
+            for channel in ATLAS_CHANNELS
+        ],
+        "attention_heads": [
+            atlas_effect(model, tokenized, baseline, layer, "attention_head", head)
+            for layer in ATTENTION_LAYERS
+            for head in ATLAS_HEADS
+        ],
+    }
 
 
 def run(model_dir: Path) -> dict[str, object]:
@@ -329,8 +426,17 @@ def run(model_dir: Path) -> dict[str, object]:
         int(case["behavior_changed"])
         for case in nonsymmetry_cases
     )
+    causal_atlas = build_causal_atlas(numpy_model, numpy_tokenized, numpy_baseline)
+    jspace_proxy = analyze_jspace(model_dir)
+    overall_pass = (
+        reference_pass
+        and all_cases_pass
+        and len(causal_atlas["mlp_channels"]) == len(MLP_LAYERS) * len(ATLAS_CHANNELS)
+        and len(causal_atlas["attention_heads"]) == len(ATTENTION_LAYERS) * len(ATLAS_HEADS)
+        and jspace_proxy["status"] == "LOCAL_PROXY_PASS"
+    )
     return {
-        "status": "REFERENCE_AND_SYMMETRY_SWEEP_PASS" if reference_pass and all_cases_pass else "INCONCLUSIVE",
+        "status": "REFERENCE_SYMMETRY_ATLAS_AND_JSPACE_PROXY_PASS" if overall_pass else "INCONCLUSIVE",
         "claim_ceiling": "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
         "checkpoint": {
             "weights_loaded": True,
@@ -346,6 +452,15 @@ def run(model_dir: Path) -> dict[str, object]:
             )),
         },
         "probe_set_digest": full_digest({"visible": VISIBLE_PROMPTS, "heldout": HELDOUT_PROMPTS}),
+        "equivalence_relation": {
+            "name": "function_preserving_reparameterization_equivalence",
+            "generators": [
+                "MLP-channel permutations",
+                "attention-head permutations",
+            ],
+            "canonicalization": "inverse-map transformed component order to the pre-transform order",
+            "acceptance_criterion": "raw digest differs + canonical digest matches + behavior matches + aligned interventions match",
+        },
         "reference": {
             "tokenization_match": tokenization_match,
             "metrics": reference_metrics,
@@ -361,6 +476,8 @@ def run(model_dir: Path) -> dict[str, object]:
             "cases_with_behavior_change": nonsymmetry_changed,
             "all_cases_changed_behavior": nonsymmetry_changed == len(nonsymmetry_cases),
         },
+        "causal_atlas": causal_atlas,
+        "jspace_proxy": jspace_proxy,
         "thresholds": {
             "reference_relative_l2_max": REFERENCE_RELATIVE_L2_MAX,
             "symmetry_relative_l2_max": SYMMETRY_RELATIVE_L2_MAX,

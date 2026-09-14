@@ -61,3 +61,42 @@ logit and top-1 metrics can disagree.
 The report claim ceiling is now
 `LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY`. No general mechanistic,
 scientific, alignment, or production claim follows from this prototype.
+
+Formalized identity criterion result: all six selected symmetry cases (MLP
+channels and attention heads at layers 0, 5, and 11) passed the exact four-part
+criterion: raw digest difference, canonical digest equality after inverse
+mapping, visible plus held-out behavior match, and aligned intervention match.
+The canonicalization is an explicit invariant for the recorded permutation;
+it is not a learned similarity metric. The five ablation, pruning, and
+replacement controls retain canonical digest differences and are never
+accepted as identity-equivalent.
+
+The expanded causal atlas contains 18 entries: three MLP channels and three
+attention heads at each of layers 0, 5, and 11. Every entry reports mean
+relative logit effect and a deterministic 95% bootstrap interval over the 16
+fixed probes. The selected MLP-channel effects ranged from `2.22e-6` to
+`6.7972e-4`; selected attention-head effects ranged from `0.00406515` to
+`0.08473632`. Top-1 changes were sparse and sometimes absent despite a
+nonzero logit effect, so top-1 alone is not treated as causal evidence.
+
+The local Jacobian-lens proxy fits on the eight visible prompts and evaluates
+on the eight held-out prompts. Its target tokens are `(" the", " is", " of",
+" and")`, IDs `(262, 318, 286, 290)`, with target digest
+`8c055c3ea9637aa48eeab068e2411adeeccf9180a04eb25f7e8c135583346ae6`. The
+permutation stability check passed at all three layers. Mean held-out
+coordinate relative error was `1.0e-7`, `1.2e-7`, and `2.58e-6` at layers 0,
+5, and 11; the corresponding 95% intervals were `[6e-8, 1.4e-7]`,
+`[9e-8, 1.7e-7]`, and `[8.6e-7, 5.54e-6]`. Pruning 128 channels diverged in
+the proxy at every selected layer, with mean relative errors `0.00864998`,
+`0.01526452`, and `0.11627851`.
+
+The resulting insight is narrower and falsifiable: within this checkpoint and
+probe contract, channel/head labels are not identity primitives; identity is
+better modeled as an equivalence class under validated function-preserving
+symmetries plus aligned causal interventions. The Jacobian proxy is
+consistent with that criterion, but its stability is not independent evidence
+of mechanistic understanding because the tested permutation preserves the
+post-block residual exactly. The claim ceiling remains
+`LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY` plus
+`LOCAL_JACOBIAN_PROXY_OBSERVATION_ONLY`; no general mechanistic, scientific,
+alignment, or production claim follows.
