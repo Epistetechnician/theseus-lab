@@ -53,6 +53,19 @@ gated-MLP channel permutations and complete grouped-query-attention (GQA)
 group permutations across all 30 layers. The model uses rotary position
 encoding, RMSNorm, SiLU gating, nine query heads, and three key/value groups.
 
+Run the independent SmolLM2-135M instance with its fresh probe contract:
+
+```sh
+python smollm2_reference_check.py \
+  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
+  --model-id smollm2-135m
+```
+
+SmolLM2 uses the same Llama/GQA implementation family but a distinct pinned
+checkpoint and RoPE base. Its qualification uses a new 8-visible/64-held-out
+probe suite, so the report records a separate contract rather than reusing the
+SmolLM probe digest.
+
 Run the independent local reference, identity criterion, causal atlas, and
 Jacobian-lens proxy with:
 
@@ -69,7 +82,8 @@ python replication_check.py \
   --gpt2-dir /path/to/caller-owned/gpt2 \
   --distilgpt2-dir /path/to/caller-owned/distilgpt2 \
   --opt-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
-  --smollm-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm-135m
+  --smollm-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm-135m \
+  --smollm2-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m
 ```
 
 With the optional checkpoint directories, this cross-checks the NumPy logits against
@@ -94,18 +108,23 @@ consciousness claim.
 
 The cross-check covers the pinned GPT-2, distilgpt2, and OPT-125M checkpoints
 when `--opt-dir` is supplied, and adds the pinned SmolLM-135M topology when
-`--smollm-dir` is supplied. All selected checkpoints must pass the complete
-local protocol and share the probe digest. A run including SmolLM reports
-`CROSS_TOPOLOGY_REPLICATION_PASS`.
+`--smollm-dir` is supplied. `--smollm2-dir` adds a second Llama-family model
+instance with its explicitly fresh probe contract. All selected checkpoints
+must pass the complete local protocol. A run including SmolLM reports
+`CROSS_TOPOLOGY_REPLICATION_PASS`; a run including SmolLM2 reports
+`CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS` and separately verifies the
+shared legacy contract plus the fresh SmolLM2 contract.
 
-The four-checkpoint topology replay passed. GPT-2 passed 48/48 symmetry cases,
-distilgpt2 passed 24/24, OPT-125M passed 48/48, and SmolLM-135M passed 120/120;
-all four recovered every blind mapping. Their control counts were 14, 8, 14,
-and 32 respectively, with canonical digest differences in every control.
-Every checkpoint passed its local reference and Jacobian-proxy gates, and the
-combined command used probe digest
+The five-checkpoint topology replay passed. GPT-2 passed 48/48 symmetry cases,
+distilgpt2 passed 24/24, OPT-125M passed 48/48, SmolLM-135M passed 120/120,
+and SmolLM2-135M passed 120/120; every blind mapping was recovered. Their
+control counts were 14, 8, 14, 32, and 32 respectively, with canonical digest
+differences in every control. Every checkpoint passed its local reference and
+Jacobian-proxy gates. The four checkpoints on the shared suite used digest
 `ef4e0b6ff2c8358f1e9350b06afae15c11d87b6bddc83e79cd6d14901f1035bf` and
-reported `CROSS_TOPOLOGY_REPLICATION_PASS`.
+the fresh SmolLM2 suite used digest
+`8b90443749e884dbd83a0f2e983c5445a1dd6439e8d79f9a5a13fcb88d1bd52b`.
+The aggregate reported `CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS`.
 
 This is local cross-topology replication evidence for the tested
 transformations. It is not architecture-general proof, mechanistic

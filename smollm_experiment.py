@@ -9,6 +9,7 @@ import platform
 from pathlib import Path
 
 import numpy as np
+import torch
 from safetensors import safe_open
 
 from gpt2_experiment import MANIFEST_PATH, file_digest, full_digest
@@ -42,9 +43,9 @@ class SmolLMCheckpoint:
         for key, expected in self.manifest["config"].items():
             if self.config.get(key) != expected:
                 raise ValueError(f"checkpoint config mismatch for {key}: {self.config.get(key)!r}")
-        with safe_open(str(model_dir / "model.safetensors"), framework="np") as handle:
+        with safe_open(str(model_dir / "model.safetensors"), framework="pt") as handle:
             self.tensors = {
-                name: np.asarray(handle.get_tensor(name), dtype=np.float32)
+                name: handle.get_tensor(name).detach().cpu().to(torch.float32).numpy()
                 for name in handle.keys()
             }
         self._verify_tensor_shapes()
@@ -132,6 +133,7 @@ class NumpySmolLM:
         self.query_heads_per_kv = self.n_head // self.n_kv_head
         self.rms_norm_eps = float(checkpoint.config["rms_norm_eps"])
         self.rope_theta = float(checkpoint.config["rope_theta"])
+        self.max_position_embeddings = int(checkpoint.config["max_position_embeddings"])
 
     def forward(
         self,
@@ -202,7 +204,7 @@ class NumpySmolLM:
         return activations
 
     def _config_max_positions(self) -> int:
-        return 2048
+        return self.max_position_embeddings
 
     def _attention(
         self,

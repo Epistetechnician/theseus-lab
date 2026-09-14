@@ -458,22 +458,30 @@ def atlas_effect(
     }
 
 
-def run(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
+def run(
+    model_dir: Path,
+    model_id: str | None = None,
+    visible_prompts: tuple[str, ...] | None = None,
+    heldout_prompts: tuple[str, ...] | None = None,
+    probe_suite_name: str = "smollm_v1",
+) -> dict[str, object]:
     checkpoint = SmolLMCheckpoint(model_dir, model_id)
     numpy_model = NumpySmolLM(checkpoint)
     reference_model = AutoModelForCausalLM.from_pretrained(
         str(model_dir), local_files_only=True, dtype=torch.float32,
     ).eval()
     reference_tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True)
-    prompts = VISIBLE_PROMPTS + HELDOUT_PROMPTS
+    visible = VISIBLE_PROMPTS if visible_prompts is None else visible_prompts
+    heldout = HELDOUT_PROMPTS if heldout_prompts is None else heldout_prompts
+    prompts = visible + heldout
     tokenized = [reference_tokenizer(prompt, add_special_tokens=False)["input_ids"] for prompt in prompts]
     numpy_baseline = [numpy_model.forward(ids) for ids in tokenized]
     intervention_channels, intervention_selection = select_intervention_channels(
         numpy_model,
-        tokenized[:len(VISIBLE_PROMPTS)],
+        tokenized[:len(visible)],
     )
     intervention_tokenized = tokenized[
-        len(VISIBLE_PROMPTS):len(VISIBLE_PROMPTS) + INTERVENTION_HELDOUT_COUNT
+        len(visible):len(visible) + INTERVENTION_HELDOUT_COUNT
     ]
     reference_baseline = [reference_logits(reference_model, reference_tokenizer, prompt) for prompt in prompts]
     reference_metrics = compare_logits(numpy_baseline, reference_baseline)
@@ -533,7 +541,12 @@ def run(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
             for group in atlas_groups(numpy_model)
         ],
     }
-    jspace_proxy = analyze_jspace(model_dir, checkpoint.model_id)
+    jspace_proxy = analyze_jspace(
+        model_dir,
+        checkpoint.model_id,
+        fit_prompts=visible,
+        evaluation_prompts=heldout,
+    )
     overall_pass = (
         reference_pass
         and all(bool(case["identity_criterion"]["accepted"]) for case in cases)
@@ -559,14 +572,15 @@ def run(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
                 f"transformers-{transformers.__version__}",
             )),
         },
-        "probe_set_digest": full_digest({"visible": VISIBLE_PROMPTS, "heldout": HELDOUT_PROMPTS}),
+        "probe_suite_name": probe_suite_name,
+        "probe_set_digest": full_digest({"visible": visible, "heldout": heldout}),
         "intervention_selection": {
             "selection_probe_set": "visible",
-            "selection_probe_count": len(VISIBLE_PROMPTS),
-            "selection_probe_digest": full_digest(VISIBLE_PROMPTS),
+            "selection_probe_count": len(visible),
+            "selection_probe_digest": full_digest(visible),
             "evaluation_probe_set": "heldout_prefix",
             "evaluation_probe_count": len(intervention_tokenized),
-            "evaluation_probe_digest": full_digest(HELDOUT_PROMPTS[:INTERVENTION_HELDOUT_COUNT]),
+            "evaluation_probe_digest": full_digest(heldout[:INTERVENTION_HELDOUT_COUNT]),
             "channels_by_layer": intervention_selection,
         },
         "architecture": {

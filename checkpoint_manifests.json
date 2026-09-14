@@ -77,6 +77,7 @@
       "hidden_act": "silu",
       "rms_norm_eps": 1e-05,
       "rope_theta": 10000.0,
+      "max_position_embeddings": 2048,
       "tie_word_embeddings": true
     },
     "artifacts": {
@@ -87,6 +88,35 @@
       "special_tokens_map.json": "e786b595b9a23148bf1630df78d9037a048ea671e48bfd3549a1e3c233742bb3",
       "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
       "tokenizer_config.json": "238ad6b60d48e471624ea70bc79e92f2611844d5016471fee8c167854bcb98e8",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    }
+  },
+  "smollm2-135m": {
+    "model_id": "smollm2-135m",
+    "loader": "safetensors_llama",
+    "revision": "93efa2f097d58c2a74874c7e644dbc9b0cee75a2",
+    "config": {
+      "model_type": "llama",
+      "num_hidden_layers": 30,
+      "num_attention_heads": 9,
+      "num_key_value_heads": 3,
+      "hidden_size": 576,
+      "intermediate_size": 1536,
+      "vocab_size": 49152,
+      "hidden_act": "silu",
+      "rms_norm_eps": 1e-05,
+      "rope_theta": 100000,
+      "max_position_embeddings": 8192,
+      "tie_word_embeddings": true
+    },
+    "artifacts": {
+      "config.json": "1d556eab73b69c7f11f64c557a2f9c6f440bd4c6b89bb2584a6b498c92603843",
+      "generation_config.json": "2056c988e990b0d13670f63f2f3b87b3b6d07edaf7a3416998ba27dab2d8a059",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "80521b40281d6ce74e35c9282c22539e75aa0ac8578892b2a59955ef78d55da1",
+      "special_tokens_map.json": "e786b595b9a23148bf1630df78d9037a048ea671e48bfd3549a1e3c233742bb3",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "4bb9af56a342753d39374f4016a16574cab299fe088e896f425ce3c433f61424",
       "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
     }
   }

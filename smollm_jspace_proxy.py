@@ -195,37 +195,44 @@ def _coordinates(jacobian: np.ndarray, activations: list[torch.Tensor]) -> list[
     return [jacobian @ activation.cpu().numpy() for activation in activations]
 
 
-def analyze_jspace(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
+def analyze_jspace(
+    model_dir: Path,
+    model_id: str | None = None,
+    fit_prompts: tuple[str, ...] | None = None,
+    evaluation_prompts: tuple[str, ...] | None = None,
+) -> dict[str, object]:
     model = AutoModelForCausalLM.from_pretrained(
         str(model_dir), local_files_only=True, dtype=torch.float32,
     )
     model.eval()
     tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True)
+    fit_set = FIT_PROMPTS if fit_prompts is None else fit_prompts
+    evaluation_set = EVALUATION_PROMPTS if evaluation_prompts is None else evaluation_prompts
     selected_targets = target_ids(tokenizer)
     layer_reports: list[dict[str, object]] = []
 
     for layer in selected_layers(len(model.model.layers)):
         fit_jacobians = [
             prompt_jacobian(model, tokenizer, prompt, layer, selected_targets)
-            for prompt in FIT_PROMPTS
+            for prompt in fit_set
         ]
         mean_jacobian = np.mean(fit_jacobians, axis=0)
         baseline_activations = [
             last_mlp_activation(model, tokenizer, prompt, layer)
-            for prompt in EVALUATION_PROMPTS
+            for prompt in evaluation_set
         ]
         baseline_coordinates = _coordinates(mean_jacobian, baseline_activations)
         with permute_mlp(model, layer, PERMUTATION_SHIFT) as order:
             permuted_activations = [
                 last_mlp_activation(model, tokenizer, prompt, layer)
-                for prompt in EVALUATION_PROMPTS
+                for prompt in evaluation_set
             ]
         inverse = np.argsort(order)
         aligned_activations = [activation[inverse] for activation in permuted_activations]
         with prune_mlp(model, layer, PRUNE_COUNT):
             pruned_activations = [
                 last_mlp_activation(model, tokenizer, prompt, layer)
-                for prompt in EVALUATION_PROMPTS
+                for prompt in evaluation_set
             ]
         raw_permutation_metrics = vector_metrics(
             baseline_coordinates,
@@ -266,10 +273,10 @@ def analyze_jspace(model_dir: Path, model_id: str | None = None) -> dict[str, ob
         "kind": "local_jacobian_lens_proxy",
         "model_id": model_id or model_dir.name,
         "coordinate_space": "post_gated_mlp_activation",
-        "fit_prompt_count": len(FIT_PROMPTS),
-        "evaluation_prompt_count": len(EVALUATION_PROMPTS),
-        "fit_prompt_digest": full_digest(FIT_PROMPTS),
-        "evaluation_prompt_digest": full_digest(EVALUATION_PROMPTS),
+        "fit_prompt_count": len(fit_set),
+        "evaluation_prompt_count": len(evaluation_set),
+        "fit_prompt_digest": full_digest(fit_set),
+        "evaluation_prompt_digest": full_digest(evaluation_set),
         "target_tokens": list(TARGET_TOKENS),
         "target_token_ids": list(selected_targets),
         "target_digest": full_digest(list(selected_targets)),

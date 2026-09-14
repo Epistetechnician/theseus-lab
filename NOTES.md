@@ -203,3 +203,48 @@ local evidence across the tested implementations and fixed probe contract. It
 does not authorize provider calls, consume assessment data, establish
 architecture-general proof or mechanistic understanding, validate alignment,
 or establish production readiness.
+
+Fresh-holdout SmolLM2-135M result: the pinned
+`HuggingFaceTB/SmolLM2-135M` bundle at revision
+`93efa2f097d58c2a74874c7e644dbc9b0cee75a2` loaded from external owner-only
+custody. Its eight artifact digests and 272 tensors were verified; the
+checkpoint digest is
+`c57149185c50e58bb323c58908720e8d1554d4e3ce6ff1fad804c964b2b58776`.
+The checkpoint uses the same 30-layer Llama/GQA shape as SmolLM-135M but binds
+RoPE base `100000` and context length `8192` from its own manifest.
+
+The independent NumPy decoder matched local PyTorch/Transformers on the fresh
+72-prompt suite with top-1 agreement `1.0`, mean relative L2 `1.36e-6`, and
+95% bootstrap interval `[1.24e-6, 1.50e-6]`. The fresh suite digest is
+`8b90443749e884dbd83a0f2e983c5445a1dd6439e8d79f9a5a13fcb88d1bd52b`, with
+eight visible selection prompts and 64 held-out evaluation prompts.
+
+SmolLM2 passed 120/120 symmetry cases, recovered 120/120 blind mappings, and
+passed all 32 non-symmetry controls. Its atlas contains 90 gated-MLP entries
+and 90 GQA-group entries; its local Jacobian proxy passed on layers 0, 14, and
+29 with raw-coordinate change, inverse-aligned stability, and pruning
+divergence. The model-specific claim ceiling remains
+`LOCAL_SMOLLM_TRANSFORMATION_OBSERVATION_ONLY`.
+
+The fresh-holdout result is evidence across two separately pinned
+Llama-family model instances. It is not evidence that the criterion is
+architecture-general, mechanistically explanatory, alignment-valid, or
+production-ready.
+
+Five-checkpoint fresh-holdout replay: the aggregate runner reported
+`CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS`. GPT-2, distilgpt2, OPT-125M,
+and SmolLM-135M all passed on the shared probe digest
+`ef4e0b6ff2c8358f1e9350b06afae15c11d87b6bddc83e79cd6d14901f1035bf`.
+SmolLM2-135M passed independently on fresh digest
+`8b90443749e884dbd83a0f2e983c5445a1dd6439e8d79f9a5a13fcb88d1bd52b`.
+The runner reports `same_probe_contract=false` intentionally, with
+`shared_probe_contract=true` and `fresh_holdout_contract=true`; it never
+pretends the fresh suite is the legacy suite. All five reports passed their
+local reference, symmetry, control, atlas, and Jacobian-proxy gates.
+
+The resulting ceiling is
+`LOCAL_CROSS_TOPOLOGY_FRESH_HOLDOUT_OBSERVATION_ONLY`. This strengthens
+replication across two Llama-family model instances but remains local,
+checkpoint- and probe-contract-bound evidence. It does not establish
+architecture-general proof, mechanistic understanding, alignment validation,
+or production readiness.
