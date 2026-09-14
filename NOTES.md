@@ -158,3 +158,48 @@ under this exact local protocol. It remains local replication evidence, not
 architecture-general proof, mechanistic understanding, alignment validation,
 or production readiness. The cross-architecture claim ceiling is
 `LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY`.
+
+Topology-diverse SmolLM-135M result: the pinned `HuggingFaceTB/SmolLM-135M`
+bundle at revision `1d461723eec654e65efdc40cf49301c89c0c92f4` loaded from the
+external owner-only custody root. The manifest verified eight bundle artifacts
+and 272 state tensors; tied output embeddings were reconstructed from the
+verified input embedding. The resulting checkpoint digest is
+`8c0b435ce577250d0f9b2fb8334342ed1a65b2c8110eff3cbebc59b28a5097ad`.
+
+The independent NumPy Llama-family decoder matched local PyTorch/Transformers
+on all 72 fixed probes with top-1 agreement `1.0`, mean relative L2
+`2.01e-6`, and 95% bootstrap interval `[1.74e-6, 2.32e-6]`. The architecture
+has 30 layers, RMSNorm, rotary position encoding, a SiLU gated MLP, nine query
+heads, and three key/value groups. The symmetry relation therefore includes
+gated-MLP channel permutations and complete GQA-group permutations, with each
+KV group moved together with its three associated query heads.
+
+The SmolLM run passed 120/120 symmetry cases and recovered 120/120 blind
+mappings. All 32 non-symmetry controls retained canonical digest differences
+and changed behavior on the 72-probe suite. The causal atlas contains 90
+gated-MLP channel entries and 90 GQA-group entries, each with deterministic
+95% bootstrap intervals. The local Jacobian-lens proxy passed on layers 0, 14,
+and 29 with raw-coordinate change, inverse-aligned stability, and pruning
+divergence. Its claim ceiling is
+`LOCAL_SMOLLM_TRANSFORMATION_OBSERVATION_ONLY`.
+
+This is topology-diverse local evidence that the validated equivalence-class
+criterion survives a Llama-family implementation with GQA, RMSNorm, rotary
+position encoding, and gated MLPs. It is not architecture-general proof,
+mechanistic understanding, alignment validation, or production readiness.
+
+Four-checkpoint topology replay: the combined local runner passed
+`CROSS_TOPOLOGY_REPLICATION_PASS` across GPT-2, distilgpt2, OPT-125M, and
+SmolLM-135M. Each checkpoint passed its independent local reference,
+symmetry, non-symmetry control, causal-atlas, and Jacobian-proxy gates. The
+symmetry counts were 48/48, 24/24, 48/48, and 120/120, with all blind mappings
+recovered. The control counts were 14, 8, 14, and 32; every control retained a
+canonical digest difference. All four reports shared probe digest
+`ef4e0b6ff2c8358f1e9350b06afae15c11d87b6bddc83e79cd6d14901f1035bf`.
+
+The resulting claim ceiling is
+`LOCAL_CROSS_TOPOLOGY_REPLICATION_OBSERVATION_ONLY`. This is reproducible
+local evidence across the tested implementations and fixed probe contract. It
+does not authorize provider calls, consume assessment data, establish
+architecture-general proof or mechanistic understanding, validate alignment,
+or establish production readiness.

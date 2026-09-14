@@ -61,5 +61,33 @@
       "tokenizer_config.json": "d1e4185b43a0a06421ab7218d5c1a775350bd13024507b34fbed25dcf6c14c6b",
       "vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab"
     }
+  },
+  "smollm-135m": {
+    "model_id": "smollm-135m",
+    "loader": "safetensors_llama",
+    "revision": "1d461723eec654e65efdc40cf49301c89c0c92f4",
+    "config": {
+      "model_type": "llama",
+      "num_hidden_layers": 30,
+      "num_attention_heads": 9,
+      "num_key_value_heads": 3,
+      "hidden_size": 576,
+      "intermediate_size": 1536,
+      "vocab_size": 49152,
+      "hidden_act": "silu",
+      "rms_norm_eps": 1e-05,
+      "rope_theta": 10000.0,
+      "tie_word_embeddings": true
+    },
+    "artifacts": {
+      "config.json": "a1fe6f43e20f7a6c6dbc6380222af9526b5cef262446391a281c038249e3e3b7",
+      "generation_config.json": "d0df27778d7caa8acc0c2d8eb5cfc11135da6226dbae8c12cc85d0ce6067faaa",
+      "merges.txt": "0b54e8aa4e53d5383e2e4bc635a56b43f9647f7b13832d5d9ecd8f82dac4f510",
+      "model.safetensors": "c7a387d6fe81ca6dd304aeb809bda3932ff1bbef3ca41c9484502f2f448dc093",
+      "special_tokens_map.json": "e786b595b9a23148bf1630df78d9037a048ea671e48bfd3549a1e3c233742bb3",
+      "tokenizer.json": "9ca9acddb6525a194ec8ac7a87f24fbba7232a9a15ffa1af0c1224fcd888e47c",
+      "tokenizer_config.json": "238ad6b60d48e471624ea70bc79e92f2611844d5016471fee8c167854bcb98e8",
+      "vocab.json": "82b84012e3add4d01d12ba14442026e49b8cbbaead1f79ecf3d919784f82dc79"
+    }
   }
 }

@@ -8,6 +8,7 @@ from pathlib import Path
 
 from reference_check import run
 from opt_reference_check import run as run_opt
+from smollm_reference_check import run as run_smollm
 
 
 EXPECTED_STATUS = "REFERENCE_SYMMETRY_ATLAS_AND_JSPACE_PROXY_PASS"
@@ -39,8 +40,9 @@ def summarize(report: dict[str, object]) -> dict[str, object]:
             for case in controls
         ),
         "controls_behavior_changed": report["non_symmetry_summary"]["cases_with_behavior_change"],
-        "atlas_entry_count": len(report["causal_atlas"]["mlp_channels"])
-        + len(report["causal_atlas"]["attention_heads"]),
+        "atlas_entry_count": sum(
+            len(entries) for entries in report["causal_atlas"].values()
+        ),
         "jspace_status": report["jspace_proxy"]["status"],
         "jspace_raw_coordinate_change": report["jspace_proxy"]["raw_coordinate_change_observed"],
         "jspace_aligned_stability": report["jspace_proxy"]["permutation_stability"],
@@ -53,6 +55,7 @@ def run_replication(
     gpt2_dir: Path,
     distilgpt2_dir: Path,
     opt_dir: Path | None = None,
+    smollm_dir: Path | None = None,
 ) -> dict[str, object]:
     reports = [
         run(gpt2_dir, "gpt2"),
@@ -60,20 +63,32 @@ def run_replication(
     ]
     if opt_dir is not None:
         reports.append(run_opt(opt_dir, "opt-125m"))
+    if smollm_dir is not None:
+        reports.append(run_smollm(smollm_dir, "smollm-135m"))
     summaries = [summarize(report) for report in reports]
     same_probe_contract = len({summary["probe_set_digest"] for summary in summaries}) == 1
     both_pass = all(summary["status"] == EXPECTED_STATUS for summary in summaries)
-    architecture_scope = "cross_architecture" if opt_dir is not None else "gpt2_family"
+    architecture_scope = (
+        "cross_topology"
+        if smollm_dir is not None
+        else "cross_architecture"
+        if opt_dir is not None
+        else "gpt2_family"
+    )
     return {
         "status": (
-            "CROSS_ARCHITECTURE_REPLICATION_PASS"
+            "CROSS_TOPOLOGY_REPLICATION_PASS"
+            if both_pass and same_probe_contract and smollm_dir is not None
+            else "CROSS_ARCHITECTURE_REPLICATION_PASS"
             if both_pass and same_probe_contract and opt_dir is not None
             else "CROSS_CHECKPOINT_REPLICATION_PASS"
             if both_pass and same_probe_contract
             else "INCONCLUSIVE"
         ),
         "claim_ceiling": (
-            "LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY"
+            "LOCAL_CROSS_TOPOLOGY_REPLICATION_OBSERVATION_ONLY"
+            if smollm_dir is not None
+            else "LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY"
             if opt_dir is not None
             else "LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY"
         ),
@@ -89,8 +104,12 @@ def main() -> int:
     parser.add_argument("--gpt2-dir", required=True, type=Path)
     parser.add_argument("--distilgpt2-dir", required=True, type=Path)
     parser.add_argument("--opt-dir", default=None, type=Path)
+    parser.add_argument("--smollm-dir", default=None, type=Path)
     args = parser.parse_args()
-    print(json.dumps(run_replication(args.gpt2_dir, args.distilgpt2_dir, args.opt_dir), sort_keys=True))
+    print(json.dumps(
+        run_replication(args.gpt2_dir, args.distilgpt2_dir, args.opt_dir, args.smollm_dir),
+        sort_keys=True,
+    ))
     return 0
 
 
