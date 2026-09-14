@@ -1,4 +1,4 @@
-"""Run the same Theseus qualification protocol on two local checkpoints."""
+"""Run the same Theseus qualification protocol across local checkpoints."""
 
 from __future__ import annotations
 
@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 
 from reference_check import run
+from opt_reference_check import run as run_opt
 
 
 EXPECTED_STATUS = "REFERENCE_SYMMETRY_ATLAS_AND_JSPACE_PROXY_PASS"
@@ -48,17 +49,35 @@ def summarize(report: dict[str, object]) -> dict[str, object]:
     }
 
 
-def run_replication(gpt2_dir: Path, distilgpt2_dir: Path) -> dict[str, object]:
+def run_replication(
+    gpt2_dir: Path,
+    distilgpt2_dir: Path,
+    opt_dir: Path | None = None,
+) -> dict[str, object]:
     reports = [
         run(gpt2_dir, "gpt2"),
         run(distilgpt2_dir, "distilgpt2"),
     ]
+    if opt_dir is not None:
+        reports.append(run_opt(opt_dir, "opt-125m"))
     summaries = [summarize(report) for report in reports]
     same_probe_contract = len({summary["probe_set_digest"] for summary in summaries}) == 1
     both_pass = all(summary["status"] == EXPECTED_STATUS for summary in summaries)
+    architecture_scope = "cross_architecture" if opt_dir is not None else "gpt2_family"
     return {
-        "status": "CROSS_CHECKPOINT_REPLICATION_PASS" if both_pass and same_probe_contract else "INCONCLUSIVE",
-        "claim_ceiling": "LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY",
+        "status": (
+            "CROSS_ARCHITECTURE_REPLICATION_PASS"
+            if both_pass and same_probe_contract and opt_dir is not None
+            else "CROSS_CHECKPOINT_REPLICATION_PASS"
+            if both_pass and same_probe_contract
+            else "INCONCLUSIVE"
+        ),
+        "claim_ceiling": (
+            "LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY"
+            if opt_dir is not None
+            else "LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY"
+        ),
+        "architecture_scope": architecture_scope,
         "same_probe_contract": same_probe_contract,
         "checkpoint_count": len(summaries),
         "checkpoints": summaries,
@@ -69,8 +88,9 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gpt2-dir", required=True, type=Path)
     parser.add_argument("--distilgpt2-dir", required=True, type=Path)
+    parser.add_argument("--opt-dir", default=None, type=Path)
     args = parser.parse_args()
-    print(json.dumps(run_replication(args.gpt2_dir, args.distilgpt2_dir), sort_keys=True))
+    print(json.dumps(run_replication(args.gpt2_dir, args.distilgpt2_dir, args.opt_dir), sort_keys=True))
     return 0
 
 

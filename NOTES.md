@@ -125,3 +125,36 @@ to one depth of the GPT-2 family. It remains a two-checkpoint local result,
 not architecture-general evidence, mechanistic understanding, alignment
 validation, or production readiness. The family-level claim ceiling is
 `LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY`.
+
+Out-of-family OPT-125M result: the pinned `facebook/opt-125m` bundle at
+revision `27dcfa74d334bc871f3234de431e71c6eeba5dd6` loaded from external
+owner-only custody. Its seven artifact digests and 197 state-dictionary
+tensors were verified; the resulting checkpoint digest is
+`6405b806c3c29e3f2a3700677b8e1d6d347b608abf444505bef6577a369e1679`.
+
+The independent NumPy OPT decoder matched local PyTorch/Transformers on all
+72 fixed probes with top-1 agreement `1.0`, mean relative L2 `5.5e-7`, and
+95% bootstrap interval `[5.3e-7, 5.6e-7]`. The OPT run passed 48/48 symmetry
+cases, recovered 48/48 blind mappings, retained 14/14 canonical control
+differences, changed behavior in 14/14 controls, and produced 72 causal-atlas
+entries. The local Jacobian proxy passed on layers 0, 5, and 11: raw-coordinate
+relative errors were `2.48679844`, `2.10433353`, and `1.61749519`, while
+inverse-aligned errors were `0.0` at all three layers. Pruning diverged at all
+three layers.
+
+OPT uses ReLU MLPs, so the inherited fixed channel 17 was degenerate on the
+reference prompt. The corrected protocol selects one channel per layer using
+only the eight visible probes, choosing the highest positive activation count
+with a deterministic lowest-index tie break; it evaluates aligned interventions
+on 16 fixed held-out probes. The selection and evaluation digests are
+`f159840c3248df49b7591590a0e1979b04fc0c93e054062fafe7dc4f3f6cca12` and
+`988cbed4e35a0b9397a880df683d7fe66996baf71c118f3d4c73b4b8f4d83f2d`.
+
+The fresh three-checkpoint replay passed with the shared probe digest
+`ef4e0b6ff2c8358f1e9350b06afae15c11d87b6bddc83e79cd6d14901f1035bf` and
+reported `CROSS_ARCHITECTURE_REPLICATION_PASS`. This expands the observed
+equivalence-class behavior beyond the GPT-2 family to the OPT architecture
+under this exact local protocol. It remains local replication evidence, not
+architecture-general proof, mechanistic understanding, alignment validation,
+or production readiness. The cross-architecture claim ceiling is
+`LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY`.
