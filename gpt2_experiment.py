@@ -28,10 +28,22 @@ EXPECTED_ARTIFACTS = {
 VISIBLE_PROMPTS = (
     "The capital of France is",
     "The opposite of hot is",
+    "The largest planet is",
+    "A common color of grass is",
+    "The first month of the year is",
+    "Birds can usually",
+    "Three times three equals",
+    "The sun rises in the",
 )
 HELDOUT_PROMPTS = (
     "A triangle has three",
     "Water freezes at",
+    "A year has twelve",
+    "The chemical symbol for water is",
+    "Before noon comes",
+    "A mammal breathes",
+    "The Pacific is an",
+    "When rain falls, the ground gets",
 )
 PERMUTATION_SHIFT = 17
 INTERVENTION_CHANNEL = 17
@@ -148,6 +160,8 @@ class NumpyGPT2:
         permutation_layer: int = 0,
         ablate_channel: int | None = None,
         ablate_channel_layer: int = 0,
+        ablate_channels: np.ndarray | None = None,
+        replacement_channel: tuple[int, int] | None = None,
         attention_permutation: np.ndarray | None = None,
         attention_permutation_layer: int = 0,
         ablate_head: int | None = None,
@@ -175,6 +189,8 @@ class NumpyGPT2:
                 permutation_layer,
                 ablate_channel,
                 ablate_channel_layer,
+                ablate_channels,
+                replacement_channel,
                 layer,
             )
         x = self._layer_norm(x, self.tensors["ln_f.weight"], self.tensors["ln_f.bias"])
@@ -236,6 +252,8 @@ class NumpyGPT2:
         permutation_layer: int,
         ablate_channel: int | None,
         ablate_channel_layer: int,
+        ablate_channels: np.ndarray | None,
+        replacement_channel: tuple[int, int] | None,
         layer: int,
     ) -> np.ndarray:
         normalized = self._layer_norm(
@@ -250,11 +268,20 @@ class NumpyGPT2:
             fc_weight = fc_weight[:, permutation]
             fc_bias = fc_bias[permutation]
             proj_weight = proj_weight[permutation, :]
-        if layer == ablate_channel_layer and ablate_channel is not None:
+        if layer == ablate_channel_layer and (ablate_channel is not None or ablate_channels is not None):
             fc_weight = fc_weight.copy()
             fc_bias = fc_bias.copy()
-            fc_weight[:, ablate_channel] = 0.0
-            fc_bias[ablate_channel] = 0.0
+            channels = ablate_channels
+            if channels is None:
+                channels = np.asarray([ablate_channel])
+            fc_weight[:, channels] = 0.0
+            fc_bias[channels] = 0.0
+        if layer == ablate_channel_layer and replacement_channel is not None:
+            target, source = replacement_channel
+            fc_weight = fc_weight.copy()
+            fc_bias = fc_bias.copy()
+            fc_weight[:, target] = fc_weight[:, source]
+            fc_bias[target] = fc_bias[source]
         activated = self._gelu_new(normalized @ fc_weight + fc_bias)
         return activated @ proj_weight + self.tensors[f"{prefix}.mlp.c_proj.bias"]
 
@@ -362,7 +389,7 @@ def run(model_dir: Path) -> dict[str, object]:
     )
     return {
         "status": "STRUCTURAL_FUNCTIONAL_SEPARATION_OBSERVED" if structurally_equivalent else "INCONCLUSIVE",
-        "claim_ceiling": "LOCAL_GPT2_REPARAMETERIZATION_OBSERVATION_ONLY",
+        "claim_ceiling": "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
         "checkpoint": {
             "weights_loaded": True,
             "model_id": "gpt2",

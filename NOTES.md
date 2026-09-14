@@ -36,7 +36,7 @@ readiness.
 
 Independent reference and symmetry sweep result: PyTorch/Transformers matched
 the NumPy implementation on tokenization, top-1 outputs, and mean relative
-logit error `4.8e-7` across four prompts. MLP-channel and attention-head
+logit error `4.8e-7` across 16 prompts. MLP-channel and attention-head
 permutations passed at layers 0, 5, and 11. Every case preserved visible and
 held-out top-1 behavior, changed 100% of the selected parameter positions, and
 restored intervention effects under the inverse mapping with cosine at least
@@ -47,6 +47,17 @@ because the intervention vector is small; its maximum absolute difference is
 `3.815e-5` and cosine is `0.9998647`. Relative error remains reported as a
 diagnostic; the acceptance rule uses the predeclared cosine and absolute-error
 limits to avoid treating small-vector floating-point amplification as causal
-divergence. The next qualification is to test non-symmetry transformations such
-as ablation, pruning, and component replacement under the same reference and
-held-out protocol.
+divergence.
+
+Non-symmetry result on the expanded 16-prompt set: single-channel ablation at
+layers 0 and 5, block pruning of 128 layer-5 channels, and layer-5 channel
+replacement all produced measurable logit divergence. The single-channel
+ablation at layer 11 did not cross the `1e-4` relative-logit threshold and did
+not change top-1 outputs; this is a probe-bounded sensitivity result, not proof
+that the channel is globally irrelevant. Block pruning changed top-1 output on
+1 of 8 visible prompts while preserving all held-out top-1 outputs, showing that
+logit and top-1 metrics can disagree.
+
+The report claim ceiling is now
+`LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY`. No general mechanistic,
+scientific, alignment, or production claim follows from this prototype.

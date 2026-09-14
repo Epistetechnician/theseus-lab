@@ -27,10 +27,13 @@ from gpt2_experiment import (
 
 REFERENCE_RELATIVE_L2_MAX = 1e-4
 SYMMETRY_RELATIVE_L2_MAX = 1e-4
+BEHAVIOR_CHANGE_RELATIVE_L2_MIN = 1e-4
 ALIGNED_INTERVENTION_COSINE_MIN = 0.999
 ALIGNED_INTERVENTION_MAX_ABS = 1e-4
 MLP_LAYERS = (0, 5, 11)
 ATTENTION_LAYERS = (0, 5, 11)
+PRUNE_COUNT = 128
+REPLACEMENT_CHANNEL = (17, 34)
 
 
 def reference_logits(model: torch.nn.Module, tokenizer: AutoTokenizer, prompt: str) -> np.ndarray:
@@ -196,6 +199,58 @@ def attention_case(
     }
 
 
+def nonsymmetry_case(
+    model: NumpyGPT2,
+    tokenized: list[list[int]],
+    baseline: list[np.ndarray],
+    layer: int,
+    kind: str,
+    channels: np.ndarray | None = None,
+    replacement: tuple[int, int] | None = None,
+) -> dict[str, object]:
+    prefix = f"h.{layer}.mlp"
+    selected = [
+        model.tensors[f"{prefix}.c_fc.weight"],
+        model.tensors[f"{prefix}.c_fc.bias"],
+        model.tensors[f"{prefix}.c_proj.weight"],
+    ]
+    transformed = [array.copy() for array in selected]
+    if channels is not None:
+        transformed[0][:, channels] = 0.0
+        transformed[1][channels] = 0.0
+    if replacement is not None:
+        target, source = replacement
+        transformed[0][:, target] = transformed[0][:, source]
+        transformed[1][target] = transformed[1][source]
+    variant = [
+        model.forward(
+            ids,
+            ablate_channel_layer=layer,
+            ablate_channels=channels,
+            replacement_channel=replacement,
+        )
+        for ids in tokenized
+    ]
+    behavior = split_behavior(baseline, variant)
+    behavior_changed = (
+        behavior["visible"]["top1_agreement"] < 1.0
+        or behavior["heldout"]["top1_agreement"] < 1.0
+        or behavior["visible"]["mean_relative_l2"] > BEHAVIOR_CHANGE_RELATIVE_L2_MIN
+        or behavior["heldout"]["mean_relative_l2"] > BEHAVIOR_CHANGE_RELATIVE_L2_MIN
+    )
+    return {
+        "kind": kind,
+        "layer": layer,
+        "behavior": behavior,
+        "mechanism": {
+            "before_digest": tensor_digest({"weight": selected[0], "bias": selected[1], "projection": selected[2]}),
+            "after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
+            "changed_parameter_fraction": round(changed_fraction(selected, transformed), 8),
+        },
+        "behavior_changed": behavior_changed,
+    }
+
+
 def behavior_pass(case: dict[str, object]) -> bool:
     visible = case["behavior"]["visible"]
     heldout = case["behavior"]["heldout"]
@@ -243,9 +298,40 @@ def run(model_dir: Path) -> dict[str, object]:
     for layer in ATTENTION_LAYERS:
         cases.append(attention_case(numpy_model, numpy_tokenized, numpy_baseline, layer, 5))
     all_cases_pass = all(behavior_pass(case) for case in cases)
+    nonsymmetry_cases = [
+        nonsymmetry_case(
+            numpy_model,
+            numpy_tokenized,
+            numpy_baseline,
+            layer,
+            "mlp_single_channel_ablation",
+            channels=np.asarray([INTERVENTION_CHANNEL]),
+        )
+        for layer in MLP_LAYERS
+    ]
+    nonsymmetry_cases.append(nonsymmetry_case(
+        numpy_model,
+        numpy_tokenized,
+        numpy_baseline,
+        5,
+        "mlp_block_pruning",
+        channels=np.arange(PRUNE_COUNT),
+    ))
+    nonsymmetry_cases.append(nonsymmetry_case(
+        numpy_model,
+        numpy_tokenized,
+        numpy_baseline,
+        5,
+        "mlp_channel_replacement",
+        replacement=REPLACEMENT_CHANNEL,
+    ))
+    nonsymmetry_changed = sum(
+        int(case["behavior_changed"])
+        for case in nonsymmetry_cases
+    )
     return {
         "status": "REFERENCE_AND_SYMMETRY_SWEEP_PASS" if reference_pass and all_cases_pass else "INCONCLUSIVE",
-        "claim_ceiling": "LOCAL_GPT2_REPARAMETERIZATION_OBSERVATION_ONLY",
+        "claim_ceiling": "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
         "checkpoint": {
             "weights_loaded": True,
             "checkpoint_digest": checkpoint.checkpoint_digest,
@@ -269,9 +355,16 @@ def run(model_dir: Path) -> dict[str, object]:
             {**case, "pass": behavior_pass(case)}
             for case in cases
         ],
+        "non_symmetry_cases": nonsymmetry_cases,
+        "non_symmetry_summary": {
+            "case_count": len(nonsymmetry_cases),
+            "cases_with_behavior_change": nonsymmetry_changed,
+            "all_cases_changed_behavior": nonsymmetry_changed == len(nonsymmetry_cases),
+        },
         "thresholds": {
             "reference_relative_l2_max": REFERENCE_RELATIVE_L2_MAX,
             "symmetry_relative_l2_max": SYMMETRY_RELATIVE_L2_MAX,
+            "behavior_change_relative_l2_min": BEHAVIOR_CHANGE_RELATIVE_L2_MIN,
             "aligned_intervention_cosine_min": ALIGNED_INTERVENTION_COSINE_MIN,
             "aligned_intervention_max_abs": ALIGNED_INTERVENTION_MAX_ABS,
         },
