@@ -25,6 +25,16 @@ Safetensors tensors, runs NumPy GPT-2 inference, and compares a layer-0 MLP
 channel permutation on visible and held-out prompts. The model directory is
 never copied into this repository.
 
+Run the independent reference and layer/head sweep with:
+
+```sh
+python reference_check.py --model-dir /path/to/caller-owned/gpt2
+```
+
+This cross-checks the NumPy logits against PyTorch/Transformers, then tests
+function-preserving MLP-channel and attention-head permutations at layers 0, 5,
+and 11. It reports both scale-free and absolute intervention differences.
+
 Run the full demonstration:
 
 ```sh

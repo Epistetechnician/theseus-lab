@@ -145,7 +145,13 @@ class NumpyGPT2:
         self,
         token_ids: list[int],
         permutation: np.ndarray | None = None,
+        permutation_layer: int = 0,
         ablate_channel: int | None = None,
+        ablate_channel_layer: int = 0,
+        attention_permutation: np.ndarray | None = None,
+        attention_permutation_layer: int = 0,
+        ablate_head: int | None = None,
+        ablate_head_layer: int = 0,
     ) -> np.ndarray:
         if not token_ids or len(token_ids) > self.tensors["wpe.weight"].shape[0]:
             raise ValueError("token sequence length is outside the checkpoint bounds")
@@ -153,19 +159,58 @@ class NumpyGPT2:
         x = self.tensors["wte.weight"][token_ids] + self.tensors["wpe.weight"][positions]
         for layer in range(self.n_layer):
             prefix = f"h.{layer}"
-            x = x + self._attention(x, prefix)
-            x = x + self._mlp(x, prefix, permutation, ablate_channel, layer)
+            x = x + self._attention(
+                x,
+                prefix,
+                attention_permutation,
+                attention_permutation_layer,
+                ablate_head,
+                ablate_head_layer,
+                layer,
+            )
+            x = x + self._mlp(
+                x,
+                prefix,
+                permutation,
+                permutation_layer,
+                ablate_channel,
+                ablate_channel_layer,
+                layer,
+            )
         x = self._layer_norm(x, self.tensors["ln_f.weight"], self.tensors["ln_f.bias"])
         return x[-1] @ self.tensors["wte.weight"].T
 
-    def _attention(self, x: np.ndarray, prefix: str) -> np.ndarray:
+    def _attention(
+        self,
+        x: np.ndarray,
+        prefix: str,
+        permutation: np.ndarray | None,
+        permutation_layer: int,
+        ablate_head: int | None,
+        ablate_head_layer: int,
+        layer: int,
+    ) -> np.ndarray:
         normalized = self._layer_norm(
             x,
             self.tensors[f"{prefix}.ln_1.weight"],
             self.tensors[f"{prefix}.ln_1.bias"],
         )
-        qkv = normalized @ self.tensors[f"{prefix}.attn.c_attn.weight"]
-        qkv = qkv + self.tensors[f"{prefix}.attn.c_attn.bias"]
+        qkv_weight = self.tensors[f"{prefix}.attn.c_attn.weight"]
+        qkv_bias = self.tensors[f"{prefix}.attn.c_attn.bias"]
+        output_weight = self.tensors[f"{prefix}.attn.c_proj.weight"]
+        if layer == permutation_layer and permutation is not None:
+            head_indexes = np.arange(self.n_head) * self.head_dim
+            head_indexes = head_indexes[:, None] + np.arange(self.head_dim)
+            order = np.concatenate((
+                head_indexes[permutation].reshape(-1),
+                (self.n_embd + head_indexes[permutation]).reshape(-1),
+                (2 * self.n_embd + head_indexes[permutation]).reshape(-1),
+            ))
+            qkv_weight = qkv_weight[:, order]
+            qkv_bias = qkv_bias[order]
+            output_weight = output_weight[head_indexes[permutation].reshape(-1), :]
+        qkv = normalized @ qkv_weight
+        qkv = qkv + qkv_bias
         query, key, value = np.split(qkv, 3, axis=-1)
         query = query.reshape(-1, self.n_head, self.head_dim).transpose(1, 0, 2)
         key = key.reshape(-1, self.n_head, self.head_dim).transpose(1, 0, 2)
@@ -178,15 +223,19 @@ class NumpyGPT2:
         probabilities = np.exp(scores)
         probabilities /= np.sum(probabilities, axis=-1, keepdims=True)
         context = probabilities @ value
+        if layer == ablate_head_layer and ablate_head is not None:
+            context[ablate_head, :, :] = 0.0
         context = context.transpose(1, 0, 2).reshape(-1, self.n_embd)
-        return context @ self.tensors[f"{prefix}.attn.c_proj.weight"] + self.tensors[f"{prefix}.attn.c_proj.bias"]
+        return context @ output_weight + self.tensors[f"{prefix}.attn.c_proj.bias"]
 
     def _mlp(
         self,
         x: np.ndarray,
         prefix: str,
         permutation: np.ndarray | None,
+        permutation_layer: int,
         ablate_channel: int | None,
+        ablate_channel_layer: int,
         layer: int,
     ) -> np.ndarray:
         normalized = self._layer_norm(
@@ -197,11 +246,11 @@ class NumpyGPT2:
         fc_weight = self.tensors[f"{prefix}.mlp.c_fc.weight"]
         fc_bias = self.tensors[f"{prefix}.mlp.c_fc.bias"]
         proj_weight = self.tensors[f"{prefix}.mlp.c_proj.weight"]
-        if layer == 0 and permutation is not None:
+        if layer == permutation_layer and permutation is not None:
             fc_weight = fc_weight[:, permutation]
             fc_bias = fc_bias[permutation]
             proj_weight = proj_weight[permutation, :]
-        if layer == 0 and ablate_channel is not None:
+        if layer == ablate_channel_layer and ablate_channel is not None:
             fc_weight = fc_weight.copy()
             fc_bias = fc_bias.copy()
             fc_weight[:, ablate_channel] = 0.0
@@ -246,6 +295,8 @@ def compare_logits(before: Iterable[np.ndarray], after: Iterable[np.ndarray]) ->
 def vector_similarity(before: np.ndarray, after: np.ndarray) -> dict[str, float]:
     return {
         "relative_l2": round(float(np.linalg.norm(before - after) / max(np.linalg.norm(before), 1e-12)), 8),
+        "absolute_l2": round(float(np.linalg.norm(before - after)), 8),
+        "max_abs": round(float(np.max(np.abs(before - after))), 8),
         "cosine": round(float(np.dot(before, after) / max(np.linalg.norm(before) * np.linalg.norm(after), 1e-12)), 8),
     }
 

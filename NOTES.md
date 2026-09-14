@@ -32,5 +32,21 @@ causal identity. A function-preserving reparameterization can make a same-label
 intervention look unrelated even when the mapped intervention is nearly exact.
 This supports a representation-relative version of the Theseus thesis, not a
 claim of mechanistic understanding, general model identity, or production
-readiness. The next qualification is to repeat this across layers, seeds, and
-non-permutation transformations with a predeclared held-out protocol.
+readiness.
+
+Independent reference and symmetry sweep result: PyTorch/Transformers matched
+the NumPy implementation on tokenization, top-1 outputs, and mean relative
+logit error `4.8e-7` across four prompts. MLP-channel and attention-head
+permutations passed at layers 0, 5, and 11. Every case preserved visible and
+held-out top-1 behavior, changed 100% of the selected parameter positions, and
+restored intervention effects under the inverse mapping with cosine at least
+`0.999` and maximum absolute logit difference below `1e-4`.
+
+The final-layer MLP case has aligned-intervention relative error `0.0192734`
+because the intervention vector is small; its maximum absolute difference is
+`3.815e-5` and cosine is `0.9998647`. Relative error remains reported as a
+diagnostic; the acceptance rule uses the predeclared cosine and absolute-error
+limits to avoid treating small-vector floating-point amplification as causal
+divergence. The next qualification is to test non-symmetry transformations such
+as ablation, pruning, and component replacement under the same reference and
+held-out protocol.
