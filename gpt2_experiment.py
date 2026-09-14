@@ -44,6 +44,62 @@ HELDOUT_PROMPTS = (
     "A mammal breathes",
     "The Pacific is an",
     "When rain falls, the ground gets",
+    "A square has four",
+    "A week has seven",
+    "A day has twenty-four",
+    "A dozen equals",
+    "The opposite of up is",
+    "The opposite of day is",
+    "Ice is usually",
+    "Fire is usually",
+    "An octagon has eight",
+    "A pentagon has five",
+    "One hundred cents make a",
+    "January follows",
+    "Winter follows",
+    "Red and blue make",
+    "A bee makes",
+    "A fish lives in",
+    "A bird has two",
+    "A human has two",
+    "Normal human body temperature is",
+    "The Earth orbits the",
+    "The Moon orbits the",
+    "The Sun is a",
+    "Plants need light to",
+    "A right angle has",
+    "A minute has sixty",
+    "An hour has sixty",
+    "A kilogram is a unit of",
+    "A meter has one hundred",
+    "Primary colors include red, blue, and",
+    "The alphabet begins with",
+    "A rainbow has seven",
+    "A spider has eight",
+    "A cat says",
+    "A dog says",
+    "An infant is a young",
+    "Liquid water becomes solid when it",
+    "Solid water is called",
+    "A compass points toward",
+    "North is opposite",
+    "East is opposite",
+    "A map shows",
+    "A library contains",
+    "A recipe may list",
+    "A clock measures",
+    "A thermometer measures",
+    "A keyboard has",
+    "A book has",
+    "A sentence ends with",
+    "A question ends with",
+    "A noun names",
+    "A verb can express",
+    "A planet is a",
+    "An island is land surrounded by",
+    "A desert receives little",
+    "A forest contains many",
+    "A cloud is made of",
 )
 PERMUTATION_SHIFT = 17
 INTERVENTION_CHANNEL = 17
@@ -168,11 +224,18 @@ class NumpyGPT2:
         attention_permutation_layer: int = 0,
         ablate_head: int | None = None,
         ablate_head_layer: int = 0,
+        precision: str = "float32",
     ) -> np.ndarray:
         if not token_ids or len(token_ids) > self.tensors["wpe.weight"].shape[0]:
             raise ValueError("token sequence length is outside the checkpoint bounds")
+        if precision not in {"float32", "float64"}:
+            raise ValueError("precision must be float32 or float64")
+        compute_dtype = np.float64 if precision == "float64" else np.float32
         positions = np.arange(len(token_ids))
-        x = self.tensors["wte.weight"][token_ids] + self.tensors["wpe.weight"][positions]
+        x = (
+            self.tensors["wte.weight"][token_ids]
+            + self.tensors["wpe.weight"][positions]
+        ).astype(compute_dtype, copy=False)
         for layer in range(self.n_layer):
             prefix = f"h.{layer}"
             x = x + self._attention(

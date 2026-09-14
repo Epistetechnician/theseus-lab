@@ -9,29 +9,11 @@ import numpy as np
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from gpt2_experiment import bootstrap_ci, full_digest
+from gpt2_experiment import HELDOUT_PROMPTS, VISIBLE_PROMPTS, bootstrap_ci, full_digest
 
 
-FIT_PROMPTS = (
-    "The capital of France is",
-    "The opposite of hot is",
-    "The largest planet is",
-    "A common color of grass is",
-    "The first month of the year is",
-    "Birds can usually",
-    "Three times three equals",
-    "The sun rises in the",
-)
-EVALUATION_PROMPTS = (
-    "A triangle has three",
-    "Water freezes at",
-    "A year has twelve",
-    "The chemical symbol for water is",
-    "Before noon comes",
-    "A mammal breathes",
-    "The Pacific is an",
-    "When rain falls, the ground gets",
-)
+FIT_PROMPTS = VISIBLE_PROMPTS
+EVALUATION_PROMPTS = HELDOUT_PROMPTS
 LAYERS = (0, 5, 11)
 TARGET_TOKENS = (" the", " is", " of", " and")
 PERMUTATION_SHIFT = 17
@@ -55,19 +37,26 @@ def target_ids(tokenizer: AutoTokenizer) -> tuple[int, ...]:
     return tuple(ids)
 
 
-def last_hidden_state(
+def last_mlp_activation(
     model: torch.nn.Module,
     tokenizer: AutoTokenizer,
     prompt: str,
     layer: int,
 ) -> torch.Tensor:
-    with torch.no_grad():
-        output = model(
-            input_ids=_input_ids(tokenizer, prompt),
-            output_hidden_states=True,
-            return_dict=True,
-        )
-    return output.hidden_states[layer + 1][0, -1].detach().clone()
+    captured: list[torch.Tensor] = []
+
+    def capture(_module: torch.nn.Module, _inputs: tuple[object, ...], output: torch.Tensor) -> None:
+        captured.append(output.detach().clone())
+
+    handle = model.transformer.h[layer].mlp.act.register_forward_hook(capture)
+    try:
+        with torch.no_grad():
+            model(input_ids=_input_ids(tokenizer, prompt), return_dict=True)
+    finally:
+        handle.remove()
+    if len(captured) != 1:
+        raise RuntimeError("MLP activation probe did not capture exactly one tensor")
+    return captured[0][0, -1]
 
 
 def prompt_jacobian(
@@ -77,31 +66,35 @@ def prompt_jacobian(
     layer: int,
     selected_targets: tuple[int, ...],
 ) -> np.ndarray:
-    """Estimate d(selected final logits) / d(last residual at ``layer``)."""
+    """Estimate d(selected final logits) / d(last post-GELU MLP activation)."""
 
-    base = last_hidden_state(model, tokenizer, prompt, layer)
+    base = last_mlp_activation(model, tokenizer, prompt, layer)
     current: torch.Tensor | None = None
 
-    def replace_last_residual(_module: torch.nn.Module, _inputs: tuple[object, ...], output: tuple[torch.Tensor, ...]) -> tuple[torch.Tensor, ...]:
+    def replace_last_activation(
+        _module: torch.nn.Module,
+        _inputs: tuple[object, ...],
+        output: torch.Tensor,
+    ) -> torch.Tensor:
         if current is None:
-            raise RuntimeError("Jacobian probe did not provide a residual vector")
-        replacement = output[0].clone()
+            raise RuntimeError("Jacobian probe did not provide an activation vector")
+        replacement = output.clone()
         replacement[:, -1, :] = current
-        return (replacement, *output[1:])
+        return replacement
 
-    handle = model.transformer.h[layer].register_forward_hook(replace_last_residual)
+    handle = model.transformer.h[layer].mlp.act.register_forward_hook(replace_last_activation)
     input_ids = _input_ids(tokenizer, prompt)
 
-    def logits_from_residual(residual: torch.Tensor) -> torch.Tensor:
+    def logits_from_activation(activation: torch.Tensor) -> torch.Tensor:
         nonlocal current
-        current = residual
+        current = activation
         output = model(input_ids=input_ids, return_dict=True)
         return output.logits[0, -1, list(selected_targets)]
 
     try:
         with torch.enable_grad():
             jacobian = torch.autograd.functional.jacobian(
-                logits_from_residual,
+                logits_from_activation,
                 base,
                 vectorize=False,
             )
@@ -122,7 +115,11 @@ def permute_mlp(model: torch.nn.Module, layer: int, shift: int):
     projection = block.mlp.c_proj.weight
     order = _permutation(fc_bias.shape[0], shift)
     with torch.no_grad():
-        original = (fc_weight.detach().clone(), fc_bias.detach().clone(), projection.detach().clone())
+        original = (
+            fc_weight.detach().clone(),
+            fc_bias.detach().clone(),
+            projection.detach().clone(),
+        )
         fc_weight.copy_(fc_weight[:, order])
         fc_bias.copy_(fc_bias[order])
         projection.copy_(projection[order, :])
@@ -182,8 +179,8 @@ def vector_metrics(before: list[np.ndarray], after: list[np.ndarray], seed_offse
     }
 
 
-def _coordinates(jacobian: np.ndarray, hidden_states: list[torch.Tensor]) -> list[np.ndarray]:
-    return [jacobian @ hidden.cpu().numpy() for hidden in hidden_states]
+def _coordinates(jacobian: np.ndarray, activations: list[torch.Tensor]) -> list[np.ndarray]:
+    return [jacobian @ activation.cpu().numpy() for activation in activations]
 
 
 def analyze_jspace(model_dir: Path) -> dict[str, object]:
@@ -203,47 +200,64 @@ def analyze_jspace(model_dir: Path) -> dict[str, object]:
             for prompt in FIT_PROMPTS
         ]
         mean_jacobian = np.mean(fit_jacobians, axis=0)
-        baseline_hidden = [
-            last_hidden_state(model, tokenizer, prompt, layer)
+        baseline_activations = [
+            last_mlp_activation(model, tokenizer, prompt, layer)
             for prompt in EVALUATION_PROMPTS
         ]
-        baseline_coordinates = _coordinates(mean_jacobian, baseline_hidden)
-        with permute_mlp(model, layer, PERMUTATION_SHIFT):
-            permuted_hidden = [
-                last_hidden_state(model, tokenizer, prompt, layer)
+        baseline_coordinates = _coordinates(mean_jacobian, baseline_activations)
+        with permute_mlp(model, layer, PERMUTATION_SHIFT) as order:
+            permuted_activations = [
+                last_mlp_activation(model, tokenizer, prompt, layer)
                 for prompt in EVALUATION_PROMPTS
             ]
+        inverse = np.argsort(order)
+        aligned_activations = [activation[inverse] for activation in permuted_activations]
         with prune_mlp(model, layer, PRUNE_COUNT):
-            pruned_hidden = [
-                last_hidden_state(model, tokenizer, prompt, layer)
+            pruned_activations = [
+                last_mlp_activation(model, tokenizer, prompt, layer)
                 for prompt in EVALUATION_PROMPTS
             ]
-        permutation_metrics = vector_metrics(
+        raw_permutation_metrics = vector_metrics(
             baseline_coordinates,
-            _coordinates(mean_jacobian, permuted_hidden),
+            _coordinates(mean_jacobian, permuted_activations),
             layer * 100,
+        )
+        aligned_permutation_metrics = vector_metrics(
+            baseline_coordinates,
+            _coordinates(mean_jacobian, aligned_activations),
+            layer * 100 + 1,
         )
         pruning_metrics = vector_metrics(
             baseline_coordinates,
-            _coordinates(mean_jacobian, pruned_hidden),
+            _coordinates(mean_jacobian, pruned_activations),
             layer * 100 + 10,
         )
-        permutation_metrics["pass"] = bool(
-            permutation_metrics["mean_relative_l2"] < JSPACE_RELATIVE_L2_MAX
-            and permutation_metrics["mean_cosine"] >= JSPACE_COSINE_MIN
+        aligned_permutation_metrics["pass"] = bool(
+            aligned_permutation_metrics["mean_relative_l2"] < JSPACE_RELATIVE_L2_MAX
+            and aligned_permutation_metrics["mean_cosine"] >= JSPACE_COSINE_MIN
+        )
+        raw_permutation_metrics["coordinate_change_observed"] = bool(
+            raw_permutation_metrics["mean_relative_l2"] >= JSPACE_RELATIVE_L2_MAX
         )
         pruning_metrics["divergent"] = bool(
             pruning_metrics["mean_relative_l2"] >= JSPACE_RELATIVE_L2_MAX
         )
         layer_reports.append({
             "layer": layer,
+            "coordinate_space": "post_gelu_mlp_activation",
             "fit_jacobian_shape": list(mean_jacobian.shape),
-            "permutation": permutation_metrics,
+            "raw_permutation": raw_permutation_metrics,
+            "aligned_permutation": aligned_permutation_metrics,
             "pruning": pruning_metrics,
         })
 
+    permutation_stability = all(
+        bool(report["aligned_permutation"]["pass"])
+        for report in layer_reports
+    )
     return {
         "kind": "local_jacobian_lens_proxy",
+        "coordinate_space": "post_gelu_mlp_activation",
         "fit_prompt_count": len(FIT_PROMPTS),
         "evaluation_prompt_count": len(EVALUATION_PROMPTS),
         "fit_prompt_digest": full_digest(FIT_PROMPTS),
@@ -252,8 +266,9 @@ def analyze_jspace(model_dir: Path) -> dict[str, object]:
         "target_token_ids": list(selected_targets),
         "target_digest": full_digest(list(selected_targets)),
         "layers": layer_reports,
-        "permutation_stability": all(bool(report["permutation"]["pass"]) for report in layer_reports),
+        "permutation_stability": permutation_stability,
         "pruning_divergence_observed": any(bool(report["pruning"]["divergent"]) for report in layer_reports),
-        "status": "LOCAL_PROXY_PASS" if all(bool(report["permutation"]["pass"]) for report in layer_reports) else "LOCAL_PROXY_INCONCLUSIVE",
+        "raw_coordinate_change_observed": all(bool(report["raw_permutation"]["coordinate_change_observed"]) for report in layer_reports),
+        "status": "LOCAL_PROXY_PASS" if permutation_stability else "LOCAL_PROXY_INCONCLUSIVE",
         "claim_ceiling": "LOCAL_JACOBIAN_PROXY_OBSERVATION_ONLY",
     }

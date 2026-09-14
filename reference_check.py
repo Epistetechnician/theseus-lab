@@ -33,8 +33,10 @@ ALIGNED_INTERVENTION_COSINE_MIN = 0.999
 ALIGNED_INTERVENTION_MAX_ABS = 1e-4
 BOOTSTRAP_RESAMPLES = 2000
 BOOTSTRAP_SEED = 20260914
-MLP_LAYERS = (0, 5, 11)
-ATTENTION_LAYERS = (0, 5, 11)
+MLP_LAYERS = tuple(range(12))
+ATTENTION_LAYERS = tuple(range(12))
+MLP_SHIFTS = (1, 17)
+ATTENTION_SHIFTS = (1, 5)
 ATLAS_CHANNELS = (17, 34, 1024)
 ATLAS_HEADS = (0, 5, 11)
 PRUNE_COUNT = 128
@@ -56,6 +58,117 @@ def changed_fraction(before: list[np.ndarray], after: list[np.ndarray]) -> float
     changed = sum(np.count_nonzero(left != right) for left, right in zip(before, after))
     total = sum(left.size for left in before)
     return changed / total
+
+
+def _mlp_signature(weight: np.ndarray, bias: np.ndarray, projection: np.ndarray, index: int) -> tuple[bytes, bytes, bytes]:
+    return (
+        np.ascontiguousarray(weight[:, index]).tobytes(),
+        np.asarray([bias[index]], dtype=bias.dtype).tobytes(),
+        np.ascontiguousarray(projection[index, :]).tobytes(),
+    )
+
+
+def canonicalize_mlp(
+    weight: np.ndarray,
+    bias: np.ndarray,
+    projection: np.ndarray,
+) -> tuple[list[np.ndarray], np.ndarray]:
+    order = np.asarray(sorted(
+        range(bias.shape[0]),
+        key=lambda index: _mlp_signature(weight, bias, projection, index),
+    ), dtype=np.int64)
+    return [weight[:, order], bias[order], projection[order, :]], order
+
+
+def infer_mlp_permutation(
+    before: list[np.ndarray],
+    after: list[np.ndarray],
+) -> np.ndarray:
+    before_signatures = {
+        _mlp_signature(before[0], before[1], before[2], index): index
+        for index in range(before[1].shape[0])
+    }
+    if len(before_signatures) != before[1].shape[0]:
+        raise ValueError("MLP channel signatures are not unique")
+    try:
+        inferred = np.asarray([
+            before_signatures[_mlp_signature(after[0], after[1], after[2], index)]
+            for index in range(after[1].shape[0])
+        ], dtype=np.int64)
+    except KeyError as error:
+        raise ValueError("transformed MLP contains an unmatched channel") from error
+    if len(set(inferred.tolist())) != len(inferred):
+        raise ValueError("inferred MLP mapping is not a permutation")
+    return inferred
+
+
+def _attention_signature(
+    qkv_weight: np.ndarray,
+    qkv_bias: np.ndarray,
+    projection: np.ndarray,
+    index: int,
+    head_dim: int,
+    embedding_width: int,
+) -> tuple[bytes, bytes, bytes, bytes, bytes]:
+    indexes = index * head_dim + np.arange(head_dim)
+    return (
+        np.ascontiguousarray(qkv_weight[:, indexes]).tobytes(),
+        np.ascontiguousarray(qkv_weight[:, embedding_width + indexes]).tobytes(),
+        np.ascontiguousarray(qkv_weight[:, 2 * embedding_width + indexes]).tobytes(),
+        np.ascontiguousarray(qkv_bias[indexes]).tobytes(),
+        np.ascontiguousarray(projection[indexes, :]).tobytes(),
+    )
+
+
+def canonicalize_attention(
+    qkv_weight: np.ndarray,
+    qkv_bias: np.ndarray,
+    projection: np.ndarray,
+    head_dim: int,
+    embedding_width: int,
+    head_count: int,
+) -> tuple[list[np.ndarray], np.ndarray]:
+    order = np.asarray(sorted(
+        range(head_count),
+        key=lambda index: _attention_signature(
+            qkv_weight, qkv_bias, projection, index, head_dim, embedding_width,
+        ),
+    ), dtype=np.int64)
+    head_indexes = order[:, None] * head_dim + np.arange(head_dim)
+    flat_indexes = head_indexes.reshape(-1)
+    qkv_order = np.concatenate((
+        flat_indexes,
+        embedding_width + flat_indexes,
+        2 * embedding_width + flat_indexes,
+    ))
+    return [qkv_weight[:, qkv_order], qkv_bias[qkv_order], projection[flat_indexes, :]], order
+
+
+def infer_attention_permutation(
+    before: list[np.ndarray],
+    after: list[np.ndarray],
+    head_dim: int,
+    embedding_width: int,
+    head_count: int,
+) -> np.ndarray:
+    before_signatures = {
+        _attention_signature(before[0], before[1], before[2], index, head_dim, embedding_width): index
+        for index in range(head_count)
+    }
+    if len(before_signatures) != head_count:
+        raise ValueError("attention-head signatures are not unique")
+    try:
+        inferred = np.asarray([
+            before_signatures[_attention_signature(
+                after[0], after[1], after[2], index, head_dim, embedding_width,
+            )]
+            for index in range(head_count)
+        ], dtype=np.int64)
+    except KeyError as error:
+        raise ValueError("transformed attention contains an unmatched head") from error
+    if len(set(inferred.tolist())) != len(inferred):
+        raise ValueError("inferred attention mapping is not a permutation")
+    return inferred
 
 
 def split_behavior(before: list[np.ndarray], after: list[np.ndarray]) -> dict[str, object]:
@@ -89,14 +202,16 @@ def identity_criterion(case: dict[str, object]) -> dict[str, object]:
         and aligned["max_abs"] < ALIGNED_INTERVENTION_MAX_ABS
     )
     raw_digest_diff = case["mechanism"]["before_digest"] != case["mechanism"]["after_digest"]
-    canonical_digest_match = case["mechanism"]["before_digest"] == case["mechanism"]["canonical_after_digest"]
+    canonical_digest_match = case["mechanism"]["canonical_before_digest"] == case["mechanism"]["canonical_after_digest"]
+    blind_mapping_match = case["mechanism"].get("blind_mapping_match", False)
     return {
         "raw_digest_diff": raw_digest_diff,
         "canonical_digest_match": canonical_digest_match,
         "canonical_digest_diff": not canonical_digest_match,
+        "blind_mapping_match": blind_mapping_match,
         "behavior_match": behavior_match,
         "aligned_intervention_match": aligned_match,
-        "accepted": raw_digest_diff and canonical_digest_match and behavior_match and aligned_match,
+        "accepted": raw_digest_diff and canonical_digest_match and blind_mapping_match and behavior_match and aligned_match,
     }
 
 
@@ -124,17 +239,25 @@ def mlp_case(
         reference_ids,
         ablate_channel=INTERVENTION_CHANNEL,
         ablate_channel_layer=layer,
+        precision="float64",
     )
-    baseline_normal = baseline[0]
+    baseline_normal = model.forward(reference_ids, precision="float64")
     baseline_effect = baseline_normal - baseline_effect
+    variant_normal = model.forward(
+        reference_ids,
+        permutation=perm,
+        permutation_layer=layer,
+        precision="float64",
+    )
     same_label = model.forward(
         reference_ids,
         permutation=perm,
         permutation_layer=layer,
         ablate_channel=INTERVENTION_CHANNEL,
         ablate_channel_layer=layer,
+        precision="float64",
     )
-    same_label_effect = variant[0] - same_label
+    same_label_effect = variant_normal - same_label
     inverse = np.argsort(perm)
     aligned = model.forward(
         reference_ids,
@@ -142,8 +265,12 @@ def mlp_case(
         permutation_layer=layer,
         ablate_channel=int(inverse[INTERVENTION_CHANNEL]),
         ablate_channel_layer=layer,
+        precision="float64",
     )
-    aligned_effect = variant[0] - aligned
+    aligned_effect = variant_normal - aligned
+    canonical_before, _ = canonicalize_mlp(*selected)
+    canonical_after, _ = canonicalize_mlp(*transformed)
+    inferred = infer_mlp_permutation(selected, transformed)
     case = {
         "kind": "mlp_channel_permutation",
         "layer": layer,
@@ -152,11 +279,11 @@ def mlp_case(
         "mechanism": {
             "before_digest": tensor_digest({"weight": selected[0], "bias": selected[1], "projection": selected[2]}),
             "after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
-            "canonical_after_digest": tensor_digest({
-                "weight": transformed[0][:, np.argsort(perm)],
-                "bias": transformed[1][np.argsort(perm)],
-                "projection": transformed[2][np.argsort(perm), :],
-            }),
+            "canonical_before_digest": tensor_digest({"weight": canonical_before[0], "bias": canonical_before[1], "projection": canonical_before[2]}),
+            "canonical_after_digest": tensor_digest({"weight": canonical_after[0], "bias": canonical_after[1], "projection": canonical_after[2]}),
+            "canonicalization": "blind_exact_lexicographic_component_sort",
+            "inferred_permutation_digest": full_digest(inferred.tolist()),
+            "blind_mapping_match": bool(np.array_equal(inferred, perm)),
             "changed_parameter_fraction": round(changed_fraction(selected, transformed), 8),
         },
         "intervention": {
@@ -203,25 +330,54 @@ def attention_case(
         for ids in tokenized
     ]
     reference_ids = tokenized[0]
-    baseline_effect = baseline[0] - model.forward(
+    baseline_effect = model.forward(reference_ids, precision="float64") - model.forward(
         reference_ids,
         ablate_head=0,
         ablate_head_layer=layer,
+        precision="float64",
     )
-    same_label_effect = variant[0] - model.forward(
+    variant_normal = model.forward(
+        reference_ids,
+        attention_permutation=perm,
+        attention_permutation_layer=layer,
+        precision="float64",
+    )
+    same_label_effect = variant_normal - model.forward(
         reference_ids,
         attention_permutation=perm,
         attention_permutation_layer=layer,
         ablate_head=0,
         ablate_head_layer=layer,
+        precision="float64",
     )
     inverse = np.argsort(perm)
-    aligned_effect = variant[0] - model.forward(
+    aligned_effect = variant_normal - model.forward(
         reference_ids,
         attention_permutation=perm,
         attention_permutation_layer=layer,
         ablate_head=int(inverse[0]),
         ablate_head_layer=layer,
+        precision="float64",
+    )
+    original_components = [qkv_weight, qkv_bias, projection]
+    canonical_before, _ = canonicalize_attention(
+        *original_components,
+        model.head_dim,
+        model.n_embd,
+        model.n_head,
+    )
+    canonical_after, _ = canonicalize_attention(
+        *transformed,
+        model.head_dim,
+        model.n_embd,
+        model.n_head,
+    )
+    inferred = infer_attention_permutation(
+        original_components,
+        transformed,
+        model.head_dim,
+        model.n_embd,
+        model.n_head,
     )
     case = {
         "kind": "attention_head_permutation",
@@ -231,11 +387,11 @@ def attention_case(
         "mechanism": {
             "before_digest": tensor_digest({"qkv_weight": qkv_weight, "qkv_bias": qkv_bias, "projection": projection}),
             "after_digest": tensor_digest({"qkv_weight": transformed[0], "qkv_bias": transformed[1], "projection": transformed[2]}),
-            "canonical_after_digest": tensor_digest({
-                "qkv_weight": transformed[0][:, np.argsort(order)],
-                "qkv_bias": transformed[1][np.argsort(order)],
-                "projection": transformed[2][np.argsort(head_indexes[perm].reshape(-1)), :],
-            }),
+            "canonical_before_digest": tensor_digest({"qkv_weight": canonical_before[0], "qkv_bias": canonical_before[1], "projection": canonical_before[2]}),
+            "canonical_after_digest": tensor_digest({"qkv_weight": canonical_after[0], "qkv_bias": canonical_after[1], "projection": canonical_after[2]}),
+            "canonicalization": "blind_exact_lexicographic_head_sort",
+            "inferred_permutation_digest": full_digest(inferred.tolist()),
+            "blind_mapping_match": bool(np.array_equal(inferred, perm)),
             "changed_parameter_fraction": round(changed_fraction(
                 [qkv_weight, qkv_bias, projection],
                 transformed,
@@ -291,6 +447,8 @@ def nonsymmetry_case(
         or behavior["visible"]["mean_relative_l2"] > BEHAVIOR_CHANGE_RELATIVE_L2_MIN
         or behavior["heldout"]["mean_relative_l2"] > BEHAVIOR_CHANGE_RELATIVE_L2_MIN
     )
+    canonical_before, _ = canonicalize_mlp(*selected)
+    canonical_after, _ = canonicalize_mlp(*transformed)
     return {
         "kind": kind,
         "layer": layer,
@@ -298,7 +456,9 @@ def nonsymmetry_case(
         "mechanism": {
             "before_digest": tensor_digest({"weight": selected[0], "bias": selected[1], "projection": selected[2]}),
             "after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
-            "canonical_after_digest": tensor_digest({"weight": transformed[0], "bias": transformed[1], "projection": transformed[2]}),
+            "canonical_before_digest": tensor_digest({"weight": canonical_before[0], "bias": canonical_before[1], "projection": canonical_before[2]}),
+            "canonical_after_digest": tensor_digest({"weight": canonical_after[0], "bias": canonical_after[1], "projection": canonical_after[2]}),
+            "canonicalization": "blind_exact_lexicographic_component_sort",
             "changed_parameter_fraction": round(changed_fraction(selected, transformed), 8),
         },
         "behavior_changed": behavior_changed,
@@ -306,6 +466,7 @@ def nonsymmetry_case(
             "raw_digest_diff": True,
             "canonical_digest_match": False,
             "canonical_digest_diff": True,
+            "blind_mapping_match": False,
             "behavior_match": False,
             "aligned_intervention_match": False,
             "accepted": False,
@@ -391,9 +552,11 @@ def run(model_dir: Path) -> dict[str, object]:
     )
     cases: list[dict[str, object]] = []
     for layer in MLP_LAYERS:
-        cases.append(mlp_case(numpy_model, numpy_tokenized, numpy_baseline, layer, 17))
+        for shift in MLP_SHIFTS:
+            cases.append(mlp_case(numpy_model, numpy_tokenized, numpy_baseline, layer, shift))
     for layer in ATTENTION_LAYERS:
-        cases.append(attention_case(numpy_model, numpy_tokenized, numpy_baseline, layer, 5))
+        for shift in ATTENTION_SHIFTS:
+            cases.append(attention_case(numpy_model, numpy_tokenized, numpy_baseline, layer, shift))
     all_cases_pass = all(behavior_pass(case) for case in cases)
     nonsymmetry_cases = [
         nonsymmetry_case(
@@ -458,8 +621,13 @@ def run(model_dir: Path) -> dict[str, object]:
                 "MLP-channel permutations",
                 "attention-head permutations",
             ],
-            "canonicalization": "inverse-map transformed component order to the pre-transform order",
-            "acceptance_criterion": "raw digest differs + canonical digest matches + behavior matches + aligned interventions match",
+            "canonicalization": "blind exact lexicographic sort of composite component signatures",
+            "relation_properties": [
+                "reflexive under the identity permutation",
+                "symmetric under the inverse permutation",
+                "transitive under permutation composition",
+            ],
+            "acceptance_criterion": "raw digest differs + blind canonical digest matches + blind mapping matches + behavior matches + aligned interventions match",
         },
         "reference": {
             "tokenization_match": tokenization_match,

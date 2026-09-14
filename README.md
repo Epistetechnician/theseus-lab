@@ -21,8 +21,8 @@ python gpt2_experiment.py --model-dir /path/to/caller-owned/gpt2
 
 The real experiment verifies the seven GPT-2 bundle artifacts, loads 160
 Safetensors tensors, runs NumPy GPT-2 inference, and compares a layer-0 MLP
-channel permutation on visible and held-out prompts. The model directory is
-never copied into this repository.
+channel permutation on the fixed visible and held-out prompts. The model
+directory is never copied into this repository.
 
 Run the independent local reference, identity criterion, causal atlas, and
 Jacobian-lens proxy with:
@@ -31,20 +31,22 @@ Jacobian-lens proxy with:
 python reference_check.py --model-dir /path/to/caller-owned/gpt2
 ```
 
-This cross-checks the NumPy logits against PyTorch/Transformers on 16 fixed
-prompts, then tests function-preserving MLP-channel and attention-head
-permutations at layers 0, 5, and 11. A symmetry case is accepted only when
-raw component digests differ, inverse-mapped canonical digests match, visible
-and held-out behavior matches, and the aligned intervention matches. Ablation,
-pruning, and replacement retain distinct canonical digests and are treated as
-non-symmetry controls.
+This cross-checks the NumPy logits against PyTorch/Transformers on 72 fixed
+prompts, then tests 48 function-preserving MLP-channel and attention-head
+permutations across all 12 layers. A symmetry case is accepted only when raw
+component digests differ, blind canonical digests match, the inferred mapping
+matches the exact transformed components, visible and held-out behavior
+matches, and the aligned intervention matches. Ablation, pruning, and
+replacement retain distinct canonical digests and are treated as non-symmetry
+controls.
 
 The causal atlas covers three MLP channels and three attention heads at each
-of the three selected layers, with deterministic 95% bootstrap intervals. The
-local Jacobian-lens proxy fits an average derivative from eight visible probes
-to four fixed target-token logits, then evaluates eight held-out probes. It is
-an operational diagnostic for this checkpoint, not a full J-space
-implementation, mechanistic proof, or consciousness claim.
+of all 12 layers, for 72 entries, with deterministic 95% bootstrap intervals.
+The local Jacobian-lens proxy fits an average derivative from eight visible
+probes to four fixed target-token logits, then evaluates 64 held-out probes in
+post-GELU MLP activation space. It is an operational diagnostic for this
+checkpoint, not a full J-space implementation, mechanistic proof, or
+consciousness claim.
 
 The formal identity criterion is:
 
@@ -52,6 +54,12 @@ The formal identity criterion is:
 raw digest differs + canonical digest matches + behavior matches
 + aligned interventions match
 ```
+
+The stronger falsification gate additionally requires blind mapping recovery;
+its controls must produce canonical digest differences. The forward path uses
+float32 for broad coverage and float64 only for the intervention comparison,
+so the intervention threshold remains fixed rather than being relaxed for
+accumulated roundoff.
 
 Run the full demonstration:
 
