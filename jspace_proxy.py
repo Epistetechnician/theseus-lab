@@ -14,12 +14,19 @@ from gpt2_experiment import HELDOUT_PROMPTS, VISIBLE_PROMPTS, bootstrap_ci, full
 
 FIT_PROMPTS = VISIBLE_PROMPTS
 EVALUATION_PROMPTS = HELDOUT_PROMPTS
-LAYERS = (0, 5, 11)
 TARGET_TOKENS = (" the", " is", " of", " and")
 PERMUTATION_SHIFT = 17
 PRUNE_COUNT = 128
 JSPACE_COSINE_MIN = 0.999
 JSPACE_RELATIVE_L2_MAX = 1e-3
+
+
+def selected_layers(layer_count: int) -> tuple[int, ...]:
+    if layer_count >= 12:
+        candidates = (0, 5, 11)
+    else:
+        candidates = (0, layer_count // 2, layer_count - 1)
+    return tuple(dict.fromkeys(index for index in candidates if 0 <= index < layer_count))
 
 
 def _input_ids(tokenizer: AutoTokenizer, prompt: str) -> torch.Tensor:
@@ -183,7 +190,7 @@ def _coordinates(jacobian: np.ndarray, activations: list[torch.Tensor]) -> list[
     return [jacobian @ activation.cpu().numpy() for activation in activations]
 
 
-def analyze_jspace(model_dir: Path) -> dict[str, object]:
+def analyze_jspace(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
     model = AutoModelForCausalLM.from_pretrained(
         str(model_dir),
         local_files_only=True,
@@ -194,7 +201,7 @@ def analyze_jspace(model_dir: Path) -> dict[str, object]:
     selected_targets = target_ids(tokenizer)
     layer_reports: list[dict[str, object]] = []
 
-    for layer in LAYERS:
+    for layer in selected_layers(len(model.transformer.h)):
         fit_jacobians = [
             prompt_jacobian(model, tokenizer, prompt, layer, selected_targets)
             for prompt in FIT_PROMPTS
@@ -257,6 +264,7 @@ def analyze_jspace(model_dir: Path) -> dict[str, object]:
     )
     return {
         "kind": "local_jacobian_lens_proxy",
+        "model_id": model_id or model_dir.name,
         "coordinate_space": "post_gelu_mlp_activation",
         "fit_prompt_count": len(FIT_PROMPTS),
         "evaluation_prompt_count": len(EVALUATION_PROMPTS),

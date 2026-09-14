@@ -33,12 +33,10 @@ ALIGNED_INTERVENTION_COSINE_MIN = 0.999
 ALIGNED_INTERVENTION_MAX_ABS = 1e-4
 BOOTSTRAP_RESAMPLES = 2000
 BOOTSTRAP_SEED = 20260914
-MLP_LAYERS = tuple(range(12))
-ATTENTION_LAYERS = tuple(range(12))
 MLP_SHIFTS = (1, 17)
 ATTENTION_SHIFTS = (1, 5)
-ATLAS_CHANNELS = (17, 34, 1024)
-ATLAS_HEADS = (0, 5, 11)
+ATLAS_CHANNEL_CANDIDATES = (17, 34, 1024)
+ATLAS_HEAD_CANDIDATES = (0, 5, 11)
 PRUNE_COUNT = 128
 REPLACEMENT_CHANNEL = (17, 34)
 
@@ -177,6 +175,15 @@ def split_behavior(before: list[np.ndarray], after: list[np.ndarray]) -> dict[st
         "visible": compare_logits(before[:visible_count], after[:visible_count]),
         "heldout": compare_logits(before[visible_count:], after[visible_count:]),
     }
+
+
+def atlas_channels(model: NumpyGPT2) -> tuple[int, ...]:
+    width = model.tensors["h.0.mlp.c_fc.bias"].shape[0]
+    return tuple(index for index in ATLAS_CHANNEL_CANDIDATES if index < width)
+
+
+def atlas_heads(model: NumpyGPT2) -> tuple[int, ...]:
+    return tuple(index for index in ATLAS_HEAD_CANDIDATES if index < model.n_head)
 
 
 def bootstrap_ci(values: list[float], seed_offset: int) -> list[float]:
@@ -514,19 +521,19 @@ def build_causal_atlas(
     return {
         "mlp_channels": [
             atlas_effect(model, tokenized, baseline, layer, "mlp_channel", channel)
-            for layer in MLP_LAYERS
-            for channel in ATLAS_CHANNELS
+            for layer in range(model.n_layer)
+            for channel in atlas_channels(model)
         ],
         "attention_heads": [
             atlas_effect(model, tokenized, baseline, layer, "attention_head", head)
-            for layer in ATTENTION_LAYERS
-            for head in ATLAS_HEADS
+            for layer in range(model.n_layer)
+            for head in atlas_heads(model)
         ],
     }
 
 
-def run(model_dir: Path) -> dict[str, object]:
-    checkpoint = GPT2Checkpoint(model_dir)
+def run(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
+    checkpoint = GPT2Checkpoint(model_dir, model_id)
     numpy_model = NumpyGPT2(checkpoint)
     reference_model = AutoModelForCausalLM.from_pretrained(
         str(model_dir),
@@ -551,10 +558,10 @@ def run(model_dir: Path) -> dict[str, object]:
         and reference_metrics["mean_relative_l2"] < REFERENCE_RELATIVE_L2_MAX
     )
     cases: list[dict[str, object]] = []
-    for layer in MLP_LAYERS:
+    for layer in range(numpy_model.n_layer):
         for shift in MLP_SHIFTS:
             cases.append(mlp_case(numpy_model, numpy_tokenized, numpy_baseline, layer, shift))
-    for layer in ATTENTION_LAYERS:
+    for layer in range(numpy_model.n_layer):
         for shift in ATTENTION_SHIFTS:
             cases.append(attention_case(numpy_model, numpy_tokenized, numpy_baseline, layer, shift))
     all_cases_pass = all(behavior_pass(case) for case in cases)
@@ -567,7 +574,7 @@ def run(model_dir: Path) -> dict[str, object]:
             "mlp_single_channel_ablation",
             channels=np.asarray([INTERVENTION_CHANNEL]),
         )
-        for layer in MLP_LAYERS
+        for layer in range(numpy_model.n_layer)
     ]
     nonsymmetry_cases.append(nonsymmetry_case(
         numpy_model,
@@ -590,22 +597,22 @@ def run(model_dir: Path) -> dict[str, object]:
         for case in nonsymmetry_cases
     )
     causal_atlas = build_causal_atlas(numpy_model, numpy_tokenized, numpy_baseline)
-    jspace_proxy = analyze_jspace(model_dir)
+    jspace_proxy = analyze_jspace(model_dir, checkpoint.model_id)
     overall_pass = (
         reference_pass
         and all_cases_pass
-        and len(causal_atlas["mlp_channels"]) == len(MLP_LAYERS) * len(ATLAS_CHANNELS)
-        and len(causal_atlas["attention_heads"]) == len(ATTENTION_LAYERS) * len(ATLAS_HEADS)
+        and len(causal_atlas["mlp_channels"]) == numpy_model.n_layer * len(atlas_channels(numpy_model))
+        and len(causal_atlas["attention_heads"]) == numpy_model.n_layer * len(atlas_heads(numpy_model))
         and jspace_proxy["status"] == "LOCAL_PROXY_PASS"
     )
     return {
         "status": "REFERENCE_SYMMETRY_ATLAS_AND_JSPACE_PROXY_PASS" if overall_pass else "INCONCLUSIVE",
-        "claim_ceiling": "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
+        "claim_ceiling": "LOCAL_GPT2_FAMILY_TRANSFORMATION_OBSERVATION_ONLY",
         "checkpoint": {
             "weights_loaded": True,
             "checkpoint_digest": checkpoint.checkpoint_digest,
-            "model_id": "gpt2",
-            "revision": "607a30d783dfa663caf39e06633721c8d4cfcd7e",
+            "model_id": checkpoint.model_id,
+            "revision": checkpoint.revision,
             "tensor_count": len(checkpoint.tensors),
             "runtime_id": checkpoint.runtime_id,
             "reference_runtime": ":".join((
@@ -628,6 +635,8 @@ def run(model_dir: Path) -> dict[str, object]:
                 "transitive under permutation composition",
             ],
             "acceptance_criterion": "raw digest differs + blind canonical digest matches + blind mapping matches + behavior matches + aligned interventions match",
+            "mlp_shifts": list(MLP_SHIFTS),
+            "attention_shifts": list(ATTENTION_SHIFTS),
         },
         "reference": {
             "tokenization_match": tokenization_match,

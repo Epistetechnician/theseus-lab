@@ -15,16 +15,8 @@ from safetensors import safe_open
 from tokenizers import Tokenizer
 
 
-EXPECTED_REVISION = "607a30d783dfa663caf39e06633721c8d4cfcd7e"
-EXPECTED_ARTIFACTS = {
-    "config.json": "0daed7749b4f02b8f76240d5444551d7b08712dab4d0adb8239c56ba823bb7b4",
-    "generation_config.json": "ed0b32ac72c0f5f44a719abb2d7786ea5146c871f83717b7f2018065954de02b",
-    "merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
-    "model.safetensors": "248dfc3911869ec493c76e65bf2fcf7f615828b0254c12b473182f0f81d3a707",
-    "tokenizer.json": "8414cab924d8b9b33013f0d221c5862f365ee9be39c5c2bfae8a5a9e970478a6",
-    "tokenizer_config.json": "5e04eb606e3a1583530a42e36c2a6b6615c86f34fe77e44d9ddeb43ff940931f",
-    "vocab.json": "196139668be63f3b5d6574427317ae82f612a97c5d1cdaf36ed2256dbf636783",
-}
+MANIFEST_PATH = Path(__file__).with_name("checkpoint_manifests.json")
+CHECKPOINT_MANIFESTS = json.loads(MANIFEST_PATH.read_text())
 VISIBLE_PROMPTS = (
     "The capital of France is",
     "The opposite of hot is",
@@ -129,25 +121,34 @@ def tensor_digest(tensors: dict[str, np.ndarray]) -> str:
 
 
 class GPT2Checkpoint:
-    def __init__(self, model_dir: Path) -> None:
+    def __init__(self, model_dir: Path, model_id: str | None = None) -> None:
         self.model_dir = model_dir
+        self.model_id = model_id or model_dir.name
+        if self.model_id not in CHECKPOINT_MANIFESTS:
+            raise ValueError(f"no checked-in manifest for checkpoint: {self.model_id}")
+        self.manifest = CHECKPOINT_MANIFESTS[self.model_id]
+        self.revision = self.manifest["revision"]
         self.artifact_digests = self._verify_artifacts()
         self.config = json.loads((model_dir / "config.json").read_text())
-        if self.config.get("model_type") != "gpt2":
-            raise ValueError("checkpoint is not GPT-2")
-        if self.config.get("n_layer") != 12 or self.config.get("n_head") != 12:
-            raise ValueError("checkpoint dimensions differ from the pinned GPT-2 target")
+        for key, expected in self.manifest["config"].items():
+            if self.config.get(key) != expected:
+                raise ValueError(f"checkpoint config mismatch for {key}: {self.config.get(key)!r}")
         self.tokenizer = Tokenizer.from_file(str(model_dir / "tokenizer.json"))
         with safe_open(str(model_dir / "model.safetensors"), framework="np") as handle:
-            self.tensors = {
+            raw_tensors = {
                 name: np.asarray(handle.get_tensor(name), dtype=np.float32)
                 for name in handle.keys()
             }
+        prefix = "transformer." if "transformer.wte.weight" in raw_tensors else ""
+        self.tensors = {
+            name[len(prefix):] if prefix and name.startswith(prefix) else name: tensor
+            for name, tensor in raw_tensors.items()
+        }
         self._verify_tensor_shapes()
 
     def _verify_artifacts(self) -> dict[str, str]:
         actual: dict[str, str] = {}
-        for name, expected in EXPECTED_ARTIFACTS.items():
+        for name, expected in self.manifest["artifacts"].items():
             path = self.model_dir / name
             if not path.is_file():
                 raise FileNotFoundError(f"missing checkpoint artifact: {path}")
@@ -161,7 +162,7 @@ class GPT2Checkpoint:
         required = {"wte.weight", "wpe.weight", "ln_f.weight", "ln_f.bias"}
         required.update(
             f"h.{layer}.{suffix}"
-            for layer in range(12)
+            for layer in range(int(self.config["n_layer"]))
             for suffix in (
                 "ln_1.weight",
                 "ln_1.bias",
@@ -195,8 +196,8 @@ class GPT2Checkpoint:
     @property
     def checkpoint_digest(self) -> str:
         return full_digest({
-            "model_id": "gpt2",
-            "revision": EXPECTED_REVISION,
+            "model_id": self.model_id,
+            "revision": self.revision,
             "runtime_id": self.runtime_id,
             "artifacts": self.artifact_digests,
             "tensor_digest": tensor_digest(self.tensors),
@@ -418,8 +419,8 @@ def vector_similarity(before: np.ndarray, after: np.ndarray) -> dict[str, float]
     }
 
 
-def run(model_dir: Path) -> dict[str, object]:
-    checkpoint = GPT2Checkpoint(model_dir)
+def run(model_dir: Path, model_id: str | None = None) -> dict[str, object]:
+    checkpoint = GPT2Checkpoint(model_dir, model_id)
     model = NumpyGPT2(checkpoint)
     permutation = np.roll(np.arange(model.tensors["h.0.mlp.c_fc.weight"].shape[1]), PERMUTATION_SHIFT)
     inverse_permutation = np.argsort(permutation)
@@ -455,19 +456,27 @@ def run(model_dir: Path) -> dict[str, object]:
     total = selected.size + selected_bias.size + selected_proj.size
 
     reference_ids = tokenized[0]
-    baseline_effect = model.forward(reference_ids) - model.forward(
+    baseline_effect = model.forward(reference_ids, precision="float64") - model.forward(
         reference_ids,
         ablate_channel=INTERVENTION_CHANNEL,
+        precision="float64",
     )
-    same_label_effect = model.forward(reference_ids, permutation=permutation) - model.forward(
+    variant_normal = model.forward(
+        reference_ids,
+        permutation=permutation,
+        precision="float64",
+    )
+    same_label_effect = variant_normal - model.forward(
         reference_ids,
         permutation=permutation,
         ablate_channel=INTERVENTION_CHANNEL,
+        precision="float64",
     )
-    aligned_effect = model.forward(reference_ids, permutation=permutation) - model.forward(
+    aligned_effect = variant_normal - model.forward(
         reference_ids,
         permutation=permutation,
         ablate_channel=int(inverse_permutation[INTERVENTION_CHANNEL]),
+        precision="float64",
     )
 
     structurally_equivalent = (
@@ -479,11 +488,11 @@ def run(model_dir: Path) -> dict[str, object]:
     )
     return {
         "status": "STRUCTURAL_FUNCTIONAL_SEPARATION_OBSERVED" if structurally_equivalent else "INCONCLUSIVE",
-        "claim_ceiling": "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
+        "claim_ceiling": "LOCAL_GPT2_FAMILY_TRANSFORMATION_OBSERVATION_ONLY",
         "checkpoint": {
             "weights_loaded": True,
-            "model_id": "gpt2",
-            "revision": EXPECTED_REVISION,
+            "model_id": checkpoint.model_id,
+            "revision": checkpoint.revision,
             "model_dir": str(model_dir),
             "artifact_digests": checkpoint.artifact_digests,
             "checkpoint_digest": checkpoint.checkpoint_digest,
@@ -516,8 +525,9 @@ def run(model_dir: Path) -> dict[str, object]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model-dir", required=True, type=Path)
+    parser.add_argument("--model-id", type=str)
     args = parser.parse_args()
-    print(json.dumps(run(args.model_dir), sort_keys=True))
+    print(json.dumps(run(args.model_dir, args.model_id), sort_keys=True))
     return 0
 
 

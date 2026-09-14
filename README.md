@@ -31,6 +31,16 @@ Jacobian-lens proxy with:
 python reference_check.py --model-dir /path/to/caller-owned/gpt2
 ```
 
+The accepted checkpoint IDs and exact artifact hashes are pinned in
+[checkpoint_manifests.json](checkpoint_manifests.json). To run the same
+qualification protocol on both locally custodied checkpoints:
+
+```sh
+python replication_check.py \
+  --gpt2-dir /path/to/caller-owned/gpt2 \
+  --distilgpt2-dir /path/to/caller-owned/distilgpt2
+```
+
 This cross-checks the NumPy logits against PyTorch/Transformers on 72 fixed
 prompts, then tests 48 function-preserving MLP-channel and attention-head
 permutations across all 12 layers. A symmetry case is accepted only when raw
@@ -47,6 +57,10 @@ probes to four fixed target-token logits, then evaluates 64 held-out probes in
 post-GELU MLP activation space. It is an operational diagnostic for this
 checkpoint, not a full J-space implementation, mechanistic proof, or
 consciousness claim.
+
+The cross-check currently covers the pinned GPT-2 and distilgpt2 checkpoints.
+Both must pass the complete local protocol for the replication command to
+report `CROSS_CHECKPOINT_REPLICATION_PASS`.
 
 The formal identity criterion is:
 

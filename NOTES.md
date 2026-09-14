@@ -56,7 +56,7 @@ is globally irrelevant. All 14 controls retained canonical digest
 differences. This separates parameter-set change from observed sensitivity and
 keeps ablation, pruning, and replacement outside the identity class.
 
-The report claim ceiling is now
+The report claim ceiling for the original single-checkpoint run was
 `LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY`. No general mechanistic,
 scientific, alignment, or production claim follows from this prototype.
 
@@ -97,7 +97,31 @@ better modeled as an equivalence class under validated function-preserving
 symmetries plus aligned causal interventions. Blind canonicalization and
 internal-coordinate Jacobian measurements sharpen the result: raw internal
 coordinates change substantially under relabeling, while inverse-aligned
-coordinates recover the baseline and pruning diverges. The claim ceiling remains
-`LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY` plus
+coordinates recover the baseline and pruning diverges. The single-checkpoint
+claim ceiling remains `LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY` plus
 `LOCAL_JACOBIAN_PROXY_OBSERVATION_ONLY`; no general mechanistic, scientific,
 alignment, or production claim follows.
+
+Cross-checkpoint replication result: the same local protocol passed on both
+the 12-layer GPT-2 checkpoint (revision
+`607a30d783dfa663caf39e06633721c8d4cfcd7e`, checkpoint digest
+`4d4f6fe7cdf15eed927137a1fe8fd6af5dda4ae791c4730c850c5d1d76ad70bd`) and the
+6-layer distilgpt2 checkpoint (revision
+`2290a62682d06624634c1f46a6ad5be0f47f38aa`, checkpoint digest
+`b10648d21b2ff273da0f9f41c228ecbbded22773cc9664df554e5c13d050e5ab`). Both
+used the same probe-set digest
+`ef4e0b6ff2c8358f1e9350b06aeaf15c11d87b6bddc83e79cd6d14901f1035bf`.
+
+GPT-2 passed 48/48 symmetry cases, recovered 48/48 blind mappings, retained
+14/14 canonical control differences, and produced 72 atlas entries.
+distilgpt2 passed 24/24 symmetry cases, recovered 24/24 blind mappings,
+retained 8/8 canonical control differences, and produced 36 atlas entries.
+Both passed the internal Jacobian proxy with raw-coordinate change,
+inverse-aligned stability, and pruning divergence. The combined command
+reported `CROSS_CHECKPOINT_REPLICATION_PASS`.
+
+This is evidence that the observed equivalence-class behavior is not confined
+to one depth of the GPT-2 family. It remains a two-checkpoint local result,
+not architecture-general evidence, mechanistic understanding, alignment
+validation, or production readiness. The family-level claim ceiling is
+`LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY`.
