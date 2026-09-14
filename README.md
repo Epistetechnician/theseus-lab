@@ -5,7 +5,9 @@ behavior can remain stable while the mechanism changes, splits, or disappears.
 
 This is an in-memory logic sandbox. It does not load model weights, call a
 provider, read assessment data, or make production claims. The prototype is
-deliberately small so the state transitions remain inspectable.
+deliberately small so the state transitions remain inspectable. Each run
+compares visible probes, held-out probes, explicit mechanism lineage, and
+component-level intervention reach.
 
 Run the full demonstration:
 

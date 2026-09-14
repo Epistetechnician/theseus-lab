@@ -1,4 +1,4 @@
-"""Small in-memory terminal prototype for the Theseus identity question."""
+"""Deterministic terminal prototype for the Theseus identity question."""
 
 from __future__ import annotations
 
@@ -10,7 +10,28 @@ from typing import Iterable
 
 
 BEHAVIOR_MIN = 0.95
+HELDOUT_MIN = 0.95
 MECHANISM_MIN = 0.80
+VISIBLE_PROBES = (0, 1)
+HELDOUT_PROBES = (2, 3)
+
+# The first two probe dimensions are visible during the transformation. The
+# last two are held out and expose whether visible equivalence was accidental.
+SAFE_PROFILE = (0.4, 0.6, 0.9, -0.2)
+TASK_PROFILE = (0.6, 0.2, 0.3, 0.5)
+
+
+def evaluate(
+    components: dict[str, float],
+    mechanisms: dict[str, tuple[float, ...]],
+    probe_indexes: tuple[int, ...],
+) -> tuple[float, ...]:
+    outputs = [0.0 for _ in probe_indexes]
+    for name, mass in sorted(components.items()):
+        profile = mechanisms[name]
+        for output_index, profile_index in enumerate(probe_indexes):
+            outputs[output_index] += mass * profile[profile_index]
+    return tuple(round(value, 10) for value in outputs)
 
 
 def digest(value: object) -> str:
@@ -22,14 +43,24 @@ def digest(value: object) -> str:
 class State:
     step: int
     components: dict[str, float]
-    behavior: tuple[float, ...]
+    mechanisms: dict[str, tuple[float, ...]]
+
+    @property
+    def behavior(self) -> tuple[float, ...]:
+        return evaluate(self.components, self.mechanisms, VISIBLE_PROBES)
+
+    @property
+    def heldout_behavior(self) -> tuple[float, ...]:
+        return evaluate(self.components, self.mechanisms, HELDOUT_PROBES)
 
     @property
     def state_digest(self) -> str:
         return digest({
             "step": self.step,
             "components": self.components,
+            "mechanisms": self.mechanisms,
             "behavior": self.behavior,
+            "heldout_behavior": self.heldout_behavior,
         })
 
 
@@ -42,7 +73,11 @@ class Transition:
 
 @dataclass
 class Lab:
-    initial: State = field(default_factory=lambda: State(0, {"safe": 1.0, "task": 1.0}, (1.0, 0.8)))
+    initial: State = field(default_factory=lambda: State(
+        0,
+        {"safe": 1.0, "task": 1.0},
+        {"safe": SAFE_PROFILE, "task": TASK_PROFILE},
+    ))
     states: list[State] = field(default_factory=list)
     transitions: list[Transition] = field(default_factory=list)
 
@@ -59,9 +94,20 @@ class Lab:
         self.transitions.clear()
         self.emit("reset")
 
-    def transform(self, components: dict[str, float], lineage: Iterable[tuple[str, str, float]], action: str) -> None:
+    def transform(
+        self,
+        components: dict[str, float],
+        lineage: Iterable[tuple[str, str, float]],
+        action: str,
+        mechanisms: dict[str, tuple[float, ...]] | None = None,
+    ) -> None:
         previous = self.current
-        next_state = State(previous.step + 1, dict(sorted(components.items())), previous.behavior)
+        next_mechanisms = previous.mechanisms if mechanisms is None else mechanisms
+        next_state = State(
+            previous.step + 1,
+            dict(sorted(components.items())),
+            dict(sorted(next_mechanisms.items())),
+        )
         edge_list = tuple(lineage)
         self.states.append(next_state)
         self.transitions.append(Transition(previous.state_digest, next_state.state_digest, edge_list))
@@ -81,19 +127,34 @@ class Lab:
         if old not in current.components:
             raise ValueError(f"unknown component: {old}")
         components = dict(current.components)
+        mechanisms = dict(current.mechanisms)
         del components[old]
+        del mechanisms[old]
         components[new] = 1.0
-        self.transform(components, (), f"replace {old} -> {new}")
+        old_profile = current.mechanisms[old]
+        # Replacement is deliberately equivalent on visible probes but
+        # different on held-out probes: this is a probe-coverage adversary.
+        mechanisms[new] = (old_profile[0], old_profile[1], -0.4, 0.8)
+        self.transform(components, (), f"replace {old} -> {new}", mechanisms)
 
     def split(self, old: str, first: str, second: str) -> None:
         current = self.current
         if old not in current.components:
             raise ValueError(f"unknown component: {old}")
         components = dict(current.components)
+        mechanisms = dict(current.mechanisms)
         del components[old]
         components[first] = 0.5
         components[second] = 0.5
-        self.transform(components, ((old, first, 0.5), (old, second, 0.5)), f"split {old} -> {first},{second}")
+        old_profile = mechanisms.pop(old)
+        mechanisms[first] = old_profile
+        mechanisms[second] = old_profile
+        self.transform(
+            components,
+            ((old, first, 0.5), (old, second, 0.5)),
+            f"split {old} -> {first},{second}",
+            mechanisms,
+        )
 
     def report(self) -> dict[str, object]:
         if len(self.states) < 2:
@@ -109,19 +170,61 @@ class Lab:
         source_preservation = sum(source_mass.values()) / len(source_mass)
         target_coverage = sum(target_mass.values()) / len(target_mass)
         mechanism = (source_preservation + target_coverage) / 2.0
-        behavior = self._behavior_similarity(before.behavior, after.behavior)
-        drift = behavior >= BEHAVIOR_MIN and mechanism < MECHANISM_MIN
+        visible_behavior = self._behavior_similarity(before.behavior, after.behavior)
+        heldout_behavior = self._behavior_similarity(before.heldout_behavior, after.heldout_behavior)
+        causal_continuity = self._causal_intervention_continuity(before, after)
+        visible_drift = visible_behavior >= BEHAVIOR_MIN and mechanism < MECHANISM_MIN
+        heldout_failure = visible_behavior >= BEHAVIOR_MIN and heldout_behavior < HELDOUT_MIN
+        structural_counterexample = (
+            visible_behavior >= BEHAVIOR_MIN
+            and heldout_behavior >= HELDOUT_MIN
+            and mechanism < MECHANISM_MIN
+        )
         return {
-            "behavior_continuity": round(behavior, 4),
+            "behavior_continuity": round(visible_behavior, 4),
+            "visible_behavior_continuity": round(visible_behavior, 4),
+            "heldout_behavior_continuity": round(heldout_behavior, 4),
             "mechanism_continuity": round(mechanism, 4),
+            "causal_intervention_continuity": round(causal_continuity, 4),
+            "component_set_jaccard": round(self._component_set_jaccard(before, after), 4),
             "source_preservation": round(source_preservation, 4),
             "target_coverage": round(target_coverage, 4),
-            "behaviorally_equivalent_mechanistic_drift": drift,
+            "behaviorally_equivalent_mechanistic_drift": visible_drift,
+            "visible_equivalence_hidden_failure": heldout_failure,
+            "structure_only_theseus_counterexample": structural_counterexample,
             "transition_digest": digest({
                 "before": transition.before,
                 "after": transition.after,
                 "lineage": transition.lineage,
             }),
+        }
+
+    @staticmethod
+    def _component_set_jaccard(before: State, after: State) -> float:
+        before_names = set(before.components)
+        after_names = set(after.components)
+        union = before_names | after_names
+        return 1.0 if not union else len(before_names & after_names) / len(union)
+
+    @classmethod
+    def _causal_intervention_continuity(cls, before: State, after: State) -> float:
+        before_effects = cls._intervention_effects(before)
+        after_effects = cls._intervention_effects(after)
+        common = sorted(set(before_effects) & set(after_effects))
+        coverage = len(common) / max(len(before_effects), len(after_effects))
+        if not common:
+            return 0.0
+        effect_similarity = sum(
+            cls._behavior_similarity(before_effects[name], after_effects[name])
+            for name in common
+        ) / len(common)
+        return coverage * effect_similarity
+
+    @staticmethod
+    def _intervention_effects(state: State) -> dict[str, tuple[float, ...]]:
+        return {
+            name: tuple(state.components[name] * value for value in state.mechanisms[name])
+            for name in state.components
         }
 
     @staticmethod
@@ -140,7 +243,9 @@ class Lab:
             "state": {
                 "step": self.current.step,
                 "components": self.current.components,
+                "mechanisms": self.current.mechanisms,
                 "behavior": self.current.behavior,
+                "heldout_behavior": self.current.heldout_behavior,
                 "state_digest": self.current.state_digest,
             },
             "report": self.report(),
@@ -150,8 +255,8 @@ class Lab:
 def run_demo() -> None:
     scenarios = (
         ("preserved", lambda lab: lab.preserve("safe")),
-        ("split", lambda lab: lab.split("safe", "safe-a", "safe-b")),
-        ("drift", lambda lab: lab.replace("safe", "replacement")),
+        ("structural_split", lambda lab: lab.split("safe", "safe-a", "safe-b")),
+        ("probe_coverage_adversary", lambda lab: lab.replace("safe", "replacement")),
     )
     for name, action in scenarios:
         print(json.dumps({"scenario": name}, sort_keys=True))
