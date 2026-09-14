@@ -8,30 +8,14 @@ import json
 from dataclasses import dataclass, field
 from typing import Iterable
 
+from checkpoint_adapter import LocalCheckpointAdapter
+
 
 BEHAVIOR_MIN = 0.95
 HELDOUT_MIN = 0.95
 MECHANISM_MIN = 0.80
 VISIBLE_PROBES = (0, 1)
 HELDOUT_PROBES = (2, 3)
-
-# The first two probe dimensions are visible during the transformation. The
-# last two are held out and expose whether visible equivalence was accidental.
-SAFE_PROFILE = (0.4, 0.6, 0.9, -0.2)
-TASK_PROFILE = (0.6, 0.2, 0.3, 0.5)
-
-
-def evaluate(
-    components: dict[str, float],
-    mechanisms: dict[str, tuple[float, ...]],
-    probe_indexes: tuple[int, ...],
-) -> tuple[float, ...]:
-    outputs = [0.0 for _ in probe_indexes]
-    for name, mass in sorted(components.items()):
-        profile = mechanisms[name]
-        for output_index, profile_index in enumerate(probe_indexes):
-            outputs[output_index] += mass * profile[profile_index]
-    return tuple(round(value, 10) for value in outputs)
 
 
 def digest(value: object) -> str:
@@ -44,14 +28,16 @@ class State:
     step: int
     components: dict[str, float]
     mechanisms: dict[str, tuple[float, ...]]
+    observations: tuple[float, ...]
+    checkpoint_digest: str
 
     @property
     def behavior(self) -> tuple[float, ...]:
-        return evaluate(self.components, self.mechanisms, VISIBLE_PROBES)
+        return tuple(self.observations[index] for index in VISIBLE_PROBES)
 
     @property
     def heldout_behavior(self) -> tuple[float, ...]:
-        return evaluate(self.components, self.mechanisms, HELDOUT_PROBES)
+        return tuple(self.observations[index] for index in HELDOUT_PROBES)
 
     @property
     def state_digest(self) -> str:
@@ -59,6 +45,8 @@ class State:
             "step": self.step,
             "components": self.components,
             "mechanisms": self.mechanisms,
+            "observations": self.observations,
+            "checkpoint_digest": self.checkpoint_digest,
             "behavior": self.behavior,
             "heldout_behavior": self.heldout_behavior,
         })
@@ -73,26 +61,44 @@ class Transition:
 
 @dataclass
 class Lab:
-    initial: State = field(default_factory=lambda: State(
-        0,
-        {"safe": 1.0, "task": 1.0},
-        {"safe": SAFE_PROFILE, "task": TASK_PROFILE},
-    ))
+    adapter: LocalCheckpointAdapter = field(default_factory=LocalCheckpointAdapter)
     states: list[State] = field(default_factory=list)
     transitions: list[Transition] = field(default_factory=list)
 
     def __post_init__(self) -> None:
         if not self.states:
-            self.states.append(self.initial)
+            self.states.append(self._make_state(
+                0,
+                {"safe": 1.0, "task": 1.0},
+                self.adapter.initial_mechanisms,
+            ))
 
     @property
     def current(self) -> State:
         return self.states[-1]
 
     def reset(self) -> None:
-        self.states[:] = [self.initial]
+        self.states[:] = [self._make_state(
+            0,
+            {"safe": 1.0, "task": 1.0},
+            self.adapter.initial_mechanisms,
+        )]
         self.transitions.clear()
         self.emit("reset")
+
+    def _make_state(
+        self,
+        step: int,
+        components: dict[str, float],
+        mechanisms: dict[str, tuple[float, ...]],
+    ) -> State:
+        return State(
+            step,
+            dict(sorted(components.items())),
+            dict(sorted(mechanisms.items())),
+            self.adapter.evaluate(components, mechanisms),
+            self.adapter.checkpoint_digest,
+        )
 
     def transform(
         self,
@@ -103,10 +109,10 @@ class Lab:
     ) -> None:
         previous = self.current
         next_mechanisms = previous.mechanisms if mechanisms is None else mechanisms
-        next_state = State(
+        next_state = self._make_state(
             previous.step + 1,
-            dict(sorted(components.items())),
-            dict(sorted(next_mechanisms.items())),
+            components,
+            next_mechanisms,
         )
         edge_list = tuple(lineage)
         self.states.append(next_state)
@@ -244,10 +250,13 @@ class Lab:
                 "step": self.current.step,
                 "components": self.current.components,
                 "mechanisms": self.current.mechanisms,
+                "observations": self.current.observations,
                 "behavior": self.current.behavior,
                 "heldout_behavior": self.current.heldout_behavior,
                 "state_digest": self.current.state_digest,
+                "checkpoint_digest": self.current.checkpoint_digest,
             },
+            "checkpoint": self.adapter.summary.to_payload(),
             "report": self.report(),
         }, sort_keys=True))
 

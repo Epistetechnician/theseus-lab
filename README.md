@@ -7,7 +7,11 @@ This is an in-memory logic sandbox. It does not load model weights, call a
 provider, read assessment data, or make production claims. The prototype is
 deliberately small so the state transitions remain inspectable. Each run
 compares visible probes, held-out probes, explicit mechanism lineage, and
-component-level intervention reach.
+component-level intervention reach through a local checkpoint adapter.
+
+The adapter consumes caller-owned checkpoint metadata and performs deterministic
+arithmetic only. It does not load model weights, call a provider, read an
+assessment corpus, or make production claims.
 
 Run the full demonstration:
 

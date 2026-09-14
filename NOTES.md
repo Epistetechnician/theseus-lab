@@ -11,6 +11,8 @@ behavioral equivalence can be a probe-coverage artifact. This is a deterministic
 state-machine observation, not evidence about a trained model.
 
 The causal intervention score and component-set overlap are diagnostic signals;
-they do not establish mechanistic understanding. The next experiment is to
-replace the synthetic mechanism profiles with a caller-owned checkpoint summary
-while retaining held-out probes, interventions, and the explicit lineage ledger.
+they do not establish mechanistic understanding. This slice now routes the
+synthetic checkpoint through `LocalCheckpointAdapter`, binds every state to a
+full checkpoint-summary digest, and retains held-out probes, interventions, and
+the explicit lineage ledger. The next experiment is to provide a real,
+locally owned checkpoint implementation behind the same adapter contract.
