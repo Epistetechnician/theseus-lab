@@ -331,3 +331,42 @@ run. The evidence ceiling is
 `LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY`. Model weights were
 loaded; no provider inference endpoint was called, no real assessment corpus
 was consumed, and no independent review was run.
+
+OPT causal v2 tie-aware replicate on Gman: the
+`theseus-lab-sandbox-v1` slice ran the separately preregistered
+`opt125m-causal-prediction-v2` protocol from commit `6f7682a` on a temporary
+CPU-8 node. The source context was transferred with SHA-256
+`d4b4354def63674f5d49718bb45cf3ceedde021f8366ee59f31be24b8edcd790`. The
+owner-custodied `facebook/opt-125m` bundle remained pinned to revision
+`27dcfa74d334bc871f3234de431e71c6eeba5dd6`; 197 tensors loaded with
+checkpoint digest
+`48851bb81d39a6d7f827b897a953b2e2c46f71dd198a6ae43a915b01a98492cb`. The
+runtime was Python 3.12.3, NumPy 2.4.6, CPU PyTorch 2.6.0, Transformers
+4.57.3, and Tokenizers 0.22.2.
+
+The probe contract was unchanged at eight visible selection probes and 64
+held-out evaluation probes, with digest
+`2931b67893b051fa4f1b0422182f9e90f3808788ed846f8d3613a2c9350807ba`. The
+v2 tie-aware statistic was fixed before execution at 1.0 for a strict win,
+0.5 for an exact tie, and 0.0 for a strict loss, with a locked minimum of
+`0.8`; the v1 strict statistic remained recorded and was not retrofitted.
+MLP tie-aware comparison passed with win rate `0.9982638889` (574 strict
+wins, 2 ties; 95% CI `[0.99565972, 1.0]`). Attention tie-aware comparison
+passed with win rate `0.8333333333` (384 strict wins, 192 ties, 0 losses;
+95% CI `[0.81336806, 0.85329861]`). The retained strict attention result was
+`0.6666666667` (95% CI `[0.62673611, 0.70486111]`).
+
+Activation patching passed 576/576 observations with aligned mean relative L2
+`0.0`; activation rescue passed 192/192 with aligned mean relative L2
+`1.083e-7`. The command exited with code 0 and reported
+`OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_PASS`. The Gman mission record is
+https://autoresearch.sfcompute.com/missions/theseus-opt-causal-v2-gman-20260915.
+
+Interpretation remains bounded: this is a local synthetic probe-suite
+observation that the preregistered tie-aware criterion passed for the pinned
+OPT-125M checkpoint. It is not mechanistic understanding,
+architecture-general proof, alignment validation, independent review, or
+production readiness. Model weights were loaded; no provider inference
+endpoint was called, no real assessment data was consumed, and external
+review was not run. The claim ceiling is
+`LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_OBSERVATION_ONLY`.

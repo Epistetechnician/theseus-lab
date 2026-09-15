@@ -122,6 +122,35 @@ to relax the threshold; provider calls, real assessment data, independent
 review, mechanistic understanding, alignment validation, and production
 readiness remain unclaimed.
 
+The separate preregistered v2 protocol adds a tie-aware random-control
+statistic without changing the v1 result:
+
+```sh
+.venv/bin/python opt_causal_prediction_v2.py \
+  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --model-id opt-125m
+```
+
+The v2 source was committed at `6f7682a` before execution. It uses the same
+8-visible/64-held-out probe contract, three channels and three heads per
+layer, and locked minimum `0.8`; exact ties receive half credit and the
+strict random-control result remains in the report. The Gman CPU-8 execution
+completed with `exit_code: 0` and status
+`OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_PASS`. The MLP tie-aware win rate was
+`0.9982638889` (574 strict wins, 2 ties; 95% CI `[0.99565972, 1.0]`). The
+attention tie-aware win rate was `0.8333333333` (384 strict wins, 192 ties,
+0 losses; 95% CI `[0.81336806, 0.85329861]`), while the retained strict
+attention rate was `0.6666666667` (95% CI `[0.62673611, 0.70486111]`).
+Activation patching passed 576/576 and rescue passed 192/192. The mission
+record is [theseus-opt-causal-v2-gman-20260915](https://autoresearch.sfcompute.com/missions/theseus-opt-causal-v2-gman-20260915).
+
+This is still local synthetic probe evidence only. The pinned model weights
+were loaded, but no provider endpoint was called, no real assessment data was
+consumed, and no independent review was run. It does not establish
+mechanistic understanding, architecture-general proof, alignment validation,
+or production readiness. The v2 claim ceiling is
+`LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_OBSERVATION_ONLY`.
+
 Run the independent local reference, identity criterion, causal atlas, and
 Jacobian-lens proxy with:
 
