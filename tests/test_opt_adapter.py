@@ -50,3 +50,26 @@ class TestOPTAdapter(unittest.TestCase):
         baseline = numpy_model.forward(ids)
         transformed = numpy_model.forward(ids, permutation=permutation, permutation_layer=5)
         self.assertTrue(np.allclose(baseline, transformed, rtol=1e-4, atol=1e-4))
+
+    def test_opt_activation_patch_is_a_noop_for_the_source_activation(self) -> None:
+        _checkpoint, numpy_model, tokenizer, _reference = self._loaded()
+        ids = tokenizer("Water freezes at", add_special_tokens=False)["input_ids"]
+        layer = 5
+        activation = numpy_model.mlp_activation_trace(ids)[layer]
+        baseline = numpy_model.forward(ids)
+        patched = numpy_model.forward(
+            ids,
+            patch_mlp_activation=activation,
+            patch_mlp_activation_layer=layer,
+        )
+        self.assertTrue(np.array_equal(baseline, patched))
+
+    def test_opt_activation_patch_rejects_wrong_width(self) -> None:
+        _checkpoint, numpy_model, tokenizer, _reference = self._loaded()
+        ids = tokenizer("Water freezes at", add_special_tokens=False)["input_ids"]
+        with self.assertRaisesRegex(ValueError, "patched OPT activation"):
+            numpy_model.forward(
+                ids,
+                patch_mlp_activation=np.zeros(numpy_model.ffn_dim - 1),
+                patch_mlp_activation_layer=5,
+            )

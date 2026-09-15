@@ -154,6 +154,8 @@ class NumpyOPT:
         ablate_channel_layer: int = 0,
         ablate_channels: np.ndarray | None = None,
         replacement_channel: tuple[int, int] | None = None,
+        patch_mlp_activation: np.ndarray | None = None,
+        patch_mlp_activation_layer: int = 0,
         attention_permutation: np.ndarray | None = None,
         attention_permutation_layer: int = 0,
         ablate_head: int | None = None,
@@ -188,6 +190,8 @@ class NumpyOPT:
                 ablate_channel_layer,
                 ablate_channels,
                 replacement_channel,
+                patch_mlp_activation,
+                patch_mlp_activation_layer,
             )
         x = self._layer_norm(
             x,
@@ -273,6 +277,8 @@ class NumpyOPT:
         ablate_channel_layer: int,
         ablate_channels: np.ndarray | None,
         replacement_channel: tuple[int, int] | None,
+        patch_mlp_activation: np.ndarray | None = None,
+        patch_mlp_activation_layer: int = 0,
         capture: list[np.ndarray] | None = None,
     ) -> np.ndarray:
         prefix = f"model.decoder.layers.{layer}"
@@ -303,6 +309,12 @@ class NumpyOPT:
             fc1_weight[target, :] = fc1_weight[source, :]
             fc1_bias[target] = fc1_bias[source]
         activated = np.maximum(normalized @ fc1_weight.T + fc1_bias, 0.0)
+        if layer == patch_mlp_activation_layer and patch_mlp_activation is not None:
+            patch = np.asarray(patch_mlp_activation, dtype=activated.dtype)
+            if patch.shape != (self.ffn_dim,):
+                raise ValueError("patched OPT activation must match the MLP width")
+            activated = activated.copy()
+            activated[-1] = patch
         if capture is not None:
             capture.append(activated[-1].copy())
         return activated @ fc2_weight.T + self.tensors[f"{prefix}.fc2.bias"]
