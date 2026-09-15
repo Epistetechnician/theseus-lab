@@ -292,3 +292,42 @@ claim ceiling is
 `LOCAL_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY`; it is not mechanistic
 understanding, architecture-general proof, alignment validation, independent
 review, or production readiness.
+
+OPT causal replicate on Gman: the `theseus-lab-sandbox-v1` slice ran
+`opt125m-causal-prediction-v1` on a temporary CPU-8 node using the exact
+committed source context and a pinned file-level download of
+`facebook/opt-125m` at revision
+`27dcfa74d334bc871f3234de431e71c6eeba5dd6`. The context archive digest was
+`df8b339b9003a880ac28f286f20fffc250d51c0d12f818f587d5b82e4c1e09d9`; the
+runtime was Python 3.12.3, NumPy 2.4.6, CPU PyTorch 2.6.0, Transformers
+4.57.3, and Tokenizers 0.22.2. The owner-custodied model loaded 197 tensors
+and produced checkpoint digest
+`48851bb81d39a6d7f827b897a953b2e2c46f71dd198a6ae43a915b01a98492cb`.
+
+The fresh probe contract contained eight visible and 64 held-out prompts with
+probe digest
+`2931b67893b051fa4f1b0422182f9e90f3808788ed846f8d3613a2c9350807ba`. Blind
+mapping validation passed for MLP channels and attention heads at layers 0, 5,
+and 11: every case had a raw digest difference and matching canonical digest.
+MLP causal prediction passed 576/576 observations with canonical mean relative
+L2 `0.0`, canonical-vs-raw win rate `0.9861` (95% CI `[0.9757, 0.9948]`), and
+canonical-vs-random win rate `0.9965` (95% CI `[0.9913, 1.0]`).
+
+Attention causal prediction had canonical mean relative L2 `0.0` across 576
+observations and canonical-vs-raw win rate `1.0`, but its strict
+canonical-vs-random win rate was `0.6667` (95% CI `[0.6267, 0.7049]`) against
+the locked minimum `0.8`; the random comparator mean relative L2 was `0.9952`.
+Activation patching passed 576/576 observations with aligned mean relative L2
+`0.0` versus raw `22.0338883459`. Full activation rescue passed 192/192 with
+aligned mean relative L2 `1.083e-7` versus raw `0.3170595137`.
+
+The command exited successfully, but the protocol reported
+`INCONCLUSIVE` because the attention random-control gate failed. The
+discrepancy is informative: exact canonical recovery coexists with a strict
+per-observation control failure caused by zero-effect ties being counted as
+non-wins. This result is retained unchanged; a tie-aware control statistic
+requires a new preregistered protocol and must not be retrofitted into this
+run. The evidence ceiling is
+`LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY`. Model weights were
+loaded; no provider inference endpoint was called, no real assessment corpus
+was consumed, and no independent review was run.

@@ -99,6 +99,29 @@ mechanistic understanding, architecture-general proof, alignment validation,
 independent review, or production readiness; the report records provider
 calls as false and assessment status as local synthetic probes only.
 
+Run the fresh OPT-125M causal prediction, activation-patching, and
+activation-rescue protocol:
+
+```sh
+python opt_causal_prediction_check.py \
+  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --model-id opt-125m
+```
+
+This protocol uses a new 8-visible/64-held-out probe contract, selects three
+active ReLU channels per layer from the visible probes, and evaluates layers
+0, 5, and 11 with three MLP channels and three attention heads per layer. It
+checks blind component-signature mapping, 576 MLP and 576 attention causal
+predictions, 576 activation patches, and 192 full-activation rescues. The
+Gman CPU-8 execution loaded the pinned 197-tensor OPT checkpoint and completed
+with `exit_code: 0`. MLP prediction, patching, and rescue passed, but the
+locked attention random-control win-rate gate was `0.6667` (95% CI
+`[0.6267, 0.7049]`) against the required `0.8`, so the aggregate status is
+`INCONCLUSIVE`. The result is a falsifying protocol observation, not a reason
+to relax the threshold; provider calls, real assessment data, independent
+review, mechanistic understanding, alignment validation, and production
+readiness remain unclaimed.
+
 Run the independent local reference, identity criterion, causal atlas, and
 Jacobian-lens proxy with:
 
