@@ -18,7 +18,7 @@ from causal_prediction_check import (
     _target_output_cache,
     _win_rate,
 )
-from gpt2_experiment import full_digest
+from gpt2_experiment import bootstrap_ci, full_digest
 from opt_experiment import NumpyOPT, OPTCheckpoint, tensor_digest
 from reference_check import (
     canonicalize_attention,
@@ -141,6 +141,37 @@ def _component_effects(
     return effects
 
 
+def _tie_aware_win_rate(
+    canonical: list[float],
+    comparator: list[float],
+    seed_offset: int,
+) -> dict[str, object]:
+    if len(canonical) != len(comparator) or not canonical:
+        raise ValueError("paired control comparisons must be non-empty and equal length")
+    scores: list[float] = []
+    strict_wins = 0
+    ties = 0
+    losses = 0
+    for left, right in zip(canonical, comparator):
+        if left < right:
+            scores.append(1.0)
+            strict_wins += 1
+        elif left == right:
+            scores.append(0.5)
+            ties += 1
+        else:
+            scores.append(0.0)
+            losses += 1
+    return {
+        "comparison_count": len(scores),
+        "canonical_tie_aware_win_rate": round(float(np.mean(scores)), 10),
+        "canonical_tie_aware_win_rate_ci95": bootstrap_ci(scores, seed_offset),
+        "strict_wins": strict_wins,
+        "ties": ties,
+        "losses": losses,
+    }
+
+
 def _blind_mapping(
     model: NumpyOPT,
     kind: str,
@@ -235,6 +266,7 @@ def _mapping_prediction(
     width: int,
     shift: int,
     seed: int,
+    include_tie_aware: bool = False,
 ) -> dict[str, object]:
     random_source = np.random.default_rng(seed).permutation(width)
     mapping_by_layer = {
@@ -310,7 +342,7 @@ def _mapping_prediction(
             "raw_mean_relative_l2": round(float(np.mean([_relative_l2(left, right) for left, right in zip(layer_actual, layer_raw)])), 10),
             "random_mean_relative_l2": round(float(np.mean([_relative_l2(left, right) for left, right in zip(layer_actual, layer_random)])), 10),
         })
-    return {
+    result: dict[str, object] = {
         "kind": kind,
         "component_case_count": len(SELECTED_LAYERS) * len(selected[SELECTED_LAYERS[0]] if kind == "mlp" else SELECTED_HEADS),
         "heldout_probe_count": len(prompt_ids) - heldout_offset,
@@ -322,6 +354,13 @@ def _mapping_prediction(
         "mapping_validation_by_layer": {str(layer): validation for layer, (_, validation) in mapping_by_layer.items()},
         "layers": layer_summaries,
     }
+    if include_tie_aware:
+        result["canonical_beats_random_tie_aware"] = _tie_aware_win_rate(
+            canonical_errors,
+            random_errors,
+            BOOTSTRAP_SEED_OFFSET + (50 if kind == "mlp" else 150),
+        )
+    return result
 
 
 def _activation_patching(
@@ -425,7 +464,12 @@ def _activation_rescue(
     }
 
 
-def run(model_dir: Path, model_id: str = "opt-125m") -> dict[str, object]:
+def run(
+    model_dir: Path,
+    model_id: str = "opt-125m",
+    *,
+    include_tie_aware: bool = False,
+) -> dict[str, object]:
     checkpoint = OPTCheckpoint(model_dir, model_id)
     model = NumpyOPT(checkpoint)
     tokenizer = AutoTokenizer.from_pretrained(str(model_dir), local_files_only=True)
@@ -440,10 +484,12 @@ def run(model_dir: Path, model_id: str = "opt-125m") -> dict[str, object]:
     mlp_prediction = _mapping_prediction(
         model, prompt_ids, baseline, target_ids, heldout_offset, selected,
         "mlp", model.ffn_dim, MLP_TRANSFORM_SHIFT, RANDOM_SEED,
+        include_tie_aware=include_tie_aware,
     )
     head_prediction = _mapping_prediction(
         model, prompt_ids, baseline, target_ids, heldout_offset, selected,
         "head", model.n_head, HEAD_TRANSFORM_SHIFT, RANDOM_SEED + 1,
+        include_tie_aware=include_tie_aware,
     )
     patching = _activation_patching(
         model, prompt_ids, target_ids, heldout_offset, baseline, traces, selected,
