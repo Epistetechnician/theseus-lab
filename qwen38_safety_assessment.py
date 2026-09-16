@@ -40,6 +40,7 @@ MAX_ERROR_RATE = 0.0
 MAX_LENGTH = 512
 BATCH_SIZE = 8
 ASSESSOR_VERSION = "maliciousinstruct-evaluator-label1-v1"
+SCORED_SCHEMA_VERSION = "qwen38-assessor-scores-v1"
 
 
 def _wilson_interval(successes: int, total: int) -> tuple[float, float]:
@@ -273,12 +274,89 @@ def _summarize(scored: list[dict[str, object]], dataset: str) -> dict[str, objec
     }
 
 
+def _canonical_scored_records(scored: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Return score records in a stable order for custody and digest binding."""
+
+    return sorted(scored, key=lambda item: (str(item["dataset"]), int(item["row_id"])))
+
+
+def _prepare_scored_output_dir(path: Path) -> Path:
+    """Create an empty owner-only directory for aggregate-safe score records."""
+
+    scored_dir = path.expanduser().resolve()
+    repo_root = Path(__file__).resolve().parent
+    if scored_dir == repo_root or repo_root in scored_dir.parents:
+        raise ValueError("scored output custody must be outside the repository")
+    if scored_dir.exists() and not scored_dir.is_dir():
+        raise ValueError("scored output custody path must be a directory")
+    if not scored_dir.exists():
+        scored_dir.mkdir(mode=0o700, parents=True)
+    if scored_dir.stat().st_mode & 0o077:
+        raise ValueError("scored output custody directory must be owner-only")
+    if any(scored_dir.iterdir()):
+        raise ValueError("scored output custody directory must be empty")
+    return scored_dir
+
+
+def _write_scored_output(
+    path: Path,
+    scored: list[dict[str, object]],
+    *,
+    qwen_report: dict[str, object],
+    raw_output_dir: Path,
+    assessor_dir: Path,
+    scored_digest: str,
+) -> dict[str, object]:
+    """Persist per-row scores without retaining questions or completions."""
+
+    scored_dir = _prepare_scored_output_dir(path)
+    raw_manifest = json.loads(
+        (raw_output_dir.expanduser().resolve() / "manifest.json").read_text(encoding="utf-8")
+    )
+    records_path = scored_dir / "scores.jsonl"
+    records = _canonical_scored_records(scored)
+    encoded = "".join(json.dumps(record, sort_keys=True, separators=(",", ":")) + "\n" for record in records)
+    records_path.write_text(encoded, encoding="utf-8")
+    records_path.chmod(0o600)
+    records_sha256 = sha256_file(records_path)
+    manifest = {
+        "artifact_type": "aggregate_safe_assessor_scores",
+        "state_slice": STATE_SLICE,
+        "schema_version": SCORED_SCHEMA_VERSION,
+        "records_file": records_path.name,
+        "contains_raw_completions": False,
+        "contains_questions": False,
+        "rows_written": len(records),
+        "scored_digest": scored_digest,
+        "records_sha256": records_sha256,
+        "raw_transcript_sha256": raw_manifest["transcript_sha256"],
+        "qwen_checkpoint_digest": qwen_report["model"]["checkpoint_digest"],
+        "assessor_model_sha256": ASSESSOR_MODEL_SHA256,
+        "assessor_manifest_digest": sha256_file(assessor_dir.expanduser().resolve() / "manifest.json"),
+        "retention_policy": "owner-only external custody; aggregate-safe scores only",
+    }
+    manifest_path = scored_dir / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    manifest_path.chmod(0o600)
+    return {
+        "directory": str(scored_dir),
+        "records_file": str(records_path),
+        "manifest_digest": sha256_file(manifest_path),
+        "scored_digest": scored_digest,
+        "records_sha256": records_sha256,
+        "rows_written": len(records),
+        "contains_raw_completions": False,
+        "contains_questions": False,
+    }
+
+
 def run(
     assessor_dir: Path,
     raw_output_dir: Path,
     qwen_report_path: Path,
     corpus_path: Path,
     contrast_corpus_path: Path | None = None,
+    scored_output_dir: Path | None = None,
 ) -> dict[str, object]:
     """Run the locked independent local safety-signal assessment."""
 
@@ -287,7 +365,7 @@ def run(
     records, qwen_report = _load_transcript(raw_output_dir, qwen_report_path, harmful_rows, contrast_rows)
     model_dir, tokenizer_dir, custody_manifest = _verify_assessor_custody(assessor_dir)
     torch, tokenizer, model = _load_assessor(model_dir, tokenizer_dir)
-    scored = _score_records(records, torch, tokenizer, model)
+    scored = _canonical_scored_records(_score_records(records, torch, tokenizer, model))
     harmful_summary = _summarize(scored, "harmful")
     contrast_summary = _summarize(scored, "benign_contrast") if contrast_rows else None
     harmful_target_met = (
@@ -309,6 +387,18 @@ def run(
         "label_contract": "LABEL_1 is harmful score, matching the pinned evaluator protocol",
     }
     scored_digest = full_digest(scored)
+    scored_output = (
+        _write_scored_output(
+            scored_output_dir,
+            scored,
+            qwen_report=qwen_report,
+            raw_output_dir=raw_output_dir,
+            assessor_dir=assessor_dir,
+            scored_digest=scored_digest,
+        )
+        if scored_output_dir is not None
+        else None
+    )
     receipt_digest = full_digest(
         {
             "state_slice": STATE_SLICE,
@@ -362,6 +452,7 @@ def run(
                 "qualification_target_met": harmful_target_met and contrast_specificity_target_met,
             },
             "scored_observation_digest": scored_digest,
+            "scored_output_custody": scored_output,
             "assessment_receipt_digest": receipt_digest,
             "independent_of_generator": True,
             "independent_review": False,
@@ -403,6 +494,7 @@ def main() -> int:
     parser.add_argument("--qwen-report", required=True, type=Path)
     parser.add_argument("--corpus-path", required=True, type=Path)
     parser.add_argument("--contrast-corpus-path", type=Path, default=None)
+    parser.add_argument("--scored-output-dir", type=Path, default=None)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
     output_path = _prepare_output_path(args.output)
@@ -412,6 +504,7 @@ def main() -> int:
         args.qwen_report,
         args.corpus_path,
         args.contrast_corpus_path,
+        args.scored_output_dir,
     )
     encoded = json.dumps(report, indent=2, sort_keys=True) + "\n"
     output_path.write_text(encoded, encoding="utf-8")

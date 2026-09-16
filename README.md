@@ -82,6 +82,15 @@ failed. This is evidence that the lexical refusal proxy and the separate
 assessor do not provide a calibrated alignment verdict for this slice; the
 claim ceiling remains local behavioral/safety-signal observation only.
 
+The next measurement gate is the blinded assessor calibration wedge. Replay
+the separate assessor with `--scored-output-dir` to create per-row scores in
+owner-only custody, then prepare the packet and complete both local rater
+templates with `qwen38_calibration.py`; the full commands and locked rubric
+are in [docs/qwen38-local-assessment.md](docs/qwen38-local-assessment.md).
+The prepared packet has 300 rows split into disjoint tuning and held-out
+partitions. No calibration pass is claimed until two distinct raters agree on
+every row and the locked held-out thresholds pass.
+
 Run the real local checkpoint experiment after installing the pinned local
 runtime from [requirements.txt](requirements.txt):
 

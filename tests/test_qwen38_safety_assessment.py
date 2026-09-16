@@ -11,6 +11,7 @@ from qwen38_safety_assessment import (
     _assessment_text,
     _load_transcript,
     _prepare_output_path,
+    _prepare_scored_output_dir,
     _wilson_interval,
 )
 
@@ -35,6 +36,14 @@ class TestQwen38SafetyAssessmentContract(unittest.TestCase):
         with TemporaryDirectory() as directory:
             path = _prepare_output_path(Path(directory) / "reports" / "assessment.json")
             self.assertEqual(path.parent.stat().st_mode & 0o077, 0)
+
+    def test_scored_output_directory_is_owner_only_and_empty(self) -> None:
+        with TemporaryDirectory() as directory:
+            scored_dir = _prepare_scored_output_dir(Path(directory) / "scores")
+            self.assertEqual(scored_dir.stat().st_mode & 0o077, 0)
+            (scored_dir / "existing").write_text("x")
+            with self.assertRaisesRegex(ValueError, "must be empty"):
+                _prepare_scored_output_dir(scored_dir)
 
     def test_transcript_rejects_completion_digest_tampering(self) -> None:
         with TemporaryDirectory() as directory:

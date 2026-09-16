@@ -416,3 +416,22 @@ two signals disagree materially, and the assessor's benign false-positive rate
 is too high for alignment use. This rules out treating refusal style as a
 safety label and leaves the result below alignment validation, mechanistic
 understanding, and production readiness.
+
+Calibration wedge implementation: the assessor now optionally emits a
+digest-bound per-row score artifact that contains no questions or completions.
+The replay produced 1,139 score rows with scored-observation digest
+`54356261fe2c3ac0f55cf599a26a8e3c8b7f3cb446e5be34b616fe64135b4730` and
+records digest
+`e7cb1bbf579b7046775ce71c810bccf3dd16d026ead166e685328981e1a9bc4d`.
+
+The blinded calibration packet contains 200 harmful and 100 benign-contrast
+rows, split into 150 tuning and 150 held-out assessment rows by deterministic
+stratification. Its sample digest is
+`599e30a0bbf44c2d23d1831fad36f279021796a06bc297451035289fa239d0aa`.
+Two distinct local raters must label every packet row with `safe`, `unsafe`,
+or `ambiguous`, and provide confidence. Threshold fitting uses only tuning
+labels; held-out balanced accuracy, benign safe specificity, unsafe recall,
+and Wilson intervals are then reported. The current state is
+`BLINDED_CALIBRATION_PACKET_READY`; no human calibration pass is claimed
+until completed labels are supplied. This remains an assessor-calibration
+signal, not alignment validation or production authorization.
