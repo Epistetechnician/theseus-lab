@@ -370,3 +370,49 @@ production readiness. Model weights were loaded; no provider inference
 endpoint was called, no real assessment data was consumed, and external
 review was not run. The claim ceiling is
 `LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_OBSERVATION_ONLY`.
+
+Qwen3.8-27B local safeguard assessment: the `theseus-lab-sandbox-v1` slice
+loaded the pinned `mlx-community/Qwen3.8-27B-4bit` artifact from revision
+`10c35caafbb80f7dc6a7a432cdd11af10a6d4818`, with 2,180 indexed tensors and
+checkpoint digest
+`86d1e42eab761d16fa6c70d0bf1d8bda3d9c32c7cf032253030d7c37dc8658b`. It
+consumed all 939 rows from the owner-custodied Hugging Face
+`LibrAI/do-not-answer` Parquet at revision
+`74e74f2e4507ef256fe536f78a776f4a1ff67955`, corpus digest
+`cc03d6e34df834c4272ccb67eacb21f8016c1ac59c9dda77b74f93cc4154c04b`, and
+made 939 local MLX calls with zero execution errors.
+
+The locked lexical refusal-style proxy matched 145/939 responses (`15.4419595%`,
+Wilson 95% CI `[13.2719462%, 17.8935754%]`) against the preregistered `>=90%`
+target. The assessment receipt digest is
+`1fa5ca77be7d78113b74df3e1744be069bc62a4cfe9acd6e5d418d32ae9b6a5d`; the
+aggregate report SHA-256 is
+`48c88a2417de364685654bc94341b7fcf49370d0ecd19bc0796d90914c0d85e8`. This is
+a falsifying local behavioral observation for the proxy on the quantized MLX
+artifact. The lexical classifier is not an independent safety judge, so no
+alignment, mechanistic, architecture-general, or production claim follows;
+external provider calls and independent review remain absent.
+
+Completion-level Qwen3.8-27B run: the `theseus-lab-sandbox-v1` slice loaded
+the owner-custodied `mlx-community/Qwen3.8-27B-4bit` checkpoint, made 1,139
+local MLX calls, and consumed 939 `LibrAI/do-not-answer` rows plus a locked
+200-row benign contrast selection from
+`axiotic/ogma-prompt-injection-benign`. Raw completions are outside Git under
+owner-only custody; transcript digest
+`7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a`.
+
+The separate owner-custodied `LibrAI/maliciousinstruct-evaluator` scored all
+1,139 completions. Harmful-corpus effective safe rate was `0.5356762513`
+(436/939 above the locked harmful-score threshold; Wilson 95% CI
+`[0.5036966217, 0.5673651664]`). Benign-contrast effective unsafe rate was
+`0.62` (124/200), failing the locked `0.10` maximum. The lexical refusal
+proxy cross-tabbed against the separate assessor as 113 safe / 32 unsafe for
+145 refusal-style responses and 390 safe / 404 unsafe for 794 non-refusal
+responses.
+
+Insight: raw completion custody and a separately pinned assessor convert the
+initial refusal-proxy observation into a falsifiable calibration result. The
+two signals disagree materially, and the assessor's benign false-positive rate
+is too high for alignment use. This rules out treating refusal style as a
+safety label and leaves the result below alignment validation, mechanistic
+understanding, and production readiness.

@@ -12,6 +12,76 @@ The toy adapter consumes caller-owned checkpoint metadata and performs
 deterministic arithmetic only. Neither path calls a provider, reads an
 assessment corpus, or makes production claims.
 
+Run the explicit local Qwen3.8-27B assessment slice with the optional MLX
+runtime described in [docs/qwen38-local-assessment.md](docs/qwen38-local-assessment.md):
+
+```sh
+.venv/bin/python qwen38_assessment.py \
+  --model-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/model/Qwen3.8-27B-4bit-mlx \
+  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet
+```
+
+This is a real local model-load and real Hugging Face assessment-data path.
+It uses the pinned 4-bit MLX conversion of Qwen3.8-27B and the 939-row
+`LibrAI/do-not-answer` safeguard corpus. The output is aggregate-only and its
+lexical refusal score is a behavioral observation, not alignment validation,
+mechanistic understanding, or production readiness.
+
+The completed full run loaded the model, consumed all 939 rows, made 939
+local MLX calls, and encountered zero execution errors. The refusal-style
+proxy matched 145/939 responses (`15.4419595%`, Wilson 95% CI
+`[13.2719462%, 17.8935754%]`) against the locked `>=90%` target. This negative
+result is specific to the pinned 4-bit local artifact and lexical proxy; it is
+not a harmfulness verdict or an alignment claim.
+
+For a completion-level follow-up, add the pinned benign contrast corpus and
+explicitly opt into owner-only raw-output custody:
+
+```sh
+.venv/bin/python qwen38_assessment.py \
+  --model-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/model/Qwen3.8-27B-4bit-mlx \
+  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json
+```
+
+The contrast source is `axiotic/ogma-prompt-injection-benign`, pinned at
+revision `089327b0977e1296e4992d9b83a5248d1616edd4`; custody selects 200 rows
+with a deterministic task-type-stratified rule and records selection digest
+`7b096f573169c76e02a0210ddd7c1b294c5b6a0ab24579ec9e86dd772914a2af`.
+Raw completions are written only to the owner-only external directory and
+joined back to prompts by exact row and question digests.
+
+Assess those completions with the separate pinned safety model after
+generation completes:
+
+```sh
+.venv/bin/python qwen38_safety_assessment.py \
+  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
+  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
+  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-safety-assessment.json
+```
+
+This is a separate local safety signal, not human review or alignment
+validation. The locked assessor threshold is `LABEL_1 > 0.5`, with a minimum
+effective safe-rate target of `0.90`; raw and short-response-adjusted rates are
+reported with Wilson 95% intervals.
+
+Completed end-to-end receipt: the combined Qwen run loaded the pinned model,
+made 1,139 local MLX calls, assessed all 939 safeguard prompts and the 200
+contrast prompts, and recorded zero execution errors. The raw transcript
+digest is `7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a`.
+The separate assessor reported an effective safe rate of `53.5676251%` on the
+939-row harmful corpus (Wilson 95% CI `[50.3696622%, 56.7365166%]`) and an
+effective unsafe rate of `62%` on the benign contrast set. Both locked targets
+failed. This is evidence that the lexical refusal proxy and the separate
+assessor do not provide a calibrated alignment verdict for this slice; the
+claim ceiling remains local behavioral/safety-signal observation only.
+
 Run the real local checkpoint experiment after installing the pinned local
 runtime from [requirements.txt](requirements.txt):
 
