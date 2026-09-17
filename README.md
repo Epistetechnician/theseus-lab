@@ -150,6 +150,9 @@ the existing BERT assessor. It reads manifests, model configuration JSON, and
 filesystem metadata, and verifies the already aggregate-only score records.
 It does not open the raw transcript, human packet, or label templates; it
 never loads weights, calls a provider, or downloads an artifact.
+The canonical blocker receipt path is excluded from the recursive inventory and
+recorded in `custody_inventory.tree.excluded_paths`, so persisting the report
+does not change its next-run digest.
 
 Run the audit in the owner runtime:
 
@@ -186,7 +189,7 @@ remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
 The blocker receipt is
 `/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
-`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.
+`380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.
 
 Run the real local checkpoint experiment after installing the pinned local
 runtime from [requirements.txt](requirements.txt):

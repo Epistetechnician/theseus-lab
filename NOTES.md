@@ -488,6 +488,9 @@ model-bearing artifacts: the Qwen3.8-27B 4-bit generator and the pinned
 from Qwen, but it is the sole evaluator; same-BERT alternate framing and score
 passes do not establish a second independent judge. The tokenizer is a
 `BertForMaskedLM` configuration bundle without classifier weights.
+The canonical blocker receipt is excluded from the recursive inventory and
+listed in `custody_inventory.tree.excluded_paths` so persisting it cannot alter
+the next-run digest.
 
 The lane emitted the fail-closed status
 `AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR` for state slice
@@ -514,4 +517,4 @@ remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
 The aggregate blocker receipt is retained at
 `/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
-`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.
+`380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.

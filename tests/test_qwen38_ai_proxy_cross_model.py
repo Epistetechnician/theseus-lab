@@ -1,3 +1,4 @@
+import json
 import stat
 import unittest
 from pathlib import Path
@@ -5,6 +6,7 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
 from qwen38_ai_proxy_cross_model import (
+    BLOCKER_RECEIPT_RELATIVE,
     EXPECTED_CUSTODY_ROOT,
     _assert_aggregate_safe,
     _candidate_search,
@@ -168,6 +170,48 @@ class TestQwen38AIProxyCrossModelContract(unittest.TestCase):
             self.assertEqual(stat.S_IMODE(output.stat().st_mode), 0o600)
             with self.assertRaises(FileExistsError):
                 _prepare_output_path(output)
+
+    def test_canonical_receipt_exclusion_is_stable(self) -> None:
+        with TemporaryDirectory() as directory:
+            root = Path(directory) / "custody"
+            root.mkdir(mode=0o700)
+            receipt = root / BLOCKER_RECEIPT_RELATIVE
+            receipt.parent.mkdir(parents=True, mode=0o700)
+            receipt.parent.chmod(0o700)
+            receipt.write_text("{}\n", encoding="utf-8")
+            receipt.chmod(0o600)
+            first = _tree_inventory(
+                root,
+                excluded_relative_paths=(BLOCKER_RECEIPT_RELATIVE,),
+            )
+            second = _tree_inventory(
+                root,
+                excluded_relative_paths=(BLOCKER_RECEIPT_RELATIVE,),
+            )
+            self.assertEqual(first, second)
+            self.assertEqual(first["excluded_paths"], [BLOCKER_RECEIPT_RELATIVE])
+            self.assertNotIn(
+                {"path": BLOCKER_RECEIPT_RELATIVE, "kind": "file"},
+                first["entries"],
+            )
+
+    @unittest.skipUnless(
+        EXPECTED_CUSTODY_ROOT.joinpath(BLOCKER_RECEIPT_RELATIVE).is_file(),
+        "persisted owner receipt is unavailable",
+    )
+    def test_persisted_receipt_round_trip_matches_rerun(self) -> None:
+        persisted_path = EXPECTED_CUSTODY_ROOT / BLOCKER_RECEIPT_RELATIVE
+        persisted = json.loads(persisted_path.read_text(encoding="utf-8"))
+        recomputed = run()
+        self.assertEqual(persisted, recomputed)
+        with TemporaryDirectory() as directory:
+            round_trip = _prepare_output_path(Path(directory).resolve() / "receipt.json")
+            _write_private(
+                round_trip,
+                json.dumps(recomputed, indent=2, sort_keys=True) + "\n",
+            )
+            loaded = json.loads(round_trip.read_text(encoding="utf-8"))
+        self.assertEqual(loaded, recomputed)
 
     @unittest.skipUnless(EXPECTED_CUSTODY_ROOT.is_dir(), "owner custody is unavailable")
     def test_owner_receipt_is_blocked_without_opening_raw_or_label_files(self) -> None:

@@ -35,6 +35,9 @@ EXISTING_SAME_MODEL_CLAIM_CEILING = "LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY"
 EXPECTED_CUSTODY_ROOT = Path(
     "/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1"
 )
+BLOCKER_RECEIPT_RELATIVE = (
+    "ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json"
+)
 
 QWEN_REPO_ID = "mlx-community/Qwen3.8-27B-4bit"
 QWEN_REVISION = "10c35caafbb80f7dc6a7a432cdd11af10a6d4818"
@@ -369,9 +372,32 @@ def _manifest_summary(root: Path, path: Path, digest: str) -> dict[str, object]:
     return summary
 
 
-def _tree_inventory(root: Path) -> dict[str, object]:
+def _normalise_relative_exclusions(paths: Iterable[str]) -> list[str]:
+    """Validate and canonicalize custody-relative inventory exclusions."""
+
+    normalized: set[str] = set()
+    for raw_path in paths:
+        if not isinstance(raw_path, str):
+            raise ValueError("inventory exclusions must be relative path strings")
+        candidate = Path(raw_path)
+        if candidate.is_absolute() or ".." in candidate.parts:
+            raise ValueError("inventory exclusions must stay within custody")
+        relative = candidate.as_posix()
+        if relative in {"", "."}:
+            raise ValueError("inventory exclusions must name an entry")
+        normalized.add(relative)
+    return sorted(normalized)
+
+
+def _tree_inventory(
+    root: Path,
+    *,
+    excluded_relative_paths: Iterable[str] = (),
+) -> dict[str, object]:
     """Capture recursive path, type, mode, and byte metadata without content."""
 
+    excluded_paths = _normalise_relative_exclusions(excluded_relative_paths)
+    excluded = set(excluded_paths)
     entries: list[dict[str, object]] = []
     permission_findings: list[dict[str, object]] = []
     symlinks: list[str] = []
@@ -385,6 +411,8 @@ def _tree_inventory(root: Path) -> dict[str, object]:
         for child in children:
             child_path = Path(child.path)
             relative = child_path.relative_to(root).as_posix()
+            if relative in excluded:
+                continue
             info = os.lstat(child_path)
             mode = stat.S_IMODE(info.st_mode)
             if stat.S_ISLNK(info.st_mode):
@@ -462,6 +490,7 @@ def _tree_inventory(root: Path) -> dict[str, object]:
         "mode_histogram": mode_histogram,
         "entries": entries,
         "entries_digest": full_digest(entries),
+        "excluded_paths": excluded_paths,
         "symlinks": symlinks,
         "permission_findings": permission_findings,
         "owner_only_tree": not permission_findings,
@@ -1175,11 +1204,16 @@ def _artifact_summary(
     }
 
 
-def run(*, custody_root: Path = EXPECTED_CUSTODY_ROOT) -> dict[str, object]:
+def run(
+    *,
+    custody_root: Path = EXPECTED_CUSTODY_ROOT,
+    excluded_relative_paths: Iterable[str] = (BLOCKER_RECEIPT_RELATIVE,),
+) -> dict[str, object]:
     """Build the fail-closed aggregate blocker receipt for the custody root."""
 
     root = _owner_only_directory(custody_root)
-    tree = _tree_inventory(root)
+    excluded_paths = _normalise_relative_exclusions(excluded_relative_paths)
+    tree = _tree_inventory(root, excluded_relative_paths=excluded_paths)
     manifest_list, manifest_comparison = _manifest_inventory(root, tree)
     manifests = {str(item["path"]): item for item in manifest_list}
     config_list, config_identities = _config_inventory(root)
@@ -1338,6 +1372,18 @@ def _prepare_output_path(path: Path) -> Path:
     return resolved
 
 
+def _relative_to_custody_root(root: Path, path: Path) -> str | None:
+    """Return an output path relative to custody when it is inside custody."""
+
+    candidate = _absolute_without_following(path)
+    _reject_symlink_components(candidate, label="cross-model report path")
+    resolved = candidate.resolve()
+    try:
+        return resolved.relative_to(root).as_posix()
+    except ValueError:
+        return None
+
+
 def _write_private(path: Path, encoded: str) -> None:
     """Create one owner-only aggregate receipt without overwriting it."""
 
@@ -1373,7 +1419,15 @@ def main() -> int:
     parser.add_argument("--custody-root", type=Path, default=EXPECTED_CUSTODY_ROOT)
     parser.add_argument("--output", required=True, type=Path)
     args = parser.parse_args()
-    report = run(custody_root=args.custody_root)
+    custody_root = _owner_only_directory(args.custody_root)
+    excluded_paths = [BLOCKER_RECEIPT_RELATIVE]
+    output_relative = _relative_to_custody_root(custody_root, args.output)
+    if output_relative is not None:
+        excluded_paths.append(output_relative)
+    report = run(
+        custody_root=custody_root,
+        excluded_relative_paths=excluded_paths,
+    )
     encoded = json.dumps(report, indent=2, sort_keys=True) + "\n"
     output_path = _prepare_output_path(args.output)
     _write_private(output_path, encoded)
