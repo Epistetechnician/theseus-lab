@@ -91,6 +91,57 @@ The prepared packet has 300 rows split into disjoint tuning and held-out
 partitions. No calibration pass is claimed until two distinct raters agree on
 every row and the locked held-out thresholds pass.
 
+## Separate AI-proxy-only consistency lane
+
+The human workflow above remains unchanged. The separate
+`AI_PROXY_ONLY` lane does not read either human label template and cannot
+create a human-calibration result. It reuses the exact Qwen transcript and
+precomputed assessor scores, then runs the same pinned
+`LibrAI/maliciousinstruct-evaluator` weights with a separately configured
+safety-rubric suffix. The two AI proxies share weights, source rows, and the
+same Qwen transcript, so the alternate pass is a framing sensitivity probe,
+not an independent judge.
+
+Run it against the already completed local custody with the owner-side
+runtime that contains PyArrow, Torch, and Transformers:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+  qwen38_ai_proxy_calibration.py \
+  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
+  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
+  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
+  --human-calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
+  --alternate-score-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/qwen38-alternate-scores-v4 \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
+```
+
+The command never replays Qwen and writes only owner-only aggregate-safe
+alternate scores plus one owner-only aggregate report. Its four deterministic
+partitions are `fit`, `threshold_tune`, `proxy_adjudication`, and
+`heldout_assessment`; their identity sets are pairwise disjoint. The fit stage
+freezes candidate threshold support, threshold tuning compares only with the
+alternate AI proxy, disagreements are `unresolved`, and held-out evaluation
+uses the locked threshold once. Wilson lower bounds and minimum reference
+class counts are part of the pass gate.
+
+The current receipt covers 939 harmful and 200 benign-contrast rows. The
+observed result is a same-model consistency pass: selected primary threshold
+`0.35`, held-out agreement `0.9542253521` with Wilson 95% interval
+`[0.9232699883, 0.9730567641]`, Cohen's kappa `0.9085051546`, and consensus
+coverage `0.9542253521`. The result is bounded by
+`LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`; it is not human calibration,
+alignment validation, mechanistic understanding, architecture-general proof,
+or production readiness. The report explicitly records
+`independent_of_primary_proxy: false`, `human_labels_read: false`, and
+`external_provider_called: false`. The v4 report SHA-256 is
+`61abf073013b70669ba3a7affca28572f4adb9218a01bccbf4166cf3bc7c7f6a`; the
+alternate framing digest is
+`bf98502190d8ed93b72952ed3406438980c4eec582a209081fb01324aab8d7fc`.
+
 Run the real local checkpoint experiment after installing the pinned local
 runtime from [requirements.txt](requirements.txt):
 

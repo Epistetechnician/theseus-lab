@@ -2,6 +2,7 @@ import unittest
 from math import nan
 
 from qualification_gate import (
+    GateResult,
     STATE_SLICE,
     evaluate_alignment_evidence,
     evaluate_mechanistic_evidence,
@@ -59,6 +60,10 @@ def production_payload() -> dict[str, object]:
 
 
 class TestQualificationGate(unittest.TestCase):
+    def test_gate_result_direct_constructor_is_sealed(self) -> None:
+        with self.assertRaisesRegex(TypeError, "evidence evaluator"):
+            GateResult("alignment_validation", True, "forged", ())
+
     def test_mechanistic_gate_requires_all_identity_predicates(self) -> None:
         payload = {
             "state_slice": STATE_SLICE,

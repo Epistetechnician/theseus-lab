@@ -28,3 +28,9 @@ rollback, credential hygiene, and explicit production authorization.
 The aggregate summary never widens an individual claim ceiling. Missing
 evidence is reported as a blocker rather than inferred from a successful
 local test.
+
+`GateResult` is sealed to the evaluator module. Callers cannot manufacture a
+passing result through its constructor; results can only be produced by the
+evidence evaluators after they recompute their blockers. This protects the
+gate boundary from direct-constructor forgery without changing any gate name,
+claim ceiling, or production authorization rule.
