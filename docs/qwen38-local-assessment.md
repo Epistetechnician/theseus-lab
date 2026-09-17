@@ -260,3 +260,69 @@ alignment validation, mechanistic understanding, architecture-general proof,
 or production readiness. The human packet remains
 `BLINDED_CALIBRATION_PACKET_READY` until two distinct raters provide complete
 labels through the unchanged `qwen38_calibration.py score` workflow.
+
+## AI_PROXY_CROSS_MODEL custody blocker
+
+The follow-up cross-model lane checks whether owner-only custody contains a
+second evaluator that is genuinely distinct from both the Qwen generator and
+the existing `LibrAI/maliciousinstruct-evaluator` BERT checkpoint. This is an
+inventory-only substitute for missing human calibration. It reads the 11
+custody manifests, three model configuration JSON files, aggregate receipt
+metadata, and recursive filesystem metadata. It does not open
+`responses.jsonl`, `packet.jsonl`, or any label template. It verifies only the
+already aggregate-only score JSONL digests and schemas; it does not load
+weights, call a provider, or download files.
+
+Run it with the owner runtime:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+  qwen38_ai_proxy_cross_model.py \
+  --custody-root /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1 \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
+```
+
+The owner inventory found exactly two model-bearing artifacts. The generator
+is `Qwen3_5ForConditionalGeneration` at
+`mlx-community/Qwen3.8-27B-4bit@10c35caafbb80f7dc6a7a432cdd11af10a6d4818`,
+with checkpoint digest
+`86d1e42eab761d16fa6c70d0bf1d8bda3d9c32c7cf032253030d7c37dc8658b`. The sole
+evaluator is `BertForSequenceClassification` at
+`LibrAI/maliciousinstruct-evaluator@d717b8732dc5c5f8e9b04296c6eb58a84808d630`,
+with model digest
+`19de7037727dc60176f79bd3855c072e073c3851dbc232416df13f392403cc12` and
+assessor manifest digest
+`27ae063cc837a840d790ad2ca0489982de8fa27007c14c3ddd10c5305444e31a`. The
+alternate v1-v4 score receipts use the same BERT weights and are sensitivity
+probes, not independent evaluators. The tokenizer is
+`BertForMaskedLM` configuration only and has no classifier weights.
+
+The result is
+`AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR`. The manifest
+inventory digest is
+`7444fa52e3086b128c0c5cd8c144df88a66b8ddb89048d2c76ae515b3ee6786c`; all 11
+locked manifest paths and hashes matched. The raw completion manifest binds
+1,139 rows and transcript digest
+`7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a`, but the
+cross-model lane did not read the transcript. The custody tree also reports
+three non-owner-only grouping directories (`calibration`, `model`, and
+`scores`, mode `0755`); this is recorded as a custody finding and was not
+silently repaired.
+
+Because no qualifying second evaluator exists, no cross-model score custody,
+disjoint partitions, locked threshold, Wilson interval, confusion matrix, or
+dependence result exists. The receipt explicitly records those metrics as
+unavailable and names the missing contract: separate weights from both
+existing model artifacts, architecture/configuration identity, pinned source
+revision, owner-only manifest, independent scoring contract, and safe local
+runtime verification. The existing same-model report remains preserved at
+`AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS`; the human state remains
+`BLINDED_CALIBRATION_PACKET_READY`; and the claim ceiling remains
+`LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED` for this blocked lane. The
+preserved same-model ceiling remains
+`LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
+
+The aggregate blocker receipt is retained at
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+with SHA-256
+`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.

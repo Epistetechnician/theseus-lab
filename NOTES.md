@@ -478,3 +478,40 @@ change the human workflow or its state, which remains
 `BLINDED_CALIBRATION_PACKET_READY`; it is not human calibration, independent
 review, alignment validation, mechanistic understanding, architecture-general
 proof, or production authorization.
+
+Cross-model evaluator custody audit: the
+`theseus-lab-sandbox-v1` slice inspected owner-only custody without opening
+the raw Qwen transcript, blinded packet, or label templates; it verified only
+the already aggregate-only score JSONL. The inventory contained 11 locked manifests and exactly two
+model-bearing artifacts: the Qwen3.8-27B 4-bit generator and the pinned
+`LibrAI/maliciousinstruct-evaluator` BERT assessor. The assessor is distinct
+from Qwen, but it is the sole evaluator; same-BERT alternate framing and score
+passes do not establish a second independent judge. The tokenizer is a
+`BertForMaskedLM` configuration bundle without classifier weights.
+
+The lane emitted the fail-closed status
+`AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR` for state slice
+`theseus-lab-sandbox-v1`. The raw manifest binds 1,139 rows and transcript
+digest
+`7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a`; no
+cross-model execution or labels were produced. The manifest inventory digest
+is `7444fa52e3086b128c0c5cd8c144df88a66b8ddb89048d2c76ae515b3ee6786c`.
+The audit also recorded three grouping directories at mode `0755` rather than
+the owner-only `0700` contract: `calibration`, `model`, and `scores`. No
+external custody mutation was made.
+
+The missing artifact contract requires separate weights from both existing
+models, architecture/configuration identity, pinned revision provenance,
+owner-only manifest, independent scoring contract, and safe local runtime
+verification. Therefore no cross-model threshold, disjoint partition,
+Wilson interval, confusion matrix, or dependence metric is available. The
+existing same-model result remains
+`AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS`, the human state remains
+`BLINDED_CALIBRATION_PACKET_READY`, and this lane's ceiling is
+`LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED`. The preserved same-model ceiling
+remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
+
+The aggregate blocker receipt is retained at
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+with SHA-256
+`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.

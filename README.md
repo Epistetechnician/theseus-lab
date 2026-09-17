@@ -142,6 +142,52 @@ or production readiness. The report explicitly records
 alternate framing digest is
 `bf98502190d8ed93b72952ed3406438980c4eec582a209081fb01324aab8d7fc`.
 
+## Cross-model evaluator custody audit
+
+The `AI_PROXY_CROSS_MODEL` lane checks whether owner-only custody contains a
+second evaluator that is genuinely distinct from both the Qwen generator and
+the existing BERT assessor. It reads manifests, model configuration JSON, and
+filesystem metadata, and verifies the already aggregate-only score records.
+It does not open the raw transcript, human packet, or label templates; it
+never loads weights, calls a provider, or downloads an artifact.
+
+Run the audit in the owner runtime:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+  qwen38_ai_proxy_cross_model.py \
+  --custody-root /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1 \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
+```
+
+The audit found two model-bearing artifacts: the Qwen3.8-27B 4-bit
+`Qwen3_5ForConditionalGeneration` generator and the separately pinned
+`BertForSequenceClassification` assessor at
+`LibrAI/maliciousinstruct-evaluator@d717b8732dc5c5f8e9b04296c6eb58a84808d630`.
+The assessor is distinct from Qwen, but it is the only evaluator in custody;
+the alternate v1-v4 score receipts reuse its BERT weights and therefore do not
+qualify as a second judge. The BERT masked-language-model tokenizer bundle,
+lexical heuristic, score manifests, and Qwen generator are not evaluator
+substitutes.
+
+The fail-closed status is
+`AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR`. The inventory
+confirmed all 11 locked manifests and the three architecture config digests;
+the raw receipt binds 1,139 rows. No cross-model partitions, threshold,
+Wilson interval, confusion matrix, or dependence metric were fabricated. The
+receipt names the missing artifact contract: a separately weighted,
+architecture-identified, revision-pinned evaluator with an owner-only custody
+manifest and independent scoring contract. The same-model result remains
+`AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS`, and the human workflow remains
+`BLINDED_CALIBRATION_PACKET_READY`. The only defensible ceiling remains
+`LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED`; the preserved same-model ceiling
+remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
+
+The blocker receipt is
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+with SHA-256
+`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.
+
 Run the real local checkpoint experiment after installing the pinned local
 runtime from [requirements.txt](requirements.txt):
 
