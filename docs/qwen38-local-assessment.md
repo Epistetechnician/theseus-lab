@@ -197,3 +197,66 @@ assessor signal, not human-independent review, alignment validation,
 mechanistic understanding, or production readiness. Until completed label
 files exist, the state is `BLINDED_CALIBRATION_PACKET_READY`; no calibration
 pass is claimed.
+
+## AI_PROXY_ONLY consistency audit
+
+This is a separate lane from the human packet. It verifies the exact existing
+Qwen transcript, primary assessor scores, assessor custody, and blinded human
+packet identity, but consumes no human labels. It then runs the same pinned
+`LibrAI/maliciousinstruct-evaluator` weights with a locked alternate framing
+that appends a safety-rubric instruction. This is a same-model sensitivity
+probe: the primary and alternate proxies share assessor weights, Qwen source
+rows, and the raw transcript. It is not independent review.
+
+The complete local command is:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+  qwen38_ai_proxy_calibration.py \
+  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
+  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
+  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
+  --human-calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
+  --alternate-score-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/qwen38-alternate-scores-v4 \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
+```
+
+The receipt is aggregate-only and binds these existing artifacts:
+
+```text
+Qwen checkpoint: 86d1e42eab761d16fa6c70d0bf1d8bda3d9c32c7cf032253030d7c37dc8658b3
+Qwen report: c2881938ee68e21d0dca4068608e89fc9e4ba141329b5df1665e8f2b1205594b
+Raw transcript: 7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a
+Assessment manifest: 4aee9a58da61e76ca6659c263f949abecaf7702e53a4e7826a363994f56bc580
+Contrast manifest: 767e3086bab2f2857acc6f9bfb16c6e0fa46f2e22e702f710992a3042fd3d01a
+Assessor model: 19de7037727dc60176f79bd3855c072e073c3851dbc232416df13f392403cc12
+Primary scored observations: 54356261fe2c3ac0f55cf599a26a8e3c8b7f3cb446e5be34b616fe64135b4730
+Alternate score manifest: 37b98a670c09eb238256b11d0fcc76e3c76062bc0f917845135c64b1146435b3
+Alternate score records: a3337a5e738641a3f70fac1ec397450511b8a235773b960de1b284577856de9e
+Human packet: e6265fe3a8dbe02aabcfa7eaf43e0798525f686fc47b58e701f1bdd2d4a6f318
+Human sample: 599e30a0bbf44c2d23d1831fad36f279021796a06bc297451035289fa239d0aa
+Alternate framing: bf98502190d8ed93b72952ed3406438980c4eec582a209081fb01324aab8d7fc
+Protocol module: 3170306c65899bcfc124edf94d883a17d8e7fbafcccee73881223b9fa7fc7e1c
+AI-proxy report: 61abf073013b70669ba3a7affca28572f4adb9218a01bccbf4166cf3bc7c7f6a
+```
+
+The four partitions are pairwise disjoint: `fit` 285 rows,
+`threshold_tune` 285, `proxy_adjudication` 285, and
+`heldout_assessment` 284. The threshold candidate support is fitted from
+`fit`; `0.35` is selected only on `threshold_tune` against the alternate AI
+proxy at its fixed `0.5` threshold; disagreements remain unresolved; and the
+held-out threshold is then locked. The observed held-out agreement is
+`0.9542253521` (Wilson 95% interval `[0.9232699883, 0.9730567641]`), Cohen's
+kappa is `0.9085051546`, and exact-consensus coverage is `0.9542253521`.
+The lexical comparator agreement on the same held-out rows is only
+`0.5915492958`, so this run does not upgrade the lexical proxy.
+
+The result status is `AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS` with claim ceiling
+`LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`. It is not human calibration,
+alignment validation, mechanistic understanding, architecture-general proof,
+or production readiness. The human packet remains
+`BLINDED_CALIBRATION_PACKET_READY` until two distinct raters provide complete
+labels through the unchanged `qwen38_calibration.py score` workflow.

@@ -435,3 +435,46 @@ and Wilson intervals are then reported. The current state is
 `BLINDED_CALIBRATION_PACKET_READY`; no human calibration pass is claimed
 until completed labels are supplied. This remains an assessor-calibration
 signal, not alignment validation or production authorization.
+
+AI-proxy-only consistency audit: the `theseus-lab-sandbox-v1` slice ran the
+separate `AI_PROXY_ONLY` lane against the existing owner-custodied Qwen
+transcript and pinned `LibrAI/maliciousinstruct-evaluator` assessor. It did not
+replay Qwen, call a provider, read human labels, or write raw completions. The
+primary and alternate proxies share assessor weights, assessor revision, Qwen
+transcript, and corpus rows; the alternate framing is a locked sensitivity
+probe, not an independent model or review judgment.
+
+The v4 receipt is
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json`
+with SHA-256
+`61abf073013b70669ba3a7affca28572f4adb9218a01bccbf4166cf3bc7c7f6a` and
+protocol-module SHA-256
+`3170306c65899bcfc124edf94d883a17d8e7fbafcccee73881223b9fa7fc7e1c`. The
+alternate score manifest SHA-256 is
+`37b98a670c09eb238256b11d0fcc76e3c76062bc0f917845135c64b1146435b3`, the
+records SHA-256 is
+`a3337a5e738641a3f70fac1ec397450511b8a235773b960de1b284577856de9e`, and
+the aggregate score digest is
+`05cec14331d59561770f8b8843f1d6aad8362af9b9d999cb52966def61319c11`.
+
+The lane covered 939 harmful and 200 benign-contrast rows in four pairwise
+disjoint partitions: fit 285, threshold tuning 285, proxy adjudication 285,
+and held-out assessment 284. Threshold candidate support was fit-only;
+threshold tuning selected primary threshold `0.35` against the alternate
+proxy's fixed `0.5` threshold; the rubric/framing digest was locked before
+held-out assessment; and disagreements remained unresolved. Held-out results
+were 271/284 agreement (`0.9542253521`, Wilson 95% CI
+`[0.9232699883, 0.9730567641]`), confusion `TP=130, FP=13, TN=141, FN=0`,
+Cohen's kappa `0.9085051546`, and consensus coverage `0.9542253521` with the
+same Wilson interval. Threshold perturbations of `+/-0.05` changed one row in
+each direction; row-order metrics were invariant; primary/alternate score
+Pearson correlation was `0.9344419081`; and the lexical comparator agreed on
+only `0.5915492958` of held-out rows (Wilson 95% CI
+`[0.5335289566, 0.6471260478]`).
+
+The status is `AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS`, but the strongest
+defensible ceiling is `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`. This does not
+change the human workflow or its state, which remains
+`BLINDED_CALIBRATION_PACKET_READY`; it is not human calibration, independent
+review, alignment validation, mechanistic understanding, architecture-general
+proof, or production authorization.

@@ -20,7 +20,10 @@ STATE_SLICE = "theseus-lab-sandbox-v1"
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
 
-@dataclass(frozen=True)
+_GATE_RESULT_TOKEN = object()
+
+
+@dataclass(frozen=True, init=False)
 class GateResult:
     """Machine-readable result with an explicit evidence ceiling."""
 
@@ -28,6 +31,49 @@ class GateResult:
     passed: bool
     claim_ceiling: str
     blockers: tuple[str, ...]
+
+    def __init__(
+        self,
+        gate: str,
+        passed: bool,
+        claim_ceiling: str,
+        blockers: tuple[str, ...],
+        *,
+        _token: object | None = None,
+    ) -> None:
+        if _token is not _GATE_RESULT_TOKEN:
+            raise TypeError("gate results must be created by an evidence evaluator")
+        if not isinstance(gate, str) or not gate:
+            raise ValueError("gate result requires a gate name")
+        if not isinstance(passed, bool):
+            raise ValueError("gate result passed flag must be boolean")
+        if not isinstance(claim_ceiling, str) or not claim_ceiling:
+            raise ValueError("gate result requires a claim ceiling")
+        if not isinstance(blockers, tuple) or not all(
+            isinstance(blocker, str) and blocker for blocker in blockers
+        ):
+            raise ValueError("gate result blockers must be a tuple of non-empty strings")
+        object.__setattr__(self, "gate", gate)
+        object.__setattr__(self, "passed", passed)
+        object.__setattr__(self, "claim_ceiling", claim_ceiling)
+        object.__setattr__(self, "blockers", blockers)
+
+
+def _gate_result(
+    gate: str,
+    passed: bool,
+    claim_ceiling: str,
+    blockers: tuple[str, ...],
+) -> GateResult:
+    """Construct a result only from this module's evaluator paths."""
+
+    return GateResult(
+        gate,
+        passed,
+        claim_ceiling,
+        blockers,
+        _token=_GATE_RESULT_TOKEN,
+    )
 
 
 def _is_sha256(value: object) -> bool:
@@ -78,7 +124,7 @@ def evaluate_mechanistic_evidence(payload: Mapping[str, Any]) -> GateResult:
     ):
         if not bool(payload.get(key)):
             blockers.append(f"{key}_failed")
-    return GateResult(
+    return _gate_result(
         gate="mechanistic_equivalence_observation",
         passed=not blockers,
         claim_ceiling="LOCAL_VALIDATED_EQUIVALENCE_CLASS_OBSERVATION_ONLY",
@@ -123,7 +169,7 @@ def evaluate_alignment_evidence(payload: Mapping[str, Any]) -> GateResult:
         and float(pass_rate) < float(threshold)
     ):
         blockers.append("alignment_target_threshold_failed")
-    return GateResult(
+    return _gate_result(
         gate="alignment_validation",
         passed=not blockers,
         claim_ceiling="HELD_OUT_ALIGNMENT_ASSESSMENT_VALIDATION_ONLY",
@@ -176,7 +222,7 @@ def evaluate_production_evidence(
         blockers.append("credentials_persisted")
     if not bool(payload.get("production_authorization")):
         blockers.append("production_authorization_missing")
-    return GateResult(
+    return _gate_result(
         gate="production_readiness",
         passed=not blockers,
         claim_ceiling="PRODUCTION_READINESS_VALIDATION_ONLY",
