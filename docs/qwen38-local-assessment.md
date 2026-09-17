@@ -272,6 +272,9 @@ metadata, and recursive filesystem metadata. It does not open
 `responses.jsonl`, `packet.jsonl`, or any label template. It verifies only the
 already aggregate-only score JSONL digests and schemas; it does not load
 weights, call a provider, or download files.
+The canonical blocker receipt path is excluded from the recursive inventory and
+recorded in `custody_inventory.tree.excluded_paths`, so persisting the report
+does not change its next-run digest.
 
 Run it with the owner runtime:
 
@@ -325,4 +328,4 @@ preserved same-model ceiling remains
 The aggregate blocker receipt is retained at
 `/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
-`7bd42a9b638ed45e8cd7390fe65a3e607c77a3e42ce26ef4aef71a83b4614553`.
+`380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.
