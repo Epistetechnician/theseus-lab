@@ -1,0 +1,161 @@
+"""Fresh, namespaced fixtures for paired-endpoint replacement supervision.
+
+State slices: theseus-lab-sandbox-v1 and
+theseus-replacement-loss-v21-paired-endpoint-supervision-v1.
+Prompt-bearing payloads remain in external owner custody.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from dataclasses import asdict, replace
+from typing import Iterable
+
+import replacement_loss_v3_fixtures as base
+
+
+STATE_SLICE = "theseus-lab-sandbox-v1"
+PROTOCOL_SLICE = "theseus-replacement-loss-v21-paired-endpoint-supervision-v1"
+DEV_PROTOCOL_ID = "theseus-replacement-loss-v21-development"
+CONFIRM_PROTOCOL_ID = "theseus-replacement-loss-v21-confirmation"
+PROMPT_RULES_VERSION = "v21-paired-endpoint-supervision-synthetic-v1"
+STRATA = ("ordinary", "compositional", "adversarial")
+DEVELOPMENT_SEEDS = (202611101, 202611102, 202611103)
+CONFIRMATION_SEEDS = (202611201, 202611202, 202611203)
+ADAPTATION_PER_STRATUM = 64
+FIT_PER_STRATUM = 48
+VALIDATION_PER_STRATUM = 16
+CHALLENGES_PER_STRATUM = 20
+PER_STRATUM_COUNT = ADAPTATION_PER_STRATUM
+_ACTIVE_STAGE = "development"
+SEEDS = DEVELOPMENT_SEEDS
+PROTOCOL_ID = DEV_PROTOCOL_ID
+_EXTRA_DISJOINT_PAYLOADS: tuple[dict[str, object], ...] = ()
+
+
+def activate_stage(stage: str) -> None:
+    global _ACTIVE_STAGE, SEEDS, PROTOCOL_ID
+    if stage not in {"development", "confirmation"}:
+        raise ValueError("stage must be development or confirmation")
+    _ACTIVE_STAGE = stage
+    SEEDS = DEVELOPMENT_SEEDS if stage == "development" else CONFIRMATION_SEEDS
+    PROTOCOL_ID = DEV_PROTOCOL_ID if stage == "development" else CONFIRM_PROTOCOL_ID
+
+
+def seeds_for(stage: str) -> tuple[int, int, int]:
+    if stage == "development":
+        return DEVELOPMENT_SEEDS
+    if stage == "confirmation":
+        return CONFIRMATION_SEEDS
+    raise ValueError("stage must be development or confirmation")
+
+
+def protocol_for(stage: str) -> str:
+    if stage == "development":
+        return DEV_PROTOCOL_ID
+    if stage == "confirmation":
+        return CONFIRM_PROTOCOL_ID
+    raise ValueError("stage must be development or confirmation")
+
+
+def _namespace(records, partition: str, seed: int, protocol_id: str):
+    result = []
+    for row in records:
+        example_id = hashlib.sha256(
+            f"{protocol_id}\0{partition}\0{seed}\0{row.example_id}".encode("utf-8")
+        ).hexdigest()[:24]
+        result.append(replace(
+            row,
+            example_id=example_id,
+            partition=partition,
+            input_text=f"Paired endpoint supervision {partition} seed {seed}. {row.input_text}",
+        ))
+    return result
+
+
+def generate_adaptation_fixture(stage: str, seed_index: int):
+    seeds = seeds_for(stage)
+    if seed_index not in range(len(seeds)):
+        raise ValueError("seed_index is outside the frozen stage seed set")
+    seed = seeds[seed_index]
+    protocol_id = protocol_for(stage)
+    rows = []
+    for stratum_index, stratum in enumerate(STRATA):
+        partition = f"v21-{stage}-adaptation-{seed_index}-{stratum}"
+        source_seed = seed + (stratum_index + 1) * 1_000_000
+        source = base._unique_records(partition, source_seed, ADAPTATION_PER_STRATUM, stratum)
+        rows.extend(_namespace(source, partition, seed, protocol_id))
+    return rows
+
+
+def generate_challenge_fixture(seed_index: int, secret_seed: bytes, *, stage: str | None = None):
+    stage = stage or _ACTIVE_STAGE
+    seeds = seeds_for(stage)
+    if stage != "confirmation":
+        raise ValueError("only confirmation fixtures may contain a challenge")
+    if seed_index not in range(len(seeds)):
+        raise ValueError("seed_index is outside the frozen confirmation seed set")
+    if len(secret_seed) != 32:
+        raise ValueError("confirmation challenge entropy must contain exactly 256 bits")
+    protocol_id = protocol_for(stage)
+    seed = int.from_bytes(hashlib.sha256(secret_seed + bytes([seed_index])).digest()[:8], "big")
+    rows = []
+    for stratum in STRATA:
+        stratum_seed = seed ^ int.from_bytes(hashlib.sha256(stratum.encode()).digest()[:8], "big")
+        partition = f"v21-confirmation-challenge-{seed_index}-{stratum}"
+        source = base._unique_records(partition, stratum_seed, CHALLENGES_PER_STRATUM, stratum)
+        rows.extend(_namespace(source, partition, seeds[seed_index], protocol_id))
+    return rows
+
+
+def fixture_payload(records: Iterable, *, fixture_kind: str, stage: str | None = None):
+    stage = stage or _ACTIVE_STAGE
+    protocol_id = protocol_for(stage)
+    rows = [asdict(row) for row in records]
+    if not rows:
+        raise ValueError("fixture must contain at least one row")
+    ids = [row["example_id"] for row in rows]
+    if len(set(ids)) != len(ids):
+        raise ValueError("fixture example IDs must be unique")
+    record_digests = [
+        hashlib.sha256(json.dumps(row, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        for row in rows
+    ]
+    return {
+        "protocol_id": protocol_id,
+        "state_slice": STATE_SLICE,
+        "protocol_slice": PROTOCOL_SLICE,
+        "fixture_kind": fixture_kind,
+        "prompt_rules_version": PROMPT_RULES_VERSION,
+        "count": len(rows),
+        "stratum_counts": {name: sum(row["stratum"] == name for row in rows) for name in sorted({row["stratum"] for row in rows})},
+        "example_set_sha256": hashlib.sha256("\n".join(sorted(record_digests)).encode("ascii")).hexdigest(),
+        "records": rows,
+    }
+
+
+def set_extra_disjoint_payloads(payloads: Iterable[dict[str, object]]) -> None:
+    global _EXTRA_DISJOINT_PAYLOADS
+    _EXTRA_DISJOINT_PAYLOADS = tuple(payloads)
+
+
+def validate_partition_disjointness(*payloads: dict[str, object]) -> None:
+    seen_ids: set[str] = set()
+    seen_prompts: set[str] = set()
+    seen_content: set[str] = set()
+    for payload in (*_EXTRA_DISJOINT_PAYLOADS, *payloads):
+        rows = payload.get("records")
+        if not isinstance(rows, list):
+            raise ValueError("fixture records must be a list")
+        for row in rows:
+            if not isinstance(row, dict):
+                raise ValueError("fixture record must be an object")
+            example_id = str(row["example_id"])
+            prompt = str(row["input_text"])
+            content = prompt + "\0" + str(row["continuation"])
+            if example_id in seen_ids or prompt in seen_prompts or content in seen_content:
+                raise ValueError("fixtures overlap by ID or exact prompt content")
+            seen_ids.add(example_id)
+            seen_prompts.add(prompt)
+            seen_content.add(content)

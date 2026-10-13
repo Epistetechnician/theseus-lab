@@ -1,0 +1,84 @@
+#!/usr/bin/env python3
+"""V4i identity adapter for the frozen V4h custody importer.
+
+State slices: theseus-lab-sandbox-v1,
+theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i, and
+global-experiment-assurance-lifecycle-v1.
+"""
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+import sys
+from pathlib import Path
+from typing import Any
+
+PROTOCOL_ID = "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i"
+STATE_SLICE = PROTOCOL_ID
+ROOT = Path("/home/dev/theseus-v9")
+PACKET = ROOT / "v4i"
+
+
+def _canonical_digest(value: Any) -> str:
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+
+
+def _load_parent() -> Any:
+    freeze = json.loads((PACKET / "freeze.json").read_text(encoding="utf-8"))
+    material = {key: value for key, value in freeze.items() if key != "packet_sha256"}
+    if freeze.get("packet_sha256") != _canonical_digest(material) or freeze.get("protocol_id") != PROTOCOL_ID:
+        raise ValueError("V4i canonical freeze identity mismatch")
+    row = freeze["parent_helpers"]["importer"]
+    path = PACKET / row["path"]
+    content = path.read_bytes()
+    if len(content) != row["bytes"] or hashlib.sha256(content).hexdigest() != row["sha256"]:
+        raise ValueError("V4h parent importer helper digest mismatch")
+    spec = importlib.util.spec_from_file_location("theseus_v4i_parent_importer_v4h", path)
+    if spec is None or spec.loader is None:
+        raise ImportError("could not load the frozen V4h parent importer")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    module.ROOT = ROOT
+    module.PACKET = PACKET
+    module.PROTOCOL_ID = PROTOCOL_ID
+    module.STATE_SLICE = STATE_SLICE
+    return module
+
+
+def _verify_parent_v4h(freeze: dict[str, Any]) -> None:
+    parent = freeze["parent_v4h"]
+    for key in ("freeze_file", "terminal_receipt"):
+        row = parent[key]
+        path = PACKET / row["path"]
+        content = path.read_bytes()
+        if len(content) != row["bytes"] or hashlib.sha256(content).hexdigest() != row["sha256"]:
+            raise ValueError(f"V4h parent evidence digest mismatch: {key}")
+    old_freeze = json.loads((PACKET / parent["freeze_file"]["path"]).read_text(encoding="utf-8"))
+    old_material = {key: value for key, value in old_freeze.items() if key != "packet_sha256"}
+    terminal = json.loads((PACKET / parent["terminal_receipt"]["path"]).read_text(encoding="utf-8"))
+    if (
+        old_freeze.get("packet_sha256") != parent.get("packet_sha256")
+        or old_freeze.get("packet_sha256") != _canonical_digest(old_material)
+        or terminal.get("packet_sha256") != parent.get("packet_sha256")
+        or terminal.get("reproducibility_status") != "INCONCLUSIVE_TIMEOUT"
+        or terminal.get("evaluator", {}).get("exit_code") != 124
+        or terminal.get("accounting", {}).get("corrected_related_aggregate_usd") != 1.806
+    ):
+        raise ValueError("V4h terminal parent binding is invalid")
+
+
+if __name__ == "__main__":
+    freeze = json.loads((PACKET / "freeze.json").read_text(encoding="utf-8"))
+    _verify_parent_v4h(freeze)
+    parent = _load_parent()
+    result = parent._verify()
+    print(json.dumps({
+        "protocol_id": PROTOCOL_ID,
+        "state_slice": STATE_SLICE,
+        "packet_sha256": result["packet_sha256"],
+        "receipt_sha256": result["receipt_sha256"],
+        "all_checks_pass": result["all_checks_pass"],
+        "held_out_predictions_or_outcomes_opened": result["held_out_predictions_or_outcomes_opened"],
+    }, sort_keys=True))

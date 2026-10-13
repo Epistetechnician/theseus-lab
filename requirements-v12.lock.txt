@@ -1,0 +1,2 @@
+# State slices: theseus-lab-sandbox-v1 and theseus-replacement-loss-v12-replication-normalization-v1.
+# Python 3.12.13 standard library only; no third-party dependencies.
