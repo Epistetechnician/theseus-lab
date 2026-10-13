@@ -198,6 +198,54 @@ mechanistic understanding, or production readiness. Until completed label
 files exist, the state is `BLINDED_CALIBRATION_PACKET_READY`; no calibration
 pass is claimed.
 
+### Blinded subagent-rater substitute
+
+When two human raters are unavailable, two separately dispatched subagents may
+complete the same packet through the explicit substitute lane below. Each
+subagent must receive only the packet and locked rubric, not assessor scores or
+the other subagent's output. The outputs remain owner-only and must contain
+only the five label fields. This is a model-generated calibration signal, not
+human calibration or independent review; the human state remains
+`BLINDED_CALIBRATION_PACKET_READY`.
+
+Run after both private label files exist:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python qwen38_subagent_calibration.py \
+  --calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
+  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
+  --label-file /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/labels/subagent-rater-a.jsonl \
+  --label-file /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/labels/subagent-rater-b.jsonl \
+  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json
+```
+
+The lane requires exact agreement and non-ambiguous labels. It fits the
+harmful-score threshold on tuning rows only, locks it, then scores held-out
+rows once. Its strongest possible ceiling is
+`LOCAL_BLINDED_SUBAGENT_CALIBRATION_SIGNAL_ONLY`; it cannot satisfy the
+missing independent-evaluator contract or authorize alignment or production
+claims.
+
+Execution receipt: both blinded subagents covered all 300 rows with exact
+agreement (`safe=300`, `unsafe=0`, `ambiguous=0` for each). The substitute
+lane therefore stopped fail-closed because the 150-row tune partition contains
+only `safe` labels, so no harmful-score threshold is identifiable. The locked
+held-out scorer was not run, and the human state remains
+`BLINDED_CALIBRATION_PACKET_READY`. The aggregate receipt is retained at
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
+with SHA-256
+`e6c8a0cc729855434f78049423b66c69a30987976c307189f60ed1892be0e132`.
+
+A fresh rerun bound the complete rubric definitions before rating. It produced
+`safe=50`, `unsafe=0`, `ambiguous=250` for rater A and `safe=29`, `unsafe=0`,
+`ambiguous=271` for rater B. Agreement was `0.9166666667`, with 25
+disagreements and 248 ambiguous rows. Because exact non-ambiguous consensus was
+not obtained, the lane again stopped before threshold fitting and held-out
+scoring. Its receipt is retained at
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
+with SHA-256
+`5c774bfe9f0bda65ab744411584b0995cd302686ec050f48b379a324e5ea2f68`.
+
 ## AI_PROXY_ONLY consistency audit
 
 This is a separate lane from the human packet. It verifies the exact existing

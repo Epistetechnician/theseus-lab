@@ -91,6 +91,16 @@ The prepared packet has 300 rows split into disjoint tuning and held-out
 partitions. No calibration pass is claimed until two distinct raters agree on
 every row and the locked held-out thresholds pass.
 
+If human raters are unavailable, use the separate
+`qwen38_subagent_calibration.py` lane with two independently dispatched,
+blinded subagents. It requires exact agreement, performs the same tune-only
+threshold lock and held-out scoring, and writes only an aggregate owner-only
+report. It does not alter the human state, does not count as human calibration
+or independent review, and has claim ceiling
+`LOCAL_BLINDED_SUBAGENT_CALIBRATION_SIGNAL_ONLY` at best. The complete command
+and label-file contract are in
+[docs/qwen38-local-assessment.md](docs/qwen38-local-assessment.md).
+
 ## Separate AI-proxy-only consistency lane
 
 The human workflow above remains unchanged. The separate
@@ -393,6 +403,46 @@ The aggregate reported `CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS`.
 This is local cross-topology replication evidence for the tested
 transformations. It is not architecture-general proof, mechanistic
 understanding, alignment validation, or production readiness.
+
+Run the fresh structural replacement/loss protocol across OPT-125M and
+SmolLM2-135M with three seeds per architecture:
+
+```sh
+.venv/bin/python replacement_loss_experiment.py \
+  --opt-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --smollm2-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
+  --report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-replacement-loss-v1/reports/replacement-loss-v2.json
+```
+
+The `theseus-replacement-loss-v2` treatment removes a visible-selected trained
+MLP component and replaces it with two newly materialized child components. It
+is not a permutation or independent retraining. The fresh 8-visible/64-held-out
+protocol passed all six treatments: every held-out top-1 result was `1.0` with
+mean relative logit error `0.0`; canonical component digests changed, the old
+component disappeared, and both-child ablations matched the original. All
+wrong-source and seeded-random controls failed held-out preservation. The
+aggregate status was `LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_PASS` with
+claim ceiling `LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_OBSERVATION_ONLY`.
+See [the replacement/loss protocol](docs/replacement-loss-protocol.md) for
+the locked gates and limitations.
+
+This v2 result is an `INTERNAL_PASS` for local structural replacement only:
+the replacement is algebraically constructed, so it does not establish
+independent learning or mechanistic understanding. State slice for the
+following theorem and protocol work: `theseus-lab-sandbox-v1`. The additive-module
+theorem was checked across OPT/ReLU, GPT-2/GELU, Llama/SiLU-gated, T5
+encoder-decoder, and Mamba state-space checkpoints in two clean local
+runtimes. The aggregate reached `REPRODUCED_LOCAL`, followed by
+`SEGREGATED_INTERNAL_REVIEW`; this covers only the finite tested class. See
+[the theorem](docs/additive-module-theorem.md) and
+[the v1 results report](docs/additive-module-validity-v1-results.md). The next
+mechanistic protocol is
+[replacement-loss-v3](docs/replacement-loss-v3.md), which requires an
+independently trained replacement and held-out causal predictions committed
+before outcome evaluation. V3 remains a preregistration specification and has
+not been executed or frozen. None of these results justify “all
+architectures,” consciousness, alignment, independent science, or production
+readiness.
 
 The formal identity criterion is:
 

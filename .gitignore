@@ -3,3 +3,5 @@ __pycache__/
 .env
 .env.*
 *.py[cod]
+.DS_Store
+.ruff_cache/

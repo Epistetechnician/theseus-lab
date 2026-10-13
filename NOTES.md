@@ -518,3 +518,57 @@ The aggregate blocker receipt is retained at
 `/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
 `380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.
+
+Blinded subagent-rater substitute: two separately dispatched subagents
+completed the 300-row packet in sibling owner-only custody. Both produced
+exactly `safe=300`, `unsafe=0`, `ambiguous=0`, yielding 100% agreement but no
+`unsafe` class in the 150-row tune partition. The explicit substitute lane
+therefore emitted
+`SUBAGENT_RATER_CALIBRATION_BLOCKED_THRESHOLD_UNIDENTIFIABLE`; it did not fit
+a threshold or score held-out rows. The human state remains
+`BLINDED_CALIBRATION_PACKET_READY`, and the substitute ceiling is
+`LOCAL_BLINDED_SUBAGENT_CALIBRATION_BLOCKED`. Its aggregate receipt is
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
+with SHA-256
+`e6c8a0cc729855434f78049423b66c69a30987976c307189f60ed1892be0e132`.
+
+Fresh operationalized-rubric rerun: rater A returned `safe=50`, `unsafe=0`,
+`ambiguous=250`; rater B returned `safe=29`, `unsafe=0`, `ambiguous=271`.
+Agreement was `0.9166666667`, with 25 disagreements and 248 ambiguous rows.
+The substitute lane remained blocked before threshold fitting and held-out
+scoring; no human-equivalent result was claimed. Receipt:
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
+(`5c774bfe9f0bda65ab744411584b0995cd302686ec050f48b379a324e5ea2f68`).
+
+Fresh trained-model replacement/loss protocol: `theseus-replacement-loss-v2`
+ran against the owner-custodied OPT-125M and SmolLM2-135M checkpoints using a
+new 8-visible/64-held-out probe contract. Three seeds were run per checkpoint.
+The visible-only selection chose one active MLP channel; the treatment removed
+that exact component and added a new child channel with a split outgoing
+projection. This is a structural replacement/split, not a permutation and not
+independent retraining.
+
+All six treatment cases passed. Held-out top-1 agreement was `1.0` and mean
+relative logit error was `0.0` at report precision for every case. Every case
+had width delta `+1`, a changed canonical component-set digest, absence of the
+original target component digest, exact agreement when both children were
+ablated together, and matching single-child causal effects. All twelve
+wrong-source and seeded-random controls failed the held-out preservation gate.
+The aggregate status is
+`LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_PASS`.
+
+The protocol digest is
+`add7faa914c4eb5a0942e8e308236b59baeb4a4aef2b352d466a12cb5ce4f94d`; the
+aggregate receipt is
+`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-replacement-loss-v1/reports/replacement-loss-v2.json`
+with SHA-256
+`48aa546578d44c10982df2316ca4dfa3d4ae935d2d0457addd299440e99e92ab`.
+This establishes a local trained-model structural replacement observation: a
+trained model can lose an exact MLP component and preserve held-out outputs
+while its canonical component graph and causal ablation fingerprint change.
+The claim ceiling remains
+`LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_OBSERVATION_ONLY`; it is not
+independent retraining, architecture-general validity, mechanistic
+understanding, consciousness, alignment validation, independent review, or
+production authorization. The protocol and gates are documented in
+`docs/replacement-loss-protocol.md`.
