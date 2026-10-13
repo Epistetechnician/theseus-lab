@@ -1,0 +1,165 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "freeze_sha256": "cab3df9f90de242be4ac4acce26853e39e9810fd492f42e1f637f79dffe29afe",
+  "fresh_confirmation_seeds": [
+    202610911,
+    202610912,
+    202610913
+  ],
+  "fresh_development_seeds": [
+    202610811,
+    202610812,
+    202610813
+  ],
+  "method_and_gates_unchanged_from_v20": true,
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 2992,
+      "path": "docs/replacement-loss-v20b-low-rank-causal-residual.md",
+      "sha256": "36c6e2d5df2dbf31107c08d7b99dc98b21d15bf4a0b1a9526abfc79a5b47fc7e"
+    },
+    {
+      "bytes": 2745,
+      "path": "replacement_loss_v20b_fixtures.py",
+      "sha256": "5bb0b8ff024d4ddcf6ed90496f750e4b5a0e9713043915365589127bec45c9f4"
+    },
+    {
+      "bytes": 17597,
+      "path": "replacement_loss_v20b_runner.py",
+      "sha256": "0af60dfe34ece9cf1d49c5bbf23a581005360d506c4262ca4620f9d364a66127"
+    },
+    {
+      "bytes": 550,
+      "path": "requirements-v20b.lock.txt",
+      "sha256": "4565c46269baae5417aa9405d294b31064f6c49a6d5a1005a7c291f6bd2bde6b"
+    },
+    {
+      "bytes": 7468,
+      "path": "docs/replacement-loss-v20-development-freeze.json",
+      "sha256": "fbb90096bccd39af09eef7b44482d42853045c4796dc49b8de39868e12198e8d"
+    },
+    {
+      "bytes": 6308,
+      "path": "docs/replacement-loss-v20-low-rank-causal-residual.md",
+      "sha256": "5aa14eadd0c1a32b5ef61a1117d0d4892e8316e1de4c1a4db90b339a99cc6d99"
+    },
+    {
+      "bytes": 6650,
+      "path": "replacement_loss_v20_fixtures.py",
+      "sha256": "79dfad79c162fd2a7eacb5696f6f2cf81660eff98815cec6ed57aaa1a9ecacf8"
+    },
+    {
+      "bytes": 72347,
+      "path": "replacement_loss_v20_runner.py",
+      "sha256": "53b69efca5cf7036531f1f7d94ea2f736549569acd109e60cb362a5437f360a9"
+    },
+    {
+      "bytes": 536,
+      "path": "requirements-v20.lock.txt",
+      "sha256": "e7eb5e9ecfb24f9c195931e1598402268f4dcec45f4786da06c4e160a7e6abec"
+    }
+  ],
+  "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+  "parent_continuation": {
+    "aborted_artifacts": [
+      {
+        "bytes": 167602598,
+        "path": "adaptation/seed-0.npz",
+        "sha256": "b2015d5e5b4ababd2e396bbd94e08ef9d80dbd7de2497578e3ba35d19e76f247"
+      },
+      {
+        "bytes": 18890040,
+        "path": "candidates/seed-0-causal.safetensors",
+        "sha256": "df986143782813d8529cfae5cdb399c48c2ed7085f99360076fd966ba01b4338"
+      },
+      {
+        "bytes": 18890040,
+        "path": "candidates/seed-0-pointwise.safetensors",
+        "sha256": "d54b0dc65bd89e9af08e964d68516ca54a74fdc4f273f233abb86138eeb30d0e"
+      },
+      {
+        "bytes": 18890040,
+        "path": "candidates/seed-0-random.safetensors",
+        "sha256": "bcd6e3426d40dc7a3bf82c585025093e6b0099b428a852efcda5a0222aeafa36"
+      },
+      {
+        "bytes": 96155,
+        "path": "fixtures/adaptation-seed-0.json",
+        "sha256": "789361e105b0bda8914037a8267b607f60d7fde54e5494fb608e87a7ebaef544"
+      },
+      {
+        "bytes": 96243,
+        "path": "fixtures/adaptation-seed-1.json",
+        "sha256": "ea6430e8a5d793f2816256a204fa61dbad5fb1401e6613658e1c0352ee941e67"
+      },
+      {
+        "bytes": 96176,
+        "path": "fixtures/adaptation-seed-2.json",
+        "sha256": "0cdd281196722473019d1fb3ce42be6faa579600f2467e4f7bcb516d05ecd0a0"
+      },
+      {
+        "bytes": 372,
+        "path": "fixtures/v16-visible-reference.json",
+        "sha256": "ee6495d7c9bf80bd86fc5b824446714efc169883e750dd188402d8b997038d00"
+      },
+      {
+        "bytes": 6151,
+        "path": "frozen-packet-manifest.json",
+        "sha256": "718975873c96f36fefb61ab4be2425595f2e617a6772cb39b7d649335d86c579"
+      },
+      {
+        "bytes": 2112,
+        "path": "primary-runtime.log",
+        "sha256": "26ab753f24356b864b02182ddcfeda4a0c6473bb17a6919202f5409cd87c5f43"
+      },
+      {
+        "bytes": 378,
+        "path": "run-stop.json",
+        "sha256": "9e997c82f953e3bc62387cda013fd479b0224eb1d712f84b46a585d259294667"
+      },
+      {
+        "bytes": 1688,
+        "path": "splits/seed-0.json",
+        "sha256": "8075533b2d4dbb0e810c118365b8be488a39b363a2a650889100fa6b17cc7e72"
+      },
+      {
+        "bytes": 1688,
+        "path": "splits/seed-1.json",
+        "sha256": "1272e2f1c9f850ba5d2a1675a31aacbf8f7c859e21a604756c13b53ba53e2471"
+      },
+      {
+        "bytes": 1688,
+        "path": "splits/seed-2.json",
+        "sha256": "186121dd27361a951a69d2f8b492fa6ac7f26ffae67cad3a9ae70f29bcabb9c0"
+      }
+    ],
+    "aborted_artifacts_sha256": "734697680bf8e87ae4d697d55bedf2c1a40fe478246b8e757e17024d2684a430",
+    "aborted_v20_data_reused": false,
+    "correction": "add a direct-call zero-output adapter for the inherited no-op control",
+    "failed_run_error": "Module [NoOpCandidate] is missing the required \"forward\" function",
+    "failed_run_error_type": "NotImplementedError",
+    "failed_run_phase": "development-preparation",
+    "failed_run_status": "INCONCLUSIVE",
+    "failed_run_stop_sha256": "9e997c82f953e3bc62387cda013fd479b0224eb1d712f84b46a585d259294667",
+    "parent_freeze_sha256": "216474211359c44a21ab1356f8d1d09de22bdf65ea390243392f90ac9d161747",
+    "parent_packet_sha256": "7d32925486e70e7f3d8c0e2143974005a1b12fa1a9b17874fb11aeee8db7a85f",
+    "parent_protocol_id": "theseus-replacement-loss-v20-development"
+  },
+  "protocol_id": "theseus-replacement-loss-v20b-development",
+  "protocol_slice": "theseus-replacement-loss-v20b-low-rank-causal-residual-continuation-v1",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_identity": {
+    "fresh_checkpoint_claim": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "selected_layer": 8,
+    "tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "weight_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132"
+  }
+}

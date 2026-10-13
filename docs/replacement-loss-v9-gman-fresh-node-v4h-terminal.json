@@ -1,0 +1,39 @@
+{
+  "accounting": {
+    "corrected_related_aggregate_usd": 1.806,
+    "old_aggregate_cap_usd": 2.0,
+    "pre_v4h_frozen_related_spend_usd": 1.167,
+    "remaining_to_old_cap_usd": 0.194,
+    "settled_v4h_mission_usd": 0.639,
+    "stale_pre_settlement_v4h_estimate_usd": 0.6042
+  },
+  "custody": {
+    "model_assets_prompts_challenges_and_partial_predictions_copied_to_repository": false,
+    "node_state": "stopped (disk snapshotted)",
+    "snapshot_storage_billable_bytes": 0
+  },
+  "evaluator": {
+    "command_id": "cmd-4h5pn",
+    "exit_code": 124,
+    "started": true,
+    "timeout_minutes": 73
+  },
+  "mission": {
+    "name": "theseus-v9-linux-runtime-reproduction-20260928-v4h",
+    "url": "https://autoresearch.sfcompute.com/missions/theseus-v9-linux-runtime-reproduction-20260928-v4h",
+    "node_ran_seconds": 4769,
+    "settled_total_usd": 0.639
+  },
+  "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+  "partial_predictions": {
+    "bytes": 1201283613,
+    "files": 52,
+    "inventory_sha256": "d5c0627b2948831a2ffe4ea05918bddd116072601c71aabf34604d0455ecae50"
+  },
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+  "reproducibility_status": "INCONCLUSIVE_TIMEOUT",
+  "reviewer_status": "NOT_SUBMITTED",
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+  "target_v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+}

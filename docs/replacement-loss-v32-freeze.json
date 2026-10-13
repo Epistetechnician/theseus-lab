@@ -1,0 +1,63 @@
+{
+  "adaptation_generated": false,
+  "challenge_generated": false,
+  "claim_ceiling": "LOCAL_SYNTHETIC_TRAINED_NONLINEAR_LADDER_CAUSAL_RETENTION_ONLY",
+  "dirty_tree_status_sha256_at_freeze": "457163b987af0175ed2a3a2acc3e3548008d973d8e605c7fe52dc80314ac62c1",
+  "freeze_state": "FROZEN_BEFORE_GUIDE_OR_TASK_DATA_GENERATION",
+  "guide_generated": false,
+  "max_artifact_bytes_per_runtime": 1073741824,
+  "max_rss_bytes": 4294967296,
+  "max_seconds_per_runtime": 1800,
+  "monetary_cap_usd": 0,
+  "nonclaims": [
+    "pretrained transformer replacement",
+    "all architectures",
+    "novelty priority",
+    "metaphysical identity",
+    "consciousness",
+    "alignment",
+    "independent science",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 33755,
+      "path": "replacement_loss_v32_runner.py",
+      "sha256": "edcaa9f8e29f19796744839be058ee1292aeff681c3b1764fa1bb1687fd3a0ce"
+    },
+    {
+      "bytes": 5201,
+      "path": "tests/test_replacement_loss_v32.py",
+      "sha256": "b4e891454d514f136e1c5183527c2bb047f49233fb51e251c729271896e6a41a"
+    },
+    {
+      "bytes": 178,
+      "path": "requirements-v32.lock.txt",
+      "sha256": "4a97303d62fc2c90cdf4edc8661aa3695d21c9ecbdcb048d100544c06f2cfd77"
+    },
+    {
+      "bytes": 10237,
+      "path": "docs/replacement-loss-v32-causal-ladder.md",
+      "sha256": "f8a3dc296ec1f743a1ddf9bde114307108d4191f41273c35c2900281e0d630e4"
+    },
+    {
+      "bytes": 4990,
+      "path": "theseus_run_audit_v1.py",
+      "sha256": "4a774b552b8d974af6f0e52ed07b8c344caec13a2bd584e3b107565ea97319a5"
+    },
+    {
+      "bytes": 147706,
+      "path": "docs/theseus-all-runs-audit-v1.json",
+      "sha256": "c608dbcc1517daa37f11c2f1b6147e296a2e575c08fe7c0b45ed02512bf82f22"
+    },
+    {
+      "bytes": 8530,
+      "path": "docs/theseus-all-runs-audit-v1.md",
+      "sha256": "b95eaa07271fb2badaa7bb79619672327ed6877fc2bf2074da6029d9b2595cd2"
+    }
+  ],
+  "packet_sha256": "a50766c1611c72a444fa8213378761adaef84811f5f3afdc0181aafce7f11c67",
+  "protocol_id": "theseus-replacement-loss-v32-causal-ladder",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-replacement-loss-v32-causal-ladder-v1"
+}

@@ -1,0 +1,115 @@
+{
+  "acceptance": {
+    "divergence_status": "DIVERGED",
+    "incomplete_status": "INCONCLUSIVE",
+    "required_all_v9_replication_checks": true,
+    "required_replicated_primary_outcome": "FAIL",
+    "success_assurance": "REPRODUCED_LOCAL",
+    "success_claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_THE_FROZEN_V9_FAIL_RESULT_ON_THE_SELECTED_CHECKPOINTS_AND_FIXTURES",
+    "thresholds_or_analysis_changes_allowed": false
+  },
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "checkpoint_identities": [
+    {
+      "artifact_tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+      "family": "opt_relu",
+      "license": "apache-2.0",
+      "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+      "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+      "weights_sha256": "7771b175e62d68de32cd21bac7356ac2a1739042b1c630adaee49d0e8aeac49f"
+    },
+    {
+      "artifact_tree_sha256": "0110ee96ac9dd9c50c2d89672699ac752ac292a9e3ede263fb60e72c74555e7a",
+      "family": "gpt2_gelu",
+      "license": "apache-2.0",
+      "model_id": "distilbert/distilgpt2",
+      "revision": "2290a62682d06624634c1f46a6ad5be0f47f38aa",
+      "weights_sha256": "a2624b31484c352497c44cabecc752d3b48e45e04bf2fe39ad79a35cc8072308"
+    },
+    {
+      "artifact_tree_sha256": "357e0a2351a14770b0021d3bb85bb118f0e6cedb26f29f7e5603164273f65e17",
+      "family": "llama_silu_gated",
+      "license": "apache-2.0",
+      "model_id": "StentorLabs/Stentor-30M",
+      "revision": "6a69098f55961cc0df3a0751e44082616e4afdfa",
+      "weights_sha256": "5301f1fc21b2020d1b716c7f70cf5f956ee51b2dbb9580b3425c02f36b4db562"
+    }
+  ],
+  "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_THE_FROZEN_V9_FAIL_RESULT_ON_THE_SELECTED_CHECKPOINTS_AND_FIXTURES",
+  "created_at_utc": "2026-09-28T00:02:43Z",
+  "freeze_state": "FROZEN_BEFORE_GMAN_NODE_PROVISION_AND_CLOUD_DATA_TRANSFER",
+  "gman_limits": {
+    "chip": "cpu-8",
+    "gpu_allowed": false,
+    "max_command_minutes": 75,
+    "max_node_session_minutes": 90,
+    "max_node_rate_usd_per_minute": 0.0083,
+    "max_spend_usd": 1.0,
+    "max_total_wall_seconds": 5400,
+    "torch_threads": 1
+  },
+  "known_limitations": [
+    "same-owner GMan execution is not blind or independent review",
+    "Linux x86_64 CPU math may differ from the original macOS ARM64 run",
+    "this packet reuses the already selected v9 checkpoints and fixtures"
+  ],
+  "packet_document": {
+    "bytes": 5323,
+    "path": "docs/replacement-loss-v9-cloud-reproduction-v1.md",
+    "sha256": "82b901c109504e5b9d7eb3424f4db6de0f634a40dca4e0f93dfd8895d545a85c"
+  },
+  "packet_sha256": "f39c2f22e085df8f563b2f0f2a3b32a5aafcc4a3ef03bd0b09f1886dd4d5409c",
+  "primary_custody_identities": {
+    "candidate_freeze_file_sha256": "309ed7dfde5a4277daa57ed21e77bc8d2e05307268789a79819e31b19f3f8443",
+    "candidate_preparation_file_sha256": "1a32fe2227be723e3134afd016368ef32272094d6abbf7f325608c0bf0cc6650",
+    "challenge_manifest_file_sha256": "5de1335c01d3fd8bf0729977842067a002c83338cf58c223faf59fa0df7f5600",
+    "final_disjointness_receipt_file_sha256": "144bd3cdf7115b65bd9aad1d32ff29e748d3c0cc78e0b24329f81b0f662a4516",
+    "outcome_manifest_file_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "prediction_manifest_file_sha256": "5c7602bde1beb52d477809accb627eef9b396db32b7726395b12bf9e8bef911c",
+    "primary_outcome": "FAIL",
+    "primary_replication_manifest_file_sha256": "4f759a1396147bf723b9cec5c8f97716128cf02673808a7212da8de41634a61c",
+    "ridge_stage_pass_count": "21/27",
+    "v9_checkpoint_manifest_file_sha256": "b52bd7b94eb1e14c0453ba9318fcec2b39f0a210ca4c35f88b070bd57cd8e277",
+    "v9_frozen_packet_manifest_file_sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6",
+    "v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+  },
+  "prior_fixture_inventory": {
+    "bytes": 3829906,
+    "file_count": 112,
+    "identity_receipt_sha256": "52369ad21f1cac10947142dd2a19471bc82fbfe21e262da6e8cc9f34673a7a8e",
+    "inventory_sha256": "3b46ce7f74bd8b8a24f5324cd5aae5ef34933b71a3f8ce731dcb8488480c9421",
+    "prior_unique_record_count": 3388
+  },
+  "protocol_id": "theseus-replacement-loss-v9-cloud-cross-runtime-reproduction-v1",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime_pins": {
+    "python": "3.12.13",
+    "requirements_lock_path": "requirements-v9.lock.txt",
+    "requirements_lock_sha256": "034f815d48112752efb5b7278447b6f4c6653ce5c9316da0eb5a1a15ab188a5e",
+    "runtime_dependency_manifest_sha256": "bea06dc458f522768a207ea383d8220ab3b9e0eda8c9de72c5f6468cafd3d94d",
+    "torch": "2.6.0",
+    "transformers": "4.57.3",
+    "numpy": "2.4.6",
+    "safetensors": "0.8.0",
+    "tokenizers": "0.22.2",
+    "huggingface-hub": "0.36.2"
+  },
+  "source_identity": {
+    "git_head": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "packet_file_count": 32,
+    "packet_source_sha256": "30ccf63209aa70ed8821b2614214114b010bd0c95f61bda772fa7e5ffbe548f4"
+  },
+  "state_slice": "theseus-replacement-loss-v9-gman-cloud-reproduction-v1",
+  "transfer_inventory": {
+    "file_count": 280,
+    "inventory_sha256": "e31b70ed20278a974bf96f60a2217d94f3c695668ca288e1afc5580302c6e962",
+    "primary_and_source_bytes": 2072547646,
+    "primary_and_source_file_count": 280,
+    "prior_fixture_bytes": 3829906,
+    "prior_fixture_file_count": 112,
+    "selected_total_bytes": 2076377552,
+    "selected_total_file_count": 392
+  },
+  "v9_result_assurance": "REPRODUCED_LOCAL",
+  "v9_result_reviewer_status": "NOT_SUBMITTED"
+}

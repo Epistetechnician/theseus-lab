@@ -1,0 +1,39 @@
+{
+  "challenge_entropy_generated_before_freeze": false,
+  "checkpoint_selection": "not applicable; synthetic guides are freshly initialized from frozen seeds",
+  "freeze_state": "FROZEN_BEFORE_TASK_DATA_GENERATION",
+  "freeze_utc": "2026-10-02 20:37:04 UTC",
+  "packet_files": [
+    {
+      "bytes": 8918,
+      "path": "docs/replacement-loss-v31-scm-interchange.md",
+      "sha256": "3f01c8d346dd3235c486a2a45666f4f26e7ea3f3e7419e5139f2639f8940b39a"
+    },
+    {
+      "bytes": 45811,
+      "path": "replacement_loss_v31_runner.py",
+      "sha256": "f2e8281b66c7465f56fcf91177867fed74c469d84b0ee14ab3800e8948968cc4"
+    },
+    {
+      "bytes": 2533,
+      "path": "tests/test_replacement_loss_v31_scm_interchange.py",
+      "sha256": "9cc8c1cf4a17f5058a6221e6f5bec6769c5bd3b4d0bd2e33b511b3aabfc68130"
+    },
+    {
+      "bytes": 178,
+      "path": "requirements-v31.lock.txt",
+      "sha256": "4a97303d62fc2c90cdf4edc8661aa3695d21c9ecbdcb048d100544c06f2cfd77"
+    }
+  ],
+  "packet_sha256": "0922be564b628c5ac4dafd0271ecf96969001fccb0abbbcc833e0d9382818513",
+  "protocol_id": "theseus-replacement-loss-v31-scm-interchange",
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-replacement-loss-v31-scm-interchange-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "task_data_generated_before_freeze": false,
+  "worktree_status_sha256_before_freeze_manifest": "52b17f4aa1819ca92ce6de753a67ed1164173edd32be9afcfc99df47535e720a",
+  "worktree_status_sha256_at_freeze": "c0979023a0f188d6c1f979bc3a53d3cbdb8fc3d5a77e01e859a1764737d9696e"
+}

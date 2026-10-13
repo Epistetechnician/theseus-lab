@@ -1,0 +1,50 @@
+{
+  "protocol_id": "theseus-v39-first-mlp-causal-diagnosis-v1",
+  "state_slice": "theseus-v39-first-mlp-causal-diagnosis-v1",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-first-mlp-causal-diagnosis-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "claim_ceiling": "ADAPTATION_FIRST_MLP_LOCAL_AND_CONTEXT_ERROR_DIAGNOSIS_ONLY",
+  "date": "2026-10-07",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "freeze_status": "FROZEN_BEFORE_ADAPTATION_DIAGNOSTIC_MEASUREMENTS",
+  "new_training_steps_authorized": 0,
+  "new_heldout_queries_authorized": 0,
+  "paid_cap_usd": 0,
+  "engineering_contract_tests_passed": 9,
+  "members": [
+    {
+      "path": "theseus_first_mlp_diagnosis_v1.py",
+      "bytes": 26756,
+      "sha256": "bf9612ea70feea71d2ec5cef6ec63571d2068b0e190f84a162717bc7cd308de7"
+    },
+    {
+      "path": "tests/test_first_mlp_diagnosis_v1.py",
+      "bytes": 6683,
+      "sha256": "124084d032cffccfeaefcc63a38d13d8142c5805e96dda607a078a2200b6691c"
+    },
+    {
+      "path": "docs/v39-first-mlp-diagnosis-v1.md",
+      "bytes": 6978,
+      "sha256": "6a966983b3c98b7c4abcc3de0f94ed44e07a6264a9cb29a3aa247a7a4c843ea9"
+    },
+    {
+      "path": "docs/replacement-loss-v39-freeze.json",
+      "bytes": 9502,
+      "sha256": "8ce3a8dde536c31bd7a04d1e72e4250a58c1f2309c7b522692a206f2ee5116b0"
+    },
+    {
+      "path": "docs/replacement-loss-v39-results.json",
+      "bytes": 9036,
+      "sha256": "80c96a1dd4c3041ded2604eebdf7677634f6e4fd237194b90e1ec61259e86aa4"
+    },
+    {
+      "path": "theseus_first_mlp_diagnosis_v1_closeout.py",
+      "bytes": 4265,
+      "sha256": "1b7c8127288fbadbe6d8b5c79032bf4e09bba666e57c0316faa74e5627f2013a"
+    }
+  ],
+  "packet_sha256": "4636596602a3c2f7cf056d53f2d8f6fe22893c245d6e89a85837558620ddeba8"
+}

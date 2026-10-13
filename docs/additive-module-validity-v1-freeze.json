@@ -1,0 +1,31 @@
+{
+  "protocol_id": "theseus-additive-module-validity-v1",
+  "freeze_state": "FROZEN_BEFORE_CHECKPOINT_SELECTION",
+  "frozen_on": "2026-09-24",
+  "packet_sha256": "9e366d52e658114ad3e8443e55ac8a2fb68cd48cf148de1ae3f8b74047feedcd",
+  "files": [
+    {
+      "path": "docs/additive-module-theorem.md",
+      "sha256": "74c864323a160a4fd816f400e816429e98ca46d79c995f883efac77767c90963"
+    },
+    {
+      "path": "additive_module_validity.py",
+      "sha256": "7fd5d896d2d2f731de249616ca6cc4865f9f2412ec5ae3822de042503e0d7ce4"
+    },
+    {
+      "path": "tests/test_additive_module_validity.py",
+      "sha256": "3f43d112366a2938f9a8c2a2985137d86cba3c7f7abbae23c6c282ac72df13b5"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    }
+  ],
+  "pre_freeze_validation": {
+    "focused_unit_checks": 8,
+    "runtime_one": "passed with repository environment",
+    "runtime_two": "passed with clean requirements-pinned Transformers 4.57.3 environment",
+    "checkpoint_identities_selected": 0,
+    "checkpoint_weights_loaded": 0
+  }
+}

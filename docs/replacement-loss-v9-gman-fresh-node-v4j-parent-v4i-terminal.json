@@ -1,0 +1,33 @@
+{
+  "assurance_level": "INCONCLUSIVE",
+  "candidate_freeze_completed": false,
+  "candidate_preparation_completed": false,
+  "challenge_fixtures_revealed_after_candidate_freeze": false,
+  "created_at_utc": "2026-09-29T14:03:04.328168+00:00",
+  "evaluator_ended_utc": "2026-09-29T14:03:04Z",
+  "evaluator_started": false,
+  "evaluator_started_utc": null,
+  "model_prompts_outputs_weights_and_evaluation_data_exported": false,
+  "observed_exit_code": 1,
+  "outcome_evaluation_status": "not_reached_by_frozen_call_order",
+  "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+  "parent_v4h_packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+  "prediction_inventory": {
+    "bytes": 0,
+    "files": 0,
+    "inventory_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+  },
+  "prediction_manifest_present": false,
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+  "receipt_sha256": "fbb5bb17337978e14da0def4233accbcdf675197806ba83885e230815437799a",
+  "replica_outcome_manifest_present": false,
+  "replica_root_match_count": 0,
+  "replication_manifest_present": false,
+  "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+  "reviewer_status": "NOT_SUBMITTED",
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+  "stop_reason": "evaluator_error_or_early_stop",
+  "timeout_kind": "watchdog",
+  "timeout_limit_seconds": 17725
+}
+

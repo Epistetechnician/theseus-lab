@@ -1,0 +1,40 @@
+{
+  "assurance_level": "INCONCLUSIVE",
+  "captured_at_utc": "2026-09-29T16:53:57Z",
+  "check_count": 12,
+  "checks_passed": 7,
+  "command": {
+    "command_id": "cmd-7bbdu",
+    "exit_code": 0
+  },
+  "cost": {
+    "aggregate_related_spend_actual_usd": 3.271,
+    "aggregate_related_spend_cap_usd": 5.0,
+    "gman_mission_accrual_at_freeze_usd": 0.3072,
+    "gman_mission_accruing": false,
+    "gman_mission_total_usd": 1.465,
+    "related_spend_baseline_at_freeze_usd": 2.1132,
+    "v4k_incremental_mission_usd": 1.1578
+  },
+  "custody": {
+    "exported_artifact_id": "art-mbnhb",
+    "exported_summary_sha256": "543cbdb4465d08d0844ce7f3f2d8b43cbe3b09fcd40a2e8536dd29f1b54f7a1a",
+    "exported_summary_size_bytes": 736,
+    "model_prompts_outputs_weights_and_evaluation_data_exported": false
+  },
+  "gman": {
+    "mission": "theseus-v9-linux-runtime-reproduction-20260929-v4i",
+    "node_name": "theseus-v9-v4i-cpu8-20260929",
+    "node_stopped": true
+  },
+  "packet_sha256": "e030b23cf67a04793d464b669fbd285273d08a5e5c968f5b915e5d6781cfed2c",
+  "parent_v4h_packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+  "primary_replication_manifest_sha256": "d0bf1ddd9a270db32550e7248f7247ccf4643054f742dae91df353ed9a2502ba",
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+  "reproducibility_status": "DIVERGED",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runner_receipt_sha256": "d070dc3bfe599ec6588cba3bea86259151951ecfad82719aa40638736cb759eb",
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+  "target_v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959",
+  "v4_receipt_sha256": "4381beb2fd8df40cff847ab86fc2e6967b2bb0159040e30a51d2c666227e3bfa"
+}

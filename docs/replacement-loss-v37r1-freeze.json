@@ -1,0 +1,174 @@
+{
+  "claim_ceiling": "LOCAL_METADATA_KNOWN_WEIGHT_HELD_OUT_PRETRAINED_TWO_MLP_INTERFACE_ONLY",
+  "frozen_before_new_nomination": true,
+  "members": [
+    {
+      "bytes": 13233,
+      "path": "replacement_loss_v36_core.py",
+      "sha256": "a34e1f668e1c35956e505622a2fd4f94843c4e7184fbd77c94d780b5863e944c"
+    },
+    {
+      "bytes": 2600,
+      "path": "replacement_loss_v36_fixtures.py",
+      "sha256": "f4dd51e70bb71d3342829cf4367f419356af60d7e32d7926f60a5d18c6c03085"
+    },
+    {
+      "bytes": 33094,
+      "path": "replacement_loss_v36_runner.py",
+      "sha256": "fb3650fcd99bb6df4e411069c6accd74220d49b83f1454ce6c10f0685220966f"
+    },
+    {
+      "bytes": 11086,
+      "path": "replacement_loss_v36_closeout.py",
+      "sha256": "773de67a2dc82cdc2f64f3848f9e5341008a4f74363d24ea44fc6d41dccd05d4"
+    },
+    {
+      "bytes": 17798,
+      "path": "tests/test_replacement_loss_v36.py",
+      "sha256": "0f22f18134d21ec58a53056bd9cdd787301eea3ca290036e1803da84ea1a1059"
+    },
+    {
+      "bytes": 14637,
+      "path": "docs/replacement-loss-v36-pretrained-transfer.md",
+      "sha256": "86ab6d980802c36ac3a861e3a6b228a4fa7be60b89fec9614c168e76f17a184f"
+    },
+    {
+      "bytes": 556,
+      "path": "requirements-v36.lock.txt",
+      "sha256": "d8ca46482cc3e43e61a1994ec0fd49584389267063720d4534da55c55a1b99b7"
+    },
+    {
+      "bytes": 50408,
+      "path": "docs/replacement-loss-v35-results.json",
+      "sha256": "6ae54cad83c7b8a193e191b86c94395bed6ebed2c50dc47d4c1a985644ff9b7a"
+    },
+    {
+      "bytes": 7923,
+      "path": "docs/replacement-loss-v35-freeze.json",
+      "sha256": "af4ebfd06f3b3e2c5481307fa5c0d344f3d61d8c29b9af5a0a50fe2d48c88b86"
+    },
+    {
+      "bytes": 5552,
+      "path": "checkpoint_manifests.json",
+      "sha256": "79f2bfa82afb139f6265acb43a15cd374aed704c8cc20e1cc37789668c65c104"
+    },
+    {
+      "bytes": 3124,
+      "path": "docs/replacement-loss-v36-freeze.json",
+      "sha256": "c6a8b44ed472e4c5fa82effad5ea514865242eb280d62910ffe79ab66de32739"
+    },
+    {
+      "bytes": 2604,
+      "path": "docs/replacement-loss-v36-results.json",
+      "sha256": "8ff62d1797fdb3c86898d71dfa820fd1ca8d626c8c03dd6f35bfea4544f3e0c6"
+    },
+    {
+      "bytes": 19584,
+      "path": "replacement_loss_v36r1_runner.py",
+      "sha256": "a3be8796051c92b160390c73943798daa97cfec9412603dc93fd9a4e44f8ed6b"
+    },
+    {
+      "bytes": 4978,
+      "path": "tests/test_replacement_loss_v36r1.py",
+      "sha256": "749e66aac72744b648d72972db1b45673635b5d777f20e8bc102605cb41ed49b"
+    },
+    {
+      "bytes": 8640,
+      "path": "docs/replacement-loss-v36r1-continuation.md",
+      "sha256": "3532213e62a7534a03a461e411382ed26f97b7a34a4188bf786ccc4b5f50ea31"
+    },
+    {
+      "bytes": 4363,
+      "path": "docs/replacement-loss-v36r1-freeze.json",
+      "sha256": "1459fef1a60951e36e35338a2e14f13a33c05cf0ec9ec06be55a864413b94a99"
+    },
+    {
+      "bytes": 5310,
+      "path": "docs/replacement-loss-v36r2-freeze.json",
+      "sha256": "109b5ba4d39c94405157c0f2b373d5add1e60c0d69b2390ed8d4b953eca43f81"
+    },
+    {
+      "bytes": 4997,
+      "path": "docs/replacement-loss-v36r2-results.json",
+      "sha256": "4ba8aa4d81172fc8f045b7c70fdcb2b7c9b24c2bfeb45f75734cd8cfdad16530"
+    },
+    {
+      "bytes": 11360,
+      "path": "theseus_checkpoint_exposure_v1.py",
+      "sha256": "ef531320f18951e4012ce08e1f62a0cafcdc900805cc20a0a4c1da00c9d56c20"
+    },
+    {
+      "bytes": 2267,
+      "path": "tests/test_checkpoint_exposure_v1.py",
+      "sha256": "8724edc1b06d7ae7ee9a440341caa941cfe3b0a04ed82d290f6b6930e9cc1cba"
+    },
+    {
+      "bytes": 3181,
+      "path": "docs/checkpoint-exposure-v1.md",
+      "sha256": "d80b6701cb1776ae53f44ac8ed7275316878bf95516c911ee57fdee5b4ebaf6e"
+    },
+    {
+      "bytes": 1446,
+      "path": "docs/checkpoint-exposure-v1-freeze.json",
+      "sha256": "bff1e9d1ebf223ac8662f719533a09253a0f4779e3ccdeb5e13c065152378875"
+    },
+    {
+      "bytes": 1648,
+      "path": "docs/checkpoint-exposure-v1-results.json",
+      "sha256": "530a9452294e51e1ce475cf6ff7004125a195845a69cbd69191024aa61cbb9ba"
+    },
+    {
+      "bytes": 17184,
+      "path": "replacement_loss_v37_runner.py",
+      "sha256": "3316b7e4b97cb8c715a624135e72c631b2a417b6466e6b50e183c9139235b967"
+    },
+    {
+      "bytes": 3196,
+      "path": "tests/test_replacement_loss_v37.py",
+      "sha256": "b4d5adc06a5532d99f0686c17d158ab0ccfe3cb7eadff4482a9d5789861ed592"
+    },
+    {
+      "bytes": 7282,
+      "path": "docs/replacement-loss-v37-development-transfer.md",
+      "sha256": "2a65508832ebb649943a8f3bacfa7ebc60336a41406a5165275d3bd5dee40913"
+    },
+    {
+      "bytes": 5014,
+      "path": "docs/replacement-loss-v37-freeze.json",
+      "sha256": "0ad1161820fc0c562d57b38a9a4d2dc7fa2cae2f589e8e0d2f7d905608c8ba1e"
+    },
+    {
+      "bytes": 1880,
+      "path": "docs/replacement-loss-v37-results.json",
+      "sha256": "6534fb7fd4c27b1805d915f824931178541b0de2ddaa32390dc2f0f7a29a0095"
+    },
+    {
+      "bytes": 53422,
+      "path": "docs/replacement-loss-v37-metadata-cache-v1.json",
+      "sha256": "244956d31ec8ce2be14a3d907ea1cc9f3f82cb02995d3c6d199c39c89ba291b6"
+    },
+    {
+      "bytes": 3810,
+      "path": "replacement_loss_v37r1_runner.py",
+      "sha256": "48e1bbfe218704e10a4b09db900ac8abf6f79ba9b786deb90329bd06ede1457d"
+    },
+    {
+      "bytes": 2034,
+      "path": "tests/test_replacement_loss_v37r1.py",
+      "sha256": "192d06298c01f3ebd51fa38b57671cd8f7965f6fda7547b65ce93f783d32a9bb"
+    },
+    {
+      "bytes": 2989,
+      "path": "docs/replacement-loss-v37r1-cache-continuation.md",
+      "sha256": "acc67afb4208a32e5ae46ecf696c64212665bc3ed6d8f884f3286197d0d030d5"
+    }
+  ],
+  "packet_sha256": "c7187c361b6198cb56e202d56fdc94bbf354600b3e0ed1fa8895d2c4183a4e1a",
+  "protocol_id": "theseus-pretrained-development-transfer-v37r1",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-pretrained-development-transfer-v37r1",
+    "theseus-public-checkpoint-acquisition-v37r1",
+    "global-experiment-assurance-lifecycle-v1"
+  ]
+}

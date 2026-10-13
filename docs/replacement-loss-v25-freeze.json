@@ -1,0 +1,95 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget": {
+    "max_case_wall_seconds": 7200,
+    "max_model_bytes_each": 2200000000,
+    "max_model_bytes_total": 6600000000,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_usd": 0,
+    "search_limit_per_query": 2000
+  },
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v25-metadata-complete-acquisition-v1",
+  "created_at_utc": "2026-10-02T01:29:42.578163+00:00",
+  "custody_roots": {
+    "clean_replica": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25-replicator",
+    "primary": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25"
+  },
+  "dependency_inventory": {
+    "distribution_count": 26,
+    "primary_and_clean_replica_match": true,
+    "sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609"
+  },
+  "dependency_manifest_sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609",
+  "freeze_state": "FROZEN_BEFORE_V25_PUBLIC_HUB_QUERY_OR_TARGET_SELECTION",
+  "hub_queries_issued": false,
+  "metadata_completeness_guard": "nonempty query results with zero valid full SHAs stop as INCONCLUSIVE_SETUP_OR_EXECUTION",
+  "metadata_projection": [
+    "sha",
+    "config",
+    "gated",
+    "private",
+    "downloads",
+    "tags"
+  ],
+  "model_weights_downloaded": false,
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 3973,
+      "path": "docs/replacement-loss-v25-metadata-complete-acquisition.md",
+      "sha256": "c3f3c67175aaaad5960037da020dcc8a9f8e62d843b5223c6cc8d50ca326e9a3"
+    },
+    {
+      "bytes": 10496,
+      "path": "replacement_loss_v25_hub_adapter.py",
+      "sha256": "5d22ed20949c67d28c85b2182e9e223f8fe48f21bea0bf4468bdf7d5c820fc42"
+    },
+    {
+      "bytes": 38232,
+      "path": "replacement_loss_v25_runner.py",
+      "sha256": "567626a200c83a08db1381675ef04d7ed669f583cc8d3d3d67e3022c6e37e516"
+    },
+    {
+      "bytes": 435,
+      "path": "requirements-v25.lock.txt",
+      "sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609"
+    }
+  ],
+  "packet_sha256": "9360f1c15820ce504fd1b059a468da6bb5ce26b4be86bd2369a769eaa74b161a",
+  "pre_v25_excluded_identity_count": 5977,
+  "pre_v25_identity_ledger_sha256": "f8ecbb3cd0ef0a675a8787cdc6915cf1d67647d91eab6a87b32b0bb929bb6b15",
+  "protocol_id": "theseus-replacement-loss-v25-metadata-complete-acquisition",
+  "runtime": {
+    "auth": "token=False",
+    "execution": "local macOS arm64 CPU only",
+    "hosted_inference": false,
+    "hub_assets_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25/assets-cache",
+    "hub_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25/hub-cache",
+    "hub_client": "huggingface_hub==0.36.2",
+    "hub_home_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25/hf-home",
+    "hub_telemetry": false,
+    "hub_xet_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v25/xet-cache",
+    "python": "3.12.13",
+    "remote_workers": 0
+  },
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "upstream_v22_packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "upstream_v24_audit_report_sha256": "2716ebdce9713e5196764cc4b2a3f511f9717dba6427ec94c0f0d31e51a4fd92",
+  "upstream_v24_freeze_file_sha256": "caa82b873077c5789133d14c2ddf668cb2eaacf1e566a792822dda9f8444350c",
+  "upstream_v24_packet_sha256": "1d1b99baa7dbe41f62a989a3653dc18b353f9d7fee5f8cbd6ed810796b162197",
+  "upstream_v24_progress_sha256": "12eae1140782a0fde258520e89759ab27493b5a8c9560214460c5b2dde3f6041",
+  "upstream_v24_screen_sha256": "8764c4487c229140ebbbb3b77b4d8a4f0d8bee40bac8355ed607b48b6c31d68c",
+  "upstream_v24_terminal_file_sha256": "b0c69983e023b7452c27e4107dcfc48951bfc5821eb882ffb08442ad249701e8",
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

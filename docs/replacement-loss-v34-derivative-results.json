@@ -1,0 +1,174 @@
+{
+  "assurance_level": "REPRODUCED_LOCAL",
+  "audits": {
+    "primary": {
+      "final_artifact_bytes": 130906458,
+      "manifest_files": 80,
+      "resources": {
+        "artifact_bytes": 130834722,
+        "energy": "NOT_MEASURED",
+        "monetary_cost_usd": 0,
+        "peak_rss_bytes": 240910336,
+        "wall_seconds": 2.2419921249966137
+      }
+    },
+    "replica": {
+      "final_artifact_bytes": 130907059,
+      "manifest_files": 80,
+      "resources": {
+        "artifact_bytes": 130834722,
+        "energy": "NOT_MEASURED",
+        "monetary_cost_usd": 0,
+        "peak_rss_bytes": 240320512,
+        "wall_seconds": 2.1465909580001608
+      }
+    }
+  },
+  "challenge_evaluation": false,
+  "checks": {
+    "artifact_manifest": true,
+    "challenge_evaluation": true,
+    "claim_ceiling": true,
+    "decision": true,
+    "distinct_runtime": true,
+    "input_sha256": true,
+    "optimizer_updates": true,
+    "packet_sha256": true,
+    "rows": true,
+    "state_slice": true,
+    "toolchain": true
+  },
+  "claim_ceiling": "ADAPTATION_ONLY_ENDPOINT_AND_DERIVATIVE_DIAGNOSIS",
+  "custody_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-v34-derivative-audit",
+  "data": "Existing V34 adaptation/donor inputs and original training masks only.",
+  "decision": {
+    "decomposition_control_passed": true,
+    "outcome_status": "DIAGNOSTIC_SUPPORTS_ENDPOINT_OR_DERIVATIVE_HYPOTHESIS",
+    "supporting_guides": [
+      "relu-34101",
+      "relu-34102",
+      "relu-34103"
+    ]
+  },
+  "diagnostic_cells": 45,
+  "energy": "NOT_MEASURED",
+  "engineering_tests_per_runtime": 8,
+  "freeze_sha256": "df2782b07c35a83c5585ecb9ee4b4900c4245e83b97722ff53256b03f14957cd",
+  "maximum_decomposition_residual": 2.9802322387695312e-8,
+  "model_input_artifacts": 33,
+  "monetary_cost_usd": 0,
+  "nonclaims": [
+    "qualifying learned replacement",
+    "heldout success",
+    "training causation",
+    "pretrained transfer",
+    "all architectures",
+    "novelty",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production"
+  ],
+  "optimizer_updates": 0,
+  "packet_sha256": "932443312451ba4e5cc67d7eac4f743e61ae8f1d97edb076f4633766a6ea9e84",
+  "primary_diagnostic_cells": [
+    {
+      "arm": "relu_global",
+      "array_sha256": "1d1c36193b1f5e0fbbbd1bcdb06500b5c8c7f53866e0c7556ece68c2e4d05bb2",
+      "case": "relu-34101",
+      "metrics": {
+        "base_activation_normalized_rmse": 0.045964278280735016,
+        "boundary_error_correlation": 0.03376532725492617,
+        "component_rms": {
+          "base_error": 0.004241142887622118,
+          "delta_error": 0.007610128726810217,
+          "suffix_error": 0
+        },
+        "decomposition_max_absolute_residual": 0,
+        "donor_activation_normalized_rmse": 0.0476255789399147,
+        "effect_error_p90": 0.4062706232070923,
+        "linearization_normalized_rmse": 0.19207297265529633,
+        "mean_base_boundary_disagreement": 0.00830841064453125,
+        "mean_intervention_boundary_crossing": 0.02716827392578125,
+        "other_median_relative_error": 0.059630632400512695,
+        "prefix_jacobian_normalized_rmse": 0.27733761072158813,
+        "resolved_fraction": 0.9990234375,
+        "secant_error_correlation": 0.9158386525026463,
+        "weak_error_excess": 0.3148581087589264,
+        "weak_median_relative_error": 0.3744887411594391,
+        "weak_rows": 410
+      },
+      "site": 0,
+      "stage": "block_1"
+    },
+    {
+      "arm": "relu_global",
+      "array_sha256": "72f307ab019a7a567419b204ba7690df8350a9b6f59206f07a7a79e69b2e085a",
+      "case": "relu-34102",
+      "metrics": {
+        "base_activation_normalized_rmse": 0.04623498022556305,
+        "boundary_error_correlation": 0.03672761291050704,
+        "component_rms": {
+          "base_error": 0.0033802329562604427,
+          "delta_error": 0.007119748741388321,
+          "suffix_error": 0
+        },
+        "decomposition_max_absolute_residual": 0,
+        "donor_activation_normalized_rmse": 0.04772614687681198,
+        "effect_error_p90": 0.39287084341049194,
+        "linearization_normalized_rmse": 0.14588037133216858,
+        "mean_base_boundary_disagreement": 0.005401611328125,
+        "mean_intervention_boundary_crossing": 0.01822662353515625,
+        "other_median_relative_error": 0.055406298488378525,
+        "prefix_jacobian_normalized_rmse": 0.2703326940536499,
+        "resolved_fraction": 0.99951171875,
+        "secant_error_correlation": 0.9379322811027812,
+        "weak_error_excess": 0.27760956063866615,
+        "weak_median_relative_error": 0.3330158591270447,
+        "weak_rows": 410
+      },
+      "site": 0,
+      "stage": "block_1"
+    },
+    {
+      "arm": "relu_global",
+      "array_sha256": "a92dbc1aeec9e9c192e81260f671b2b99b615ad8a19ae9a4f8e5d84a5b449edf",
+      "case": "relu-34103",
+      "metrics": {
+        "base_activation_normalized_rmse": 0.0463738739490509,
+        "boundary_error_correlation": 0.06178143049270281,
+        "component_rms": {
+          "base_error": 0.003742856439203024,
+          "delta_error": 0.007400447502732277,
+          "suffix_error": 0
+        },
+        "decomposition_max_absolute_residual": 0,
+        "donor_activation_normalized_rmse": 0.04835689812898636,
+        "effect_error_p90": 0.3725217282772064,
+        "linearization_normalized_rmse": 0.14625336229801178,
+        "mean_base_boundary_disagreement": 0.006927490234375,
+        "mean_intervention_boundary_crossing": 0.0234832763671875,
+        "other_median_relative_error": 0.05677773803472519,
+        "prefix_jacobian_normalized_rmse": 0.2757972776889801,
+        "resolved_fraction": 0.99951171875,
+        "secant_error_correlation": 0.9243991821098969,
+        "weak_error_excess": 0.2773574963212013,
+        "weak_median_relative_error": 0.3341352343559265,
+        "weak_rows": 410
+      },
+      "site": 0,
+      "stage": "block_1"
+    }
+  ],
+  "reconciliation_sha256": "a7f6fb94a672f253c4749aaed7edb7cc73e69fed5fe093302820fc2647f53cab",
+  "result_digests": {
+    "primary": "b607a710d3f98c17a549e47874c4c68a24e638079081b9251747ddf8c5f3e4d9",
+    "replica": "54572df4f1e639e4ff57af6afc8aa66dcdab1dce3d0106bfacd3124ef86f2e22"
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "same_owner_and_host": true,
+  "source_input_manifest_sha256": "b198ddafb2be62d4255b42f2fdc165507b2411bef1f7613dac246efb0c18d597",
+  "state_slice": "theseus-v34-adaptation-jacobian-audit-v1",
+  "validation_sha256": "f4aafce31e07979bb71bb6c97b28ef8aedcdecd1da46b5edb7824fd5f5edff1e"
+}

@@ -1,0 +1,28 @@
+{
+  "arms": [
+    "selected_causal",
+    "baseline_causal_global",
+    "paired_endpoints",
+    "pointwise",
+    "output",
+    "cka"
+  ],
+  "claim_ceiling": "LOCAL_SYNTHETIC_ENDPOINT_SECANT_AND_JACOBIAN_SUPERVISION_ONLY",
+  "confirmation_seeds": [
+    35201,
+    35202,
+    35203
+  ],
+  "development_primary_sha256": "a108fd2e635e00f7b5b84bc2db785682b78194eb0c6846a03161cdb5c6c644fd",
+  "development_reconciliation_sha256": "d20ed3a6298d3fe332dcc18380cc04875d799ec47fed9fce85f8acc8a9915698",
+  "development_replica_sha256": "f1819011e3eb12a7170fa959a9d46b24c8a308527e889ec4385e4fe3f40f9d0f",
+  "families": [
+    "relu",
+    "gelu",
+    "silu_gated"
+  ],
+  "freeze_state": "FROZEN_BEFORE_CONFIRMATION_DATA",
+  "parent_packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+  "protocol_id": "theseus-replacement-loss-v35-secant-jacobian",
+  "selected_variant": "paired_jacobian"
+}

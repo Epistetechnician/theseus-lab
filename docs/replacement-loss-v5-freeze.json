@@ -1,0 +1,76 @@
+{
+  "checkpoint_identity": {
+    "model_id": "openai-community/gpt2-medium",
+    "projection": "transformer.h.3.mlp.c_proj",
+    "reuse_scope": "same v3/v4 GPT-2 target; no new-checkpoint or architecture-general claim",
+    "revision": "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"
+  },
+  "created_at_utc": "2026-09-25T16:27:08.326798+00:00",
+  "freeze_state": "FROZEN_BEFORE_V5_ADAPTATION_FIXTURES",
+  "packet_files": [
+    {
+      "bytes": 6720,
+      "path": "docs/replacement-loss-v5.md",
+      "sha256": "c420061e0df568827202d85f91e4471b8624c1c272629448176fa7d39c2ec4fe"
+    },
+    {
+      "bytes": 3028,
+      "path": "docs/replacement-loss-v4-failure-analysis.md",
+      "sha256": "9c2fdfeb334635c0af832b9965d894614a3fd8b602e6c029a1497e2ae5c5f502"
+    },
+    {
+      "bytes": 16944,
+      "path": "replacement_loss_v4_failure_analysis.py",
+      "sha256": "c8791652fdd210d8108a95c0e281e5d9ea8296fcecdeb2983d163dc5e9d35142"
+    },
+    {
+      "bytes": 9122,
+      "path": "replacement_loss_v5.py",
+      "sha256": "56200bece5df65b771ebde34130ad545ba9bff2d9577e735118a1bb8c2b63d4f"
+    },
+    {
+      "bytes": 5266,
+      "path": "replacement_loss_v5_fixtures.py",
+      "sha256": "fcddf72095fcd2859e0955250d51d9931ae49289397d30504f947be76b82e307"
+    },
+    {
+      "bytes": 43120,
+      "path": "replacement_loss_v5_runner.py",
+      "sha256": "4ce353846597f18a8c05609346ab18cf1ffd4e9c2b244a73a9490a28be231ff2"
+    },
+    {
+      "bytes": 3218,
+      "path": "tests/test_replacement_loss_v5.py",
+      "sha256": "fad6aa943b7a2dede397e5ed830403bd66eaf6c09f4275882f5f19821dbf5f95"
+    },
+    {
+      "bytes": 7969,
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 95959,
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "bytes": 85,
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    }
+  ],
+  "packet_sha256": "f8b34296d492249521dec0f803df5fa61f4f0187694384b1e93b7db288bfe04a",
+  "protocol_id": "theseus-replacement-loss-v5-balanced-adversarial-support",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "v3_packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+  "v4_diagnosis_packet_sha256": "49928db7c35e5890fd948e85c832633f1598e6f86b7b5be7aa32dd030b906311",
+  "v4_diagnosis_reconciliation_digest": "f6a07ca9b50987b455624bb1009fa8b7fefbe7ab237ef3cc8b9d534cc285a677",
+  "v4_diagnosis_reconciliation_file_sha256": "1606c49edbf55f603f75add8f4b43d406f83f494a9f347414db3ab7f33aaad31",
+  "v4_diagnosis_report_digest": "b704c0033c10ce447006da283ff661ce76a6ecc4bf9b8d010567deec12dbff0f",
+  "v4_diagnosis_report_file_sha256": "4b7517666b56fdd3e544406d022f2f4284ebd1d5533714c7a1e3e6574e54fd14"
+}

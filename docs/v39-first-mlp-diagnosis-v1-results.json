@@ -1,0 +1,169 @@
+{
+  "protocol_id": "theseus-v39-first-mlp-causal-diagnosis-v1",
+  "date": "2026-10-07",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "Revision plus digest-bound uncommitted source",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-first-mlp-causal-diagnosis-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "outcome_status": "LOCAL_DERIVATIVE_MISMATCH_SUPPORTED",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "EXACT_ARRAYS_SELECTION_METRICS_AND_DECISION_IN_SECOND_LOCKED_PREFIX",
+  "packet_sha256": "4636596602a3c2f7cf056d53f2d8f6fe22893c245d6e89a85837558620ddeba8",
+  "source_freeze_sha256": "b79daf55a61e070af70bbb701f3d00b52154e5ccf64358ef8c8c9e08b0270d84",
+  "parent_packet_sha256": "6fd6849dd663380b5bb2103a57f0989108c86c123ac9ef46759d48330c5a9f98",
+  "parent_validation_sha256": "c19bd986b47b5f2cbf0eed0840738492862e8ae3f78159b44e2d2dc04776cb09",
+  "primary_result_sha256": "c5cad866a8794b124f68470d5da1d100974640a291b612a9d2e8b898b165b13e",
+  "replica_result_sha256": "a5afc7772c20fba674795d101fc0c9b02bb6f63d7c92a4bf5f33a7f93121eb99",
+  "reconciliation_sha256": "e86167f5c82897da999eecddb02756ff2dd5b27169eda177697ba4087f10b772",
+  "validation_sha256": "4dc4c04006b0a9740f5d17bc29f2722b53e2cc372a832fa060a2ba49035cccf1",
+  "arrays_sha256": "b358c66c7b6e61be7fb16132813654ab3b37984d9f86a4036a34bdac612971e6",
+  "source_members": 6,
+  "engineering_checks_passed_per_prefix": 9,
+  "reconciliation_checks": 8,
+  "native_width": 768,
+  "seeds": [
+    36101,
+    36102,
+    36103
+  ],
+  "methods": [
+    "jvp",
+    "endpoints"
+  ],
+  "first_mlp_site": 0,
+  "scope_per_role": {
+    "arrays_sha256": "b358c66c7b6e61be7fb16132813654ab3b37984d9f86a4036a34bdac612971e6",
+    "decoder_pairs": 384,
+    "finite_local_pairs": 1152,
+    "full_jacobians": 288,
+    "local_cells": 18,
+    "transport_cells": 6
+  },
+  "new_training_steps": 0,
+  "new_heldout_queries": 0,
+  "row_level_heldout_files_read": false,
+  "data_partition": "V39_ADAPTATION_ONLY",
+  "paid_execution_usd": 0,
+  "paid_cap_usd": 0,
+  "energy": "NOT_MEASURED",
+  "primary_resources": {
+    "artifact_bytes": 1307409373,
+    "energy": "NOT_MEASURED",
+    "paid_execution_usd": 0,
+    "peak_rss_bytes": 2878947328,
+    "wall_seconds": 104.4735126249725
+  },
+  "replica_resources": {
+    "artifact_bytes": 1307409373,
+    "energy": "NOT_MEASURED",
+    "paid_execution_usd": 0,
+    "peak_rss_bytes": 2875736064,
+    "wall_seconds": 99.71851566701662
+  },
+  "claim_ceiling": "ADAPTATION_FIRST_MLP_LOCAL_AND_CONTEXT_ERROR_DIAGNOSIS_ONLY",
+  "controls": {
+    "actual_noop_reruns": 48,
+    "all_noop_errors_exact_zero": true,
+    "analytic_zero_delta_relative_error_on_resolved_reference": 1,
+    "full_jacobians_checked_against_four_jvps_each": true
+  },
+  "known_limitations": [
+    "One reused Spanish-trained GPT-2 guide, first MLP, eight existing adaptation prompts per seed, three positions; no population or architecture-general claim.",
+    "Existing terminal scalar V39 result was used to motivate this follow-up; no prior row-level held-out files were opened.",
+    "First-token donor effects are unresolved because inputs match; those cells are not effect successes.",
+    "Error projection shares are ordered path-dependent accounting, not unique causal attribution or additive norm fractions.",
+    "Large local derivative errors do not isolate optimizer, loss weighting, probe sampling or capacity as their cause.",
+    "Same owner, physical host, system libraries and instrumentation; no independent acceptance.",
+    "No new retention success, full mapping, novelty, universal identity, consciousness, human alignment or production claim."
+  ],
+  "next_local_obligation": "Replay the original training probe directions against saved Jacobians before selecting an objective, sampling or capacity change; any next fit uses a new protocol and fresh held-out fixtures.",
+  "next_blocked_authority_gate": "Configured independent authority for stronger science; separate production operational authorization.",
+  "jvp": {
+    "final_value_nrmse_range": [
+      0.10144942427162144,
+      0.11538029094970145
+    ],
+    "final_jacobian_nrmse_range": [
+      0.8834425747984551,
+      0.889090393235064
+    ],
+    "final_finite_median_error_range": [
+      0.8859537276055524,
+      0.8936646204972333
+    ],
+    "final_finite_median_cosine_range": [
+      0.4579571106601713,
+      0.46930490158475585
+    ],
+    "final_resolved_fraction_range": [
+      0.984375,
+      1
+    ],
+    "decoder_actual_median_error_range": [
+      0.9335219464318028,
+      0.9878012144446726
+    ],
+    "decoder_anchored_median_error_range": [
+      0.9040406835202885,
+      0.9180936436817879
+    ],
+    "ordered_local_delta_projection_share_range": [
+      0.8841297400599054,
+      0.9382329900656277
+    ],
+    "ordered_prefix_projection_share_range": [
+      0.009743180721674778,
+      0.06921260971756235
+    ],
+    "ordered_anchor_projection_share_range": [
+      0.0004927514597587151,
+      0.08634007393169256
+    ]
+  },
+  "endpoints": {
+    "final_value_nrmse_range": [
+      0.09030909912722827,
+      0.09936037505488356
+    ],
+    "final_jacobian_nrmse_range": [
+      1.1503861080561597,
+      1.1975515375584012
+    ],
+    "final_finite_median_error_range": [
+      1.1281585816263155,
+      1.161421073251932
+    ],
+    "final_finite_median_cosine_range": [
+      0.20848488591074701,
+      0.21079809579631398
+    ],
+    "final_resolved_fraction_range": [
+      0.984375,
+      1
+    ],
+    "decoder_actual_median_error_range": [
+      1.092011919130207,
+      1.2259095643788442
+    ],
+    "decoder_anchored_median_error_range": [
+      1.0385750216622074,
+      1.180304496369779
+    ],
+    "ordered_local_delta_projection_share_range": [
+      0.8774036822460171,
+      0.9202813301624346
+    ],
+    "ordered_prefix_projection_share_range": [
+      0.06108934080485498,
+      0.09118221779885466
+    ],
+    "ordered_anchor_projection_share_range": [
+      -0.011463547961289278,
+      0.04054587645803991
+    ]
+  }
+}

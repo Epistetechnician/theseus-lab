@@ -1,0 +1,559 @@
+{
+  "acceptance": {
+    "all_frozen_replication_checks_must_pass": true,
+    "candidate_file_and_tensor_state_checks_before_challenge_reveal": true,
+    "held_out_predictions_sealed_before_outcome_evaluation": true,
+    "incomplete_status": "INCONCLUSIVE",
+    "measured_mismatch_status": "DIVERGED",
+    "one_attempt_only": true,
+    "recovery_must_preserve_discrepant_clone_bytes": true,
+    "replicated_primary_outcome": "FAIL",
+    "restore_source_must_be_unique_frozen_archive_member": true,
+    "runtime_identity_must_match": true,
+    "success_reproducibility_status": "REPRODUCED_LOCAL",
+    "thresholds_or_scientific_analysis_changes_allowed": false
+  },
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "bootstrap": {
+    "bytes": 8572,
+    "path": "bootstrap.sh",
+    "sha256": "496dda64937cc2fb3e5931766bb8ce139848deb684d8cbd493cb5a3ce7f3a7bc"
+  },
+  "budget": {
+    "accrued_v4i_mission_spend_at_freeze_usd": 0.2028,
+    "aggregate_headroom_after_hard_cap_usd": 0.6918,
+    "aggregate_worst_case_usd": 4.3082,
+    "cost_accounting_note": "Conservative baseline includes the V9 register, settled V4h cost, and V4i GMan accrual captured before V4j. Remaining cost is bounded by the original node-start epoch and 315-minute node lifetime; stop at the watchdog and hard ceiling.",
+    "destination_node_max_minutes": 315,
+    "destination_node_remaining_max_usd": 2.29944,
+    "evaluator_command_max_minutes": 300,
+    "frozen_pre_v4h_related_spend_register_usd": 1.167,
+    "max_rate_usd_per_minute": 0.00804,
+    "node_remaining_minutes_at_freeze": 286,
+    "post_evaluator_receipt_and_export_reserve_minutes": 7,
+    "related_spend_baseline_at_freeze_usd": 2.0088,
+    "related_spend_by_node_usd": {
+      "theseus-v9-cloud-20260928": 0.2092,
+      "theseus-v9-linux-runtime-v3-cpu8-20260928": 0.5424,
+      "theseus-v9-linux-runtime-v4-cpu8-20260928": 0.293,
+      "theseus-v9-linux-runtime-v4e-cpu8-20260928": 0.0324,
+      "theseus-v9-linux-runtime-v4e-diagnostic-20260928": 0.0652,
+      "theseus-v9-linux-runtime-v4f-cpu8-20260928": 0.021,
+      "theseus-v9-linux-runtime-v4g-cpu8-20260928": 0.0038,
+      "theseus-v9-linux-runtime-v4h-cpu8-20260928": 0.639,
+      "theseus-v9-v4i-cpu8-20260929": 0.2028
+    },
+    "settled_v4h_mission_spend_usd": 0.639,
+    "storage_cost": "V4e workspace snapshot restored; current GMan organization snapshot storage is below its first-250-GiB free allowance",
+    "user_authorized_related_aggregate_usd": 5.0,
+    "v4j_incremental_hard_cap_usd": 2.9912,
+    "watchdog_receipt_export_and_shutdown_reserve_minutes": 4
+  },
+  "claim_ceiling": "same-owner local cross-runtime reproduction of frozen V9 FAIL under the digest-bound existing Linux runtime",
+  "continuation_parent": {
+    "continuation_attempt": "V4j",
+    "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+    "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+    "terminal_status": "INCONCLUSIVE_EVALUATOR_ERROR"
+  },
+  "created_at_utc": "2026-09-29 14:16:44 UTC",
+  "custody_transfer": {
+    "artifact_count": 9,
+    "artifact_manifest_sha256": "2e6c5971c6ff2025a18220c04ac0b583401c225c8e6df2c2be3eb4c10571c244",
+    "artifacts": [
+      {
+        "artifact_id": "art-beb8f",
+        "destination": "input/gman-v9-input.tar.gz",
+        "format": "file",
+        "key": "input_archive",
+        "sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+        "size_bytes": 1727986827,
+        "source_path": "/home/dev/theseus-v9/input/gman-v9-input.tar.gz"
+      },
+      {
+        "artifact_id": "art-v7dz8",
+        "destination": "input/primary",
+        "format": "tar",
+        "key": "primary",
+        "sha256": "26efd0c8730d041cd2ab322aa75b82afbb13ef4e7cd82bda60b7894317cc5978",
+        "size_bytes": 2072340480,
+        "source_path": "/home/dev/theseus-v9/input/primary"
+      },
+      {
+        "artifact_id": "art-fzzez",
+        "destination": "input/metadata",
+        "format": "tar",
+        "key": "metadata",
+        "sha256": "b2c607b224fddacfd5e38d472e4c964f4d23a56047000d7c10c033dee1408b18",
+        "size_bytes": 112640,
+        "source_path": "/home/dev/theseus-v9/input/metadata"
+      },
+      {
+        "artifact_id": "art-jjqsg",
+        "destination": "input/prior-fixtures",
+        "format": "tar",
+        "key": "prior_fixtures",
+        "sha256": "23b22a317af40df063d629f8772eda9eb7fc9926beb67d36022f1e445d4cc6af",
+        "size_bytes": 3983360,
+        "source_path": "/home/dev/theseus-v9/input/prior-fixtures"
+      },
+      {
+        "artifact_id": "art-edubf",
+        "destination": "input/source-checkout",
+        "format": "tar",
+        "key": "source_checkout",
+        "sha256": "275dceb5b444fab9a531ac414b73cc5a4a1846c74bd59cc7ab2d7f3f3b9c2a48",
+        "size_bytes": 1792000,
+        "source_path": "/home/dev/theseus-v9/input/source-checkout"
+      },
+      {
+        "artifact_id": "art-bz3f7",
+        "destination": "v3",
+        "format": "tar",
+        "key": "v3_packet",
+        "sha256": "7cc03b650285c715b1239ab56c6d2ba932dbf6d2380f16b3be2b29b65ace1793",
+        "size_bytes": 81920,
+        "source_path": "/home/dev/theseus-v9/v3"
+      },
+      {
+        "artifact_id": "art-8te66",
+        "destination": "receipts",
+        "format": "tar",
+        "key": "receipts",
+        "sha256": "cd22dfd75b538ab20e28b69449251df153a7bcb0e4db3b4a3d3b98e8c75ed66c",
+        "size_bytes": 10240,
+        "source_path": "/home/dev/theseus-v9/receipts"
+      },
+      {
+        "artifact_id": "art-f7kfg",
+        "destination": "v3-stop/replication-v3-stop.json",
+        "format": "file",
+        "key": "v3_stop",
+        "sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+        "size_bytes": 499,
+        "source_path": "/home/dev/theseus-v9/replica-v3/replication-v3-stop.json"
+      },
+      {
+        "artifact_id": null,
+        "destination": "v3/replacement-loss-v9-gman-fresh-node-v3.md",
+        "format": "preinstalled_file",
+        "key": "v3_protocol_document",
+        "sha256": "5f4b4c9db26c68f2e818d0ca36a903cad5d7a1cf1a595cacd0dcafec2ed2591a",
+        "size_bytes": 3988,
+        "source_path": "docs/replacement-loss-v9-gman-fresh-node-v3.md"
+      }
+    ],
+    "method": "REUSE_VERIFIED_GMAN_PRIVATE_ARTIFACT_RELAY_PLUS_FROZEN_V3_DOCUMENT",
+    "no_signed_download_urls_reused_or_recorded": true,
+    "previous_v4b_transfer_receipt_file_sha256": "e70d41bac15354d183f3ae5c2962eacf7c33db6134b2124e1740e7def3c0823e",
+    "runtime_node_restore_method": "existing CPU-8 node restored from V4e snapshot before V4i; V4j uses a fresh v4j output directory and does not reuse V4i run outputs",
+    "runtime_source_snapshot_id": "snap-jdsv3",
+    "supplemental_document_verified_before_preflight": true
+  },
+  "execution": {
+    "aggregate_headroom_usd": 0.6918,
+    "aggregate_related_spend_cap_usd": 5.0,
+    "evaluator_timeout": "timeout --signal=TERM --kill-after=30s at most 300m, dynamically reduced to preserve the 315-minute node ceiling",
+    "freeze_capture_epoch": 1790691404,
+    "gman_command": "bash /home/dev/theseus-v9/v4j/watchdog.sh",
+    "gman_max_duration_minutes_parameter": "omitted_for_active_node_detached_command",
+    "hard_node_stop_elapsed_minutes": 315,
+    "max_incremental_spend_usd": 2.9912,
+    "max_node_minutes": 315,
+    "node_remaining_minutes_at_freeze": 286,
+    "node_start_epoch": 1790689641,
+    "one_evaluator_attempt": true,
+    "outer_watchdog": "frozen watchdog stops by the original node-start+311m; max_duration_minutes is omitted for the active-node detached command",
+    "outer_watchdog_max_elapsed_minutes": 311,
+    "projected_max_aggregate_usd": 4.3082,
+    "rate_ceiling_usd_per_minute": 0.00804,
+    "timeout_receipt": "write digest-only receipt after evaluator timeout or nonzero exit; partial output payloads stay in GMan custody",
+    "watchdog_receipt_export_and_shutdown_reserve_minutes": 4
+  },
+  "experimental_design": {
+    "baseline": "frozen V9 primary outcome FAIL with 21 of 27 ridge stages passing; V4h timed out and V4i stopped on source identity before candidate preparation",
+    "claim_ceiling": "same-owner local cross-runtime reproduction of frozen V9 FAIL under the digest-bound V4h Linux runtime",
+    "controls": [
+      "wrong_module",
+      "random",
+      "no_op"
+    ],
+    "direction": "reproduce the frozen V9 primary outcome and each eligible check after correcting only the V9 source identity binding",
+    "fixture_generation": "reuse exact frozen V9 challenge manifest and payloads; no entropy regeneration",
+    "full_cost_boundary": "Conservative related-spend baseline 2.0088 USD; hard aggregate cap 5.00 USD. Remaining node lifetime is at most 286 minutes at 0.00804 USD/min (2.29944 USD). Projected maximum aggregate is 4.3082 USD.",
+    "nonclaims": [
+      "blind external replication or independent scientific acceptance",
+      "novelty priority or full Network of Theseus reproduction",
+      "architecture-general validity or all AI systems",
+      "general mechanistic understanding or Theseus identity proof",
+      "consciousness or subjective experience",
+      "alignment, human equivalence, or production authorization"
+    ],
+    "paired_design": "same frozen checkpoints, family-seed trajectories, candidate rules, challenge bytes, methods, and controls",
+    "primary_metric": "exact V4 replication checks and reproduction of frozen V9 primary FAIL outcome",
+    "repeat_count": 1,
+    "smallest_effect_size": "unchanged frozen V9 thresholds; no scientific threshold changes",
+    "stopping_rule": "One V4j attempt. Stop before evaluator launch on any frozen packet, source identity, archive, custody, recovery, runtime, input, or budget mismatch. Run only after packet hash and runtime preflights pass. Keep the original node-start epoch; evaluator maximum is 300 minutes and dynamically reduced by setup and reserve. The watchdog stops by node-start+311m, with the 315m node lifetime as the hard ceiling. No retries, threshold changes, fixture changes, or V4i output reuse.",
+    "variance_sources": [
+      "CPU floating-point implementation",
+      "runtime and dependency identity",
+      "stochastic candidate fitting"
+    ]
+  },
+  "freeze_state": "FROZEN_BEFORE_V4J_EVALUATION_AFTER_V4I_PRE_EVALUATION_ERROR",
+  "implementation": {
+    "bytes": 29639,
+    "path": "v4/implementation.py",
+    "sha256": "2ae1cd0f8b813c28d8815c1b1bfab01a46fcd65afa7d0da24aad81a78b22fc97"
+  },
+  "importer": {
+    "bytes": 3629,
+    "path": "importer.py",
+    "sha256": "5c0d4bc36c96dad75a900d0364d1a82425fa4b7a20fe28e58823bc7cfc0533e6"
+  },
+  "input": {
+    "archive_bytes": 1727986827,
+    "archive_sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+    "input_manifest_sha256": "8682b390b1c40306cf73157e9b9ca3098e5ed6c90f856f238ef23a756a8f340a",
+    "primary_and_source_inventory_sha256": "e31b70ed20278a974bf96f60a2217d94f3c695668ca288e1afc5580302c6e962",
+    "prior_fixture_inventory_sha256": "3b46ce7f74bd8b8a24f5324cd5aae5ef34933b71a3f8ce731dcb8488480c9421"
+  },
+  "nonclaims": [
+    "blind external replication or independent scientific acceptance",
+    "novelty priority or full Network of Theseus reproduction",
+    "architecture-general validity or all AI systems",
+    "general mechanistic understanding or Theseus identity proof",
+    "consciousness or subjective experience",
+    "alignment, human equivalence, or production authorization"
+  ],
+  "packet_document": {
+    "bytes": 5509,
+    "path": "docs/replacement-loss-v9-gman-fresh-node-v4j.md",
+    "sha256": "0724b0bf8ec00c58990d3e58e9a101b3acc0ce476975b9d7856cf913960f5c56"
+  },
+  "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+  "parent_helpers": {
+    "importer": {
+      "bytes": 13018,
+      "path": "parent_importer_v4h.py",
+      "sha256": "6e7560f6be49dfcce58d394439a4e2de824c5af7c4168ddb9219ab81dab493b5"
+    },
+    "repair": {
+      "bytes": 7705,
+      "path": "parent_repair_v4h.py",
+      "sha256": "033e37bf194dbb10aefda9f003a59d82e22ec740212de8c1f9218923e3157652"
+    },
+    "runner": {
+      "bytes": 20148,
+      "path": "parent_runner_v4h.py",
+      "sha256": "782bc70b5e2fc664d44aadc1e713af266cde7bfc875e63cca6b3abe6a24c82ea"
+    }
+  },
+  "parent_v4c": {
+    "evaluation_started": false,
+    "failure": "installed distributions differ from requirements-v9.lock.txt",
+    "freeze_file_sha256": "ba3ec36bd38d3a463d64f3a8172e752c7e0bc67c4093c6941478daa64360308d",
+    "implementation_sha256": "2ae1cd0f8b813c28d8815c1b1bfab01a46fcd65afa7d0da24aad81a78b22fc97",
+    "packet_sha256": "94a7b89d8154a59c0d7d878e16897d6e14425a1720bd6d3ec532f7e1c83702fc",
+    "preflight_receipt": {
+      "bytes": 4875,
+      "path": "v4-preflight.json",
+      "sha256": "175b6a9f36d3d8b2722bdf5d1b2d9c49a36992ce91fc18f734570746ee0360dc"
+    },
+    "preflight_receipt_sha256": "dfb26052d1d434e06f93e731c5d436c3b7804e67e1208f10521fda618673f5d4",
+    "runtime_receipt": {
+      "bytes": 3607,
+      "path": "runtime-preflight-v4.json",
+      "sha256": "6523789e57f3a7b3c14de7493fca300ce82acd78eadc872369769d44ce20153a"
+    },
+    "stop_receipt": {
+      "bytes": 607,
+      "path": "v4-run-stop.json",
+      "sha256": "25d898d562f8c4dce1d668b52942abc4520b81af3904f527a4f99a07a60ba7cd"
+    },
+    "stop_receipt_digest": "02834bdc7ae9a31a432e9d96ae1648954c7388fc712e6e6522036758320c90fc",
+    "stop_status": "INCONCLUSIVE",
+    "transport_receipt": {
+      "bytes": 6260,
+      "path": "transport-preflight-v4c.json",
+      "sha256": "9aa1987fcb08d1a31a0a4340aed32e4e06c275a946f1fbde66dfe2f806b8a9a4"
+    },
+    "transport_receipt_sha256": "9102f23e26cb9824a0cc3af3c2601223aeba6abf7d7d16aae6d58ae5b94e88bc"
+  },
+  "parent_v4e": {
+    "evaluator_started": false,
+    "freeze_file_sha256": "44cfcbe29e5fdd000278304da8199c7910c858501c3ae3fcbd1ed3118c2ceb93",
+    "held_out_predictions_or_outcomes_opened": false,
+    "packet_sha256": "7b24806d2a6d3c97ca9579e10c1c0136a5415c08d940b69583cfa0f73886e914",
+    "source_snapshot_id": "snap-jdsv3",
+    "status": "INCONCLUSIVE_NO_EVALUATION",
+    "stop_artifact_id": "art-5kkih",
+    "stop_receipt_digest": "4c6ed337a6ccd555ac983afedc274c3aca9f33264165843b9024cceab3bfafb5",
+    "stop_receipt_file_sha256": "265f7dc9f966267a431d009f073f9ca8de3f8e36813bf5e966e0535d685cff4d",
+    "transport_artifact_id": "art-y5yez",
+    "transport_receipt_digest": "5776d2639ddb835e79718f215cf01ae0f65fa52f8a2d2ddd88c322a9f3ca12eb",
+    "transport_receipt_file_sha256": "3192dbaada484be1b02975ad7c1078f72e966066c2ae870551665aa2a0b34cab"
+  },
+  "parent_v4e_status": "terminal INCONCLUSIVE_NO_EVALUATION; parent freeze source snapshot snap-jdsv3; V4g restored from later V4e workspace snapshot snap-t3r2t",
+  "parent_v4f": {
+    "candidate_fitting_started": false,
+    "command_id": "cmd-6fw6c",
+    "error": "terminal V4e freeze identity mismatch",
+    "error_type": "ValueError",
+    "evaluator_started": false,
+    "freeze_file_sha256": "f22ce3ad629336995955e4a59eb273712f8636337724e29f2468ca430a5dda1f",
+    "held_out_predictions_or_outcomes_opened": false,
+    "mission_name": "theseus-v9-linux-runtime-reproduction-20260928-v4f",
+    "node_cost_usd": 0.0108,
+    "node_id": "69f43591-72d7-488c-811e-67d14ad23a3e",
+    "node_minutes": 1.37,
+    "node_name": "theseus-v9-linux-runtime-v4f-cpu8-20260928",
+    "packet_sha256": "ecc1bf4b55f17989685ca0c6cd9b4404b8cc942ee2602fabe64e26e3a27582fb",
+    "runtime_preflight_started": false,
+    "status": "INCONCLUSIVE_NO_EVALUATION",
+    "stop_log_artifact_id": "art-myjn6",
+    "stop_log_bytes": 488,
+    "stop_log_sha256": "4a3f7536d96c8d4cd3106c81af7bd8ee5b7bfffbccc260e6cbce21329a0516e2",
+    "stop_phase": "custody_import"
+  },
+  "parent_v4f_status": "terminal INCONCLUSIVE_NO_EVALUATION during custody import; no runtime preflight or held-out access",
+  "parent_v4g": {
+    "error": "V3 clone primary report differs from both frozen and known post-error bytes",
+    "error_type": "ValueError",
+    "evaluator_started": false,
+    "freeze_file_sha256": "e8e018bd6946bfd5a33c80ab758664ed048fec69adddf69ac12ff8a590101992",
+    "held_out_predictions_or_outcomes_opened": false,
+    "node_cost_usd": 0.0038,
+    "packet_sha256": "70bc2450571e8477e45f0a9feff4414a5ea2899d4092c0e5d3efdaeba2a3bdc6",
+    "status": "INCONCLUSIVE_NO_EVALUATION",
+    "stop_artifact_id": "art-2vc48",
+    "stop_file_sha256": "a238e7eaf57ccb980c417fc65ecc798c43cf165d2b7db3dc95451ad0baa89feb",
+    "stop_phase": "preflight",
+    "stop_receipt_digest": "5681fbc64ba0cd30e7f6b5667ed96b849a466748776cac2b580c9eecc53e04bc",
+    "transport_artifact_id": "art-r54np",
+    "transport_file_sha256": "0b80ccc727c103fbad799db34647edccbfc8aec87f96d4a9bf62703c9b2e52c0",
+    "transport_receipt_digest": "0bf829e88ec2276143172ee2facd1c1d52e65c9bfef08db5fc54b5bf87089d69"
+  },
+  "parent_v4g_status": "terminal INCONCLUSIVE_NO_EVALUATION during preflight; no runtime receipts or held-out access",
+  "parent_v4h": {
+    "accounting": {
+      "corrected_related_aggregate_usd": 1.806,
+      "old_aggregate_cap_usd": 2.0,
+      "pre_v4h_frozen_related_spend_usd": 1.167,
+      "remaining_to_old_cap_usd": 0.194,
+      "settled_v4h_mission_usd": 0.639,
+      "stale_pre_settlement_v4h_estimate_usd": 0.6042
+    },
+    "evaluator": {
+      "command_id": "cmd-4h5pn",
+      "exit_code": 124,
+      "started": true,
+      "timeout_minutes": 73
+    },
+    "freeze_file": {
+      "bytes": 20453,
+      "path": "parent-v4h-freeze.json",
+      "sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+      "source_path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4h-freeze.json"
+    },
+    "mission_name": "theseus-v9-linux-runtime-reproduction-20260928-v4h",
+    "mission_settled_usd": 0.639,
+    "mission_url": "https://autoresearch.sfcompute.com/missions/theseus-v9-linux-runtime-reproduction-20260928-v4h",
+    "not_reused_as_input": true,
+    "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+    "partial_predictions": {
+      "bytes": 1201283613,
+      "files": 52,
+      "inventory_sha256": "d5c0627b2948831a2ffe4ea05918bddd116072601c71aabf34604d0455ecae50"
+    },
+    "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+    "results_report_sha256": "ac5678b291b6d8fc417f51740be28e7d7f03f1d38fe37ded49f35fed0a541fdd",
+    "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+    "terminal_receipt": {
+      "bytes": 1526,
+      "path": "parent-v4h-terminal.json",
+      "sha256": "0f7d282673bd3f90ae4e1b395211d004937cc856e58b7380cb8aa681b4b56033",
+      "source_path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4h-terminal.json"
+    },
+    "terminal_status": "INCONCLUSIVE_TIMEOUT"
+  },
+  "parent_v4i": {
+    "candidate_preparation_completed": false,
+    "command_id": "cmd-w2avs",
+    "evaluator_started": false,
+    "freeze_file": {
+      "bytes": 26597,
+      "path": "parent-v4i-freeze.json",
+      "sha256": "50336b8c717dc994a5e352146de1c481c6a06ed6eb7e27fbeafe3133a6740b41",
+      "source_path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4i-freeze.json"
+    },
+    "mission_accrued_usd_at_freeze": 0.2028,
+    "observed_exit_code": 1,
+    "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+    "prediction_inventory": {
+      "bytes": 0,
+      "files": 0,
+      "inventory_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+    "results_report_sha256": "ec3b6a1797cf0acd79170e61f0974235d4ffff31ba6cbb8d043d1f45f97353b1",
+    "source_identity_error": "V4i runner_sha256 held the V4i adapter digest and replicator_sha256 held the V4h helper digest; no candidate or held-out evaluation was reached",
+    "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+    "terminal_receipt": {
+      "bytes": 1482,
+      "path": "parent-v4i-terminal.json",
+      "sha256": "ec1f1b08a9095b3da036299fa00a54a68f7d50e9760fa818ab0034cbc808fa4e",
+      "source_path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4i-terminal.json"
+    },
+    "terminal_status": "INCONCLUSIVE_EVALUATOR_ERROR"
+  },
+  "primary_report_recovery": {
+    "archive_bytes": 1727986827,
+    "archive_sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+    "expected_primary_report_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "held_out_predictions_or_outcomes_opened": false,
+    "input_manifest_sha256": "8682b390b1c40306cf73157e9b9ca3098e5ed6c90f856f238ef23a756a8f340a",
+    "method": "preserve the current cloned bytes, then restore only the uniquely matched frozen outcome-manifest member from the digest-verified V9 input archive",
+    "quarantine_relative_path": "v4i/quarantine/v3-primary-outcome-manifest.pre-repair.json"
+  },
+  "primary_report_repair": {
+    "bytes": 3200,
+    "path": "repair_primary.py",
+    "sha256": "174a9d761d92289fd51ed8167e8044d498bccb7be7d385bb9c24cbb33a505176"
+  },
+  "prior_v4d": {
+    "mission": "theseus-v9-linux-runtime-reproduction-20260928-v4d",
+    "packet_sha256": "ff1141ff31053b18e82c332e1dc842cc556a64f87d53cb2c5036b42947764188",
+    "reason": "GMan refused cross-mission reuse; evaluator never started; no files were uploaded to its node.",
+    "status": "INCONCLUSIVE_NO_EVALUATION"
+  },
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+  "repository_state_slice": "theseus-lab-sandbox-v1",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime": {
+    "active_distribution_manifest_sha256": "0214786b54e5b8629740fc194eaca188d7627c6ae208997ac38068b0f1fe2a63",
+    "base_dependency_manifest_sha256": "0496a9c718bce898530689821630c5a4874823bfb152c672081b4c6779328bc4",
+    "base_reference_receipt_sha256": "0b980887e9d2299031ab0f92db175d6e71d8d7d5bb29f667621c8f03375781b5",
+    "cpu_thread_count": 1,
+    "dependency_manifest_sha256": "0214786b54e5b8629740fc194eaca188d7627c6ae208997ac38068b0f1fe2a63",
+    "derivation": "exact V3 runtime distribution map with only packaging upgraded to the exact frozen V9 lock version",
+    "distribution_metadata_filter": "exclude only importlib.metadata distribution records whose metadata path contains a _vendor path segment after torch import; reject duplicate active normalized package names; verify exact full 51-entry active map and all 26 lock rows",
+    "expected_distribution_count": 51,
+    "expected_extra_distribution_count": 25,
+    "machine": "x86_64",
+    "packaging_active_version": "26.3",
+    "packaging_base_version": "26.0",
+    "packaging_target_version": "26.3",
+    "packaging_vendored_duplicate_version": "26.0",
+    "python": "3.12.13",
+    "target_lock_entry_count": 26
+  },
+  "source_identity": {
+    "freeze_builder_sha256": "ad3a64e5171276966449ff0544ed499934b6862e7c3c4797d2a85c0557e1cd86",
+    "git_head": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "packet_file_count": 14,
+    "packet_source_sha256": "d221dc17354a0f052384628e9a6c545a6d157e39c42b2af2887ecbabeef36c37",
+    "parent_v4h_freeze_sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+    "parent_v4h_terminal_receipt_sha256": "0f7d282673bd3f90ae4e1b395211d004937cc856e58b7380cb8aa681b4b56033",
+    "parent_v4i_freeze_sha256": "50336b8c717dc994a5e352146de1c481c6a06ed6eb7e27fbeafe3133a6740b41",
+    "parent_v4i_terminal_receipt_sha256": "ec1f1b08a9095b3da036299fa00a54a68f7d50e9760fa818ab0034cbc808fa4e",
+    "patched_replicator_sha256": "72631270a1cfff59b07bd02f75028646e845c0b4db6812036cc497bc4405d2f1",
+    "replicator_sha256": "005ff243087001441c44eee22408c55a3202645eb2d9648e968417ecb5686923",
+    "results_report_sha256": "ac5678b291b6d8fc417f51740be28e7d7f03f1d38fe37ded49f35fed0a541fdd",
+    "runner_sha256": "4cd2f003df9c7a82846e71c394e13a7771c40e16bae9543496197333cb4262a1"
+  },
+  "source_snapshot": {
+    "bytes": 15920834560,
+    "image": "ubuntu-24.04",
+    "restored_scope": "whole-v4e-workspace",
+    "snapshot_id": "snap-t3r2t",
+    "source_node_id": "ca69c87a-603b-4fd5-984f-5b04bf310f91",
+    "source_node_name": "theseus-v9-linux-runtime-v4e-cpu8-20260928",
+    "status": "ready"
+  },
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+  "superseded_prelaunch_packets": [
+    {
+      "packet_sha256": "201aa4e6c627077faac9b71a9bc9a9e81970e30a5ba077e44ce4ac5473e7c73f",
+      "reason": "revised budget and command-duration wording before upload"
+    },
+    {
+      "packet_sha256": "71d04e8bf4bcf764a4dea9cc1c1efe942ef91d02c9c6dfad4e6227e216876ef2",
+      "reason": "corrected digest-bound V4 implementation path to the restored workspace location v4/implementation.py before upload"
+    },
+    {
+      "packet_sha256": "c233307b0de2c078faeb08d81dc1edcee7f9f0eab4f1dcba766f117ba3dc0104",
+      "reason": "corrected timeout receipt integrity and export reserve before any V4i upload or evaluator launch"
+    },
+    {
+      "packet_sha256": "84271a45d8bbe0f7fd031495e72f56f32969d2f697db1de99a85c5ec36d0a6f3",
+      "reason": "corrected timeout receipt integrity and export reserve before any V4i upload or evaluator launch"
+    },
+    {
+      "packet_sha256": "d9e1cd72f1703eae5e2549d3a183812d0837379f51f9afc139671d33996c7aab",
+      "reason": "corrected timeout receipt integrity and export reserve before any V4i upload or evaluator launch"
+    },
+    {
+      "packet_sha256": "80526437270135d278c6409c3c83fcb191ecbbafaa179a47407d3aa294269ca7",
+      "reason": "GMan rejected max_duration_minutes for the active-node detached launch before command creation; replaced with a frozen in-packet watchdog before evaluator launch"
+    },
+    {
+      "packet_sha256": "e6948fa2c559dd1dbc68f44652b1b58b6c47988918aafb8257461f87329e43b2",
+      "reason": "GMan rejected max_duration_minutes for the active-node detached launch before command creation; replaced with a frozen in-packet watchdog before evaluator launch"
+    }
+  ],
+  "supersedes_unrun_packet_sha256": "ff1141ff31053b18e82c332e1dc842cc556a64f87d53cb2c5036b42947764188",
+  "target": {
+    "candidate_freeze_sha256": "309ed7dfde5a4277daa57ed21e77bc8d2e05307268789a79819e31b19f3f8443",
+    "challenge_manifest_sha256": "5de1335c01d3fd8bf0729977842067a002c83338cf58c223faf59fa0df7f5600",
+    "checkpoint_count": 3,
+    "checkpoint_manifest_sha256": "b52bd7b94eb1e14c0453ba9318fcec2b39f0a210ca4c35f88b070bd57cd8e277",
+    "controls": [
+      "wrong_module",
+      "random",
+      "no_op"
+    ],
+    "family_count": 3,
+    "fixture_seeds": [
+      202609271,
+      202609272,
+      202609273
+    ],
+    "methods": [
+      "ridge",
+      "cka",
+      "logit_distill"
+    ],
+    "post_error_report_sha256": "0753bfbef92562940e3aca07ec5cdbe497d1b1659b82f8d2e06d97c65c645b08",
+    "primary_outcome_manifest_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "replacement_stages": 3,
+    "required_primary_outcome": "FAIL",
+    "v9_freeze_file_sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6",
+    "v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+  },
+  "target_lock": {
+    "bytes": 474,
+    "entry_count": 26,
+    "path": "requirements-v9.lock.txt",
+    "sha256": "034f815d48112752efb5b7278447b6f4c6653ce5c9316da0eb5a1a15ab188a5e"
+  },
+  "timeout_receipt_helper": {
+    "bytes": 8355,
+    "path": "write_timeout_receipt.py",
+    "sha256": "1afad4ebd8f0e333c6dea5599d7df50c64a99f40d769c75cb4a122568778553c"
+  },
+  "v3_freeze_file_sha256": "23d438959a674295239ebb465728434b0760fc70f4718679d58ffc5b7b0dd82c",
+  "v3_packet_sha256": "f824c78811f3a1daa60c14eb496cd7364481a02fbc529f02248620228f1d0f93",
+  "v3_stop_sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+  "watchdog": {
+    "bytes": 3168,
+    "path": "watchdog.sh",
+    "sha256": "63c841e70bd00aa6d299a12b7aee6b3822cef287d9b41c6bf050eda156724fff"
+  },
+  "wrapper": {
+    "bytes": 1966,
+    "path": "runner.py",
+    "sha256": "72631270a1cfff59b07bd02f75028646e845c0b4db6812036cc497bc4405d2f1"
+  }
+}

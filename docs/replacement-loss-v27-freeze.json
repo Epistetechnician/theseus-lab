@@ -1,0 +1,239 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget": {
+    "max_case_wall_seconds": 7200,
+    "max_model_bytes_each": 2200000000,
+    "max_model_bytes_total": 6600000000,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_usd": 0,
+    "search_limit_per_query": 5000
+  },
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v27-fresh-checkpoint-recovery-v1",
+  "created_at_utc": "2026-10-02T02:10:05.113217+00:00",
+  "custody_roots": {
+    "clean_replica": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v27-replicator",
+    "primary": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v27"
+  },
+  "dependency_inventory": {
+    "distribution_count": 27,
+    "packages": [
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.1",
+      "filelock==4.0.4",
+      "fsspec==2026.9.0",
+      "hf-xet==1.6.0",
+      "huggingface_hub==0.36.2",
+      "idna==3.20",
+      "jinja2==3.1.6",
+      "markupsafe==3.0.3",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numpy==2.4.6",
+      "packaging==26.3",
+      "pip==25.0.1",
+      "protobuf==5.29.6",
+      "pyyaml==6.0.3",
+      "regex==2026.9.10",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "sympy==1.13.1",
+      "tokenizers==0.22.2",
+      "torch==2.6.0",
+      "tqdm==4.70.1",
+      "transformers==4.57.3",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0"
+    ],
+    "primary_and_clean_replica_must_match": true
+  },
+  "dependency_manifest_sha256": "039cf82de4734acb725a7efc3c3257101a3ff21b6c061ef4bbb72c3c71f6f319",
+  "freeze_state": "FROZEN_BEFORE_V27_PUBLIC_HUB_QUERY_OR_TARGET_SELECTION",
+  "hub_queries_issued": false,
+  "model_weights_downloaded": false,
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "whole-model mechanistic identity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 4795,
+      "path": "docs/replacement-loss-v27-fresh-checkpoint-recovery.md",
+      "sha256": "0997188813a8edb599d7ba2de225f7c78c077e290526eff3227218c4419fb2e6"
+    },
+    {
+      "bytes": 2182,
+      "path": "replacement_loss_v27_hub_adapter.py",
+      "sha256": "dd72a67ce2090e4b7e88fd8e282df50e94a22a45e86e308465bdff779cd7c507"
+    },
+    {
+      "bytes": 41736,
+      "path": "replacement_loss_v27_runner.py",
+      "sha256": "feb5cdfef4dad2b3a37e3ada243e2b8880b159eaa1e21c2c021dca576dcb0133"
+    },
+    {
+      "bytes": 452,
+      "path": "requirements-v27.lock.txt",
+      "sha256": "039cf82de4734acb725a7efc3c3257101a3ff21b6c061ef4bbb72c3c71f6f319"
+    }
+  ],
+  "packet_sha256": "3321cc188a83f8ae5a394f49747309c02c7ce0f5e8caf31cb7a21f12ab9dbc5b",
+  "pre_v27_excluded_identity_count": 11927,
+  "pre_v27_identity_ledger_sha256": "2233d168a775cf1658e8f6b60d791d0598f4d95c842179938d6ae3b5ebca57cf",
+  "protocol_id": "theseus-replacement-loss-v27-fresh-checkpoint-recovery",
+  "runtime": {
+    "auth": "token=False",
+    "clean_replica_runtime": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v27-replicator-toolchain",
+    "hosted_inference": false,
+    "hub_client": "huggingface_hub==0.36.2",
+    "isolation_contract": "distinct sys.prefix and site-packages; include-system-site-packages=false; shared base executable permitted",
+    "platform": "macOS arm64 local CPU only",
+    "primary_runtime": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v27-primary-toolchain",
+    "protobuf": "protobuf==5.29.6",
+    "python": "3.12.13",
+    "remote_workers": 0,
+    "telemetry": false
+  },
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "upstream_code_dependencies": [
+    {
+      "bytes": 85,
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 95959,
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "bytes": 36282,
+      "path": "replacement_loss_v6_runner.py",
+      "sha256": "2f032a7384f4a70f9ad1216de2539ec09fcb338fbb8a458579e3c596a9162f6e"
+    },
+    {
+      "bytes": 21809,
+      "path": "replacement_loss_v7_runner.py",
+      "sha256": "92d617737e6c7726d071e9f545ef06cabe78e4d2673c4dc3f1eb72edd0cf7ccf"
+    },
+    {
+      "bytes": 3013,
+      "path": "replacement_loss_v8_fixtures.py",
+      "sha256": "ab7832ecd1fe252e6c1208e8c7f6b3a157b3be86cbcb69228836f639fb53626e"
+    },
+    {
+      "bytes": 27377,
+      "path": "replacement_loss_v8_runner.py",
+      "sha256": "0d87dff6a87949bd9b26bf915df57655c95189529bb3f7c112dca8284168c469"
+    },
+    {
+      "bytes": 3109,
+      "path": "replacement_loss_v22_fixtures.py",
+      "sha256": "267722e033733bbabce9ef9b386565cb445d93222571b9f6b7e0b394192f3baf"
+    },
+    {
+      "bytes": 24596,
+      "path": "replacement_loss_v22_runner.py",
+      "sha256": "83977cc8b6edb04d684faf7ce26c586f3cefcbe72fb15d7c8cc04fdd22762fc6"
+    },
+    {
+      "bytes": 25497,
+      "path": "replacement_loss_v23_runner.py",
+      "sha256": "07aa878aff972484d39754d1a6d1f4ee0629deb1d96ccfe6ebaa1c478f72e73c"
+    },
+    {
+      "bytes": 13444,
+      "path": "replacement_loss_v23_hub_adapter.py",
+      "sha256": "b6d2ec3519545613aae998fd44990d11a7238acc21c98ae21747ca5598bfd6b6"
+    },
+    {
+      "bytes": 38232,
+      "path": "replacement_loss_v25_runner.py",
+      "sha256": "567626a200c83a08db1381675ef04d7ed669f583cc8d3d3d67e3022c6e37e516"
+    },
+    {
+      "bytes": 10496,
+      "path": "replacement_loss_v25_hub_adapter.py",
+      "sha256": "5d22ed20949c67d28c85b2182e9e223f8fe48f21bea0bf4468bdf7d5c820fc42"
+    },
+    {
+      "bytes": 46109,
+      "path": "replacement_loss_v26_runner.py",
+      "sha256": "d3af6f722bd0886baca2c4c3fc1be7e22c2f34a11681c3571e1664b5aba5d8fa"
+    },
+    {
+      "bytes": 10546,
+      "path": "replacement_loss_v26_hub_adapter.py",
+      "sha256": "509cae24ce59cf886ec08553868fc6840712c8fa14b9723a7d3936e6a44d571d"
+    }
+  ],
+  "upstream_v22_packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "upstream_v25_packet_sha256": "9360f1c15820ce504fd1b059a468da6bb5ce26b4be86bd2369a769eaa74b161a",
+  "upstream_v26_dynamic_packet_verification": {
+    "packet_file_count": 4,
+    "packet_sha256": "1b92319ef36a98dbec6d534fa9a2f13cd80df528dab64639be59c8d2e453cfdc",
+    "pre_v26_excluded_identity_count": 11927,
+    "protocol_id": "theseus-replacement-loss-v26-fresh-checkpoint-recovery",
+    "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "upstream_v25_packet_sha256": "9360f1c15820ce504fd1b059a468da6bb5ce26b4be86bd2369a769eaa74b161a",
+    "verified": true
+  },
+  "upstream_v26_packet_sha256": "1b92319ef36a98dbec6d534fa9a2f13cd80df528dab64639be59c8d2e453cfdc",
+  "upstream_v26_static_evidence": {
+    "packet_sha256": "1b92319ef36a98dbec6d534fa9a2f13cd80df528dab64639be59c8d2e453cfdc",
+    "prefreeze_receipts": [
+      {
+        "path": "receipt.json",
+        "sha256": "1761c4c5f4ba24a4a3d01e3397324ecde381f8b9d811870b788dface5c07c409",
+        "status": "INCONCLUSIVE_SETUP_BEFORE_FREEZE"
+      },
+      {
+        "path": "v26-runtime-prefreeze-attempt-001.json",
+        "sha256": "09b02a67968d17bfaf3e4765031b2712d7145606216d4b188ffde47b399c8577",
+        "status": "INCONCLUSIVE_RUNTIME_PREFLIGHT_REQUIRES_COPIED_INTERPRETERS"
+      },
+      {
+        "path": "v26-runtime-copy-attempt-002.json",
+        "sha256": "5c082b3e02565231c4541bbaaa8bfdae48c72ea0ee2f6eeb5b079c7cb1a2a54e",
+        "status": "INCONCLUSIVE_RUNTIME_COPY_BOOTSTRAP"
+      },
+      {
+        "path": "v26-runtime-copy-followup-002.json",
+        "sha256": "c14db78aba04b015c2b19ac5216268e10abac68faab154e677f003e4d7e5761a",
+        "status": "INCONCLUSIVE_RUNTIME_COPY_NOT_RELOCATABLE"
+      }
+    ],
+    "v25_evidence": {
+      "ancestor_packet_sha256": {
+        "v22": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+        "v23": "7600d653f906db5411a6ab3121e078f8134e311e8fe0ecb37ef05552bdbe890e",
+        "v24": "1d1b99baa7dbe41f62a989a3653dc18b353f9d7fee5f8cbd6ed810796b162197",
+        "v8": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+      },
+      "checkpoint_manifest_sha256": "29cda78cde658a2212ee18c80d567dbf05c2dd5b7f8ae2dae0fc5378bf62f8c1",
+      "download_manifest_sha256": "bce4d47d7ad6fb03497563830aa3a8e017ff9e3f7f721a196a83407281560868",
+      "packet_sha256": "9360f1c15820ce504fd1b059a468da6bb5ce26b4be86bd2369a769eaa74b161a",
+      "screen_identity_count": 11907,
+      "screen_sha256": "2e6822ac2752f7437c9b863f8c1f599ee6ea7bb6cf3caefc470cc7885345cdb1",
+      "selected_identity_count": 3,
+      "selection_sha256": "ec44abfd319fa483b10103025886ab6799ad23a16d6ed482c10989e0d4560e7d",
+      "terminal_outcome": "INCONCLUSIVE_EXECUTION",
+      "terminal_sha256": "f582972e99ca7cba71baf53c7f61b9aeda6df5dc2db2afde30e8f1f7d183f057"
+    }
+  },
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

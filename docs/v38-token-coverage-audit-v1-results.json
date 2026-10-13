@@ -1,0 +1,61 @@
+{
+  "protocol_id": "theseus-v38-token-coverage-audit-v1",
+  "date": "2026-10-06",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "Revision plus digest-bound uncommitted source",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v38-token-coverage-audit-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "packet_sha256": "ae4fd5ae25807c194aa3b1dabfc2bcd6041b52def932cee72968d897ded92a40",
+  "source_freeze_sha256": "6100a629272811073420d099f5d1171148c5b82d458ccf8063c039f4daebf1cf",
+  "outcome_status": "COVERAGE_GAP_SUPPORTED",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "EXACT_STATISTICS_AND_SCALAR_METRICS_IN_DISTINCT_LOCKED_PREFIXES",
+  "cells": 12,
+  "treatment_cells": 6,
+  "treatment_gap_cells": 6,
+  "all_arm_gap_cells": 12,
+  "prefix_nrmse_range": [
+    0.39760065144625756,
+    0.6664990066997462
+  ],
+  "final_nrmse_range": [
+    0.014181895127958949,
+    0.020109230184358323
+  ],
+  "prefix_to_final_error_ratio_range": [
+    20.79579651374779,
+    46.44414167274811
+  ],
+  "all_token_to_fitted_output_scale_ratio_range": [
+    8.299813333067723,
+    32.82076564565007
+  ],
+  "parent_packet_sha256": "c9739b055049219d1c9f21ed45a71265df1af6886ea0933249fff41a226aa013",
+  "parent_validation_sha256": "fbe66e24b0e7b58a10248b202210cced5434fab50e76047860b8f7e0f22e3bd9",
+  "primary_result_sha256": "ceab479f6070c848ed3f784d1f2b13051cffcf0a6e6eb264f635a3848a6fa7a2",
+  "replica_result_sha256": "a6d5512cccfb7e0702a74b93662ae3d0d8434cd016f2f23837874337d19ec644",
+  "reconciliation_sha256": "542b914f00405f15d06898bde702bdd46579467fe4561a48f0ce356e77953002",
+  "statistics_sha256": "febb3f0c17b554edad3c9c3fad71b6f99758c6d15169a575b60c8456b4d1819b",
+  "reconciliation_checks": 7,
+  "primary_wall_seconds": 43.86626133299433,
+  "replica_wall_seconds": 47.901109708007425,
+  "new_training_steps": 0,
+  "new_holdout_queries": 0,
+  "paid_execution_usd": 0,
+  "energy": "NOT_MEASURED",
+  "custody": "Adaptation-only statistics and original weights/captures remain on PrimaryED; runtimes on Backup ED. Repository contains code, scalar reports and source digests only.",
+  "claim_ceiling": "ADAPTATION_TOKEN_COVERAGE_DIAGNOSIS_ONLY",
+  "known_limitations": [
+    "One reused guide and existing adaptation prompts; no fresh held-out scientific evidence.",
+    "Parent terminal scalar report is read for provenance; no V38 row-level held-out fixtures, predictions, or oracle arrays were reopened.",
+    "Prefix/final differences and output-scale differences are observed together; no proof that coverage explains every V38 miss.",
+    "Same owner/host/shared semantics; no independent acceptance.",
+    "Runtime initialization and parent integrity checks precede the recorded execution timer; RSS was not actively capped or measured by this diagnostic."
+  ],
+  "next_local_obligation": "Fresh frozen V39 all-token fitting packet with unchanged causal/behavior/control gates.",
+  "next_blocked_authority_gate": "Configured independent authority for stronger scientific acceptance; production separately authorized."
+}

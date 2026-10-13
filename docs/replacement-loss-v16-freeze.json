@@ -1,0 +1,79 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_WHOLE_MLP_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "freeze_sha256": "807665631afc905dab3b9e2d8f8e56c91da1d74113d0ef416c20a6dbfa29e73e",
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 8034,
+      "path": "docs/replacement-loss-v16-whole-mlp.md",
+      "sha256": "fbc70a91e7e27ab9a70cce2af0dc0ba22e1a36b5cdc028b07d5e4235882de8ef"
+    },
+    {
+      "bytes": 5018,
+      "path": "replacement_loss_v16_fixtures.py",
+      "sha256": "61b911028a19304bf87d0674cea7a4521f45ea8b93d4777563856a1c6608a8d4"
+    },
+    {
+      "bytes": 88642,
+      "path": "replacement_loss_v16_runner.py",
+      "sha256": "d53ff80e1f35d6b4f2a65e946eca556109f684ed86a2fe7e7d418abb85977947"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 545,
+      "path": "requirements-v16.lock.txt",
+      "sha256": "163ba7619c952086d25fba9dff1ec6c1df58172cc743d5622c167017a6ace803"
+    },
+    {
+      "bytes": 4234,
+      "path": "docs/replacement-loss-v3-results.md",
+      "sha256": "d8df4a7477125e8ea0f354761951ef1033064874a7088c6ac9c93b2ec1eab13c"
+    },
+    {
+      "bytes": 6643,
+      "path": "docs/replacement-loss-v8-results.md",
+      "sha256": "d93e20a968ccacd5f6186e7331a99da57d9069584f809d99069644f6db7c1bec"
+    },
+    {
+      "bytes": 9437,
+      "path": "docs/replacement-loss-v9-results.md",
+      "sha256": "14fe646407cfdc56ca0a9120d14623ac9ba558de50a69fe94ca3d2fb0f5b2116"
+    },
+    {
+      "bytes": 5860,
+      "path": "docs/replacement-loss-v13-results.md",
+      "sha256": "6a8e7318c4c5e5f4a1b9572b7857b31de36c3cc4c25774cbc522cbcdac0d50c4"
+    },
+    {
+      "bytes": 7798,
+      "path": "docs/replacement-loss-v14-results.md",
+      "sha256": "286dee4efc8605e06acac6eb95ef71ff5b64b72f486e8e30062ae0ec5bba660e"
+    },
+    {
+      "bytes": 5180,
+      "path": "docs/replacement-loss-v15c-results.md",
+      "sha256": "196fc298aaa8ae263e8ce5183106693a676dc69ef58032dd2f43360731b4fdc8"
+    }
+  ],
+  "packet_sha256": "72469f59ff36c465542caab84970953b0eac69532f0d2fde5d292ee424b2a763",
+  "protocol_id": "theseus-replacement-loss-v16-whole-mlp-independent-replacement",
+  "protocol_slice": "theseus-replacement-loss-v16-whole-mlp-independent-replacement-v1",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_identity": {
+    "fresh_checkpoint_claim": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "target_known_before_protocol": true,
+    "tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "weight_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132"
+  }
+}

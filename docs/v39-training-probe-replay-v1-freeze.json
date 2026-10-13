@@ -1,0 +1,46 @@
+{
+  "protocol_id": "theseus-v39-training-probe-replay-v1",
+  "state_slice": "theseus-v39-training-probe-replay-v1",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-training-probe-replay-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "date": "2026-10-07",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "claim_ceiling": "ADAPTATION_TRAINING_DIRECTION_RESIDUAL_DIAGNOSIS_ONLY",
+  "freeze_status": "FROZEN_BEFORE_TRAINING_DIRECTION_PROJECTION_MEASUREMENTS",
+  "members": [
+    {
+      "path": "theseus_training_probe_replay_v1.py",
+      "bytes": 11434,
+      "sha256": "7b3705aa1cfc5f44c34c918fa1b4ede86aa91ddf6d63ecfb3898b6c333e00d74"
+    },
+    {
+      "path": "tests/test_training_probe_replay_v1.py",
+      "bytes": 1514,
+      "sha256": "d45ec8d9ad7a26ee23af3b6a0b0b030bc5971f2e60455ae034c2c3a731099d0a"
+    },
+    {
+      "path": "docs/v39-training-probe-replay-v1.md",
+      "bytes": 2903,
+      "sha256": "ae43e11b4155da60211d2fe054bb6ff72bb59debbda15e5d6e8ae8246f9563dd"
+    },
+    {
+      "path": "docs/v39-first-mlp-diagnosis-v1-freeze.json",
+      "bytes": 1790,
+      "sha256": "b79daf55a61e070af70bbb701f3d00b52154e5ccf64358ef8c8c9e08b0270d84"
+    },
+    {
+      "path": "docs/v39-first-mlp-diagnosis-v1-results.json",
+      "bytes": 6106,
+      "sha256": "d063d36637ebc54a0c4d035887a06141d76b3b80ec3912fa82e9d1056abdb33b"
+    }
+  ],
+  "packet_sha256": "952f46661f9eacf97ebddbef4a9827a94e38960f2bed0cbbbf14f6b67409d76e",
+  "engineering_contract_tests_passed": 3,
+  "paid_cap_usd": 0,
+  "new_model_forwards_authorized": 0,
+  "new_training_steps_authorized": 0,
+  "new_heldout_queries_authorized": 0
+}

@@ -1,0 +1,125 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget_usd": 0,
+  "challenge_generated": false,
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "SYNTHETIC_NONLINEAR_REPLACEMENT_METHODS_QUALIFICATION_ONLY",
+  "continuation_slice": "theseus-replacement-loss-v30-nonlinear-synthetic-recovery-v1",
+  "created_at_utc": "2026-10-02T04:13:20Z",
+  "design": {
+    "adapt_rows_per_stratum": 1024,
+    "challenge_rows_per_stratum": 128,
+    "controls": [
+      "wrong_module",
+      "random",
+      "no_op",
+      "affine_distillation"
+    ],
+    "coordinate_permutation_experiment": false,
+    "families": [
+      "opt_relu",
+      "gpt2_gelu",
+      "llama_silu_gated"
+    ],
+    "optimizer": {
+      "batching": "full_batch",
+      "learning_rate": 0.01,
+      "name": "AdamW",
+      "steps": 600,
+      "weight_decay": 0.0001
+    },
+    "seeds": [
+      20261001,
+      20261002,
+      20261003
+    ],
+    "strata": [
+      "ordinary",
+      "compositional",
+      "adversarial"
+    ],
+    "student": {
+      "activation": "GELU",
+      "hidden": 48,
+      "input": 16,
+      "output": 16
+    }
+  },
+  "dirty_tree_status_sha256_excluding_v29_packet": "c160b9ba33168d22b9b833cf90c05a5512804df3772c9c209b5b44b777293c83",
+  "freeze_state": "FROZEN_BEFORE_SYNTHETIC_ORACLE_OR_ADAPTATION_GENERATION",
+  "nonclaims": [
+    "trained-transformer mechanism",
+    "architecture-general validity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "oracle_generated": false,
+  "packet_files": [
+    {
+      "bytes": 2012,
+      "path": "docs/replacement-loss-v30-float32-recovery.md",
+      "sha256": "dca80504bd01d4f51cb681cc8db913ef2b12673a765e7bcb920556d53eb1b468"
+    },
+    {
+      "bytes": 5075,
+      "path": "replacement_loss_v30_runner.py",
+      "sha256": "78878844b3ed82e19be4a27357db21a7f19b91c14fd51a9ee8ebcad6125a1c22"
+    },
+    {
+      "bytes": 26,
+      "path": "requirements-v30.lock.txt",
+      "sha256": "6639dbe4e5868205edc053806a03aa587bc37dda8684a305724d0c3a29994e87"
+    },
+    {
+      "bytes": 40537,
+      "path": "replacement_loss_v29_runner.py",
+      "sha256": "9ad5d188a7187b0d894e78ee905fd1f2034a645fc7f4cc0029219924a022f543"
+    },
+    {
+      "bytes": 4109,
+      "path": "docs/replacement-loss-v29-nonlinear-synthetic.md",
+      "sha256": "7ee1a89339e186b17ee91a73b6a56cf94dc74d8be1ed3b2e189974bca01d5ed7"
+    },
+    {
+      "bytes": 3057,
+      "path": "docs/replacement-loss-v29-freeze.json",
+      "sha256": "ff218d3c9689cfee224e319abb96f425c9635ec240094a052d945d7460476a26"
+    },
+    {
+      "bytes": 1566,
+      "path": "docs/replacement-loss-v29-results.md",
+      "sha256": "62059657d9829d5e7c076923a70205072c6cd3cab8521a345db06ae5f1f0eb65"
+    }
+  ],
+  "packet_sha256": "a2e8860f30642be8a2c53386c64b87db7e17e6e1a7b3212e4a4274b72cd0cda3",
+  "protocol_id": "theseus-replacement-loss-v30-float32-recovery",
+  "recovery_change": "normalize every sampled input array to float32 before module execution",
+  "resource_budget": {
+    "max_external_artifact_bytes": 1073741824,
+    "max_peak_rss_bytes": 4294967296,
+    "max_total_wall_seconds": 1800
+  },
+  "runtime_contract": {
+    "cpu_threads": 1,
+    "numpy": "2.4.6",
+    "python": "3.12.13",
+    "torch": "2.6.0"
+  },
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "thresholds": {
+    "activation_median_cosine_min": 0.9,
+    "activation_median_normalized_error_max": 0.2,
+    "all_nine_cases_required": true,
+    "behavior_max_normalized_logit_error": 0.05,
+    "behavior_mean_cross_entropy_delta_max": 0.05,
+    "causal_direction_accuracy_min": 0.8,
+    "causal_median_cosine_min": 0.9,
+    "causal_median_normalized_error_max": 0.2,
+    "treatment_must_beat_each_control_on_median_causal_error": true
+  },
+  "upstream_v29_failure_receipt_sha256": "40c64c471ab051795049c72b7b346a0dd6d5098cd351cc2d60f15d2d0cb4d007",
+  "upstream_v29_packet_sha256": "33016b8c3f97066222077c06e4f8fe6a97349380df500935cb1fcb7d07d99b8d"
+}

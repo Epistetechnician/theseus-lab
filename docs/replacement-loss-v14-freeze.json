@@ -1,0 +1,210 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "bootstrap_cluster": "fixture_seed",
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 202610099,
+  "candidate_training_started": false,
+  "challenge_generation_started": false,
+  "claim_ceiling": "LOCAL_GELU_ACTIVATION_EFFECT_ON_MATCHED_LOW_RANK_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT_AND_SIX_SYNTHETIC_SEEDS",
+  "created_at_utc": "2026-09-30T03:47:36.355774+00:00",
+  "fixture_generation_started": false,
+  "fixture_seed_count": 6,
+  "freeze_sha256": "e6f9852d68f69f77d30191fb1f11b1fbc50d661c8aa670973e23f676fa8580b9",
+  "freeze_state": "FROZEN_BEFORE_V14_FIXTURE_GENERATION_AND_CANDIDATE_TRAINING",
+  "method_key_mapping": {
+    "activation_ridge": {
+      "architecture": "Linear-Identity-Linear",
+      "meaning": "paired AdamW-fitted factorized affine replacement; not ridge regression",
+      "result_name": "affine_fit"
+    },
+    "causal_fit": {
+      "architecture": "Linear-GELU-Linear",
+      "meaning": "paired AdamW-fitted nonlinear replacement",
+      "result_name": "gelu_fit"
+    }
+  },
+  "packet_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "path": "docs/replacement-loss-v14.md",
+      "sha256": "450cd1d81865757a345165eb72aab55438696583ae6119fb3d8a11b42916d8e9"
+    },
+    {
+      "path": "replacement_loss_v14_fixtures.py",
+      "sha256": "d8316f8c1d74af26e28e3c41c9d1695384ec6d349881c4a05bb819af695fe5a2"
+    },
+    {
+      "path": "replacement_loss_v14_runner.py",
+      "sha256": "4bbc80c13e4293f7d6449323b45400bcbc990a6e59094b98b90bd2d0f876747c"
+    },
+    {
+      "path": "tests/test_replacement_loss_v14.py",
+      "sha256": "1ae5eaeb735d51dac72c7ad3a73ea2ffd40275f0298c90260ea71fb5de7e0c20"
+    },
+    {
+      "path": "requirements-v14.lock.txt",
+      "sha256": "8b9e94033770b3484e02cd917f8712e7bedf4b8cbd134929157b92d337d1e938"
+    },
+    {
+      "path": "docs/replacement-loss-v13.md",
+      "sha256": "ff1ef7d4c19dcf5cb0945908610e34998ae649d09a0e8d94619d4e310150874f"
+    },
+    {
+      "path": "replacement_loss_v13_fixtures.py",
+      "sha256": "fffcba4caf2d54f1ba67e1d6dc9b3bb3c9b3186d48c70b856be35e7a572cee69"
+    },
+    {
+      "path": "replacement_loss_v13_runner.py",
+      "sha256": "fa1eac802d13e0a6a76a80a86c8d8a81ed139244254e0c9e42cb1b9401ee03ba"
+    },
+    {
+      "path": "tests/test_replacement_loss_v13.py",
+      "sha256": "91ef279ce9fa46d8a9ae1e84942749fdc6b412c43cbfaa71a36459e749c9b189"
+    },
+    {
+      "path": "requirements-v13.lock.txt",
+      "sha256": "8f06ddb4781ec812c5c17eaf39e19c750995a8b6f7f20ebe3f07f3429752c84c"
+    },
+    {
+      "path": "docs/replacement-loss-v12-replication.md",
+      "sha256": "26e9477e1bbd0e0204dc5c0e530752b1f804182628a3d953d774f78ff47a65cc"
+    },
+    {
+      "path": "docs/replacement-loss-v12-replication-results.md",
+      "sha256": "ef106e78cbcc81776e9ba262de7632c2a1bc1afd1dc7f8abe5fa6cfaa7f5b4fe"
+    },
+    {
+      "path": "replacement_loss_v12_replication.py",
+      "sha256": "9f4e6df251683be1c68d1224e1c2b42f3018a2915cdeab78207f0a78df1e85d9"
+    },
+    {
+      "path": "tests/test_replacement_loss_v12_replication.py",
+      "sha256": "8b2ecf21d14048426d639b7b4dea292f4a44ae9c9d2f8b0eff1ad9c0f5f468b8"
+    },
+    {
+      "path": "requirements-v12.lock.txt",
+      "sha256": "67aad23c7157840591b2334a1fd0e73bbbf08ea9971adc63518fd76b0ceaa219"
+    },
+    {
+      "path": "docs/replacement-loss-v11.md",
+      "sha256": "0042dc858797eb6c64e63c330c55a353faafb4059cad691065f6f13078f9bb06"
+    },
+    {
+      "path": "docs/replacement-loss-v11-freeze.json",
+      "sha256": "f3a16e77f778c5c82d40e4c5234440b1b614abc746a06243042cefa253f41d41"
+    },
+    {
+      "path": "docs/replacement-loss-v11-results.md",
+      "sha256": "bd89600f5adb4c94b88fdfa493a7ad308af61a74c3fb901bfbaf72ee0f8e7307"
+    },
+    {
+      "path": "replacement_loss_v11_fixtures.py",
+      "sha256": "7c5a0dfb53da1195113809157d0e935ba7c26a58912f4017a18f2be7105c5d45"
+    },
+    {
+      "path": "replacement_loss_v11_runner.py",
+      "sha256": "2ac6904f11608876012e5a41608f3c50d6942f5a8f1c94e1ab7789731e85307d"
+    },
+    {
+      "path": "tests/test_replacement_loss_v11.py",
+      "sha256": "d3b6d93ce5efc58ebb4c3c0abb5b0c5b92200e85af04633929bf07ae84ef3249"
+    },
+    {
+      "path": "requirements-v11.lock.txt",
+      "sha256": "8cbfe8100f265d7c472c1ffc086df2d82be3b51cc96c9ef29c2f23951f055545"
+    },
+    {
+      "path": "docs/replacement-loss-v10.md",
+      "sha256": "32e5fc3683c761e3173fdc1135ae832be355279f67fa763bd988ffff66e807c2"
+    },
+    {
+      "path": "docs/replacement-loss-v10-freeze.json",
+      "sha256": "6e12cebeb3f2b1f9b1766c748b59b0233d3b249575f629d1c5ad4ce2254fcd74"
+    },
+    {
+      "path": "replacement_loss_v10_fixtures.py",
+      "sha256": "c32607428c840bdf07576e3b102e699114c473d79629097c802e71482576e6f2"
+    },
+    {
+      "path": "replacement_loss_v10_runner.py",
+      "sha256": "b715508f4367fb093120c863e34310586b7be892bdd83e5bae381535c4decbff"
+    },
+    {
+      "path": "tests/test_replacement_loss_v10.py",
+      "sha256": "fb8604db677180eed086f582d08e50ef20afc584b91649412d8578cd1e4f267f"
+    },
+    {
+      "path": "requirements-v10.lock.txt",
+      "sha256": "0469ff6948f4866ea4df13d88c53a27adab3141ecb42af1325d31086ca8458d1"
+    },
+    {
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "path": "docs/replacement-loss-v13-freeze.json",
+      "sha256": "3cece104ef48d410b8e412f77fb3a694f3c9ed94494ccbfca3d5d7bcfadfaae0"
+    },
+    {
+      "path": "docs/replacement-loss-v13-results.md",
+      "sha256": "6a8e7318c4c5e5f4a1b9572b7857b31de36c3cc4c25774cbc522cbcdac0d50c4"
+    }
+  ],
+  "packet_sha256": "3e6db084afbd7d9cfd2d072214d916886d06a85b9ff47471dd1452257c51485f",
+  "paired_training": {
+    "batch_size": 8,
+    "gradient_norm_clip": 1.0,
+    "learning_rate": 0.0003,
+    "only_forward_difference": "GELU versus identity activation",
+    "optimizer": "AdamW",
+    "same_adaptation_rows_and_batch_order": true,
+    "same_initial_parameter_tensors": true,
+    "same_objective": "normalized activation MSE plus normalized next-logit intervention-effect MSE, unit weights",
+    "updates": 200,
+    "weight_decay": 0.0001
+  },
+  "primary_lower_confidence_bound": 0.95,
+  "primary_metric": "mean seed-clustered held-out next-logit intervention-effect cosine difference, GELU minus matched identity activation",
+  "primary_minimum_effect": 0.05,
+  "protocol_id": "theseus-replacement-loss-v14-paired-activation-ablation",
+  "protocol_slice": "theseus-replacement-loss-v14-paired-activation-ablation-v1",
+  "replacement_architecture": {
+    "hidden_width": 512,
+    "input_width": 3072,
+    "output_width": 768,
+    "parameter_count_each": 1967360,
+    "source_weights_used": false
+  },
+  "resource_limits": {
+    "execution": "local_cpu_only",
+    "max_base_model_parameters": 200000000,
+    "max_checkpoint_bytes": 838860800,
+    "max_rss_bytes": 17179869184,
+    "max_total_seconds": 14400,
+    "paid_or_remote_compute": false,
+    "provider_calls": false
+  },
+  "selected_layers": [
+    0,
+    7
+  ],
+  "source_v11_selection_sha256": "f5078a88b8094f58fcc1de282d52afe779ae672bc7d8c2ffe6dca1e8941b057f",
+  "source_v13_freeze_sha256": "3cece104ef48d410b8e412f77fb3a694f3c9ed94494ccbfca3d5d7bcfadfaae0",
+  "source_v13_packet_sha256": "93c1ecfce1f39b76433ebcf2452d2723824ce41de5e00ab6df6cd7e314af839c",
+  "source_v13_reproduction_assurance": "REPRODUCED_LOCAL",
+  "source_v13_results_file_sha256": "6a8e7318c4c5e5f4a1b9572b7857b31de36c3cc4c25774cbc522cbcdac0d50c4",
+  "source_v13_scientific_outcome": "FAIL",
+  "source_v13_scientific_results_sha256": "3312c3052caaa6f00b0fe999d84222048cd3ad809464490a7b2095430df81aea",
+  "state_slice": "theseus-lab-sandbox-v1"
+}

@@ -1,0 +1,291 @@
+{
+  "adaptation_seeds": [
+    202610201,
+    202610202,
+    202610203
+  ],
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "batch_size": 8,
+  "candidate_training_started": false,
+  "challenge_generation_started": false,
+  "checkpoint_steps": [
+    200,
+    800
+  ],
+  "claim_ceiling": "LOCAL_ADAPTATION_DIAGNOSTIC_OF_RANK_AND_OPTIMIZATION_FOR_ONE_REUSED_OPT_CHECKPOINT",
+  "fixture_generation_started": false,
+  "freeze_sha256": "f8afd5dd7ab5c2aa79fd35d5ef41a40d4ca26a74f580ab120af69865d041e8ae",
+  "freeze_state": "FROZEN_BEFORE_V15_FIXTURE_GENERATION_AND_TRAINING",
+  "gradient_norm_clip": 1.0,
+  "learning_rate": 0.0003,
+  "nonclaims": [
+    "no held-out challenge or continuation behavior evaluation",
+    "no learned activation-rescue or replacement-retention conclusion",
+    "no fresh-checkpoint or architecture-general evidence",
+    "no independent scientific, alignment, consciousness, or production claim"
+  ],
+  "objective": "normalized activation MSE plus normalized next-logit intervention-effect MSE, unit weights",
+  "optimizer": "AdamW",
+  "packet_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "path": "docs/replacement-loss-v15-capacity-optimization-diagnostic.md",
+      "sha256": "3c4c4d3b462fff8c9fb40b7e50518efd814e0652d331fdb25d47bdaa1a56719f"
+    },
+    {
+      "path": "replacement_loss_v15_fixtures.py",
+      "sha256": "a688d8313c69b69b7493ed18ee3fdac069d28dbf5f5cbd65a12d6b9704edcfd5"
+    },
+    {
+      "path": "replacement_loss_v15_runner.py",
+      "sha256": "4afc946986f145a0a2f6646d40564a69400937e4873922edd55ec3fbe2082e04"
+    },
+    {
+      "path": "requirements-v15.lock.txt",
+      "sha256": "2a326a4ebd7949c191008f99b65fc88b73260b5b6e1e8dcb2b0c5aaf7f4496c0"
+    },
+    {
+      "path": "docs/replacement-loss-v14-freeze.json",
+      "sha256": "c3421e9e983650acbdf095b4620fca6f5a01b391691ad3c796b116f6e21e344b"
+    },
+    {
+      "path": "docs/replacement-loss-v14-results.md",
+      "sha256": "286dee4efc8605e06acac6eb95ef71ff5b64b72f486e8e30062ae0ec5bba660e"
+    },
+    {
+      "path": "replacement_loss_v14_fixtures.py",
+      "sha256": "d8316f8c1d74af26e28e3c41c9d1695384ec6d349881c4a05bb819af695fe5a2"
+    },
+    {
+      "path": "replacement_loss_v14_runner.py",
+      "sha256": "4bbc80c13e4293f7d6449323b45400bcbc990a6e59094b98b90bd2d0f876747c"
+    },
+    {
+      "path": "requirements-v14.lock.txt",
+      "sha256": "8b9e94033770b3484e02cd917f8712e7bedf4b8cbd134929157b92d337d1e938"
+    },
+    {
+      "path": "docs/replacement-loss-v14.md",
+      "sha256": "450cd1d81865757a345165eb72aab55438696583ae6119fb3d8a11b42916d8e9"
+    },
+    {
+      "path": "tests/test_replacement_loss_v14.py",
+      "sha256": "1ae5eaeb735d51dac72c7ad3a73ea2ffd40275f0298c90260ea71fb5de7e0c20"
+    },
+    {
+      "path": "docs/replacement-loss-v13.md",
+      "sha256": "ff1ef7d4c19dcf5cb0945908610e34998ae649d09a0e8d94619d4e310150874f"
+    },
+    {
+      "path": "replacement_loss_v13_fixtures.py",
+      "sha256": "fffcba4caf2d54f1ba67e1d6dc9b3bb3c9b3186d48c70b856be35e7a572cee69"
+    },
+    {
+      "path": "replacement_loss_v13_runner.py",
+      "sha256": "fa1eac802d13e0a6a76a80a86c8d8a81ed139244254e0c9e42cb1b9401ee03ba"
+    },
+    {
+      "path": "tests/test_replacement_loss_v13.py",
+      "sha256": "91ef279ce9fa46d8a9ae1e84942749fdc6b412c43cbfaa71a36459e749c9b189"
+    },
+    {
+      "path": "requirements-v13.lock.txt",
+      "sha256": "8f06ddb4781ec812c5c17eaf39e19c750995a8b6f7f20ebe3f07f3429752c84c"
+    },
+    {
+      "path": "docs/replacement-loss-v12-replication.md",
+      "sha256": "26e9477e1bbd0e0204dc5c0e530752b1f804182628a3d953d774f78ff47a65cc"
+    },
+    {
+      "path": "docs/replacement-loss-v12-replication-results.md",
+      "sha256": "ef106e78cbcc81776e9ba262de7632c2a1bc1afd1dc7f8abe5fa6cfaa7f5b4fe"
+    },
+    {
+      "path": "replacement_loss_v12_replication.py",
+      "sha256": "9f4e6df251683be1c68d1224e1c2b42f3018a2915cdeab78207f0a78df1e85d9"
+    },
+    {
+      "path": "tests/test_replacement_loss_v12_replication.py",
+      "sha256": "8b2ecf21d14048426d639b7b4dea292f4a44ae9c9d2f8b0eff1ad9c0f5f468b8"
+    },
+    {
+      "path": "requirements-v12.lock.txt",
+      "sha256": "67aad23c7157840591b2334a1fd0e73bbbf08ea9971adc63518fd76b0ceaa219"
+    },
+    {
+      "path": "docs/replacement-loss-v11.md",
+      "sha256": "0042dc858797eb6c64e63c330c55a353faafb4059cad691065f6f13078f9bb06"
+    },
+    {
+      "path": "docs/replacement-loss-v11-freeze.json",
+      "sha256": "f3a16e77f778c5c82d40e4c5234440b1b614abc746a06243042cefa253f41d41"
+    },
+    {
+      "path": "docs/replacement-loss-v11-results.md",
+      "sha256": "bd89600f5adb4c94b88fdfa493a7ad308af61a74c3fb901bfbaf72ee0f8e7307"
+    },
+    {
+      "path": "replacement_loss_v11_fixtures.py",
+      "sha256": "7c5a0dfb53da1195113809157d0e935ba7c26a58912f4017a18f2be7105c5d45"
+    },
+    {
+      "path": "replacement_loss_v11_runner.py",
+      "sha256": "2ac6904f11608876012e5a41608f3c50d6942f5a8f1c94e1ab7789731e85307d"
+    },
+    {
+      "path": "tests/test_replacement_loss_v11.py",
+      "sha256": "d3b6d93ce5efc58ebb4c3c0abb5b0c5b92200e85af04633929bf07ae84ef3249"
+    },
+    {
+      "path": "requirements-v11.lock.txt",
+      "sha256": "8cbfe8100f265d7c472c1ffc086df2d82be3b51cc96c9ef29c2f23951f055545"
+    },
+    {
+      "path": "docs/replacement-loss-v10.md",
+      "sha256": "32e5fc3683c761e3173fdc1135ae832be355279f67fa763bd988ffff66e807c2"
+    },
+    {
+      "path": "docs/replacement-loss-v10-freeze.json",
+      "sha256": "6e12cebeb3f2b1f9b1766c748b59b0233d3b249575f629d1c5ad4ce2254fcd74"
+    },
+    {
+      "path": "replacement_loss_v10_fixtures.py",
+      "sha256": "c32607428c840bdf07576e3b102e699114c473d79629097c802e71482576e6f2"
+    },
+    {
+      "path": "replacement_loss_v10_runner.py",
+      "sha256": "b715508f4367fb093120c863e34310586b7be892bdd83e5bae381535c4decbff"
+    },
+    {
+      "path": "tests/test_replacement_loss_v10.py",
+      "sha256": "fb8604db677180eed086f582d08e50ef20afc584b91649412d8578cd1e4f267f"
+    },
+    {
+      "path": "requirements-v10.lock.txt",
+      "sha256": "0469ff6948f4866ea4df13d88c53a27adab3141ecb42af1325d31086ca8458d1"
+    },
+    {
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "path": "docs/replacement-loss-v13-freeze.json",
+      "sha256": "3cece104ef48d410b8e412f77fb3a694f3c9ed94494ccbfca3d5d7bcfadfaae0"
+    },
+    {
+      "path": "docs/replacement-loss-v13-results.md",
+      "sha256": "6a8e7318c4c5e5f4a1b9572b7857b31de36c3cc4c25774cbc522cbcdac0d50c4"
+    },
+    {
+      "path": "docs/replacement-loss-v15-freeze.json",
+      "sha256": "7921b40e0263ab66324e5d2b316ab1bbeae2a0eb6673c683dbcb6a03dbdd7a37"
+    },
+    {
+      "path": "docs/replacement-loss-v15-results.md",
+      "sha256": "ffcce9488270b0e7b223388786ac4932e7bfe25557656223fab496cac0dcdef5"
+    },
+    {
+      "path": "docs/replacement-loss-v15b-capacity-optimization-diagnostic.md",
+      "sha256": "5bfd9b5fbef5134e9d3f0b610e25908e0d130ceb4b9b0bdfb8ccda4e78411f82"
+    },
+    {
+      "path": "docs/replacement-loss-v15b-freeze.json",
+      "sha256": "759789e67a08f388c136c70132c142af4969d6e2db49c22872455d52b5de5267"
+    },
+    {
+      "path": "docs/replacement-loss-v15b-results.md",
+      "sha256": "3bb77ec99647eadf7484707559902e26ea9dfd27cc62b946e84c94468144e1c8"
+    },
+    {
+      "path": "replacement_loss_v15b_runner.py",
+      "sha256": "81ef9cd1d7bdacbc3a2c9e47b0a3e88024a994cb204d3148e0ef962d48735ed5"
+    },
+    {
+      "path": "docs/replacement-loss-v15c-capacity-optimization-diagnostic.md",
+      "sha256": "74236292416dc75ebe68e5259dc2e97912432e846fd71dae7274b1181bc059dd"
+    },
+    {
+      "path": "replacement_loss_v15c_runner.py",
+      "sha256": "1a4a0d8c71b5d815a49b62b8d4b845c395b0fa91eac268e353f83fa04279af9e"
+    }
+  ],
+  "packet_sha256": "4df6b7e71505d0a5d69570d6967bb55423a734a3d37d218424aab1dbcb80f291",
+  "protocol_id": "theseus-replacement-loss-v15c-capacity-optimization-diagnostic",
+  "protocol_slice": "theseus-replacement-loss-v15c-capacity-optimization-diagnostic-v1",
+  "ranks": [
+    512,
+    768
+  ],
+  "resource_limits": {
+    "execution": "local_cpu_only",
+    "gman": false,
+    "max_base_model_parameters": 200000000,
+    "max_checkpoint_bytes": 838860800,
+    "max_rss_bytes": 17179869184,
+    "max_total_seconds": 14400,
+    "paid_or_remote_compute": false,
+    "provider_calls": false
+  },
+  "selected_layers": [
+    0,
+    7
+  ],
+  "source_v14_freeze_sha256": "c3421e9e983650acbdf095b4620fca6f5a01b391691ad3c796b116f6e21e344b",
+  "source_v14_packet_sha256": "3e6db084afbd7d9cfd2d072214d916886d06a85b9ff47471dd1452257c51485f",
+  "source_v14_reproduction_assurance": "REPRODUCED_LOCAL",
+  "source_v14_results_sha256": "286dee4efc8605e06acac6eb95ef71ff5b64b72f486e8e30062ae0ec5bba660e",
+  "source_v14_scientific_outcome": "FAIL",
+  "source_v14_selection_sha256": "020aa9b9f74d897d38d960807c4db91af5fe4fb17a1da1fd61afb4a02c7f970f",
+  "source_v15b_failed_attempt": {
+    "adaptation_capture_started": false,
+    "adaptation_fixture_generation_started": false,
+    "archive_sha256": "6757e3c82ec949bd503d004fd0165edc3ebc6553c7795384740df39cdf1d4cb5",
+    "candidate_training_started": false,
+    "elapsed_seconds": 1.8217951249998805,
+    "error_type": "AttributeError",
+    "freeze_sha256": "30a612094ca36a99addd08e2b31f0808ef863b79b9d72864d09965044b32df1a",
+    "packet_sha256": "1fbf6d62ff00c984e3181991a0b9d61863d3dcbec4f62ddcec031dc59fafeabc",
+    "phase_ledger_sha256": "9413e16436333cbbf2e5c62167848e1b38417eb1ccc2af3a969d995eff3143bd",
+    "protocol_id": "theseus-replacement-loss-v15b-capacity-optimization-diagnostic",
+    "protocol_slice": "theseus-replacement-loss-v15b-capacity-optimization-diagnostic-v1",
+    "run_stop_sha256": "d5241768d2049b4f30fa10073d0e81fa21f39313c9008b2200bd1ef11cf3e6c7",
+    "state_slice": "theseus-lab-sandbox-v1",
+    "status": "INCONCLUSIVE",
+    "target_selection_sha256": "020aa9b9f74d897d38d960807c4db91af5fe4fb17a1da1fd61afb4a02c7f970f",
+    "visible_fixture_example_set_sha256": "b0ab8677b2418a32f49ef878382bfd38dd83f200da7eb44207c9e2b6cad2f014",
+    "visible_fixture_file_sha256": "bf32c724f0cd3c3ea65a1ad485194bb0eb6e0d78b137c3276e8fc6cb0e3db907",
+    "visible_fixture_generated": true
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "v3_core_runner_bindings": [
+    "Checkpoint",
+    "_batches",
+    "_capture_all_layer_inputs",
+    "_load_local_model",
+    "_module_dimensions",
+    "_projection",
+    "_save_npz_deterministic",
+    "_set_projection"
+  ],
+  "v3_core_runner_bindings_sha256": "0b1902f128368b8558f58eb33c2f6986485fadaddd0d224db75132ea0e7168a4",
+  "validation_per_stratum": 8,
+  "validation_signal_thresholds": {
+    "cell_count": 6,
+    "inferential_claim": false,
+    "minimum_positive_seed_layer_cells": 5,
+    "minimum_relative_reduction": 0.1
+  },
+  "visible_fixture_seed": 202610200,
+  "weight_decay": 0.0001
+}

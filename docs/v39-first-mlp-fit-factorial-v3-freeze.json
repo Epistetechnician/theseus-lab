@@ -1,0 +1,293 @@
+{
+  "claim_ceiling": "LOCAL_REUSED_GPT2_FIRST_MLP_FIT_FACTOR_DIAGNOSIS_V3_ONLY",
+  "date": "2026-10-07",
+  "design": {
+    "adaptation_prompts_per_seed": 128,
+    "candidate_count": 12,
+    "candidate_seed_pairing": "same seed and initialization RNG across both capacity and update cells; update trajectories share minibatch and JVP probe streams",
+    "donor_prompts_per_seed": 128,
+    "fixed_optimizer": {
+      "auxiliary_gradient_cap": "unchanged V36 core.fit",
+      "batch": 64,
+      "gradient_norm_clip": 1.0,
+      "jvp_probes": 4,
+      "learning_rate": 0.001,
+      "name": "AdamW",
+      "weight_decay": 0.0001
+    },
+    "heldout_pairs_per_seed_per_stratum": 32,
+    "heldout_strata": [
+      "ordinary",
+      "input_composition",
+      "interchange_composition",
+      "adversarial"
+    ],
+    "hidden_expansion_multipliers": [
+      2,
+      4
+    ],
+    "objective": "unchanged V39 first-block JVP objective and V36 core.fit implementation",
+    "optimizer_updates": [
+      1024,
+      4096
+    ],
+    "patch_coordinate_counts_by_stratum": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "seeds": [
+      37101,
+      37102,
+      37103
+    ],
+    "type": "paired_2x2_factorial_within_three_candidate_seeds"
+  },
+  "fixture_rules": {
+    "adaptation_entropy_label": "factorial-v3-adaptation",
+    "generator": "V36 procedural rules, domain-separated by this protocol id",
+    "heldout_entropy": "OS entropy generated only after all candidate weights and traces are frozen",
+    "prediction_seal": "all candidates and controls are predicted and digest-sealed before the guide oracle is evaluated",
+    "prior_stop_fixture_use": "all V2 prompt and token identities are exclusion-only",
+    "replica": "rebuild all candidates and match candidate bytes before reading primary heldout entropy; match prediction seal before its oracle evaluation",
+    "text_and_token_disjointness": "against inherited intake exclusion hashes, all V39 adaptation and challenge fixtures, and every new partition; reject collisions without retry or regeneration",
+    "token_bounds": "2-96; no truncation or data-dependent regeneration"
+  },
+  "freeze_status": "FROZEN_BEFORE_ADAPTATION_GENERATION_AND_FITTING",
+  "heldout_gates": {
+    "activation_nrmse_max": 0.15,
+    "actual_rescue_nrmse_max": 0.1,
+    "candidate_pass": "all gates and all three control-sensitivity comparisons pass in every stratum for that seed",
+    "control_error_margin_min": 0.1,
+    "controls": [
+      "guide no-op positive",
+      "zero module",
+      "wrong seed module at matched capacity and update budget",
+      "random module at matched capacity"
+    ],
+    "effect_median_cosine_min": 0.9,
+    "effect_median_relative_error_max": 0.2,
+    "effect_p90_relative_error_max": 0.5,
+    "effect_resolved_fraction_min": 0.9,
+    "nll_increase_max": 0.03,
+    "output_nrmse_max": 0.1,
+    "rescue_prediction_nrmse_max": 0.1,
+    "retention_pass": "one predeclared factorial cell passes candidate_pass for all three seeds",
+    "source": "unchanged V39/V36 thresholds",
+    "top1_agreement_min": 0.95
+  },
+  "members": [
+    {
+      "bytes": 10035,
+      "path": "theseus_v39_fit_factorial_v3.py",
+      "sha256": "18460ab9c0571baa5f2cf6311c6728d4171cdc3584c5f4c3957df64d01634bc3"
+    },
+    {
+      "bytes": 1275,
+      "path": "theseus_v39_fit_factorial_v3_closeout.py",
+      "sha256": "8a599b898527f172a164d1ab682254996cbed9c771147f264930f80d94c2ddf9"
+    },
+    {
+      "bytes": 1840,
+      "path": "tests/test_v39_fit_factorial_v3.py",
+      "sha256": "700b411183900c01310e831056ee86e5c5e4e4c736501611a7d3cd03f740b9c5"
+    },
+    {
+      "bytes": 2374,
+      "path": "docs/v39-first-mlp-fit-factorial-v3.md",
+      "sha256": "ae37fd4cec7effbcd4ef19763404e0b31b866db7046f477879f6b90c28a9618b"
+    },
+    {
+      "bytes": 4168,
+      "path": "theseus_v39_fit_factorial_v2.py",
+      "sha256": "502e0da97eac9a6204ca5f908ed3f5c191d6f3b903b6c03b8f44f1250db64cd4"
+    },
+    {
+      "bytes": 1298,
+      "path": "theseus_v39_fit_factorial_v2_closeout.py",
+      "sha256": "091a42f4d1f28c165fdf7e8c76f8955a9fb486828105d425fbb237396fcef609"
+    },
+    {
+      "bytes": 3273,
+      "path": "tests/test_v39_fit_factorial_v2.py",
+      "sha256": "488535a7b145500b1dc1e6e6a68e658a2d502d7f6f762bfe777572c5fa54c3c6"
+    },
+    {
+      "bytes": 1919,
+      "path": "docs/v39-first-mlp-fit-factorial-v2.md",
+      "sha256": "9931982ef23a770c7ee59ca37921025c37e1ee8e2a74a648a9d7e5f7a222e788"
+    },
+    {
+      "bytes": 9157,
+      "path": "docs/v39-first-mlp-fit-factorial-v2-freeze.json",
+      "sha256": "f523fd5cf2b5b0caa13c371859aabb0f56300f1c4df42778214d40a83fb48103"
+    },
+    {
+      "bytes": 1705,
+      "path": "docs/v39-first-mlp-fit-factorial-v2-results.md",
+      "sha256": "3eef9c7ee59e6d6c435afdbb091648db3f49a8586b6bbd3df5ee1b311e69f666"
+    },
+    {
+      "bytes": 1507,
+      "path": "docs/v39-first-mlp-fit-factorial-v2-results.json",
+      "sha256": "2c296b64710bf51327ccdc5d730be5c0300cce5559b13391ddba07c07a2a3c09"
+    },
+    {
+      "bytes": 42263,
+      "path": "theseus_v39_fit_factorial_v1.py",
+      "sha256": "b39e1c52119b1b522c8cfa260c78c2c58c7664e1a51d5457063035f8ed13642c"
+    },
+    {
+      "bytes": 15178,
+      "path": "theseus_v39_fit_factorial_v1_closeout.py",
+      "sha256": "21e7c96adbf243c8faf6fb039e39b7c5d8ca9452d417a1f8b0c1a294d63e8493"
+    },
+    {
+      "bytes": 4384,
+      "path": "tests/test_v39_fit_factorial_v1.py",
+      "sha256": "f93f2c4c0e73d632814811b8c381403363d9c88bc4c560e54b0e5fe3f20f014c"
+    },
+    {
+      "bytes": 4103,
+      "path": "docs/v39-first-mlp-fit-factorial-v1.md",
+      "sha256": "36d42a3a8b27a9a85ab74e719a78923519d89eda892091dfd8c1cddbafc6ae10"
+    },
+    {
+      "bytes": 8289,
+      "path": "docs/v39-first-mlp-fit-factorial-v1-freeze.json",
+      "sha256": "b2b7909ace9d4a1967eab32d7f8c110d8040bacc5126ee9736371e984da32e0b"
+    },
+    {
+      "bytes": 13976,
+      "path": "replacement_loss_v39_runner.py",
+      "sha256": "a5bf70085a20d856f678d462b5283be149ffd790d6e824027e00a824def049e4"
+    },
+    {
+      "bytes": 8092,
+      "path": "replacement_loss_v38_runner.py",
+      "sha256": "21a718559bef4c314298c73f829192eca6d7e876919fd13a0065e1dcf168dc66"
+    },
+    {
+      "bytes": 3810,
+      "path": "replacement_loss_v37r1_runner.py",
+      "sha256": "48e1bbfe218704e10a4b09db900ac8abf6f79ba9b786deb90329bd06ede1457d"
+    },
+    {
+      "bytes": 33094,
+      "path": "replacement_loss_v36_runner.py",
+      "sha256": "fb3650fcd99bb6df4e411069c6accd74220d49b83f1454ce6c10f0685220966f"
+    },
+    {
+      "bytes": 13233,
+      "path": "replacement_loss_v36_core.py",
+      "sha256": "a34e1f668e1c35956e505622a2fd4f94843c4e7184fbd77c94d780b5863e944c"
+    },
+    {
+      "bytes": 2600,
+      "path": "replacement_loss_v36_fixtures.py",
+      "sha256": "f4dd51e70bb71d3342829cf4367f419356af60d7e32d7926f60a5d18c6c03085"
+    },
+    {
+      "bytes": 556,
+      "path": "requirements-v36.lock.txt",
+      "sha256": "d8ca46482cc3e43e61a1994ec0fd49584389267063720d4534da55c55a1b99b7"
+    },
+    {
+      "bytes": 9502,
+      "path": "docs/replacement-loss-v39-freeze.json",
+      "sha256": "8ce3a8dde536c31bd7a04d1e72e4250a58c1f2309c7b522692a206f2ee5116b0"
+    },
+    {
+      "bytes": 9036,
+      "path": "docs/replacement-loss-v39-results.json",
+      "sha256": "80c96a1dd4c3041ded2604eebdf7677634f6e4fd237194b90e1ec61259e86aa4"
+    },
+    {
+      "bytes": 5827,
+      "path": "docs/replacement-loss-v39-all-token-ladder.md",
+      "sha256": "065985e0ee53826d5bff65c7161654789b14adb600ad95ac4dd980b563aef403"
+    },
+    {
+      "bytes": 1790,
+      "path": "docs/v39-first-mlp-diagnosis-v1-freeze.json",
+      "sha256": "b79daf55a61e070af70bbb701f3d00b52154e5ccf64358ef8c8c9e08b0270d84"
+    },
+    {
+      "bytes": 6106,
+      "path": "docs/v39-first-mlp-diagnosis-v1-results.json",
+      "sha256": "d063d36637ebc54a0c4d035887a06141d76b3b80ec3912fa82e9d1056abdb33b"
+    },
+    {
+      "bytes": 1656,
+      "path": "docs/v39-training-probe-replay-v1-freeze.json",
+      "sha256": "41c6606ecadef99edb83acd4d732892490e910831adfe4443ab3f653b7dabce8"
+    },
+    {
+      "bytes": 5973,
+      "path": "docs/v39-training-probe-replay-v1-results.json",
+      "sha256": "8dcffe0daada59504ce00553fea0f3750a1a7541fa0e938e89a4d5008230f772"
+    }
+  ],
+  "nonclaims": [
+    "no fresh checkpoint or architecture-held-out evidence",
+    "no causal mechanism identity beyond the measured local intervention set",
+    "no novelty, consciousness, human-alignment equivalence, independent acceptance, or production authorization"
+  ],
+  "packet_sha256": "bc233412da532b1eee72611febe7b510086dd0b8c5de90ec3e93769865b37f3d",
+  "parent_terminal_inputs": [
+    {
+      "execution_status": "PREFLIGHT_STOP_BEFORE_RUNTIME_OR_DATA",
+      "freeze_sha256": "b2b7909ace9d4a1967eab32d7f8c110d8040bacc5126ee9736371e984da32e0b",
+      "protocol_id": "theseus-v39-first-mlp-fit-factorial-v1"
+    },
+    {
+      "challenge_pairs": 0,
+      "excluded_text_identity_count": 256,
+      "excluded_token_identity_count": 256,
+      "freeze_packet_sha256": "f8d455412f6be813be91acf3bff3cb30cf6026bede98624e5072bd23d98078b7",
+      "protocol_id": "theseus-v39-first-mlp-fit-factorial-v2",
+      "stop_receipt_sha256": "0c36192d525d9ca9aad0a14e790bbe6544a680ef15511ffa4376e676e97b95f2",
+      "training_updates": 0
+    }
+  ],
+  "primary_metric": {
+    "analysis": "log-error factorial contrasts by seed; report interaction; no population-level significance claim from three seeds of one guide",
+    "decision": "each factor is supported only if its geometric-mean paired error ratio is at most 0.80 and all three seed-level paired ratios favor that factor",
+    "direction": "lower_is_better",
+    "name": "pooled_training_direction_jvp_nrmse_on_adaptation_and_donor_tokens",
+    "smallest_meaningful_main_effect_ratio": 0.8
+  },
+  "protocol_id": "theseus-v39-first-mlp-fit-factorial-v3",
+  "resources": {
+    "artifact_bytes_per_role_max": 25769803776,
+    "energy": "NOT_MEASURED",
+    "execution": "local deterministic CPU, one thread, two existing isolated V36-compatible runtimes",
+    "free_space_reserve_bytes": 26843545600,
+    "full_economic_cost": "NOT_MEASURED",
+    "paid_cap_usd": 0,
+    "peak_rss_bytes_per_role_max": 6442450944,
+    "wall_seconds_per_role_max": 28800
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-v39-first-mlp-fit-factorial-v3",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-first-mlp-fit-factorial-v3",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "stop_conditions": [
+    "parent source, model identity, runtime, or custody digest mismatch",
+    "fresh input overlap, nonfinite value, or candidate reproduction mismatch",
+    "resource cap or free-space reserve exceeded",
+    "any execution error; retain root and do not retry under this identity"
+  ],
+  "target": {
+    "architecture_family": "gpt2_gelu",
+    "model_id": "mrm8488/spanish-gpt2",
+    "reuse_status": "REUSED_V39_GUID_ONE_CHECKPOINT_NOT_FRESH_OR_ARCHITECTURE_HELD_OUT",
+    "revision": "fc396ce08c65ea334dcf541de7dc05cac89a29b2",
+    "site": 0
+  }
+}

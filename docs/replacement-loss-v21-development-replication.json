@@ -1,0 +1,72 @@
+{
+  "artifact_groups": {
+    "candidates": {
+      "byte_identical": true,
+      "primary_count": 10,
+      "primary_sha256": "f3603f82cb47df14e404acd3f9e0278952c6a8557a19723d351e54e113b3d7b8",
+      "replica_count": 10,
+      "replica_sha256": "f3603f82cb47df14e404acd3f9e0278952c6a8557a19723d351e54e113b3d7b8"
+    },
+    "captures": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "46835975642c57e0f586a9a3584fe3f2942bc48bd13445d09c6d0ea99083cb71",
+      "replica_count": 3,
+      "replica_sha256": "46835975642c57e0f586a9a3584fe3f2942bc48bd13445d09c6d0ea99083cb71"
+    },
+    "fixtures": {
+      "byte_identical": true,
+      "primary_count": 4,
+      "primary_sha256": "be08d348d86e3ddd5f966b43dfc9da6ad395215e7cf63e2432817c090529ed3f",
+      "replica_count": 4,
+      "replica_sha256": "be08d348d86e3ddd5f966b43dfc9da6ad395215e7cf63e2432817c090529ed3f"
+    },
+    "selection": {
+      "byte_identical": true,
+      "primary_count": 2,
+      "primary_sha256": "998c84a07bc748c8e009a4996b2f40729259137359d6d985339911815fac169e",
+      "replica_count": 2,
+      "replica_sha256": "998c84a07bc748c8e009a4996b2f40729259137359d6d985339911815fac169e"
+    },
+    "splits": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "46e299112486b40122aa66895ec3844f60c15149e2d531133ff8f43d0d1ed4f3",
+      "replica_count": 3,
+      "replica_sha256": "46e299112486b40122aa66895ec3844f60c15149e2d531133ff8f43d0d1ed4f3"
+    }
+  },
+  "assurance_level": "REPRODUCED_LOCAL",
+  "blind_status": "NOT_BLIND_SAME_OWNER_REPLAY",
+  "claim_ceiling": "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "prompt-bearing, row-level, capture, target, and candidate artifacts remain in external owner custody",
+  "next_blocked_authority_gate": "a new method packet is required; no confirmation data will be created",
+  "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+  "pre_challenge_eligible": null,
+  "protocol_id": "theseus-replacement-loss-v21-development",
+  "protocol_slice": "theseus-replacement-loss-v21-paired-endpoint-supervision-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "report_sha256": "389095013138fd7b8ef357a2d6511fca6b1c0bba40a64ea5def5a6947716be85",
+  "resource_caps_pass": true,
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2919186432,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 96.22669683299318
+    },
+    "replica": {
+      "peak_rss_bytes": 2724429824,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 95.77063995899516
+    }
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime_pins_match": true,
+  "same_host_and_owner": true,
+  "scientific_results_match": true,
+  "scientific_results_sha256": "a8af01248ac55b71e9cc00fdf813fa08cf333b02b15ee3019180fc78d3865f42",
+  "separate_python_runtimes": true,
+  "state_slice": "theseus-lab-sandbox-v1"
+}

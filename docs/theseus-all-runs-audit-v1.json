@@ -1,0 +1,4001 @@
+{
+  "custody": [
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 21432,
+          "name": "checkpoint-screen-report.json",
+          "sha256": "5704b19b3dbc544a29fad7a4808ebfc3812a7b59a4e86a13621c9b1d3619775c",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_APPLICABLE_NO_SCIENTIFIC_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v10-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 53753,
+          "name": "outcome-report.json",
+          "sha256": "44d8c8d369eee59a53c95a4c2c3cfaba96c7b6d298efa23bb381b8cbda760b02",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED",
+            "target_reuse.status": "INTENTIONAL_REUSE_OF_V9_OPT_CHECKPOINT"
+          }
+        },
+        {
+          "bytes": 1948,
+          "name": "replication-report.json",
+          "sha256": "112705ae7a58d6defb1fbf2bfaa956141d84b7c300f64118a9b32ab46c3d019d",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v11-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 53987,
+          "name": "outcome-report.json",
+          "sha256": "2376b0b79fce6922daa78c80011fff2287e080d30feb6985318b080e2eabd405",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED",
+            "target_reuse.status": "INTENTIONAL_REUSE_OF_V9_OPT_CHECKPOINT"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v11-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 19879,
+          "name": "reconciliation-report.json",
+          "sha256": "51aa67fa50281904916722042eb2c8c7e390b0a685c38e207985cef3a8a99221",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v12-audit-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 19879,
+          "name": "reconciliation-report.json",
+          "sha256": "51aa67fa50281904916722042eb2c8c7e390b0a685c38e207985cef3a8a99221",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v12-audit-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 93053,
+          "name": "outcome-report.json",
+          "sha256": "ecc38fe4e31d1a39e2df8a3e9dbe9086e78a0bed53cd60aa0c2a0271719e17c3",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 8859,
+          "name": "replication-report.json",
+          "sha256": "9e633720107a37b84192ad3c17e4ef678a64ec0bb339a85450e0b0cb49d8e0e1",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v13-nonlinear-primary"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v13-nonlinear-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 93289,
+          "name": "outcome-report.json",
+          "sha256": "5f1eec44ee9fbe67eaae94db72541ccedc346388faa23101a4bace25024b30bc",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v13-nonlinear-replica2"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 94239,
+          "name": "outcome-report.json",
+          "sha256": "8b2ea94746f55853619d0b41912184baa4a98156d21c314550bc32b4ee305ae4",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 8421,
+          "name": "replication-report.json",
+          "sha256": "e400df3ed7543590d117c7b7f198527b9fd105a5a305c335d933d0daa58adbb1",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v14-paired-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 94476,
+          "name": "outcome-report.json",
+          "sha256": "a7f60481f10d81cb6a72bb5072e7f49e273b8dd682c08ad225e60b09cd01a751",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v14-paired-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 471,
+          "name": "run-stop.json",
+          "sha256": "9594780fc937d6ccd92e87dc00f1e85f65078ec1c5699d67f973d69b401ef9e4",
+          "statuses": {
+            "error_type": "AttributeError",
+            "phase": "diagnostic",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v15-capacity-optimization-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 471,
+          "name": "run-stop.json",
+          "sha256": "d5241768d2049b4f30fa10073d0e81fa21f39313c9008b2200bd1ef11cf3e6c7",
+          "statuses": {
+            "error_type": "AttributeError",
+            "phase": "diagnostic",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v15b-capacity-optimization-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 5820,
+          "name": "diagnostic-report.json",
+          "sha256": "277e98e9812b622aa0087dc9d8126f3bf276ccc411e71b2495368ebda6c419ca",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "phase_ledger.phase": "diagnostic",
+            "phase_ledger.status": "COMPLETED",
+            "reproducibility_status": "NOT_YET_COMPARED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 22002,
+          "name": "diagnostic-results.json",
+          "sha256": "6361f8a4871b8a5ee5544ae07c308b232407666865c27c0ac8ad3570ebbbf817",
+          "statuses": {}
+        },
+        {
+          "bytes": 5242,
+          "name": "replication-report.json",
+          "sha256": "32b32537d77b2ffeb783deabdf081ed5166c5aea2ead8b60f9c6b9df76e7c149",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v15c-capacity-optimization-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 5820,
+          "name": "diagnostic-report.json",
+          "sha256": "f14eb7c07a3413b8cfcbd252762413c088498a49e3b4b85277f9591af85ad14f",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "phase_ledger.phase": "diagnostic",
+            "phase_ledger.status": "COMPLETED",
+            "reproducibility_status": "NOT_YET_COMPARED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 22002,
+          "name": "diagnostic-results.json",
+          "sha256": "6361f8a4871b8a5ee5544ae07c308b232407666865c27c0ac8ad3570ebbbf817",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v15c-capacity-optimization-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 31087,
+          "name": "outcome-report.json",
+          "sha256": "3e4e69da36918d788455214a46ccebc270b939f4d284fa1c5c3829c341860102",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 3222,
+          "name": "replication-report.json",
+          "sha256": "e3db83be6f54211a2ce9275d04510fe48770791057a94403b33f749cb041f989",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v16-whole-mlp-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 30988,
+          "name": "outcome-report.json",
+          "sha256": "d9e6b28ee7df2c3336875960e34a0fe2adfa76693f2d591a84b6b93d30865931",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_YET_COMPARED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v16-whole-mlp-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 36214,
+          "name": "outcome-report.json",
+          "sha256": "040c39e3a96faccb30391179fddb76e3213c40af52fc9b556c142dad4c341a25",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 3218,
+          "name": "replication-report.json",
+          "sha256": "f8f0ee0ef46dce3c65e86079a446352922818db72b669a5e3f6678d793c1f67e",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v17-causal-supervision-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 36115,
+          "name": "outcome-report.json",
+          "sha256": "dcd6e4ff392c113b70e0d6b4d4135500892103ed71aff06fa10ba9a3bdff1345",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_YET_COMPARED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v17-causal-supervision-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 38050,
+          "name": "outcome-report.json",
+          "sha256": "63c47369f16ab7203ea1026be1acb29f202d2030ec2e823b9b23a84a9a3b0c22",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 15493,
+          "name": "replication-report.json",
+          "sha256": "9acc16800499fe639df92c4086dfb56f274da545571ad0f48fdb617f821ee6a6",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v18-projected-causal-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 37948,
+          "name": "outcome-report.json",
+          "sha256": "d57197ff2fdf5f8347b88357d3c378cf015e161d4c281ef3f78b74e0dfed3934",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_YET_COMPARED",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v18-projected-causal-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 35591,
+          "name": "development-report.json",
+          "sha256": "5313eede571590a18e9134c6085aaf60eeed770ae30eb8d820f16437f869e6a7",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v19-development-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 35591,
+          "name": "development-report.json",
+          "sha256": "5313eede571590a18e9134c6085aaf60eeed770ae30eb8d820f16437f869e6a7",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v19-development-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 378,
+          "name": "run-stop.json",
+          "sha256": "9e997c82f953e3bc62387cda013fd479b0224eb1d712f84b46a585d259294667",
+          "statuses": {
+            "error_type": "NotImplementedError",
+            "phase": "development-preparation",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v20-development-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 17732,
+          "name": "preparation-report.json",
+          "sha256": "947a2fecbe6da6140577011735289be36e2fcb0369d3babfe79999ee1f749e08",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v20b-development-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 17732,
+          "name": "preparation-report.json",
+          "sha256": "947a2fecbe6da6140577011735289be36e2fcb0369d3babfe79999ee1f749e08",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v20b-development-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 379,
+          "name": "run-stop.json",
+          "sha256": "41f84a3e41d24e1384a2acf9906a1dced30765c26e3f4cdfeeefc7b9bd386846",
+          "statuses": {
+            "error_type": "AttributeError",
+            "phase": "development-preparation",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v21-development-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 17721,
+          "name": "preparation-report.json",
+          "sha256": "dce80f183e361db16d3f9d7a6cf1766d09688d4e5f5496c18157dd794e00fb7d",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v21b-development-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 17721,
+          "name": "preparation-report.json",
+          "sha256": "dce80f183e361db16d3f9d7a6cf1766d09688d4e5f5496c18157dd794e00fb7d",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v21b-development-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2792,
+          "name": "replacement-loss-v22-terminal-report.json",
+          "sha256": "e7a0a669f03a7dd64103cadd22653a401be6a234b93cf6f328663cccafdfa2d2",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "NO_ELIGIBLE_FRESH_TARGET",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v22"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 1760,
+          "name": "v23-setup-stop.json",
+          "sha256": "0bff6a0367ca5b39b1decc3bdcb229a38b7bd551891d80901f731c673b4123d9",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "INCONCLUSIVE_SETUP_OR_EXECUTION",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v23"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2100,
+          "name": "replacement-loss-v24-terminal-report.json",
+          "sha256": "b0c69983e023b7452c27e4107dcfc48951bfc5821eb882ffb08442ad249701e8",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "NO_ELIGIBLE_FRESH_TARGET",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v24"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2100,
+          "name": "replacement-loss-v24-terminal-report.json",
+          "sha256": "b0c69983e023b7452c27e4107dcfc48951bfc5821eb882ffb08442ad249701e8",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "NO_ELIGIBLE_FRESH_TARGET",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2118,
+          "name": "replacement-loss-v25-terminal-report.json",
+          "sha256": "f582972e99ca7cba71baf53c7f61b9aeda6df5dc2db2afde30e8f1f7d183f057",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "error_type": "ImportError",
+            "outcome_status": "INCONCLUSIVE_EXECUTION",
+            "phase": "PRIMARY_EVALUATION",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v25"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2100,
+          "name": "replacement-loss-v24-terminal-report.json",
+          "sha256": "b0c69983e023b7452c27e4107dcfc48951bfc5821eb882ffb08442ad249701e8",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "NO_ELIGIBLE_FRESH_TARGET",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2118,
+          "name": "replacement-loss-v25-terminal-report.json",
+          "sha256": "f582972e99ca7cba71baf53c7f61b9aeda6df5dc2db2afde30e8f1f7d183f057",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "error_type": "ImportError",
+            "outcome_status": "INCONCLUSIVE_EXECUTION",
+            "phase": "PRIMARY_EVALUATION",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 1655,
+          "name": "v26-runtime-copy-followup-002.json",
+          "sha256": "c14db78aba04b015c2b19ac5216268e10abac68faab154e677f003e4d7e5761a",
+          "statuses": {
+            "outcome_status": "INCONCLUSIVE_RUNTIME_COPY_NOT_RELOCATABLE",
+            "phase": "RUNTIME_PREFLIGHT_BEFORE_PUBLIC_HUB_QUERY"
+          }
+        },
+        {
+          "bytes": 3487,
+          "name": "v26-runtime-prefreeze-attempt-001.json",
+          "sha256": "09b02a67968d17bfaf3e4765031b2712d7145606216d4b188ffde47b399c8577",
+          "statuses": {
+            "error_type": "ValueError",
+            "outcome_status": "INCONCLUSIVE_RUNTIME_PREFLIGHT_REQUIRES_COPIED_INTERPRETERS",
+            "phase": "RUNTIME_PREFLIGHT_BEFORE_PUBLIC_HUB_QUERY"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v26"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2100,
+          "name": "replacement-loss-v24-terminal-report.json",
+          "sha256": "b0c69983e023b7452c27e4107dcfc48951bfc5821eb882ffb08442ad249701e8",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "NO_ELIGIBLE_FRESH_TARGET",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2118,
+          "name": "replacement-loss-v25-terminal-report.json",
+          "sha256": "f582972e99ca7cba71baf53c7f61b9aeda6df5dc2db2afde30e8f1f7d183f057",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "error_type": "ImportError",
+            "outcome_status": "INCONCLUSIVE_EXECUTION",
+            "phase": "PRIMARY_EVALUATION",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2236,
+          "name": "replacement-loss-v27-terminal-report.json",
+          "sha256": "b596b62f05eca0aa4546df2733a16d9f89a275e121f48710f81dfcb1ff30b133",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "error_type": "ValueError",
+            "outcome_status": "INCONCLUSIVE_EXECUTION",
+            "phase": "PRIMARY_EVALUATION",
+            "replication_status": "NOT_RUN",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 1655,
+          "name": "v26-runtime-copy-followup-002.json",
+          "sha256": "c14db78aba04b015c2b19ac5216268e10abac68faab154e677f003e4d7e5761a",
+          "statuses": {
+            "outcome_status": "INCONCLUSIVE_RUNTIME_COPY_NOT_RELOCATABLE",
+            "phase": "RUNTIME_PREFLIGHT_BEFORE_PUBLIC_HUB_QUERY"
+          }
+        },
+        {
+          "bytes": 3487,
+          "name": "v26-runtime-prefreeze-attempt-001.json",
+          "sha256": "09b02a67968d17bfaf3e4765031b2712d7145606216d4b188ffde47b399c8577",
+          "statuses": {
+            "error_type": "ValueError",
+            "outcome_status": "INCONCLUSIVE_RUNTIME_PREFLIGHT_REQUIRES_COPIED_INTERPRETERS",
+            "phase": "RUNTIME_PREFLIGHT_BEFORE_PUBLIC_HUB_QUERY"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v27"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 51399,
+          "name": "replacement-loss-v22-report.json",
+          "sha256": "f647bdb1862c3e36ad4e80a3ee141e7f2d780418a4f5b9a4a940765fab39ec6e",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "primary_runner_receipt.outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 52578,
+          "name": "replacement-loss-v27-report.json",
+          "sha256": "1fd263e347d4427b25cbe3c7824dfe254f35bf2967d66cf0a0699a0a3e5cdde9",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "primary_runner_receipt.assurance_level": "INCONCLUSIVE",
+            "primary_runner_receipt.outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 1679,
+          "name": "replacement-loss-v28-reconciliation.json",
+          "sha256": "52583295e584506574ee677c3f22a210a4679a972aa603dcedc7936d696f95f3",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 52487,
+          "name": "replacement-loss-v28-report-before-reconciliation.json",
+          "sha256": "b52f7c991c13aea03e0d34299b4af503a6f7762af2b8a27fad8a14687cdd760b",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "primary_runner_receipt.assurance_level": "INCONCLUSIVE",
+            "primary_runner_receipt.outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SECOND_CLEAN_RUNTIME",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 52578,
+          "name": "replacement-loss-v28-report.json",
+          "sha256": "1fd263e347d4427b25cbe3c7824dfe254f35bf2967d66cf0a0699a0a3e5cdde9",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "primary_runner_receipt.assurance_level": "INCONCLUSIVE",
+            "primary_runner_receipt.outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 220597,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "5b390c7e8c261b56ee90565106342ca956bf2ac155b251e20e1e1e0c7dea7fce",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 56176,
+          "name": "replacement-loss-v8-report.json",
+          "sha256": "f6c12471066194a8168e8e2c0cfea9c40ce6e3069b161566676289fc4f43035a",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v28"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 1207,
+          "name": "replacement-loss-v22-replication-report.json",
+          "sha256": "529559a13e50db35e565270df1b64d37aa9a345c98abba4b0d8abed151f0e639",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2285,
+          "name": "replacement-loss-v27-replication-report.json",
+          "sha256": "d88f2d1b66c11c5bc6279d52af83dd07cf89cc7342452f75ee47c1e95b7a4618",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2285,
+          "name": "replacement-loss-v28-replication-report.json",
+          "sha256": "d88f2d1b66c11c5bc6279d52af83dd07cf89cc7342452f75ee47c1e95b7a4618",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 220598,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "3fe4198de2f15a301117591a1ef3a01c77d3e1aa41958c8eaa2def5cc48f8b41",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 5816,
+          "name": "replacement-loss-v8-replication-report.json",
+          "sha256": "7817addc926f4851d5dabda70727f313d710ba8b8b9f613617e0a2249451a4d5",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+            "v3_replication_checks.assurance_level": "REPRODUCED_LOCAL",
+            "v3_replication_checks.replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "v3_replication_checks.reproducibility_status": "REPRODUCED_LOCAL",
+            "v3_replication_checks.reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 4475,
+          "name": "replication-report.json",
+          "sha256": "8ae136fb0c88cf75a43917d368f2b3e7aca7923e5eff2c036d9c18baf25134c7",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v28-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 3453,
+          "name": "run-failure-receipt.json",
+          "sha256": "40c64c471ab051795049c72b7b346a0dd6d5098cd351cc2d60f15d2d0cb4d007",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "error_class": "RuntimeError",
+            "reviewer_status": "NOT_SUBMITTED",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v29"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 56996,
+          "name": "result-report.json",
+          "sha256": "b5cf567cf63477dbd0555d32db1b7f3c32cf3808178a831a797aa98772b208f3",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v30"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 56364,
+          "name": "result-report.json",
+          "sha256": "fff591c295db1c1abe4c5452650ad85e319cbc469b45db5c3e7b2001b258f98e",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SECOND_RUNTIME",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v30-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 56356,
+          "name": "result-report.json",
+          "sha256": "688b7e7df2eaf33a5cb7a20a4e75191debc645e09259c9e23b10212333099782",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SECOND_RUNTIME",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v30-replicator-reconciled"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 5050,
+          "name": "replica/reconciliation-audit.json",
+          "sha256": "d1738274f10c24f88440634e5b393cf10638558f853b24967b1e37b53f27435d",
+          "statuses": {}
+        },
+        {
+          "bytes": 2980,
+          "name": "replica/reconciliation.json",
+          "sha256": "a927e532c342332628461c36eb4348d7a1b1541a235200eb7ab52955023d2f6c",
+          "statuses": {}
+        },
+        {
+          "bytes": 17148,
+          "name": "replica/result.json",
+          "sha256": "7db0541878036c7ec9f873c8661dfc0e30a1980e46fe1610abc5198808bb6ae4",
+          "statuses": {
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 17143,
+          "name": "primary/result.json",
+          "sha256": "d3b0ff71d9de49aae59a4fb0a9d79faf96f9aba3a7bb0a9aede08328eb8a45b6",
+          "statuses": {
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v31"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 222370,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "8974c8146dce2b6ec008364671a81032948c21fcbe4be45995322db7271b4ff8",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 47723,
+          "name": "replacement-loss-v6-report.json",
+          "sha256": "b4bf77b068aa9ac716e82e23f9f01b2dda625397dd2ac47b65a8d39be93ebad7",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 47813,
+          "name": "replacement-loss-v7-report.json",
+          "sha256": "229f3cbf1c6610a7b60a1c8874438df116c90703cde884585b0a9334e2536c79",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v7"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 47631,
+          "name": "replacement-loss-v6-primary-report.json",
+          "sha256": "1ba776ed6ff529c1232bde4dba69c79db8da6d488b5f9cc9961c5abe6d842b93",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 5928,
+          "name": "replacement-loss-v6-replication-report.json",
+          "sha256": "05dfd9a8a69b5300c836cf4109ade823ec2485ac82e40ce204b79d6441865f17",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replication_checks.assurance_level": "REPRODUCED_LOCAL",
+            "replication_checks.replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "replication_checks.reproducibility_status": "REPRODUCED_LOCAL",
+            "replication_checks.reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 6123,
+          "name": "replacement-loss-v7-replication-report.json",
+          "sha256": "90a89eb692319c2626e19d1d876ccf5bfde1f8c946ce287275d1b764937460db",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replication_checks.assurance_level": "REPRODUCED_LOCAL",
+            "replication_checks.replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "replication_checks.reproducibility_status": "REPRODUCED_LOCAL",
+            "replication_checks.reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 222352,
+          "name": "v3-pinned-evaluator/replacement-loss-v3-report.json",
+          "sha256": "70c3651112a2d4ac1da6e8bf9fdda2587b8f3cf398d626c17dc952dfdea81e37",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 4398,
+          "name": "v3-pinned-evaluator/replication-report.json",
+          "sha256": "464e513e852f536105104f76e5ed001020a7a20433a73ea632b9e628bd3a4aff",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v7-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 220504,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "5976ab0eb3d98f559ea9cc683698474c6b93f2a909a54d528e2a0bd683568229",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "PASS",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 56245,
+          "name": "replacement-loss-v8-report.json",
+          "sha256": "317b75f2c448493dd07acba78f1152221bcd6ff96b642de476d2f1d67402aec6",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "PASS",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 4949,
+          "name": "cloud-run-execution-final.json",
+          "sha256": "a56b68a90acdcf1a2c805c7a38a418d5e91ec9f7081b5f5df9063b817899d9d5",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 4948,
+          "name": "cloud-run-execution-final-v2.json",
+          "sha256": "ec43a73379290d3ecdd9f0d71d5f522a0a6308ba4a5a4701c67f926c229ca903",
+          "statuses": {}
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v2"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2090,
+          "name": "cloud-resource-cleanup-v3.json",
+          "sha256": "f67b587969560be051536a491d675e457445816556c514bc3a233f1384e194ab",
+          "statuses": {}
+        },
+        {
+          "bytes": 4833,
+          "name": "cloud-run-execution-final-v3.json",
+          "sha256": "285fd4d5a638dd94c10f94f6a9070b2dee897d8a092f7bdbe3a8dd2edfbf2ce5",
+          "statuses": {}
+        },
+        {
+          "bytes": 4190,
+          "name": "cloud-run-v3-final-result.json",
+          "sha256": "1dd54491a97237ec034f844476337869463ed6e97753cdf175dcc8ec8b1fc356",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "reproducibility_status": "INCONCLUSIVE",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 3461,
+          "name": "local-verification-v3.json",
+          "sha256": "b286dfca0aa9026b123a56bcbe6eb59ae7c11cd926c416699711043abd6c5faa",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS"
+          }
+        },
+        {
+          "bytes": 7282,
+          "name": "cloud-run-output-v3/replacement-loss-v8-cloud-run-replay-v2/cloud-run-result.json",
+          "sha256": "d357be55042d5f31cb15195183ddca47c3646cd339f5b6caf4a99d8ef1ece1e5",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 56237,
+          "name": "cloud-run-output-v3/replacement-loss-v8-cloud-run-replay-v2/primary-replacement-loss-v8-report.json",
+          "sha256": "adc5f225d7d48671049b62c1aa135bfb2a0108e7f64f54c9408a86f861104827",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "PASS",
+            "reproducibility_status": "INCONCLUSIVE",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v3"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 220494,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "901c20b712f86df25903c32242a9c77a48d4fa1bbf9a6f7a5acc1966693e20d8",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "PASS",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 5723,
+          "name": "replacement-loss-v8-replication-report.json",
+          "sha256": "8339b4f57ef8e3d24048e457007a1ef0be7c232da77ed2bd558937a9c0e4530d",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+            "v3_replication_checks.assurance_level": "REPRODUCED_LOCAL",
+            "v3_replication_checks.replica_evaluation_summary.assurance_level": "INTERNAL_PASS",
+            "v3_replication_checks.reproducibility_status": "REPRODUCED_LOCAL",
+            "v3_replication_checks.reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 4382,
+          "name": "replication-report.json",
+          "sha256": "74727f823f7027b7afe76fe2e66a769dc2bf83cad213c6c73e405847c7f4f8be",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replica_evaluation_summary.assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8-replica"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 56245,
+          "name": "primary-report.json",
+          "sha256": "317b75f2c448493dd07acba78f1152221bcd6ff96b642de476d2f1d67402aec6",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "outcome_status": "PASS",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 5723,
+          "name": "replication-report.json",
+          "sha256": "8339b4f57ef8e3d24048e457007a1ef0be7c232da77ed2bd558937a9c0e4530d",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+            "v3_replication_checks.assurance_level": "REPRODUCED_LOCAL",
+            "v3_replication_checks.replica_evaluation_summary.assurance_level": "INTERNAL_PASS",
+            "v3_replication_checks.reproducibility_status": "REPRODUCED_LOCAL",
+            "v3_replication_checks.reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v8-review-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2886,
+          "name": "primary-run-stop.json",
+          "sha256": "cf360a41a9a0f4db7dc14f026868600497b1551d40ec3778dfb21316597e890e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        },
+        {
+          "bytes": 2924,
+          "name": "v9-continuation-stop.json",
+          "sha256": "90f272d8e75e14e084b13244257125939b9a4243831e1de54ca8072d9954a5a1",
+          "statuses": {
+            "error_type": "IndexError"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2886,
+          "name": "primary-run-stop.json",
+          "sha256": "cf360a41a9a0f4db7dc14f026868600497b1551d40ec3778dfb21316597e890e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        },
+        {
+          "bytes": 2924,
+          "name": "v9-continuation-stop.json",
+          "sha256": "90f272d8e75e14e084b13244257125939b9a4243831e1de54ca8072d9954a5a1",
+          "statuses": {
+            "error_type": "IndexError"
+          }
+        },
+        {
+          "bytes": 2834,
+          "name": "v9-continuation-v2-stop.json",
+          "sha256": "7a9bb0b41b545c8db1dfd0661fd8dd3a15abaf184c8c7022a86f1dc998cfb52e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9-continuation-v2-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2886,
+          "name": "primary-run-stop.json",
+          "sha256": "cf360a41a9a0f4db7dc14f026868600497b1551d40ec3778dfb21316597e890e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        },
+        {
+          "bytes": 1846,
+          "name": "replication-manifest.json",
+          "sha256": "4f759a1396147bf723b9cec5c8f97716128cf02673808a7212da8de41634a61c",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "checks.outcome_status": true,
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2924,
+          "name": "v9-continuation-stop.json",
+          "sha256": "90f272d8e75e14e084b13244257125939b9a4243831e1de54ca8072d9954a5a1",
+          "statuses": {
+            "error_type": "IndexError"
+          }
+        },
+        {
+          "bytes": 2834,
+          "name": "v9-continuation-v2-stop.json",
+          "sha256": "7a9bb0b41b545c8db1dfd0661fd8dd3a15abaf184c8c7022a86f1dc998cfb52e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        },
+        {
+          "bytes": 1924,
+          "name": "v9-continuation-v3-primary.json",
+          "sha256": "93aa7608643819abd46b4d18eaaaab46f2078ed120663c462350395753ecb94d",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_CLEAN_LOCAL_REPRODUCTION",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 840,
+          "name": "v9-continuation-v3-replication-stop.json",
+          "sha256": "e5a96a4519af9d10900d8c1629d73a0a364ba2340d72f645f7bdd5ebf62af9c0",
+          "statuses": {
+            "error_type": "FileNotFoundError",
+            "reproducibility_status": "REPRODUCED_LOCAL"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9-continuation-v3-primary"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 361,
+          "name": "packaging-stop-001.json",
+          "sha256": "faefbaa528395ad34629e74c5ca453c58bf3b7565aef5973728af8a94442b8ed",
+          "statuses": {
+            "status": "STOPPED_BEFORE_UPLOAD"
+          }
+        },
+        {
+          "bytes": 146,
+          "name": "receipts/setup-stop.json",
+          "sha256": "f458a36e4879e06b09eb6945e705c39673432b013176fb115b5c46daf1b079c5",
+          "statuses": {
+            "phase": "environment_setup",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9-gman-cloud-reproduction-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 499,
+          "name": "replication-v3-stop.json",
+          "sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9-gman-cloud-reproduction-v3"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 1846,
+          "name": "replication-manifest.json",
+          "sha256": "4f759a1396147bf723b9cec5c8f97716128cf02673808a7212da8de41634a61c",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "checks.outcome_status": true,
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 2924,
+          "name": "v9-continuation-v3-context/v9-continuation-stop.json",
+          "sha256": "90f272d8e75e14e084b13244257125939b9a4243831e1de54ca8072d9954a5a1",
+          "statuses": {
+            "error_type": "IndexError"
+          }
+        },
+        {
+          "bytes": 2834,
+          "name": "v9-continuation-v3-context/v9-continuation-v2-stop.json",
+          "sha256": "7a9bb0b41b545c8db1dfd0661fd8dd3a15abaf184c8c7022a86f1dc998cfb52e",
+          "statuses": {
+            "error_type": "ValueError"
+          }
+        },
+        {
+          "bytes": 1924,
+          "name": "v9-continuation-v3-context/v9-continuation-v3-primary.json",
+          "sha256": "93aa7608643819abd46b4d18eaaaab46f2078ed120663c462350395753ecb94d",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_CLEAN_LOCAL_REPRODUCTION",
+            "reviewer_status": "NOT_SUBMITTED"
+          }
+        },
+        {
+          "bytes": 840,
+          "name": "v9-continuation-v3-context/v9-continuation-v3-replication-stop.json",
+          "sha256": "e5a96a4519af9d10900d8c1629d73a0a364ba2340d72f645f7bdd5ebf62af9c0",
+          "statuses": {
+            "error_type": "FileNotFoundError",
+            "reproducibility_status": "REPRODUCED_LOCAL"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v9-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 600,
+          "name": "run-stop.json",
+          "sha256": "a4377803a63add7612b30e8188f625c0255a433bd519284b1efe49a051365f74",
+          "statuses": {
+            "error_type": "FileNotFoundError",
+            "phase": "predict",
+            "status": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "ResearchArtifacts",
+      "root_name": "theseus-lab-sandbox-v13-nonlinear-primary"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 14492,
+          "name": "reports/additive-module-validity-v1-runtime-primary.json",
+          "sha256": "e1ff3d63f7117546ac4698098e07302b973bf31eaf374962f215bc282123bece",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "NOT_REPRODUCED",
+            "reviewer_status": "NOT_PERFORMED",
+            "status": "INTERNAL_PASS"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-architecture-validity-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 20655,
+          "name": "reports/attempt-1-constructor-failure.json",
+          "sha256": "73d03f36281927041d35d49f79d054f2e1585dfbfe7afc2774e991822e45e238",
+          "statuses": {
+            "status": "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_INCONCLUSIVE"
+          }
+        },
+        {
+          "bytes": 20383,
+          "name": "reports/attempt-2-nonlinear-causal-gate-failure.json",
+          "sha256": "ed91453d14b75a3dce04ece3646e8858cf1d8979d2745f759d686c22c8383c4b",
+          "statuses": {
+            "status": "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v1"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2638,
+          "name": "replacement-loss-v3-reconciliation.json",
+          "sha256": "72661884d87d2d559c0479edb924ec4e7ecba1cb64d4214c70719dc55d35081e",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "primary_case_counts.passed": 6,
+            "primary_report.assurance_level": "INCONCLUSIVE",
+            "primary_report.outcome_status": "FAIL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 220808,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "5a4cd64f7e0bb5a38f08cce6f99541625fcb34cf4a4ed18f6303c3e3413b9ea7",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 29122,
+          "name": "failure-analysis/analysis-report.json",
+          "sha256": "352b67901e5c51e358a4d3c0e0b0022e653a2f62185f580d7407a0e9229d6e3b",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v3"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 220815,
+          "name": "replacement-loss-v3-report.json",
+          "sha256": "cf2e8a6c3494f3920eef36bb4dd77ee95c540162673af11a63eb3f22cc45f1ce",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 4397,
+          "name": "replication-report.json",
+          "sha256": "8c66320c9936aa563697856c846da159b529468d1c6b1b661bf66284fb82e803",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "replica_evaluation_summary.assurance_level": "INCONCLUSIVE",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v3-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 4384,
+          "name": "replacement-loss-v4-reconciliation.json",
+          "sha256": "46b15b4ea27160fa1150e30decbbe096a5c710947fcf802faebd5583d3969c18",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 30888,
+          "name": "replacement-loss-v4-report.json",
+          "sha256": "b176c567b8a06790e38a5639c7e03ab3d3a933febaa25e69212eff9078be54b2",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_RUNTIME_REPLICATION",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 6192,
+          "name": "failure-analysis-v1/analysis-report.json",
+          "sha256": "4b7517666b56fdd3e544406d022f2f4284ebd1d5533714c7a1e3e6574e54fd14",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "PENDING_CLEAN_RUNTIME_REPLAY",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 1584,
+          "name": "failure-analysis-v1/reconciliation.json",
+          "sha256": "1606c49edbf55f603f75add8f4b43d406f83f494a9f347414db3ab7f33aaad31",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 6192,
+          "name": "failure-analysis-v1/replicator/analysis-report.json",
+          "sha256": "4b7517666b56fdd3e544406d022f2f4284ebd1d5533714c7a1e3e6574e54fd14",
+          "statuses": {
+            "assurance_level": "INTERNAL_PASS",
+            "reproducibility_status": "PENDING_CLEAN_RUNTIME_REPLAY",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v4"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 30889,
+          "name": "replacement-loss-v4-report.json",
+          "sha256": "a22e0eb28ca546e33340ad5a6c9e7cd8f86ee91aeec22d0e7365ede741cb18dd",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_RUNTIME_REPLICATION",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 1252,
+          "name": "replication-report.json",
+          "sha256": "31eb9602a3b0a38a02b9ecc62b3a8082409cdd48a434ae594038fc05de78300b",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v4-replicator"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2190,
+          "name": "replacement-loss-v5-reconciliation.json",
+          "sha256": "ea8bb34e17b90bab33293e01021b05eeebcf2b57f7085073f6127ac0e3a60185",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 44837,
+          "name": "replacement-loss-v5-report.json",
+          "sha256": "026a4baacd7031d90fc1033ca747d048f932b4d9f258a3a7c0190ea84586d4cc",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_RUNTIME_REPLICATION",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v5"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 44834,
+          "name": "replacement-loss-v5-report.json",
+          "sha256": "8616df67bbf65f5773876cb4be51d0ff6f2dfd09bb7ed9b1326b54db450a191e",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "FAIL",
+            "reproducibility_status": "PENDING_SEPARATE_RUNTIME_REPLICATION",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        },
+        {
+          "bytes": 1317,
+          "name": "replication-report.json",
+          "sha256": "4d09570fc8dd0057871ba1156398dbeae2946f9c9fdc9caac8c299f252214891",
+          "statuses": {
+            "assurance_level": "REPRODUCED_LOCAL",
+            "reproducibility_status": "REPRODUCED_LOCAL",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v5-replicator"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v5-replicator-failed-git-root"
+    },
+    {
+      "aggregate_receipts": [
+        {
+          "bytes": 2189,
+          "name": "v6-run-abort-report.json",
+          "sha256": "bab0068eff879a55d0d6d95270b591031a96d340a68cba63b53e497de8cce90b",
+          "statuses": {
+            "assurance_level": "INCONCLUSIVE",
+            "outcome_status": "INCONCLUSIVE",
+            "reproducibility_status": "NOT_RUN",
+            "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE"
+          }
+        }
+      ],
+      "availability": "RECEIPTS_PRESENT",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v6"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-replacement-loss-v7"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-subagent-raters-v1"
+    },
+    {
+      "aggregate_receipts": [],
+      "availability": "NO_AGGREGATE_RECEIPT_WITHIN_DECLARED_SCAN",
+      "base": "custody",
+      "root_name": "theseus-lab-sandbox-v1-subagent-raters-v2"
+    }
+  ],
+  "limitations": [
+    "Not a rerun of old experiments",
+    "No raw payloads, weights, or row-level files opened",
+    "Missing receipts do not imply failure or success",
+    "Undocumented or inaccessible runs cannot be certified"
+  ],
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "scope": "all repository research documents and accessible bounded aggregate receipts through V31; excludes this audit and V32",
+  "sources": [
+    {
+      "bytes": 34009,
+      "literal_status_tokens": [
+        "AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR",
+        "AI_PROXY_ONLY",
+        "AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS",
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "CAUSAL_PREDICTION_AND_RESCUE_PASS",
+        "CROSS_ARCHITECTURE_REPLICATION_PASS",
+        "CROSS_CHECKPOINT_REPLICATION_PASS",
+        "CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS",
+        "CROSS_TOPOLOGY_REPLICATION_PASS",
+        "INCONCLUSIVE",
+        "LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY",
+        "LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED",
+        "LOCAL_BLINDED_SUBAGENT_CALIBRATION_BLOCKED",
+        "LOCAL_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY",
+        "LOCAL_CROSS_ARCHITECTURE_REPLICATION_OBSERVATION_ONLY",
+        "LOCAL_CROSS_TOPOLOGY_FRESH_HOLDOUT_OBSERVATION_ONLY",
+        "LOCAL_CROSS_TOPOLOGY_REPLICATION_OBSERVATION_ONLY",
+        "LOCAL_GPT2_FAMILY_REPLICATION_OBSERVATION_ONLY",
+        "LOCAL_GPT2_TRANSFORMATION_OBSERVATION_ONLY",
+        "LOCAL_JACOBIAN_PROXY_OBSERVATION_ONLY",
+        "LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_OBSERVATION_ONLY",
+        "LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_OBSERVATION_ONLY",
+        "LOCAL_SMOLLM_TRANSFORMATION_OBSERVATION_ONLY",
+        "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_OBSERVATION_ONLY",
+        "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_PASS",
+        "OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_PASS",
+        "SUBAGENT_RATER_CALIBRATION_BLOCKED_THRESHOLD_UNIDENTIFIABLE"
+      ],
+      "path": "NOTES.md",
+      "sha256": "308319a61f695d059266a1545346c7073c1727a99af2839ea4511528001aa9a3"
+    },
+    {
+      "bytes": 25841,
+      "literal_status_tokens": [
+        "AI_PROXY_CROSS_MODEL",
+        "AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR",
+        "AI_PROXY_ONLY",
+        "AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS",
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "CAUSAL_PREDICTION_AND_RESCUE_PASS",
+        "CROSS_TOPOLOGY_FRESH_HOLDOUT_REPLICATION_PASS",
+        "CROSS_TOPOLOGY_REPLICATION_PASS",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY",
+        "LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED",
+        "LOCAL_BLINDED_SUBAGENT_CALIBRATION_SIGNAL_ONLY",
+        "LOCAL_OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_OBSERVATION_ONLY",
+        "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_OBSERVATION_ONLY",
+        "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_PASS",
+        "OPT_CAUSAL_PREDICTION_AND_RESCUE_V2_PASS",
+        "REPRODUCED_LOCAL",
+        "SEGREGATED_INTERNAL_REVIEW"
+      ],
+      "path": "README.md",
+      "sha256": "9872eaf0641601947732fe42f3bfa5407e3ff7edc7a1bfae55550a1f7c98906d"
+    },
+    {
+      "bytes": 8057,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "INTERNAL_PASS",
+        "REPRODUCED_LOCAL",
+        "SEGREGATED_INTERNAL_REVIEW"
+      ],
+      "path": "docs/additive-module-theorem.md",
+      "sha256": "74c864323a160a4fd816f400e816429e98ca46d79c995f883efac77767c90963"
+    },
+    {
+      "bytes": 1105,
+      "packet_sha256": "9e366d52e658114ad3e8443e55ac8a2fb68cd48cf148de1ae3f8b74047feedcd",
+      "path": "docs/additive-module-validity-v1-freeze.json",
+      "protocol_id": "theseus-additive-module-validity-v1",
+      "sha256": "fdb6e5839efb06575e784e7d0bf9dd13bd5bcc257296130306b0d526dea55938",
+      "statuses": {}
+    },
+    {
+      "bytes": 5026,
+      "literal_status_tokens": [
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "INTERNAL_PASS",
+        "LOCAL_EXACT_STRUCTURAL_SPLIT_FOR_ADDITIVE_COMPONENTS_ACROSS_FIVE_FROZEN_LOCAL_CHECKPOINTS",
+        "REPRODUCED_LOCAL",
+        "SEGREGATED_INTERNAL_REVIEW"
+      ],
+      "path": "docs/additive-module-validity-v1-results.md",
+      "sha256": "af7ac43d016fa44afa79be9d775bc7a478b83a496e1b16782058bc439a09d465"
+    },
+    {
+      "bytes": 6204,
+      "literal_status_tokens": [
+        "FORMAL_CONDITIONAL_CAUSAL_EFFECT_BOUND_AND_FINITE_OBSERVATIONAL_NONIDENTIFIABILITY"
+      ],
+      "path": "docs/causal-effect-identifiability-boundary-v1.md",
+      "sha256": "32f54b5d1af9ee52980b19bd1385ac9bedee303b99bbce599f0d45f0aedae784"
+    },
+    {
+      "bytes": 1840,
+      "literal_status_tokens": [
+        "LOCAL_VALIDATED_EQUIVALENCE_CLASS_OBSERVATION_ONLY"
+      ],
+      "path": "docs/qualification-gates.md",
+      "sha256": "95e195467759e076c77dfec3d7bf70f9f39dd0a3db6dd0a57845e5d9373b059b"
+    },
+    {
+      "bytes": 20512,
+      "literal_status_tokens": [
+        "AI_PROXY_CROSS_MODEL_BLOCKED_MISSING_INDEPENDENT_EVALUATOR",
+        "AI_PROXY_ONLY_CONSISTENCY_AUDIT_PASS",
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "LABEL_1",
+        "LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY",
+        "LOCAL_AI_PROXY_CROSS_MODEL_CUSTODY_BLOCKED",
+        "LOCAL_BLINDED_SUBAGENT_CALIBRATION_SIGNAL_ONLY"
+      ],
+      "path": "docs/qwen38-local-assessment.md",
+      "sha256": "ea4fcd70a36adfb9f355a50b01886a0a1264a7e039e2cf5cf5b806d89f29a2d9"
+    },
+    {
+      "bytes": 6671,
+      "literal_status_tokens": [
+        "FAIL",
+        "INTERNAL_PASS",
+        "MODULE_LEVEL_ONLY",
+        "NOT_APPLICABLE",
+        "NOT_STARTED",
+        "NOT_SUBMITTED",
+        "NOVELTY_NOT_ESTABLISHED",
+        "REPRODUCED_LOCAL",
+        "TARGETED_PRIOR_ART_REVIEW_COMPLETE"
+      ],
+      "path": "docs/replacement-loss-not-comparison-readiness-v1.md",
+      "sha256": "6548fafb1572550e3cc8058e5fc9c1112c219cb382f16aad9fc136279f689d3a"
+    },
+    {
+      "bytes": 6032,
+      "literal_status_tokens": [
+        "FAIL",
+        "NOVELTY_NOT_ESTABLISHED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-prior-art-v1.md",
+      "sha256": "1463b4804ac8e664ab52f689f89fecadb273955c269eefaf5fc2f4f86c123006"
+    },
+    {
+      "bytes": 12585,
+      "literal_status_tokens": [
+        "EXPANDED_TARGETED_SCAN_COMPLETE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LICENSE",
+        "MODULE_LEVEL_ONLY",
+        "NOT_APPLICABLE",
+        "NOT_ESTABLISHED",
+        "NOT_IMPLEMENTED",
+        "NOT_STARTED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-prior-art-v2.md",
+      "sha256": "8211f4866a7645927a9cbb72e71cdf7738d5c4ca372e93d2a11617795087f8f3"
+    },
+    {
+      "bytes": 2283,
+      "literal_status_tokens": [
+        "LOCAL_TRAINED_MODEL_STRUCTURAL_REPLACEMENT_OBSERVATION_ONLY"
+      ],
+      "path": "docs/replacement-loss-protocol.md",
+      "sha256": "3888d4b43aced921d45d81c03ac3ad12b90e1918af8d39172724a1ade7422906"
+    },
+    {
+      "bytes": 2197,
+      "packet_sha256": "02c20d0953c93d088887c1a0494131504e3f17f7018b9d5557ebc884b53d6475",
+      "path": "docs/replacement-loss-v10-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v10-opt-causal-fit",
+      "sha256": "6e12cebeb3f2b1f9b1766c748b59b0233d3b249575f629d1c5ad4ce2254fcd74",
+      "statuses": {}
+    },
+    {
+      "bytes": 3762,
+      "literal_status_tokens": [
+        "HEAD",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_CAUSAL_LOSS_IMPROVEMENT_FOR_TWO_VISIBLE_SELECTED_OPT_PROJECTIONS_ON_ONE_CHECKPOINT_AND_THREE_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_APPLICABLE_NO_SCIENTIFIC_RUN",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v10-results.md",
+      "sha256": "ae3e1e2203f3d94eb6fe639cfa3974bce44e9c064cc2b350b8af063c6620b464"
+    },
+    {
+      "bytes": 8670,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "INTERNAL_PASS",
+        "LOCAL_CAUSAL_LOSS_IMPROVEMENT_FOR_TWO_VISIBLE_SELECTED_OPT_PROJECTIONS_ON_ONE_CHECKPOINT_AND_THREE_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "PASS",
+        "PRODUCTION_AUTHORIZED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v10.md",
+      "sha256": "32e5fc3683c761e3173fdc1135ae832be355279f67fa763bd988ffff66e807c2"
+    },
+    {
+      "bytes": 4282,
+      "packet_sha256": "2bd4e9903b2611ac454a0ff26ffabb051231bd2469f6895aee67504d8c99c582",
+      "path": "docs/replacement-loss-v11-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v11-known-opt-causal-fit-remediation",
+      "sha256": "f3a16e77f778c5c82d40e4c5234440b1b614abc746a06243042cefa253f41d41",
+      "statuses": {}
+    },
+    {
+      "bytes": 6417,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_CAUSAL_FIT_REMEDIATION_ON_REUSED_V9_OPT_CHECKPOINT_WITH_NEW_SYNTHETIC_FIXTURES",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v11-results.md",
+      "sha256": "bd89600f5adb4c94b88fdfa493a7ad308af61a74c3fb901bfbaf72ee0f8e7307"
+    },
+    {
+      "bytes": 5307,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_CAUSAL_FIT_REMEDIATION_ON_REUSED_V9_OPT_CHECKPOINT_WITH_NEW_SYNTHETIC_FIXTURES",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v11.md",
+      "sha256": "0042dc858797eb6c64e63c330c55a353faafb4059cad691065f6f13078f9bb06"
+    },
+    {
+      "bytes": 6422,
+      "packet_sha256": "7bd26b9f76105fdfe4e78f0a468bc29b0b89313aea34a40c4e648ae50fe10ac1",
+      "path": "docs/replacement-loss-v12-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v12-replication-normalization-audit",
+      "sha256": "b89eac0884bd7022c3e4836263cbd03d4379c5aa59b64f3681994b63d2bffc29",
+      "statuses": {}
+    },
+    {
+      "bytes": 6454,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "LOCAL_REPRODUCIBILITY_OF_V11_FAIL_OUTCOME_AND_ARTIFACTS_UNDER_CONTENT_IDENTITY",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v12-replication-results.md",
+      "sha256": "ef106e78cbcc81776e9ba262de7632c2a1bc1afd1dc7f8abe5fa6cfaa7f5b4fe"
+    },
+    {
+      "bytes": 5358,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_REPRODUCIBILITY_OF_V11_FAIL_OUTCOME_AND_ARTIFACTS_UNDER_CONTENT_IDENTITY",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v12-replication.md",
+      "sha256": "26e9477e1bbd0e0204dc5c0e530752b1f804182628a3d953d774f78ff47a65cc"
+    },
+    {
+      "bytes": 6398,
+      "packet_sha256": "93c1ecfce1f39b76433ebcf2452d2723824ce41de5e00ab6df6cd7e314af839c",
+      "path": "docs/replacement-loss-v13-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v13-nonlinear-causal-replacement",
+      "sha256": "3cece104ef48d410b8e412f77fb3a694f3c9ed94494ccbfca3d5d7bcfadfaae0",
+      "statuses": {}
+    },
+    {
+      "bytes": 5860,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_NONLINEAR_CAUSAL_REPLACEMENT_IMPROVEMENT_OVER_ACTIVATION_RIDGE_ON_ONE_REUSED_OPT_CHECKPOINT_AND_SIX_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_BLIND_SAME_OWNER_REPRODUCTION",
+        "NOT_MEASURED",
+        "NOT_REPRODUCED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v13-results.md",
+      "sha256": "6a8e7318c4c5e5f4a1b9572b7857b31de36c3cc4c25774cbc522cbcdac0d50c4"
+    },
+    {
+      "bytes": 7718,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "LOCAL_NONLINEAR_CAUSAL_REPLACEMENT_IMPROVEMENT_OVER_ACTIVATION_RIDGE_ON_ONE_REUSED_OPT_CHECKPOINT_AND_SIX_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "PASS",
+        "PRODUCTION_AUTHORIZED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v13.md",
+      "sha256": "ff1ef7d4c19dcf5cb0945908610e34998ae649d09a0e8d94619d4e310150874f"
+    },
+    {
+      "bytes": 8117,
+      "packet_sha256": "3e6db084afbd7d9cfd2d072214d916886d06a85b9ff47471dd1452257c51485f",
+      "path": "docs/replacement-loss-v14-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v14-paired-activation-ablation",
+      "sha256": "c3421e9e983650acbdf095b4620fca6f5a01b391691ad3c796b116f6e21e344b",
+      "statuses": {}
+    },
+    {
+      "bytes": 7798,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_GELU_ACTIVATION_EFFECT_ON_MATCHED_LOW_RANK_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT_AND_SIX_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_BLIND_SAME_OWNER_REPRODUCTION",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v14-results.md",
+      "sha256": "286dee4efc8605e06acac6eb95ef71ff5b64b72f486e8e30062ae0ec5bba660e"
+    },
+    {
+      "bytes": 6004,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_GELU_ACTIVATION_EFFECT_ON_MATCHED_LOW_RANK_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT_AND_SIX_SYNTHETIC_SEEDS",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v14.md",
+      "sha256": "450cd1d81865757a345165eb72aab55438696583ae6119fb3d8a11b42916d8e9"
+    },
+    {
+      "bytes": 5658,
+      "literal_status_tokens": [
+        "LOCAL_ADAPTATION_DIAGNOSTIC_OF_RANK_AND_OPTIMIZATION_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NO_CLEAR_SIGNAL",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v15-capacity-optimization-diagnostic.md",
+      "sha256": "3c4c4d3b462fff8c9fb40b7e50518efd814e0652d331fdb25d47bdaa1a56719f"
+    },
+    {
+      "bytes": 8386,
+      "packet_sha256": "d72a6fd520a185fbfeacf63e46c55ec43ef273017fd2bc8ab103b8165efbc042",
+      "path": "docs/replacement-loss-v15-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v15-capacity-optimization-diagnostic",
+      "sha256": "7921b40e0263ab66324e5d2b316ab1bbeae2a0eb6673c683dbcb6a03dbdd7a37",
+      "statuses": {}
+    },
+    {
+      "bytes": 2550,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v15-results.md",
+      "sha256": "ffcce9488270b0e7b223388786ac4932e7bfe25557656223fab496cac0dcdef5"
+    },
+    {
+      "bytes": 4378,
+      "literal_status_tokens": [
+        "LOCAL_ADAPTATION_DIAGNOSTIC_OF_RANK_AND_OPTIMIZATION_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v15b-capacity-optimization-diagnostic.md",
+      "sha256": "5bfd9b5fbef5134e9d3f0b610e25908e0d130ceb4b9b0bdfb8ccda4e78411f82"
+    },
+    {
+      "bytes": 10012,
+      "packet_sha256": "1fbf6d62ff00c984e3181991a0b9d61863d3dcbec4f62ddcec031dc59fafeabc",
+      "path": "docs/replacement-loss-v15b-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v15b-capacity-optimization-diagnostic",
+      "sha256": "759789e67a08f388c136c70132c142af4969d6e2db49c22872455d52b5de5267",
+      "statuses": {
+        "source_v15_failed_attempt.error_type": "AttributeError",
+        "source_v15_failed_attempt.status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "bytes": 2353,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v15b-results.md",
+      "sha256": "3bb77ec99647eadf7484707559902e26ea9dfd27cc62b946e84c94468144e1c8"
+    },
+    {
+      "bytes": 4259,
+      "literal_status_tokens": [
+        "LOCAL_ADAPTATION_DIAGNOSTIC_OF_RANK_AND_OPTIMIZATION_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v15c-capacity-optimization-diagnostic.md",
+      "sha256": "74236292416dc75ebe68e5259dc2e97912432e846fd71dae7274b1181bc059dd"
+    },
+    {
+      "bytes": 11271,
+      "packet_sha256": "4df6b7e71505d0a5d69570d6967bb55423a734a3d37d218424aab1dbcb80f291",
+      "path": "docs/replacement-loss-v15c-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v15c-capacity-optimization-diagnostic",
+      "sha256": "ba2736b01e8c191c0e483b3338acff320f0f588520851337b9adc9244795b606",
+      "statuses": {
+        "source_v15b_failed_attempt.error_type": "AttributeError",
+        "source_v15b_failed_attempt.status": "INCONCLUSIVE"
+      }
+    },
+    {
+      "bytes": 5180,
+      "literal_status_tokens": [
+        "LOCAL_ADAPTATION_DIAGNOSTIC_OF_RANK_AND_OPTIMIZATION_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_BLIND_SAME_OWNER_REPLAY",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "NO_CLEAR_SIGNAL",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v15c-results.md",
+      "sha256": "196fc298aaa8ae263e8ce5183106693a676dc69ef58032dd2f43360731b4fdc8"
+    },
+    {
+      "bytes": 2999,
+      "packet_sha256": "72469f59ff36c465542caab84970953b0eac69532f0d2fde5d292ee424b2a763",
+      "path": "docs/replacement-loss-v16-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v16-whole-mlp-independent-replacement",
+      "sha256": "d5e4e73e3240c01ba0c93e7cad29889a3b01ff928553306f5042f2d465c3508d",
+      "statuses": {}
+    },
+    {
+      "bytes": 6618,
+      "literal_status_tokens": [
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "LOCAL_WHOLE_MLP_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v16-results.md",
+      "sha256": "d0c0b89eb7d1af0e7655d539b20257b78a1ebafd16958389492898bd1ad804e3"
+    },
+    {
+      "bytes": 8034,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_WHOLE_MLP_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_YET_EVALUATED",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v16-whole-mlp.md",
+      "sha256": "fbc70a91e7e27ab9a70cce2af0dc0ba22e1a36b5cdc028b07d5e4235882de8ef"
+    },
+    {
+      "bytes": 6298,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CAUSAL_SUPERVISION_EFFECT_ON_WHOLE_MLP_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v17-causal-supervision.md",
+      "sha256": "053e9a328190914bf2d9ee0ed8eee99b128496379ad168b8910cbee0e3564274"
+    },
+    {
+      "bytes": 3275,
+      "packet_sha256": "e08b5664e8ebbc536f5ed8ff13ab0aa8b536caddb61a3540a5cb56a94f403869",
+      "path": "docs/replacement-loss-v17-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v17-causal-supervised-whole-mlp",
+      "sha256": "3fb1103db160d95f81f12b2d623bf37a06bc70490270a900a85c653514903224",
+      "statuses": {}
+    },
+    {
+      "bytes": 7111,
+      "literal_status_tokens": [
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "LOCAL_CAUSAL_SUPERVISION_EFFECT_ON_WHOLE_MLP_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v17-results.md",
+      "sha256": "d36a9a7ceb3155654650511b8a59354dcb75a551201f971fb0af9c6c3cd4de9c"
+    },
+    {
+      "bytes": 4354,
+      "packet_sha256": "855b2c12d09edb0964845054991743ccb00c28a5d9c5583a6a0f7b2b65207739",
+      "path": "docs/replacement-loss-v18-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v18-projected-causal-refinement",
+      "sha256": "4da47f238cf1e64b32e7b1d67a49a0c53e66a60714b34549b47716390afc4c26",
+      "statuses": {
+        "parent_protocol.reproducibility_status": "REPRODUCED_LOCAL"
+      }
+    },
+    {
+      "bytes": 6921,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_PROJECTED_CAUSAL_REFINEMENT_EFFECT_ON_WHOLE_MLP_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v18-projected-causal-refinement.md",
+      "sha256": "5571b584daff91b6e88c7c3dd5243fc9e7cb91b6af3f526e00d2c7702ba6b54d"
+    },
+    {
+      "bytes": 7530,
+      "literal_status_tokens": [
+        "FAIL",
+        "LOCAL_PROJECTED_CAUSAL_REFINEMENT_EFFECT_ON_WHOLE_MLP_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v18-results.md",
+      "sha256": "326305a09ed302a2c2d68999b5cc2dc0fcfad055d5c03fe38a7705aa48d92115"
+    },
+    {
+      "bytes": 3895,
+      "literal_status_tokens": [
+        "CONFIRMATION_STOPPED_BEFORE_CHALLENGE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CAUSAL_VALUE_PARETO_CONFIRMATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v19-confirmatory.md",
+      "sha256": "ef1f1ce6a368a345833f8b7cbb997d26eb8330c8788a459d211d7272699f576a"
+    },
+    {
+      "bytes": 3359,
+      "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+      "path": "docs/replacement-loss-v19-development-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+      "sha256": "f7b4f689b91dda411b4e4375053c1fc7613695b0960488bb0d1821251cf57fd1",
+      "statuses": {
+        "parent_protocol.reproducibility_status": "REPRODUCED_LOCAL"
+      }
+    },
+    {
+      "bytes": 3041,
+      "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+      "path": "docs/replacement-loss-v19-development-replication.json",
+      "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+      "sha256": "e041cf30c24668dff371bd69c9032cfdf1b2198a13aeb38128070982a3f8e2da",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 5202,
+      "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+      "path": "docs/replacement-loss-v19-development-results.json",
+      "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+      "sha256": "b8c31c7e675afea7ea6abc41de3400054ea4aa810a788f730c6c77772b9c1385",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reproducibility_status": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 3639,
+      "literal_status_tokens": [
+        "LOCAL_CAUSAL_VALUE_PARETO_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_BLIND_SAME_OWNER_REPLAY",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v19-development-results.md",
+      "sha256": "bf2e140f1332fe0f94a8a804f00291a7f1140d4d09924c85492ded13547e3cd0"
+    },
+    {
+      "bytes": 4831,
+      "literal_status_tokens": [
+        "LOCAL_CAUSAL_VALUE_PARETO_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE"
+      ],
+      "path": "docs/replacement-loss-v19-development.md",
+      "sha256": "a6a10704bd5f5cd747535d2dc77963f5d04f4746efb5d27ff7d92d9ff0f68def"
+    },
+    {
+      "bytes": 7468,
+      "packet_sha256": "7d32925486e70e7f3d8c0e2143974005a1b12fa1a9b17874fb11aeee8db7a85f",
+      "path": "docs/replacement-loss-v20-development-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v20-development",
+      "sha256": "fbb90096bccd39af09eef7b44482d42853045c4796dc49b8de39868e12198e8d",
+      "statuses": {}
+    },
+    {
+      "bytes": 6308,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v20-low-rank-causal-residual.md",
+      "sha256": "5aa14eadd0c1a32b5ef61a1117d0d4892e8316e1de4c1a4db90b339a99cc6d99"
+    },
+    {
+      "bytes": 6167,
+      "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+      "path": "docs/replacement-loss-v20b-development-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v20b-development",
+      "sha256": "25912df9fb0d442c165e28cea1299a8451cb2a29f7a5223a1731efbd019d8f16",
+      "statuses": {}
+    },
+    {
+      "bytes": 3035,
+      "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+      "path": "docs/replacement-loss-v20b-development-replication.json",
+      "protocol_id": "theseus-replacement-loss-v20b-development",
+      "sha256": "fc13d3a332ad9c4b3bfb6d2503f1451ef5d0119944cdd9a4206f445b323682e9",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 7215,
+      "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+      "path": "docs/replacement-loss-v20b-development-results.json",
+      "protocol_id": "theseus-replacement-loss-v20b-development",
+      "sha256": "538992bc6bc8afd0c26455892a5b4956cf1976f56f6b7c58ecc9bb078af00df2",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reproducibility_status": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 1983,
+      "literal_status_tokens": [
+        "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_BLIND_SAME_OWNER_REPLAY",
+        "NOT_SUBMITTED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v20b-development-results.md",
+      "sha256": "c3688cfdbe4c0e0b65bc75a42f4811bb566252bfeb521f361419d731a97f0432"
+    },
+    {
+      "bytes": 2992,
+      "literal_status_tokens": [
+        "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v20b-low-rank-causal-residual.md",
+      "sha256": "36c6e2d5df2dbf31107c08d7b99dc98b21d15bf4a0b1a9526abfc79a5b47fc7e"
+    },
+    {
+      "bytes": 6426,
+      "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+      "path": "docs/replacement-loss-v21-development-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v21-development",
+      "sha256": "5ad56e499664722fe244558b39b6263e85a03497fa443c8e80e4a371cdc73f9a",
+      "statuses": {
+        "parent_negative_result.reproducibility_status": "REPRODUCED_LOCAL"
+      }
+    },
+    {
+      "bytes": 3025,
+      "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+      "path": "docs/replacement-loss-v21-development-replication.json",
+      "protocol_id": "theseus-replacement-loss-v21-development",
+      "sha256": "f50a7d0ebab679566addc458f5031bcb9b053cc0af3175a5d12acafaa98d1e42",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 7003,
+      "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+      "path": "docs/replacement-loss-v21-development-results.json",
+      "protocol_id": "theseus-replacement-loss-v21-development",
+      "sha256": "59b83278e63e075337751953d1ac3d758afebafc08a01ae720a3706b03cb9c11",
+      "statuses": {
+        "assurance_level": "REPRODUCED_LOCAL",
+        "reproducibility_status": "REPRODUCED_LOCAL",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 1803,
+      "literal_status_tokens": [
+        "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_BLIND_SAME_OWNER_REPLAY",
+        "NOT_SUBMITTED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v21-development-results.md",
+      "sha256": "9b0ceaac564e743a295cea779316d87b2a4cb7b483bf86e271c017b36245425d"
+    },
+    {
+      "bytes": 3404,
+      "literal_status_tokens": [
+        "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_SUBMITTED",
+        "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v21-fit-diagnostic.md",
+      "sha256": "2ee4cc15b589bbfbcccb4e0b81e1c6ae53350be69db1e58376cff5a5c55f7ef5"
+    },
+    {
+      "bytes": 6233,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+        "NOT_APPLICABLE",
+        "NOT_MEASURED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v21-paired-endpoint-supervision.md",
+      "sha256": "993c6300f240d9e1f84c949864be09da00b0f6de733cd373ba783f356c103977"
+    },
+    {
+      "bytes": 8008,
+      "packet_sha256": "e02d75bccf7dbaa50f561df85194298f808c8c22953371148e1671052ed69b24",
+      "path": "docs/replacement-loss-v21b-recovery-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v21b-run-recovery",
+      "sha256": "70a8cf7515202ff954c40bfb9f93c6d2886fe9cfac485172131d1d7c0f975b6b",
+      "statuses": {}
+    },
+    {
+      "bytes": 1193,
+      "literal_status_tokens": [
+        "INCONCLUSIVE"
+      ],
+      "path": "docs/replacement-loss-v21b-run-recovery.md",
+      "sha256": "a89f63eecd83d528c28c7f653c77037ea004dc154344ae3a1d62e83bd96ef43f"
+    },
+    {
+      "bytes": 2411,
+      "packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+      "path": "docs/replacement-loss-v22-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v22-fresh-checkpoint-replication",
+      "sha256": "8bfdcc32bf36ea6923f5fa769649dcda2abe0f3428170d0d54ed9f0f6091da9f",
+      "statuses": {}
+    },
+    {
+      "bytes": 4180,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v22-fresh-checkpoint-replication.md",
+      "sha256": "d13e091302a9b815efb6692e3068820a393a8927baab602b9563cef78d3f5151"
+    },
+    {
+      "bytes": 3021,
+      "literal_status_tokens": [
+        "FAIL",
+        "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+        "INTERNAL_PASS",
+        "NOT_RUN",
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET"
+      ],
+      "path": "docs/replacement-loss-v22-fresh-checkpoint-results.md",
+      "sha256": "0d6dd9b0df4540b271528ba1cd7f3d733bd4b856eca788b0e190f35771c9a07f"
+    },
+    {
+      "bytes": 2765,
+      "packet_sha256": "7600d653f906db5411a6ab3121e078f8134e311e8fe0ecb37ef05552bdbe890e",
+      "path": "docs/replacement-loss-v23-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v23-public-checkpoint-acquisition",
+      "sha256": "3af092b802580e36d24310c765e18effd7e8bb26a33e674baf3367083e32bd7c",
+      "statuses": {}
+    },
+    {
+      "bytes": 4564,
+      "literal_status_tokens": [
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v23-public-checkpoint-acquisition.md",
+      "sha256": "d20bee069964a069772b4e4ff23d303d42e96d83ff3a0f300cabbe36870f3e63"
+    },
+    {
+      "bytes": 1839,
+      "literal_status_tokens": [
+        "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_SETUP_OR_EXECUTION",
+        "NOT_RUN",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v23-results.md",
+      "sha256": "18d5f1c9e8f7d7ebd9f4b145235bf3aaebd2a04f616a88a9b6757af03a1cb102"
+    },
+    {
+      "bytes": 3760,
+      "packet_sha256": "1d1b99baa7dbe41f62a989a3653dc18b353f9d7fee5f8cbd6ed810796b162197",
+      "path": "docs/replacement-loss-v24-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v24-public-checkpoint-acquisition",
+      "sha256": "caa82b873077c5789133d14c2ddf668cb2eaacf1e566a792822dda9f8444350c",
+      "statuses": {}
+    },
+    {
+      "bytes": 4784,
+      "literal_status_tokens": [
+        "FAIL",
+        "HF_ASSETS_CACHE",
+        "HF_HOME",
+        "HF_HUB_CACHE",
+        "HF_XET_CACHE",
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v24-public-checkpoint-acquisition.md",
+      "sha256": "5166c55c62587a2e9228573a32eb20c93469ef3368f47852573dcd9c3a196dc0"
+    },
+    {
+      "bytes": 3440,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_SETUP_OR_EXECUTION",
+        "INTERNAL_PASS",
+        "NOT_ASSESSED_NO_MODEL_RUN",
+        "NOT_RUN",
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET"
+      ],
+      "path": "docs/replacement-loss-v24-results.md",
+      "sha256": "2716ebdce9713e5196764cc4b2a3f511f9717dba6427ec94c0f0d31e51a4fd92"
+    },
+    {
+      "bytes": 4368,
+      "packet_sha256": "9360f1c15820ce504fd1b059a468da6bb5ce26b4be86bd2369a769eaa74b161a",
+      "path": "docs/replacement-loss-v25-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v25-metadata-complete-acquisition",
+      "sha256": "dd390686548604c2d492e4657bc14ff0e3ea0e6d91037ce987d75ae0d293f4ba",
+      "statuses": {}
+    },
+    {
+      "bytes": 3973,
+      "literal_status_tokens": [
+        "INCONCLUSIVE_SETUP_OR_EXECUTION",
+        "INTERNAL_PASS",
+        "NOT_SUBMITTED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v25-metadata-complete-acquisition.md",
+      "sha256": "c3f3c67175aaaad5960037da020dcc8a9f8e62d843b5223c6cc8d50ca326e9a3"
+    },
+    {
+      "bytes": 3221,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_EXECUTION",
+        "NOT_ASSESSED_NO_COMPLETE_EXPERIMENT",
+        "NOT_RUN",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v25-results.md",
+      "sha256": "82f9b9908ef2c37d41663c697c5c2574c1f2ff7e651da2065046038365f31999"
+    },
+    {
+      "bytes": 7190,
+      "packet_sha256": "1b92319ef36a98dbec6d534fa9a2f13cd80df528dab64639be59c8d2e453cfdc",
+      "path": "docs/replacement-loss-v26-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v26-fresh-checkpoint-recovery",
+      "sha256": "98d2a96986ddfde323d51f17aafaa635a638c198345dffb9eb6ac0a8c8897137",
+      "statuses": {}
+    },
+    {
+      "bytes": 4544,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v26-fresh-checkpoint-recovery.md",
+      "sha256": "07321e0792ac8d5ae3c1820177f3e6275ba90c1d11b254bc9cd1473ef4589c88"
+    },
+    {
+      "bytes": 9463,
+      "packet_sha256": "3321cc188a83f8ae5a394f49747309c02c7ce0f5e8caf31cb7a21f12ab9dbc5b",
+      "path": "docs/replacement-loss-v27-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v27-fresh-checkpoint-recovery",
+      "sha256": "ca3184d946562d4ba70a15e7ba578e4daf1aba4a7f752ea1afd294526da591ba",
+      "statuses": {}
+    },
+    {
+      "bytes": 4795,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v27-fresh-checkpoint-recovery.md",
+      "sha256": "0997188813a8edb599d7ba2de225f7c78c077e290526eff3227218c4419fb2e6"
+    },
+    {
+      "bytes": 9005,
+      "packet_sha256": "f341a7f8e673dd2248f38b73659da25dcf62088b29176e01e1b914f1e5925b08",
+      "path": "docs/replacement-loss-v28-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v28-fresh-checkpoint-recovery",
+      "sha256": "37baf1685f792a771c9e2d2a9ab90d05fb6a6d82f2dbec3635d409462584b71c",
+      "statuses": {}
+    },
+    {
+      "bytes": 4261,
+      "literal_status_tokens": [
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v28-fresh-checkpoint-recovery.md",
+      "sha256": "d62537bd2d4cdf87722a1bbcaf837fefa5a4001d86ce32aec79a77ae22997039"
+    },
+    {
+      "bytes": 5859,
+      "literal_status_tokens": [
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "NOT_MEASURED",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v28-results.md",
+      "sha256": "fea7c1ca2ef31cb0243bac31558906d522ee2e15401865b06c71e85dda23f6fb"
+    },
+    {
+      "bytes": 3057,
+      "packet_sha256": "33016b8c3f97066222077c06e4f8fe6a97349380df500935cb1fcb7d07d99b8d",
+      "path": "docs/replacement-loss-v29-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v29-nonlinear-synthetic",
+      "sha256": "ff218d3c9689cfee224e319abb96f425c9635ec240094a052d945d7460476a26",
+      "statuses": {}
+    },
+    {
+      "bytes": 4109,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "REPRODUCED_LOCAL",
+        "SYNTHETIC_NONLINEAR_REPLACEMENT_METHODS_QUALIFICATION_ONLY"
+      ],
+      "path": "docs/replacement-loss-v29-nonlinear-synthetic.md",
+      "sha256": "7ee1a89339e186b17ee91a73b6a56cf94dc74d8be1ed3b2e189974bca01d5ed7"
+    },
+    {
+      "bytes": 1566,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "SYNTHETIC_NONLINEAR_REPLACEMENT_METHODS_QUALIFICATION_ONLY"
+      ],
+      "path": "docs/replacement-loss-v29-results.md",
+      "sha256": "62059657d9829d5e7c076923a70205072c6cd3cab8521a345db06ae5f1f0eb65"
+    },
+    {
+      "bytes": 2980,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "POSTHOC_EXPLORATORY_ASSOCIATION_ON_V3_GPT2_CASES_ONLY"
+      ],
+      "path": "docs/replacement-loss-v3-failure-analysis.md",
+      "sha256": "a01969994c5152502ab82eed93e3019fa2dd9030440fe19aa11f5ac5c7b86990"
+    },
+    {
+      "bytes": 1464,
+      "packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+      "path": "docs/replacement-loss-v3-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v3",
+      "sha256": "6cdca458e70338ca6ad59caef0d02aa47786b61ff504defcf64953055c74aa2f",
+      "statuses": {}
+    },
+    {
+      "bytes": 4234,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_INDEPENDENT_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION_ONLY",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v3-results.md",
+      "sha256": "d8df4a7477125e8ea0f354761951ef1033064874a7088c6ac9c93b2ec1eab13c"
+    },
+    {
+      "bytes": 16985,
+      "literal_status_tokens": [
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "INTERNAL_PASS",
+        "LOCAL_INDEPENDENT_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION_ONLY",
+        "REPRODUCED_LOCAL",
+        "SEGREGATED_INTERNAL_REVIEW"
+      ],
+      "path": "docs/replacement-loss-v3.md",
+      "sha256": "9ad83df229bc3f168193f47af35c885a21fb7b562fc46ad92b76af5d9c8d0ca7"
+    },
+    {
+      "bytes": 2012,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "SYNTHETIC_NONLINEAR_REPLACEMENT_METHODS_QUALIFICATION_ONLY"
+      ],
+      "path": "docs/replacement-loss-v30-float32-recovery.md",
+      "sha256": "dca80504bd01d4f51cb681cc8db913ef2b12673a765e7bcb920556d53eb1b468"
+    },
+    {
+      "bytes": 4041,
+      "packet_sha256": "a2e8860f30642be8a2c53386c64b87db7e17e6e1a7b3212e4a4274b72cd0cda3",
+      "path": "docs/replacement-loss-v30-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v30-float32-recovery",
+      "sha256": "abf65c152b86ec498338c70d7ca01bce109b6844edc14ca2d56044739ea51d03",
+      "statuses": {}
+    },
+    {
+      "bytes": 3888,
+      "literal_status_tokens": [
+        "FAIL",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL",
+        "SYNTHETIC_NONLINEAR_REPLACEMENT_METHODS_QUALIFICATION_ONLY"
+      ],
+      "path": "docs/replacement-loss-v30-results.md",
+      "sha256": "eda259d95d4b48aa34f32775ae30009c1874e21fad37a11d80160a63e0e319f3"
+    },
+    {
+      "bytes": 1618,
+      "packet_sha256": "0922be564b628c5ac4dafd0271ecf96969001fccb0abbbcc833e0d9382818513",
+      "path": "docs/replacement-loss-v31-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v31-scm-interchange",
+      "sha256": "de0d1bbdb9bb2e5da697ca7915d1c81d49d788d3d710aaf58c497e5429b03130",
+      "statuses": {}
+    },
+    {
+      "bytes": 6298,
+      "literal_status_tokens": [
+        "FAIL",
+        "FROZEN_BEFORE_TASK_DATA_GENERATION",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "NOT_SUBMITTED",
+        "PASS",
+        "REPRODUCED_LOCAL",
+        "SYNTHETIC_TRAINED_TRANSFORMER_INPUT_INTERVENTION_REPLACEMENT_QUALIFICATION",
+        "X_0"
+      ],
+      "path": "docs/replacement-loss-v31-results.md",
+      "sha256": "b206f28df29a138aa3e5f43655c93db1f455c81a24d59232e83926ab9e2df0bb"
+    },
+    {
+      "bytes": 8918,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "PASS",
+        "REPRODUCED_LOCAL",
+        "SYNTHETIC_TRAINED_TRANSFORMER_INPUT_INTERVENTION_REPLACEMENT_QUALIFICATION",
+        "X_0"
+      ],
+      "path": "docs/replacement-loss-v31-scm-interchange.md",
+      "sha256": "3f01c8d346dd3235c486a2a45666f4f26e7ea3f3e7419e5139f2639f8940b39a"
+    },
+    {
+      "bytes": 2993,
+      "literal_status_tokens": [
+        "BROAD_GUARD_MISS",
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "POSTHOC_LOCAL_GPT2_V4_FAILURE_DIAGNOSIS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v4-failure-analysis-results.md",
+      "sha256": "1f6fdf654c839859c79b01300d6bd2598887e719606866bf15ecf550aa300197"
+    },
+    {
+      "bytes": 3028,
+      "literal_status_tokens": [
+        "BROAD_GUARD_MISS",
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "UPPER_TAIL_CONCENTRATED"
+      ],
+      "path": "docs/replacement-loss-v4-failure-analysis.md",
+      "sha256": "9c2fdfeb334635c0af832b9965d894614a3fd8b602e6c029a1497e2ae5c5f502"
+    },
+    {
+      "bytes": 2198,
+      "packet_sha256": "1006d4a861aa442a18307fb9e1e6e5ea6429df57b0c9fd57e2d766bdb4822be5",
+      "path": "docs/replacement-loss-v4-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v4-compositional-support",
+      "sha256": "07c49574ee347caa6bb60bd7fac93e1fd3151e363ddcad8b0c229b0c4a2b0ac7",
+      "statuses": {}
+    },
+    {
+      "bytes": 2704,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v4-results.md",
+      "sha256": "58fbcb6c9f6973933f3ac3f92404c78e5d72dbb625c18209b39beff2cad4c85b"
+    },
+    {
+      "bytes": 5063,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_GPT2_COMPOSITIONAL_ADAPTATION_EFFECT",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v4.md",
+      "sha256": "3e81ac5e83a7d4247dba73034377924584d9ddf562a68ad15975fc5a31780d66"
+    },
+    {
+      "bytes": 3055,
+      "packet_sha256": "f8b34296d492249521dec0f803df5fa61f4f0187694384b1e93b7db288bfe04a",
+      "path": "docs/replacement-loss-v5-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v5-balanced-adversarial-support",
+      "sha256": "84fffa2ac4d46efa6673720543aa98474bd5c938fbb7a871857e2a877d5bebd9",
+      "statuses": {}
+    },
+    {
+      "bytes": 5084,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "LOCAL_GPT2_BALANCED_ADVERSARIAL_ADAPTATION_EFFECT",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v5-results.md",
+      "sha256": "ac4b2263dc18e69ead112b21bfa2e9df97ee78b51ac9af5cec3e4725301224b2"
+    },
+    {
+      "bytes": 6720,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_GPT2_BALANCED_ADVERSARIAL_ADAPTATION_EFFECT",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v5.md",
+      "sha256": "c420061e0df568827202d85f91e4471b8624c1c272629448176fa7d39c2ec4fe"
+    },
+    {
+      "bytes": 2644,
+      "packet_sha256": "9b7b669195bb4fb9153e872d42f3cb4fd235e9784fdc978ec936037eb176bc5a",
+      "path": "docs/replacement-loss-v6-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v6-downstream-aware",
+      "sha256": "98af93852a1abeadf3d77315cd11a02a3f3d4a7325e69c1bb58f8e613e946f09",
+      "statuses": {}
+    },
+    {
+      "bytes": 2303,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "INCONCLUSIVE",
+        "NOT_RUN"
+      ],
+      "path": "docs/replacement-loss-v6-results.md",
+      "sha256": "e655d54bedf10e8e930663ec56604b2c687233ca2b2b5762193cde8ff28842ae"
+    },
+    {
+      "bytes": 9007,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "NOT_MEASURED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v6.md",
+      "sha256": "6d8c91402d3d3c4145ba320cd5c4f8c442a6acf42c3686007a632c0a4ef94a16"
+    },
+    {
+      "bytes": 3734,
+      "packet_sha256": "39737cbef36a9eb84ed23a236de3f6c5de7c4a4168715f06d11203d6d5918918",
+      "path": "docs/replacement-loss-v7-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v7-downstream-aware-shape-safe",
+      "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf",
+      "statuses": {}
+    },
+    {
+      "bytes": 6691,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v7-results.md",
+      "sha256": "648bb0a49f50291caa983fa608a490d5e3e207007a47e955ab47203d3fa9761f"
+    },
+    {
+      "bytes": 6425,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v7.md",
+      "sha256": "ab065d5a3d63af02b30b4e682dbce4d37ce3d610e86dc81554b159f23eb51c7a"
+    },
+    {
+      "bytes": 10514,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_BEFORE_HELD_OUT_EVALUATION",
+        "INDEPENDENT_ACCEPT",
+        "INTERNAL_PASS",
+        "LOCAL_INDEPENDENT_AFFINE_PROJECTION_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v8-cloud-run-replay-v1.md",
+      "sha256": "89e85f51a7a413b236bdd208498a74d1f2457e66a53fe16d411bcd5e1fcf672f"
+    },
+    {
+      "bytes": 10219,
+      "literal_status_tokens": [
+        "BLOCKED",
+        "CUSTODY_ATTESTATION_NOT_PROVIDED",
+        "CUSTODY_TRUST_ANCHOR_MISSING",
+        "ERR_NGROK_3200",
+        "INDEPENDENT_ACCEPT",
+        "PROVENANCE_ATTESTATION_NOT_PROVIDED",
+        "PROVENANCE_TRUST_ANCHOR_MISSING",
+        "REGISTRY_ADMIN_TRUST_ANCHOR_MISSING",
+        "REPRODUCED_LOCAL",
+        "TARGET_RECORD_MISSING",
+        "VERIFIED_BUNDLE_MISSING"
+      ],
+      "path": "docs/replacement-loss-v8-external-replication-handoff.md",
+      "sha256": "e6b81a4adb5b37ba34d8d6ab14477436c1e8c70619323c85a35218c31bc44867"
+    },
+    {
+      "bytes": 4974,
+      "packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2",
+      "path": "docs/replacement-loss-v8-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v8-ridge-primary-causal",
+      "sha256": "9b1dc97081620fd4a85961186d026c675076788f8da5c40c4ab2f0f107dad66a",
+      "statuses": {}
+    },
+    {
+      "bytes": 6643,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "LOCAL_INDEPENDENT_AFFINE_PROJECTION_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v8-results.md",
+      "sha256": "d93e20a968ccacd5f6186e7331a99da57d9069584f809d99069644f6db7c1bec"
+    },
+    {
+      "bytes": 5107,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INCONCLUSIVE",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v8.md",
+      "sha256": "a1568874241ba4ddd609355857675ebad8e49f8d427a90e9029ce52f4750bfed"
+    },
+    {
+      "bytes": 5568,
+      "packet_sha256": "f39c2f22e085df8f563b2f0f2a3b32a5aafcc4a3ef03bd0b09f1886dd4d5409c",
+      "path": "docs/replacement-loss-v9-cloud-reproduction-v1-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-cloud-cross-runtime-reproduction-v1",
+      "sha256": "4abf613b27cb5e3b706815e4e8296322118657bd25c91ee39924e63b2dc2e77b",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 4903,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INTERNAL_PASS",
+        "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_THE_FROZEN_V9_FAIL_RESULT_ON_THE_SELECTED_CHECKPOINTS_AND_FIXTURES",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-cloud-reproduction-v1-results.md",
+      "sha256": "f4d8b19a676e6519976d5d6961cc8387a9770224575e72cbd175d9278d86a8c5"
+    },
+    {
+      "bytes": 5323,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INDEPENDENT_ACCEPT",
+        "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_THE_FROZEN_V9_FAIL_RESULT_ON_THE_SELECTED_CHECKPOINTS_AND_FIXTURES",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-cloud-reproduction-v1.md",
+      "sha256": "82b901c109504e5b9d7eb3424f4db6de0f634a40dca4e0f93dfd8895d545a85c"
+    },
+    {
+      "bytes": 2432,
+      "literal_status_tokens": [
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-continuation-v2.md",
+      "sha256": "c6e3252ad594ac3704cf74718a47ec00166f1d0eacdcfe47fa32534bedf831a7"
+    },
+    {
+      "bytes": 1969,
+      "literal_status_tokens": [
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-continuation-v3.md",
+      "sha256": "7955835f3db70e6b56e355f26cf3644f7d6d9311c880ebb7a53ff2045917b558"
+    },
+    {
+      "bytes": 2241,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-continuation.md",
+      "sha256": "bd68f6161fd5c338f544b084a11bc213fe07cfb4b06bd2c20b6df6dd97e31a8c"
+    },
+    {
+      "bytes": 1384,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-development.md",
+      "sha256": "a2bf6f04e89fb3669e653411f5a5fd2da4486ae95361fa3bb94a45c2df09ea0b"
+    },
+    {
+      "bytes": 6435,
+      "literal_status_tokens": [
+        "FAIL",
+        "LOCAL_CAUSAL_EFFECT_PREDICTION_ADVANTAGE_OF_AFFINE_REPLACEMENT_OVER_CKA_AND_LOGIT_DISTILLATION_THROUGH_THREE_REPLACEMENTS",
+        "NOT_READY",
+        "NOT_RUN",
+        "NOT_SUBMITTED",
+        "RELAY_ONLINE",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-external-review-readiness.md",
+      "sha256": "e85f14f48f386b44d8483a81fce3c5cd6c6db8fcd934aa0fb10a184d2041dc9a"
+    },
+    {
+      "bytes": 6239,
+      "packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959",
+      "path": "docs/replacement-loss-v9-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-causal-ladder",
+      "sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6",
+      "statuses": {}
+    },
+    {
+      "bytes": 5924,
+      "packet_sha256": "f824c78811f3a1daa60c14eb496cd7364481a02fbc529f02248620228f1d0f93",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v3-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v3",
+      "sha256": "23d438959a674295239ebb465728434b0760fc70f4718679d58ffc5b7b0dd82c",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 7372,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v3-results.md",
+      "sha256": "665bb654c9bb701bda5c2a4aff53a4cd4be6b3eed8601d37dafc6cb49049478a"
+    },
+    {
+      "bytes": 3988,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v3.md",
+      "sha256": "5f4b4c9db26c68f2e818d0ca36a903cad5d7a1cf1a595cacd0dcafec2ed2591a"
+    },
+    {
+      "bytes": 7230,
+      "packet_sha256": "53705b8feadbe173f37879295db476156049bb4a32c9ff7a1f308dc1a85c2035",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4",
+      "sha256": "13b5f1b2ae01c5af15a64221d739f1eceda4703b63406ce1d371adc8c8b87e5a",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 4689,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4.md",
+      "sha256": "20fc02b2bc55143348eac3006b3f196fa33cad301343fee4c8499d4a93e50bd6"
+    },
+    {
+      "bytes": 11680,
+      "packet_sha256": "f131e2b4e9a7fb194b26768ef2983d431a71ef18af66412f8ffbe8e92883ee3d",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4b-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4b",
+      "sha256": "a53db3508caddb0c60ee5bb758d797196f40f7d960c8ad35be082bfd6d4facc1",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 5359,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4b.md",
+      "sha256": "ff36180234fbfd40bfba404c0bec6c86b38bfa0ec99003b28200f6bbbff9d48a"
+    },
+    {
+      "bytes": 13059,
+      "packet_sha256": "94a7b89d8154a59c0d7d878e16897d6e14425a1720bd6d3ec532f7e1c83702fc",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4c-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4c",
+      "sha256": "ba3ec36bd38d3a463d64f3a8172e752c7e0bc67c4093c6941478daa64360308d",
+      "statuses": {
+        "parent_attempt.error_type": "ValueError",
+        "parent_attempt.status": "INCONCLUSIVE",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 5011,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4c-results.md",
+      "sha256": "c632ac3b406710344f52f368e62ef58f0eead63a6fa08543a0b0a82ce5f87719"
+    },
+    {
+      "bytes": 4120,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4c.md",
+      "sha256": "6550c887a81f7e942200c84422f8ef9db887dac241d1ec2e0a4c2b20972b8b8f"
+    },
+    {
+      "bytes": 12825,
+      "packet_sha256": "ff1141ff31053b18e82c332e1dc842cc556a64f87d53cb2c5036b42947764188",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4d-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4d",
+      "sha256": "00316d8bb3cfed3adcf73c25b289ff2ef9a507f8c60bd4d2b1ebf015b7a452e6",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 3798,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4d.md",
+      "sha256": "9a0f6ddfae603e42c6d402c5482dbf1ee55350e159d12c429b4617ba31cba9ff"
+    },
+    {
+      "bytes": 15001,
+      "packet_sha256": "7b24806d2a6d3c97ca9579e10c1c0136a5415c08d940b69583cfa0f73886e914",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4e-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4e",
+      "sha256": "44cfcbe29e5fdd000278304da8199c7910c858501c3ae3fcbd1ed3118c2ceb93",
+      "statuses": {
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1943,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4e-results.md",
+      "sha256": "5ec3ade5b74e641d9ebc5e4c9166938eb946607a963c11c352cdc678e8904b37"
+    },
+    {
+      "bytes": 4898,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_NO_EVALUATION",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4e.md",
+      "sha256": "29a38d3ba0af8537918f3df17fa7ac53778699d1988d05e81b9b2691cacdf45b"
+    },
+    {
+      "bytes": 16572,
+      "packet_sha256": "ecc1bf4b55f17989685ca0c6cd9b4404b8cc942ee2602fabe64e26e3a27582fb",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4f-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4f",
+      "sha256": "f22ce3ad629336995955e4a59eb273712f8636337724e29f2468ca430a5dda1f",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1488,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4f-results.md",
+      "sha256": "409cc30767720772f95608dce130bc09217a8dea59d3a31b832c85a3a2e798ca"
+    },
+    {
+      "bytes": 4546,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4f.md",
+      "sha256": "590aa2e0c604b05224c5cd74ef6afb9077eef80f281ae9da122f1b2793891955"
+    },
+    {
+      "bytes": 18136,
+      "packet_sha256": "70bc2450571e8477e45f0a9feff4414a5ea2899d4092c0e5d3efdaeba2a3bdc6",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4g-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4g",
+      "sha256": "e8e018bd6946bfd5a33c80ab758664ed048fec69adddf69ac12ff8a590101992",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 2947,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_NO_EVALUATION",
+        "INTERNAL_PASS",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4g-results.md",
+      "sha256": "4c6a25734f6bc7a97667fe04c8ade1a73f7a19775536652357cf0f07e315b3d7"
+    },
+    {
+      "bytes": 4571,
+      "literal_status_tokens": [],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4g.md",
+      "sha256": "eef12831dc2663d96a83395acab76e94a1c37bde464ebc9abdee4e47b9d74de1"
+    },
+    {
+      "bytes": 20453,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4h-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 4164,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_TIMEOUT",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4h-results.md",
+      "sha256": "ac5678b291b6d8fc417f51740be28e7d7f03f1d38fe37ded49f35fed0a541fdd"
+    },
+    {
+      "bytes": 1526,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4h-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "0f7d282673bd3f90ae4e1b395211d004937cc856e58b7380cb8aa681b4b56033",
+      "statuses": {
+        "reproducibility_status": "INCONCLUSIVE_TIMEOUT",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 3751,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4h.md",
+      "sha256": "5259130ce6bff0127507dd95e7912b6a790c9a7746dab5946ba40ba77545fbd1"
+    },
+    {
+      "bytes": 26597,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4i-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "50336b8c717dc994a5e352146de1c481c6a06ed6eb7e27fbeafe3133a6740b41",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 20453,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4i-parent-v4h-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1988,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_EVALUATOR_ERROR",
+        "INCONCLUSIVE_TIMEOUT",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4i-results.md",
+      "sha256": "ec3b6a1797cf0acd79170e61f0974235d4ffff31ba6cbb8d043d1f45f97353b1"
+    },
+    {
+      "bytes": 1482,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4i-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "ec1f1b08a9095b3da036299fa00a54a68f7d50e9760fa818ab0034cbc808fa4e",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 4444,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_TIMEOUT",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4i.md",
+      "sha256": "ea31cf91160eb84d98a5d9d7f654b058cf4434bfe186e3266db3bda8986de8ac"
+    },
+    {
+      "bytes": 28175,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "873ba2f4d6048fb15452680ffd2b9bdb72175e4e013c1c492a9cccc74963ff03",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 20453,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4h-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1526,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4h-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "0f7d282673bd3f90ae4e1b395211d004937cc856e58b7380cb8aa681b4b56033",
+      "statuses": {
+        "reproducibility_status": "INCONCLUSIVE_TIMEOUT",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 26597,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4i-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "50336b8c717dc994a5e352146de1c481c6a06ed6eb7e27fbeafe3133a6740b41",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1482,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-parent-v4i-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "ec1f1b08a9095b3da036299fa00a54a68f7d50e9760fa818ab0034cbc808fa4e",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 2174,
+      "literal_status_tokens": [
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_EVALUATOR_ERROR",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-results.md",
+      "sha256": "c42f8c525b7787b3b64439e264762b75f7d08df995c1373b5e44c8aa953ba174"
+    },
+    {
+      "bytes": 568,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-run-stop.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "f260755dea649a5db9422cb350435efcf1d82d714fc25eada71dcebe51dc9ada",
+      "statuses": {
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "bytes": 1499,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "a9062619b808b3883255dbd1771b92e9b527da8eb6e029a0e68220fc18b006ca",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 5509,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_TIMEOUT",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4j.md",
+      "sha256": "0724b0bf8ec00c58990d3e58e9a101b3acc0ce476975b9d7856cf913960f5c56"
+    },
+    {
+      "bytes": 29858,
+      "packet_sha256": "e030b23cf67a04793d464b669fbd285273d08a5e5c968f5b915e5d6781cfed2c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+      "sha256": "4cba55f782ec45c845aee3ca11348c0e6ce12e9ac8de4e9fe7377d5418dcb4f0",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 20453,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4h-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "53f6335a50b0f83c19acfb85fe7be3dfd39484395d2f1e0e48ff2b81e69f8541",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1526,
+      "packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4h-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4h",
+      "sha256": "0f7d282673bd3f90ae4e1b395211d004937cc856e58b7380cb8aa681b4b56033",
+      "statuses": {
+        "reproducibility_status": "INCONCLUSIVE_TIMEOUT",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 26597,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4i-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "50336b8c717dc994a5e352146de1c481c6a06ed6eb7e27fbeafe3133a6740b41",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 1482,
+      "packet_sha256": "09e6434cd0c773354d1e78fbdfa2c9f179c171db4d927dd450f6859cee52c089",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4i-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4i",
+      "sha256": "ec1f1b08a9095b3da036299fa00a54a68f7d50e9760fa818ab0034cbc808fa4e",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 28175,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4j-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "873ba2f4d6048fb15452680ffd2b9bdb72175e4e013c1c492a9cccc74963ff03",
+      "statuses": {
+        "parent_v4e.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4f.error_type": "ValueError",
+        "parent_v4f.status": "INCONCLUSIVE_NO_EVALUATION",
+        "parent_v4g.error_type": "ValueError",
+        "parent_v4g.status": "INCONCLUSIVE_NO_EVALUATION",
+        "prior_v4d.status": "INCONCLUSIVE_NO_EVALUATION",
+        "reviewer_status": "NOT_SUBMITTED",
+        "source_snapshot.status": "ready"
+      }
+    },
+    {
+      "bytes": 568,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4j-run-stop.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "f260755dea649a5db9422cb350435efcf1d82d714fc25eada71dcebe51dc9ada",
+      "statuses": {
+        "error_type": "ValueError"
+      }
+    },
+    {
+      "bytes": 1499,
+      "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-parent-v4j-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+      "sha256": "a9062619b808b3883255dbd1771b92e9b527da8eb6e029a0e68220fc18b006ca",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "INCONCLUSIVE_EVALUATOR_ERROR",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 2280,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-results.md",
+      "sha256": "e6ee303351f479ca89b4718eb86f773351980e787458cacabe0ed8b1ac260ec5"
+    },
+    {
+      "bytes": 736,
+      "packet_sha256": "e030b23cf67a04793d464b669fbd285273d08a5e5c968f5b915e5d6781cfed2c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-summary.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+      "sha256": "543cbdb4465d08d0844ce7f3f2d8b43cbe3b09fcd40a2e8536dd29f1b54f7a1a",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "DIVERGED",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 1774,
+      "packet_sha256": "e030b23cf67a04793d464b669fbd285273d08a5e5c968f5b915e5d6781cfed2c",
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k-terminal.json",
+      "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+      "sha256": "eb251a5544f7d4262bed9c230c29af307201372e65ebb7c5eb8bd1f44a6de9fa",
+      "statuses": {
+        "assurance_level": "INCONCLUSIVE",
+        "reproducibility_status": "DIVERGED",
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 5562,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "INCONCLUSIVE_TIMEOUT",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-fresh-node-v4k.md",
+      "sha256": "da686bac63ecb2a7f8446670afba8145ec04130b6333208204c126db1942612b"
+    },
+    {
+      "bytes": 5091,
+      "packet_sha256": "6e2d83abcc1b54c2cc21f4c229924bc461d1351d809d807a55881c11e58ddf4f",
+      "path": "docs/replacement-loss-v9-gman-linux-runtime-v2-freeze.json",
+      "protocol_id": "theseus-replacement-loss-v9-linux-runtime-reproduction-v2",
+      "sha256": "8b588097cb3708240c902932de8272af843c6965c1a9adda3e16346a9e5f9a4f",
+      "statuses": {
+        "reviewer_status": "NOT_SUBMITTED"
+      }
+    },
+    {
+      "bytes": 2671,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/replacement-loss-v9-gman-linux-runtime-v2-results.md",
+      "sha256": "58e1634ba1733ef985f5b18a3d248f01548cc2f33b656f3a551dcadd49e7894b"
+    },
+    {
+      "bytes": 3919,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-linux-runtime-v2.md",
+      "sha256": "c5f73ebdc9a5c9bd21006da71a5bf27d8ee374d1460dba06db3991e6ca6cb0bd"
+    },
+    {
+      "bytes": 8487,
+      "literal_status_tokens": [
+        "DIVERGED",
+        "INCONCLUSIVE",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-gman-v4k-failure-audit-results.md",
+      "sha256": "84161e3d0514084a59c5cd0937644fbafe58b65d9786e4db4b3c40ee33844ff1"
+    },
+    {
+      "bytes": 1372,
+      "literal_status_tokens": [
+        "FAIL",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-replication-binding-v4.md",
+      "sha256": "0d9ed68d7e1bca5b942b74be0f88424031fc22c0be2ffe7671b28190ff8e406a"
+    },
+    {
+      "bytes": 9437,
+      "literal_status_tokens": [
+        "BLINDED_CALIBRATION_PACKET_READY",
+        "FAIL",
+        "INTERNAL_PASS",
+        "LOCAL_CAUSAL_EFFECT_PREDICTION_ADVANTAGE_OF_AFFINE_REPLACEMENT_OVER_CKA_AND_LOGIT_DISTILLATION_THROUGH_THREE_REPLACEMENTS",
+        "NOT_SUBMITTED",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9-results.md",
+      "sha256": "14fe646407cfdc56ca0a9120d14623ac9ba558de50a69fe94ca3d2fb0f5b2116"
+    },
+    {
+      "bytes": 11245,
+      "literal_status_tokens": [
+        "FAIL",
+        "INCONCLUSIVE",
+        "LOCAL_CAUSAL_EFFECT_PREDICTION_ADVANTAGE_OF_AFFINE_REPLACEMENT_OVER_CKA_AND_LOGIT_DISTILLATION_THROUGH_THREE_REPLACEMENTS",
+        "NOT_MEASURED",
+        "NO_ELIGIBLE_FRESH_TARGET",
+        "PASS",
+        "REPRODUCED_LOCAL"
+      ],
+      "path": "docs/replacement-loss-v9.md",
+      "sha256": "4f63fd5023653da8b5ef6971f8882c694d2c61e55e1b3969aa7d1f74ea995fa5"
+    },
+    {
+      "bytes": 5712,
+      "literal_status_tokens": [
+        "FORMAL_CONDITIONAL_SEQUENTIAL_OUTPUT_AND_CAUSAL_EFFECT_ERROR_BOUND",
+        "INTERNAL_PASS",
+        "NOT_APPLICABLE",
+        "NOT_SUBMITTED"
+      ],
+      "path": "docs/sequential-causal-replacement-bound-v1.md",
+      "sha256": "3ab060a34ec24409d96668b3b90bead9c7ae03d6390a9ff96ca99b35af1a67f1"
+    },
+    {
+      "bytes": 9482,
+      "literal_status_tokens": [
+        "EXTERNAL_REVIEW_UNAVAILABLE",
+        "FAIL",
+        "INDEPENDENT_ACCEPT",
+        "NOT_SUBMITTED",
+        "NOVELTY_NOT_ESTABLISHED",
+        "REPRODUCED_LOCAL",
+        "SEGREGATED_INTERNAL_REVIEW"
+      ],
+      "path": "docs/theseus-evidence-ledger-v1.md",
+      "sha256": "e1bc84dd8277a1f706faa2155b5cb94c705e1c7347c4a8f87ffc81a35bc56641"
+    }
+  ],
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-all-runs-audit-v1"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget": {
+    "hosted_inference_calls": 0,
+    "max_case_wall_seconds": 7200,
+    "max_model_bytes_each": 2200000000,
+    "max_model_bytes_total": 6600000000,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_usd": 0,
+    "remote_workers": 0
+  },
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v23-public-checkpoint-acquisition-v1",
+  "created_at_utc": "2026-10-02T00:48:46.676213+00:00",
+  "dependency_manifest_sha256": "6d50aca8a51847ed1481e78b1fe236f59704bb4856a0ef2b09095042b53f31fb",
+  "freeze_state": "FROZEN_BEFORE_PUBLIC_HUB_QUERY_OR_V23_CHECKPOINT_SELECTION",
+  "hub_queries_issued": false,
+  "model_weights_downloaded": false,
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 4564,
+      "path": "docs/replacement-loss-v23-public-checkpoint-acquisition.md",
+      "sha256": "d20bee069964a069772b4e4ff23d303d42e96d83ff3a0f300cabbe36870f3e63"
+    },
+    {
+      "bytes": 13444,
+      "path": "replacement_loss_v23_hub_adapter.py",
+      "sha256": "b6d2ec3519545613aae998fd44990d11a7238acc21c98ae21747ca5598bfd6b6"
+    },
+    {
+      "bytes": 25497,
+      "path": "replacement_loss_v23_runner.py",
+      "sha256": "07aa878aff972484d39754d1a6d1f4ee0629deb1d96ccfe6ebaa1c478f72e73c"
+    },
+    {
+      "bytes": 109,
+      "path": "requirements-v23.lock.txt",
+      "sha256": "6d50aca8a51847ed1481e78b1fe236f59704bb4856a0ef2b09095042b53f31fb"
+    }
+  ],
+  "packet_sha256": "7600d653f906db5411a6ab3121e078f8134e311e8fe0ecb37ef05552bdbe890e",
+  "protocol_id": "theseus-replacement-loss-v23-public-checkpoint-acquisition",
+  "runtime": {
+    "auth": "token=False; no local or environment credential access",
+    "hub_client": "huggingface_hub==0.36.2",
+    "network_scope": "public Hub metadata and pinned public model files only",
+    "platform": "local macOS arm64 CPU only",
+    "python": "3.12.13"
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "treatment_evaluator_thresholds": "unchanged frozen V8 packet mediated by exact V22 runner",
+  "upstream_v22_freeze_file_sha256": "8bfdcc32bf36ea6923f5fa769649dcda2abe0f3428170d0d54ed9f0f6091da9f",
+  "upstream_v22_packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "upstream_v22_screen_receipt_sha256": "2acea39522dac40cc2f7fd110ceeca10dd79747b0f2ea8a85fdda754b73e4de6",
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

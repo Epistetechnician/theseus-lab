@@ -1,0 +1,143 @@
+{
+  "acceptance": {
+    "all_frozen_replication_checks_must_pass": true,
+    "candidate_file_and_tensor_state_checks_before_challenge_reveal": true,
+    "held_out_predictions_sealed_before_outcome_evaluation": true,
+    "incomplete_status": "INCONCLUSIVE",
+    "measured_mismatch_status": "DIVERGED",
+    "one_attempt_only": true,
+    "replicated_primary_outcome": "FAIL",
+    "runtime_identity_must_match": true,
+    "success_reproducibility_status": "REPRODUCED_LOCAL",
+    "thresholds_or_scientific_analysis_changes_allowed": false
+  },
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "bootstrap": {
+    "bytes": 1092,
+    "path": "replacement_loss_v9_gman_bootstrap_v4.sh",
+    "sha256": "8390f1ef4523b7bff815f3629d9dd15f7cc1e6893ac958b176ac3d4762036ab7"
+  },
+  "budget": {
+    "aggregate_headroom_usd": 0.0008,
+    "aggregate_max_usd": 1.3392,
+    "max_node_minutes": 69,
+    "max_rate_usd_per_minute": 0.00804,
+    "max_v4_node_usd": 0.55476,
+    "prior_theseus_gman_usd": 0.6558,
+    "prior_v1_usd": 0.2092,
+    "prior_v2_usd": 0.0,
+    "prior_v3_usd": 0.4466,
+    "run_command_max_minutes": 60,
+    "source_node_max_minutes": 16,
+    "source_node_max_usd": 0.12864,
+    "storage_cost": "no additional storage charge expected; current org snapshot storage is within its free allowance",
+    "user_authorized_aggregate_usd": 1.34
+  },
+  "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+  "created_at_utc": "2026-09-28T22:41:01.078406+00:00",
+  "experimental_design": {
+    "baseline": "bound local primary outcome and candidate state under frozen v9 packet",
+    "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+    "direction": "reproduce the exact primary FAIL verdict with every replication check equal",
+    "fixture_generation": "reuse exact frozen v9 challenge manifest and payloads; no entropy regeneration",
+    "full_cost_boundary": "prior GMan V1/V3 charges 0.6558 USD; one V3 source wake and file-transfer session capped at 16 minutes; one V4 node capped at 69 minutes; aggregate not above 1.34 USD",
+    "nonclaims": [
+      "blind external replication or independent scientific acceptance",
+      "novelty priority or full Network of Theseus reproduction",
+      "architecture-general validity or all AI systems",
+      "general mechanistic understanding or Theseus identity proof",
+      "consciousness or subjective experience",
+      "alignment, human equivalence, or production authorization"
+    ],
+    "paired_design": "same frozen checkpoints, family/seed trajectories, candidate rules, challenge bytes, and controls",
+    "primary_metric": "frozen v9 causal-effect prediction and retention gates across ridge, CKA, and logit distillation",
+    "repeat_count": 1,
+    "smallest_effect_size": "unchanged frozen v9 thresholds; no v4 threshold changes",
+    "stopping_rule": "stop before held-out evaluation on any packet, source, runtime, custody, or candidate integrity mismatch; after start, one attempt only",
+    "variance_sources": [
+      "CPU floating-point implementation",
+      "runtime and dependency identity",
+      "stochastic candidate fitting"
+    ]
+  },
+  "freeze_state": "FROZEN_BEFORE_V4_CROSS_RUNTIME_EVALUATION",
+  "input": {
+    "archive_bytes": 1727986827,
+    "archive_sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+    "input_manifest_sha256": "8682b390b1c40306cf73157e9b9ca3098e5ed6c90f856f238ef23a756a8f340a",
+    "primary_and_source_inventory_sha256": "e31b70ed20278a974bf96f60a2217d94f3c695668ca288e1afc5580302c6e962",
+    "prior_fixture_inventory_sha256": "3b46ce7f74bd8b8a24f5324cd5aae5ef34933b71a3f8ce731dcb8488480c9421"
+  },
+  "packet_document": {
+    "bytes": 4689,
+    "path": "docs/replacement-loss-v9-gman-fresh-node-v4.md",
+    "sha256": "20fc02b2bc55143348eac3006b3f196fa33cad301343fee4c8499d4a93e50bd6"
+  },
+  "packet_sha256": "53705b8feadbe173f37879295db476156049bb4a32c9ff7a1f308dc1a85c2035",
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4",
+  "repository_state_slice": "theseus-lab-sandbox-v1",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime": {
+    "cpu_thread_count": 1,
+    "dependency_manifest_sha256": "0496a9c718bce898530689821630c5a4874823bfb152c672081b4c6779328bc4",
+    "expected_distribution_count": 51,
+    "machine": "x86_64",
+    "python": "3.12.13",
+    "v3_runtime_receipt_sha256": "0b980887e9d2299031ab0f92db175d6e71d8d7d5bb29f667621c8f03375781b5"
+  },
+  "source_identity": {
+    "git_head": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "packet_file_count": 32,
+    "packet_source_sha256": "30ccf63209aa70ed8821b2614214114b010bd0c95f61bda772fa7e5ffbe548f4",
+    "patched_replicator_sha256": "6892b0a99bdfb7fed3950f06c9adc4b16dcaf87c9dcca890b25bec1829d2436e",
+    "replicator_sha256": "005ff243087001441c44eee22408c55a3202645eb2d9648e968417ecb5686923",
+    "runner_sha256": "4cd2f003df9c7a82846e71c394e13a7771c40e16bae9543496197333cb4262a1"
+  },
+  "source_node_recovery": {
+    "filesystem_edit": false,
+    "max_billable_minutes": 16,
+    "max_cost_usd": 0.12864,
+    "node_name": "theseus-v9-linux-runtime-v3-cpu8-20260928",
+    "purpose": "wake the V3 source node for a read-only GMan copy_file transfer to the separate V4 node, then stop it",
+    "source_mission": "theseus-v9-linux-runtime-reproduction-20260928-v3"
+  },
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4",
+  "target": {
+    "candidate_freeze_sha256": "309ed7dfde5a4277daa57ed21e77bc8d2e05307268789a79819e31b19f3f8443",
+    "challenge_manifest_sha256": "5de1335c01d3fd8bf0729977842067a002c83338cf58c223faf59fa0df7f5600",
+    "checkpoint_count": 3,
+    "checkpoint_manifest_sha256": "b52bd7b94eb1e14c0453ba9318fcec2b39f0a210ca4c35f88b070bd57cd8e277",
+    "controls": [
+      "wrong_module",
+      "random",
+      "no_op"
+    ],
+    "family_count": 3,
+    "fixture_seeds": [
+      202609271,
+      202609272,
+      202609273
+    ],
+    "methods": [
+      "ridge",
+      "cka",
+      "logit_distill"
+    ],
+    "post_error_report_sha256": "0753bfbef92562940e3aca07ec5cdbe497d1b1659b82f8d2e06d97c65c645b08",
+    "primary_outcome_manifest_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "replacement_stages": 3,
+    "required_primary_outcome": "FAIL",
+    "v9_freeze_file_sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6",
+    "v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+  },
+  "v3_freeze_file_sha256": "23d438959a674295239ebb465728434b0760fc70f4718679d58ffc5b7b0dd82c",
+  "v3_packet_sha256": "f824c78811f3a1daa60c14eb496cd7364481a02fbc529f02248620228f1d0f93",
+  "v3_post_error_primary_report_sha256": "0753bfbef92562940e3aca07ec5cdbe497d1b1659b82f8d2e06d97c65c645b08",
+  "v3_runtime_receipt_sha256": "0b980887e9d2299031ab0f92db175d6e71d8d7d5bb29f667621c8f03375781b5",
+  "v3_stop_sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+  "wrapper": {
+    "bytes": 29639,
+    "path": "replacement_loss_v9_gman_fresh_node_replicator_v4.py",
+    "sha256": "2ae1cd0f8b813c28d8815c1b1bfab01a46fcd65afa7d0da24aad81a78b22fc97"
+  }
+}

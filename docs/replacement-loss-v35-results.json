@@ -1,0 +1,1314 @@
+{
+  "protocol_id": "theseus-replacement-loss-v35-secant-jacobian",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-replacement-loss-v35-secant-jacobian-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "date": "2026-10-03",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "source_state": "digest-bound uncommitted packet",
+  "scientific_outcome": "PASS",
+  "selected_variant": "paired_jacobian",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "same_host_and_owner": true,
+  "claim_ceiling": "LOCAL_SYNTHETIC_ENDPOINT_SECANT_AND_JACOBIAN_SUPERVISION_ONLY",
+  "nonclaims": [
+    "pretrained whole-block Transformer transfer",
+    "all architectures",
+    "novelty priority",
+    "metaphysical identity",
+    "consciousness",
+    "human-equivalent alignment",
+    "independent science",
+    "production authorization"
+  ],
+  "custody": {
+    "artifacts": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v35",
+    "runtimes": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v35/toolchains",
+    "raw_artifacts_in_repository": false,
+    "retention": "preserved terminal primary and replica roots plus separate qualification/closeout receipts",
+    "repository_contents": "code, tests, protocol, digest freezes/manifests, scalar aggregate reports"
+  },
+  "monetary_cost_usd": 0,
+  "energy_and_machine_amortization": "NOT_MEASURED",
+  "budgets": {
+    "seconds_per_phase_and_runtime": 1800,
+    "max_rss_bytes": 4294967296,
+    "max_artifact_bytes": 1073741824,
+    "monetary_cap_usd": 0
+  },
+  "phases": {
+    "development": {
+      "outcome": "DEVELOPMENT_QUALIFIED",
+      "selection": {
+        "eligible_variants": [
+          "paired_jacobian"
+        ],
+        "eligible_worst_gate_risks": {
+          "paired_jacobian": 0.9191731214523315
+        },
+        "selected_variant": "paired_jacobian"
+      },
+      "guide_qualification": {
+        "relu-35101": {
+          "block_removal_accuracy_drops": [
+            0.492431640625,
+            0.497314453125
+          ],
+          "guide_normalized_rmse": 0.044762466102838516,
+          "guide_sign_accuracy": 0.990478515625,
+          "passed": true
+        },
+        "relu-35102": {
+          "block_removal_accuracy_drops": [
+            0.476806640625,
+            0.488037109375
+          ],
+          "guide_normalized_rmse": 0.0444469191133976,
+          "guide_sign_accuracy": 0.986328125,
+          "passed": true
+        },
+        "relu-35103": {
+          "block_removal_accuracy_drops": [
+            0.48388671875,
+            0.498046875
+          ],
+          "guide_normalized_rmse": 0.046850815415382385,
+          "guide_sign_accuracy": 0.987060546875,
+          "passed": true
+        }
+      },
+      "arms": {
+        "global": {
+          "complete_cases": 0,
+          "case_passes": {
+            "relu-35101": false,
+            "relu-35102": false,
+            "relu-35103": false
+          },
+          "complete_cells": 29,
+          "total_cells": 36,
+          "stage_cells_passed": {
+            "block_1": 8,
+            "block_2": 10,
+            "final_task": 11
+          },
+          "behavior_cells_passed": 35,
+          "activation_cells_passed": 36,
+          "rescue_cells_passed": 35,
+          "input_effect_cells_passed": 35,
+          "negative_control_strata_passed": 12,
+          "representation_qualified_maps": 15,
+          "causal_qualified_maps": 1,
+          "total_maps": 15,
+          "aligned_snapshots_available": 0,
+          "aligned_snapshots_passed": 0,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "relu-35101": {
+              "block_1": 0.6794052720069885,
+              "block_2": 0.6674865484237671,
+              "final_task": 0.5897327065467834
+            },
+            "relu-35102": {
+              "block_1": 0.5169451236724854,
+              "block_2": 0.46438273787498474,
+              "final_task": 0.4744148552417755
+            },
+            "relu-35103": {
+              "block_1": 0.6297473907470703,
+              "block_2": 0.585673451423645,
+              "final_task": 0.3809373378753662
+            }
+          },
+          "worst_gate_risks": {
+            "relu-35101": 1.358810544013977,
+            "relu-35102": 1.0338902473449707,
+            "relu-35103": 1.2594947814941406
+          },
+          "training_norm_readouts": 10200,
+          "training_raw_ratio_max": 5.774087619221663,
+          "training_weighted_ratio_max": 5.774087619221663,
+          "worst_metrics": {
+            "output_rmse": 0.11455027014017105,
+            "sign_agreement": 0.9755859375,
+            "truth_accuracy_drop": 0.015625,
+            "activation_rmse": 0.08128022402524948,
+            "actual_rescue_rmse": 0.11455027014017105,
+            "rescue_prediction_rmse": 0.04607138782739639,
+            "internal_effect_median_error": 0.17918086051940918,
+            "internal_effect_p90": 0.6794052720069885,
+            "internal_effect_cosine": 0.9945096969604492,
+            "input_effect_p90": 0.5040464997291565
+          }
+        },
+        "paired_endpoints": {
+          "complete_cases": 0,
+          "case_passes": {
+            "relu-35101": false,
+            "relu-35102": false,
+            "relu-35103": false
+          },
+          "complete_cells": 29,
+          "total_cells": 36,
+          "stage_cells_passed": {
+            "block_1": 8,
+            "block_2": 10,
+            "final_task": 11
+          },
+          "behavior_cells_passed": 35,
+          "activation_cells_passed": 36,
+          "rescue_cells_passed": 35,
+          "input_effect_cells_passed": 35,
+          "negative_control_strata_passed": 12,
+          "representation_qualified_maps": 15,
+          "causal_qualified_maps": 2,
+          "total_maps": 15,
+          "aligned_snapshots_available": 0,
+          "aligned_snapshots_passed": 0,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "relu-35101": {
+              "block_1": 0.6265473365783691,
+              "block_2": 0.5858051776885986,
+              "final_task": 0.6169973611831665
+            },
+            "relu-35102": {
+              "block_1": 0.5202573537826538,
+              "block_2": 0.5204430818557739,
+              "final_task": 0.49344712495803833
+            },
+            "relu-35103": {
+              "block_1": 0.5953966379165649,
+              "block_2": 0.4549960494041443,
+              "final_task": 0.39487412571907043
+            }
+          },
+          "worst_gate_risks": {
+            "relu-35101": 1.2530946731567383,
+            "relu-35102": 1.0408861637115479,
+            "relu-35103": 1.1907932758331299
+          },
+          "training_norm_readouts": 10200,
+          "training_raw_ratio_max": 0,
+          "training_weighted_ratio_max": 0,
+          "worst_metrics": {
+            "output_rmse": 0.1167779266834259,
+            "sign_agreement": 0.9765625,
+            "truth_accuracy_drop": 0.0166015625,
+            "activation_rmse": 0.08274295926094055,
+            "actual_rescue_rmse": 0.1167779266834259,
+            "rescue_prediction_rmse": 0.052775923162698746,
+            "internal_effect_median_error": 0.177302286028862,
+            "internal_effect_p90": 0.6265473365783691,
+            "internal_effect_cosine": 0.9949955940246582,
+            "input_effect_p90": 0.5189249515533447
+          }
+        },
+        "paired_jacobian": {
+          "complete_cases": 3,
+          "case_passes": {
+            "relu-35101": true,
+            "relu-35102": true,
+            "relu-35103": true
+          },
+          "complete_cells": 36,
+          "total_cells": 36,
+          "stage_cells_passed": {
+            "block_1": 12,
+            "block_2": 12,
+            "final_task": 12
+          },
+          "behavior_cells_passed": 36,
+          "activation_cells_passed": 36,
+          "rescue_cells_passed": 36,
+          "input_effect_cells_passed": 36,
+          "negative_control_strata_passed": 12,
+          "representation_qualified_maps": 15,
+          "causal_qualified_maps": 7,
+          "total_maps": 15,
+          "aligned_snapshots_available": 1,
+          "aligned_snapshots_passed": 1,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "relu-35101": {
+              "block_1": 0.45958656072616577,
+              "block_2": 0.4031640291213989,
+              "final_task": 0.34823039174079895
+            },
+            "relu-35102": {
+              "block_1": 0.3638097047805786,
+              "block_2": 0.3006639778614044,
+              "final_task": 0.24380427598953247
+            },
+            "relu-35103": {
+              "block_1": 0.3907208740711212,
+              "block_2": 0.3313305377960205,
+              "final_task": 0.28101664781570435
+            }
+          },
+          "worst_gate_risks": {
+            "relu-35101": 0.9191731214523315,
+            "relu-35102": 0.9021762833812668,
+            "relu-35103": 0.9022315382905546
+          },
+          "training_norm_readouts": 10200,
+          "training_raw_ratio_max": 0.44910486542193817,
+          "training_weighted_ratio_max": 0.44910486542193817,
+          "worst_metrics": {
+            "output_rmse": 0.08828313648700714,
+            "sign_agreement": 0.9833984375,
+            "truth_accuracy_drop": 0.0087890625,
+            "activation_rmse": 0.05949471890926361,
+            "actual_rescue_rmse": 0.08828313648700714,
+            "rescue_prediction_rmse": 0.042723946273326874,
+            "internal_effect_median_error": 0.13039039075374603,
+            "internal_effect_p90": 0.45958656072616577,
+            "internal_effect_cosine": 0.9965770840644836,
+            "input_effect_p90": 0.37553349137306213
+          }
+        },
+        "paired_secant": {
+          "complete_cases": 1,
+          "case_passes": {
+            "relu-35101": false,
+            "relu-35102": true,
+            "relu-35103": false
+          },
+          "complete_cells": 32,
+          "total_cells": 36,
+          "stage_cells_passed": {
+            "block_1": 10,
+            "block_2": 11,
+            "final_task": 11
+          },
+          "behavior_cells_passed": 36,
+          "activation_cells_passed": 36,
+          "rescue_cells_passed": 36,
+          "input_effect_cells_passed": 36,
+          "negative_control_strata_passed": 12,
+          "representation_qualified_maps": 15,
+          "causal_qualified_maps": 4,
+          "total_maps": 15,
+          "aligned_snapshots_available": 1,
+          "aligned_snapshots_passed": 0,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "relu-35101": {
+              "block_1": 0.5952963829040527,
+              "block_2": 0.6460426449775696,
+              "final_task": 0.5138965845108032
+            },
+            "relu-35102": {
+              "block_1": 0.4773041009902954,
+              "block_2": 0.3819705545902252,
+              "final_task": 0.34401935338974
+            },
+            "relu-35103": {
+              "block_1": 0.5675898790359497,
+              "block_2": 0.36366885900497437,
+              "final_task": 0.3153080642223358
+            }
+          },
+          "worst_gate_risks": {
+            "relu-35101": 1.2920852899551392,
+            "relu-35102": 0.9546082019805908,
+            "relu-35103": 1.1351797580718994
+          },
+          "training_norm_readouts": 10200,
+          "training_raw_ratio_max": 0.6792248915983092,
+          "training_weighted_ratio_max": 0.5,
+          "worst_metrics": {
+            "output_rmse": 0.09500366449356079,
+            "sign_agreement": 0.9775390625,
+            "truth_accuracy_drop": 0.013671875,
+            "activation_rmse": 0.06728466600179672,
+            "actual_rescue_rmse": 0.09500366449356079,
+            "rescue_prediction_rmse": 0.04955117031931877,
+            "internal_effect_median_error": 0.14996787905693054,
+            "internal_effect_p90": 0.6460426449775696,
+            "internal_effect_cosine": 0.9961501359939575,
+            "input_effect_p90": 0.46204674243927
+          }
+        }
+      },
+      "positive_control_strata_passed": 12,
+      "bindings": {
+        "result_sha256": "a108fd2e635e00f7b5b84bc2db785682b78194eb0c6846a03161cdb5c6c644fd",
+        "packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+        "confirmation_freeze_sha256": null
+      },
+      "provenance": {
+        "candidate_freeze_sha256": "55a4b7c5e37f0fdf607fe3bcdc606cc77fea0bfc743fde7cca8cf8b9128a918d",
+        "prediction_freeze_sha256": "42572a48f9d6a51d788c882864e58837c68718d193e95068a1c6531ccd1dd927",
+        "challenge_fixture_sha256": "d7306e7a9264e3253c6c14e177baa6004b839ba405346c9aaba763774b22bef9",
+        "preparation_identity_sha256": "c215e68508a83e19b61e7eb4adbbbd3b38a51207f38d7da2e48e59195ad27cb8",
+        "oracle_binding_sha256": "642b7f60f2a2d01454790a638429dfd366c206763a8648f1bedc0076841c6bdb",
+        "artifact_manifest_sha256": "685c5e91fb466aabede59630f5b9acea6e6ca9f08071df4154073958c42b2124",
+        "primary_runtime_sha256": "3a8834cd8ee53e3cabd4fbdb84d023fff1ae4a3fa3757bb9a666c5cbe9afe4f9",
+        "runtime": {
+          "device": "cpu",
+          "dtype": "float32",
+          "machine": "arm64",
+          "packages": [
+            "filelock==4.0.9",
+            "fsspec==2026.9.0",
+            "jinja2==3.1.6",
+            "markupsafe==3.0.3",
+            "mpmath==1.3.0",
+            "networkx==3.7",
+            "numpy==2.4.6",
+            "setuptools==84.0.0",
+            "sympy==1.13.1",
+            "torch==2.6.0",
+            "typing-extensions==4.16.0"
+          ],
+          "platform": "macOS-26.6.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "site_packages": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v35/toolchains/primary/lib/python3.12/site-packages",
+          "sys_prefix": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v35/toolchains/primary",
+          "system_site_packages": false,
+          "threads": 1
+        },
+        "replica_runtime_sha256": "f1d7b4bd3f5546de0957d9671113a896d4a1125d9f911d54286550e9e768e126"
+      },
+      "globally_disjoint_new_input_rows": 41472,
+      "replica_rows_are_same_observations": true,
+      "result_digests": {
+        "primary": "a108fd2e635e00f7b5b84bc2db785682b78194eb0c6846a03161cdb5c6c644fd",
+        "replica": "f1819011e3eb12a7170fa959a9d46b24c8a308527e889ec4385e4fe3f40f9d0f"
+      },
+      "resources": {
+        "primary": {
+          "artifact_bytes": 26184285,
+          "energy": "NOT_MEASURED",
+          "monetary_cost_usd": 0,
+          "peak_rss_bytes": 359153664,
+          "wall_seconds": 71.7042178750271
+        },
+        "replica": {
+          "artifact_bytes": 26184285,
+          "energy": "NOT_MEASURED",
+          "monetary_cost_usd": 0,
+          "peak_rss_bytes": 357203968,
+          "wall_seconds": 72.07445070898393
+        }
+      },
+      "reconciliation_sha256": "d20ed3a6298d3fe332dcc18380cc04875d799ec47fed9fce85f8acc8a9915698",
+      "validation_sha256": "8953c06d732db68f2e197d8a9b054ef989242adfc3f02850da085e5d1f2f63c3",
+      "reconciliation_checks": {
+        "cases": true,
+        "challenge_binding": true,
+        "challenge_generated": true,
+        "confirmation_freeze_sha256": true,
+        "distinct_runtime": true,
+        "guide_qualification": true,
+        "oracle_binding": true,
+        "outcome_status": true,
+        "packet_sha256": true,
+        "phase": true,
+        "prediction_binding": true,
+        "preparation": true,
+        "protocol_id": true,
+        "selection": true,
+        "source_packet_unchanged": true,
+        "toolchain": true
+      },
+      "custody_validation": {
+        "primary": {
+          "final_artifact_bytes": 26951125,
+          "frozen_archive_files": 42,
+          "gradient_readouts": 40800,
+          "manifest_files": 220,
+          "native_cells": 144
+        },
+        "replica": {
+          "final_artifact_bytes": 26951875,
+          "frozen_archive_files": 42,
+          "gradient_readouts": 40800,
+          "manifest_files": 220,
+          "native_cells": 144
+        }
+      },
+      "assurance_level": "REPRODUCED_LOCAL",
+      "reviewer_status": "NOT_SUBMITTED"
+    },
+    "confirmation": {
+      "outcome": "PASS",
+      "selection": {
+        "selected_variant": "paired_jacobian"
+      },
+      "guide_qualification": {
+        "gelu-35201": {
+          "block_removal_accuracy_drops": [
+            0.499267578125,
+            0.495361328125
+          ],
+          "guide_normalized_rmse": 0.013293812051415443,
+          "guide_sign_accuracy": 0.99658203125,
+          "passed": true
+        },
+        "gelu-35202": {
+          "block_removal_accuracy_drops": [
+            0.5,
+            0.50244140625
+          ],
+          "guide_normalized_rmse": 0.014120509847998619,
+          "guide_sign_accuracy": 0.99755859375,
+          "passed": true
+        },
+        "gelu-35203": {
+          "block_removal_accuracy_drops": [
+            0.509765625,
+            0.51025390625
+          ],
+          "guide_normalized_rmse": 0.014047813601791859,
+          "guide_sign_accuracy": 0.998046875,
+          "passed": true
+        },
+        "relu-35201": {
+          "block_removal_accuracy_drops": [
+            0.4716796875,
+            0.48095703125
+          ],
+          "guide_normalized_rmse": 0.04622982069849968,
+          "guide_sign_accuracy": 0.98681640625,
+          "passed": true
+        },
+        "relu-35202": {
+          "block_removal_accuracy_drops": [
+            0.49462890625,
+            0.4814453125
+          ],
+          "guide_normalized_rmse": 0.05010742321610451,
+          "guide_sign_accuracy": 0.986328125,
+          "passed": true
+        },
+        "relu-35203": {
+          "block_removal_accuracy_drops": [
+            0.4853515625,
+            0.47509765625
+          ],
+          "guide_normalized_rmse": 0.03799574449658394,
+          "guide_sign_accuracy": 0.9912109375,
+          "passed": true
+        },
+        "silu_gated-35201": {
+          "block_removal_accuracy_drops": [
+            0.502685546875,
+            0.490966796875
+          ],
+          "guide_normalized_rmse": 0.008288814686238766,
+          "guide_sign_accuracy": 0.9970703125,
+          "passed": true
+        },
+        "silu_gated-35202": {
+          "block_removal_accuracy_drops": [
+            0.49658203125,
+            0.49658203125
+          ],
+          "guide_normalized_rmse": 0.007919060066342354,
+          "guide_sign_accuracy": 0.998046875,
+          "passed": true
+        },
+        "silu_gated-35203": {
+          "block_removal_accuracy_drops": [
+            0.5009765625,
+            0.5009765625
+          ],
+          "guide_normalized_rmse": 0.008304351940751076,
+          "guide_sign_accuracy": 0.998779296875,
+          "passed": true
+        }
+      },
+      "arms": {
+        "baseline_causal_global": {
+          "complete_cases": 3,
+          "case_passes": {
+            "gelu-35201": true,
+            "gelu-35202": true,
+            "gelu-35203": true,
+            "relu-35201": false,
+            "relu-35202": false,
+            "relu-35203": false,
+            "silu_gated-35201": false,
+            "silu_gated-35202": false,
+            "silu_gated-35203": false
+          },
+          "complete_cells": 94,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 32,
+            "block_2": 30,
+            "final_task": 32
+          },
+          "behavior_cells_passed": 102,
+          "activation_cells_passed": 108,
+          "rescue_cells_passed": 102,
+          "input_effect_cells_passed": 108,
+          "negative_control_strata_passed": 36,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 13,
+          "total_maps": 45,
+          "aligned_snapshots_available": 4,
+          "aligned_snapshots_passed": 4,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 0.14471441507339478,
+              "block_2": 0.137935608625412,
+              "final_task": 0.09899082779884338
+            },
+            "gelu-35202": {
+              "block_1": 0.10879562795162201,
+              "block_2": 0.17272186279296875,
+              "final_task": 0.13181167840957642
+            },
+            "gelu-35203": {
+              "block_1": 0.15873531997203827,
+              "block_2": 0.14464649558067322,
+              "final_task": 0.0952940434217453
+            },
+            "relu-35201": {
+              "block_1": 0.5841848850250244,
+              "block_2": 0.5311912298202515,
+              "final_task": 0.41226184368133545
+            },
+            "relu-35202": {
+              "block_1": 0.6319891214370728,
+              "block_2": 0.7480212450027466,
+              "final_task": 0.7012031078338623
+            },
+            "relu-35203": {
+              "block_1": 0.6171647906303406,
+              "block_2": 0.5857125520706177,
+              "final_task": 0.6035522818565369
+            },
+            "silu_gated-35201": {
+              "block_1": 0.23628920316696167,
+              "block_2": 0.3316286504268646,
+              "final_task": 0.3049277067184448
+            },
+            "silu_gated-35202": {
+              "block_1": 0.19424504041671753,
+              "block_2": 0.38448086380958557,
+              "final_task": 0.37429577112197876
+            },
+            "silu_gated-35203": {
+              "block_1": 0.25982919335365295,
+              "block_2": 0.4564220607280731,
+              "final_task": 0.37596070766448975
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": 0.9009162625186059,
+            "gelu-35202": 0.9009914698909001,
+            "gelu-35203": 0.9005185013248204,
+            "relu-35201": 1.1683697700500488,
+            "relu-35202": 1.4960424900054932,
+            "relu-35203": 1.2343295812606812,
+            "silu_gated-35201": 1.1204755306243896,
+            "silu_gated-35202": 1.181456595659256,
+            "silu_gated-35203": 1.0547644644975662
+          },
+          "training_norm_readouts": 30600,
+          "training_raw_ratio_max": 4.442553683822288,
+          "training_weighted_ratio_max": 4.442553683822288,
+          "worst_metrics": {
+            "output_rmse": 0.1181456595659256,
+            "sign_agreement": 0.97265625,
+            "truth_accuracy_drop": 0.0185546875,
+            "activation_rmse": 0.12420790642499924,
+            "actual_rescue_rmse": 0.1181456595659256,
+            "rescue_prediction_rmse": 0.1138220727443695,
+            "internal_effect_median_error": 0.17358826100826263,
+            "internal_effect_p90": 0.7480212450027466,
+            "internal_effect_cosine": 0.9930182695388794,
+            "input_effect_p90": 0.4333995580673218
+          }
+        },
+        "cka": {
+          "complete_cases": 0,
+          "case_passes": {
+            "gelu-35201": false,
+            "gelu-35202": false,
+            "gelu-35203": false,
+            "relu-35201": false,
+            "relu-35202": false,
+            "relu-35203": false,
+            "silu_gated-35201": false,
+            "silu_gated-35202": false,
+            "silu_gated-35203": false
+          },
+          "complete_cells": 0,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 0,
+            "block_2": 0,
+            "final_task": 0
+          },
+          "behavior_cells_passed": 31,
+          "activation_cells_passed": 0,
+          "rescue_cells_passed": 0,
+          "input_effect_cells_passed": 36,
+          "negative_control_strata_passed": 0,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 0,
+          "total_maps": 45,
+          "aligned_snapshots_available": 0,
+          "aligned_snapshots_passed": 0,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 1.6705427169799805,
+              "block_2": 1.0735127925872803,
+              "final_task": 4.610629081726074
+            },
+            "gelu-35202": {
+              "block_1": 1.7043085098266602,
+              "block_2": 1.0602391958236694,
+              "final_task": 4.943967819213867
+            },
+            "gelu-35203": {
+              "block_1": 1.609312891960144,
+              "block_2": 1.0709583759307861,
+              "final_task": 4.423051834106445
+            },
+            "relu-35201": {
+              "block_1": 2.121652126312256,
+              "block_2": 1.1656684875488281,
+              "final_task": 3.703169822692871
+            },
+            "relu-35202": {
+              "block_1": 2.141096591949463,
+              "block_2": 1.441402792930603,
+              "final_task": 6.257055282592773
+            },
+            "relu-35203": {
+              "block_1": 2.6834659576416016,
+              "block_2": 1.2221002578735352,
+              "final_task": 6.071640968322754
+            },
+            "silu_gated-35201": {
+              "block_1": 1.256040096282959,
+              "block_2": 1.0670945644378662,
+              "final_task": 5.340866565704346
+            },
+            "silu_gated-35202": {
+              "block_1": 1.2644165754318237,
+              "block_2": 1.081712007522583,
+              "final_task": 6.167862892150879
+            },
+            "silu_gated-35203": {
+              "block_1": 1.1759607791900635,
+              "block_2": 1.103743076324463,
+              "final_task": 8.767523765563965
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": null,
+            "gelu-35202": null,
+            "gelu-35203": null,
+            "relu-35201": null,
+            "relu-35202": null,
+            "relu-35203": null,
+            "silu_gated-35201": null,
+            "silu_gated-35202": null,
+            "silu_gated-35203": null
+          },
+          "training_norm_readouts": 0,
+          "training_raw_ratio_max": 0,
+          "training_weighted_ratio_max": 0,
+          "worst_metrics": {
+            "output_rmse": 1.26566743850708,
+            "sign_agreement": 0.373046875,
+            "truth_accuracy_drop": 0.60546875,
+            "activation_rmse": 1.7483407258987427,
+            "actual_rescue_rmse": 1.5648114681243896,
+            "rescue_prediction_rmse": 3.183471918106079,
+            "internal_effect_median_error": 1.4284412860870361,
+            "internal_effect_p90": 8.767523765563965,
+            "internal_effect_cosine": -0.9999999403953552,
+            "input_effect_p90": 1.1954834461212158
+          }
+        },
+        "output": {
+          "complete_cases": 0,
+          "case_passes": {
+            "gelu-35201": false,
+            "gelu-35202": false,
+            "gelu-35203": false,
+            "relu-35201": false,
+            "relu-35202": false,
+            "relu-35203": false,
+            "silu_gated-35201": false,
+            "silu_gated-35202": false,
+            "silu_gated-35203": false
+          },
+          "complete_cells": 0,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 0,
+            "block_2": 0,
+            "final_task": 0
+          },
+          "behavior_cells_passed": 101,
+          "activation_cells_passed": 0,
+          "rescue_cells_passed": 33,
+          "input_effect_cells_passed": 108,
+          "negative_control_strata_passed": 36,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 0,
+          "total_maps": 45,
+          "aligned_snapshots_available": 0,
+          "aligned_snapshots_passed": 0,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 2.3034632205963135,
+              "block_2": 2.7922592163085938,
+              "final_task": 2.601367950439453
+            },
+            "gelu-35202": {
+              "block_1": 3.713409423828125,
+              "block_2": 3.812652587890625,
+              "final_task": 3.7748525142669678
+            },
+            "gelu-35203": {
+              "block_1": 2.743074655532837,
+              "block_2": 4.264040470123291,
+              "final_task": 4.431140422821045
+            },
+            "relu-35201": {
+              "block_1": 2.542785406112671,
+              "block_2": 3.2740137577056885,
+              "final_task": 3.370065212249756
+            },
+            "relu-35202": {
+              "block_1": 4.733039855957031,
+              "block_2": 4.736146926879883,
+              "final_task": 4.363239288330078
+            },
+            "relu-35203": {
+              "block_1": 3.3385229110717773,
+              "block_2": 3.7190706729888916,
+              "final_task": 3.4074087142944336
+            },
+            "silu_gated-35201": {
+              "block_1": 2.486699104309082,
+              "block_2": 3.293428421020508,
+              "final_task": 2.997622013092041
+            },
+            "silu_gated-35202": {
+              "block_1": 3.018336296081543,
+              "block_2": 4.180032730102539,
+              "final_task": 4.1502485275268555
+            },
+            "silu_gated-35203": {
+              "block_1": 3.4155173301696777,
+              "block_2": 4.429183006286621,
+              "final_task": 4.28190803527832
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": 8.516594171524048,
+            "gelu-35202": 8.67451032002767,
+            "gelu-35203": 8.86228084564209,
+            "relu-35201": 9.813197255134583,
+            "relu-35202": 9.472293853759766,
+            "relu-35203": 9.037237962086996,
+            "silu_gated-35201": 17.287895679473877,
+            "silu_gated-35202": 25.202088356018066,
+            "silu_gated-35203": 24.01127815246582
+          },
+          "training_norm_readouts": 0,
+          "training_raw_ratio_max": 0,
+          "training_weighted_ratio_max": 0,
+          "worst_metrics": {
+            "output_rmse": 0.1219928041100502,
+            "sign_agreement": 0.9755859375,
+            "truth_accuracy_drop": 0.0146484375,
+            "activation_rmse": 1.4162797927856445,
+            "actual_rescue_rmse": 2.5202088356018066,
+            "rescue_prediction_rmse": 0.893990159034729,
+            "internal_effect_median_error": 0.9615299105644226,
+            "internal_effect_p90": 4.736146926879883,
+            "internal_effect_cosine": 0.8101952075958252,
+            "input_effect_p90": 0.4330720007419586
+          }
+        },
+        "paired_endpoints": {
+          "complete_cases": 3,
+          "case_passes": {
+            "gelu-35201": true,
+            "gelu-35202": true,
+            "gelu-35203": true,
+            "relu-35201": false,
+            "relu-35202": false,
+            "relu-35203": false,
+            "silu_gated-35201": false,
+            "silu_gated-35202": false,
+            "silu_gated-35203": false
+          },
+          "complete_cells": 95,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 32,
+            "block_2": 30,
+            "final_task": 33
+          },
+          "behavior_cells_passed": 102,
+          "activation_cells_passed": 108,
+          "rescue_cells_passed": 102,
+          "input_effect_cells_passed": 108,
+          "negative_control_strata_passed": 36,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 14,
+          "total_maps": 45,
+          "aligned_snapshots_available": 5,
+          "aligned_snapshots_passed": 4,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 0.13694772124290466,
+              "block_2": 0.13707324862480164,
+              "final_task": 0.0934089943766594
+            },
+            "gelu-35202": {
+              "block_1": 0.10610194504261017,
+              "block_2": 0.15988564491271973,
+              "final_task": 0.13024155795574188
+            },
+            "gelu-35203": {
+              "block_1": 0.14267244935035706,
+              "block_2": 0.13380469381809235,
+              "final_task": 0.0947955846786499
+            },
+            "relu-35201": {
+              "block_1": 0.5182039737701416,
+              "block_2": 0.514052152633667,
+              "final_task": 0.46486759185791016
+            },
+            "relu-35202": {
+              "block_1": 0.6432219743728638,
+              "block_2": 0.7322133183479309,
+              "final_task": 0.5933045148849487
+            },
+            "relu-35203": {
+              "block_1": 0.5852094888687134,
+              "block_2": 0.5621082782745361,
+              "final_task": 0.49278461933135986
+            },
+            "silu_gated-35201": {
+              "block_1": 0.23681452870368958,
+              "block_2": 0.3423670828342438,
+              "final_task": 0.3045026659965515
+            },
+            "silu_gated-35202": {
+              "block_1": 0.1906992793083191,
+              "block_2": 0.36845168471336365,
+              "final_task": 0.3414546847343445
+            },
+            "silu_gated-35203": {
+              "block_1": 0.26759225130081177,
+              "block_2": 0.4448666572570801,
+              "final_task": 0.3661399781703949
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": 0.9008942778887725,
+            "gelu-35202": 0.9009185739234409,
+            "gelu-35203": 0.9005284907531712,
+            "relu-35201": 1.0364079475402832,
+            "relu-35202": 1.4644266366958618,
+            "relu-35203": 1.1704189777374268,
+            "silu_gated-35201": 1.1163150519132614,
+            "silu_gated-35202": 1.1726846545934677,
+            "silu_gated-35203": 1.051662191748619
+          },
+          "training_norm_readouts": 30600,
+          "training_raw_ratio_max": 0,
+          "training_weighted_ratio_max": 0,
+          "worst_metrics": {
+            "output_rmse": 0.11726846545934677,
+            "sign_agreement": 0.9716796875,
+            "truth_accuracy_drop": 0.0185546875,
+            "activation_rmse": 0.12321258336305618,
+            "actual_rescue_rmse": 0.11726846545934677,
+            "rescue_prediction_rmse": 0.11236196756362915,
+            "internal_effect_median_error": 0.17656761407852173,
+            "internal_effect_p90": 0.7322133183479309,
+            "internal_effect_cosine": 0.9924689531326294,
+            "input_effect_p90": 0.4359666109085083
+          }
+        },
+        "pointwise": {
+          "complete_cases": 0,
+          "case_passes": {
+            "gelu-35201": false,
+            "gelu-35202": false,
+            "gelu-35203": false,
+            "relu-35201": false,
+            "relu-35202": false,
+            "relu-35203": false,
+            "silu_gated-35201": false,
+            "silu_gated-35202": false,
+            "silu_gated-35203": false
+          },
+          "complete_cells": 45,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 33,
+            "block_2": 4,
+            "final_task": 8
+          },
+          "behavior_cells_passed": 103,
+          "activation_cells_passed": 108,
+          "rescue_cells_passed": 102,
+          "input_effect_cells_passed": 108,
+          "negative_control_strata_passed": 36,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 7,
+          "total_maps": 45,
+          "aligned_snapshots_available": 3,
+          "aligned_snapshots_passed": 3,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 0.13095569610595703,
+              "block_2": 0.6638338565826416,
+              "final_task": 0.5248700380325317
+            },
+            "gelu-35202": {
+              "block_1": 0.12524500489234924,
+              "block_2": 0.731549084186554,
+              "final_task": 0.5807302594184875
+            },
+            "gelu-35203": {
+              "block_1": 0.15552760660648346,
+              "block_2": 0.517633318901062,
+              "final_task": 0.44879403710365295
+            },
+            "relu-35201": {
+              "block_1": 0.6249018311500549,
+              "block_2": 0.8502629995346069,
+              "final_task": 0.8634021282196045
+            },
+            "relu-35202": {
+              "block_1": 0.6366555094718933,
+              "block_2": 1.0142695903778076,
+              "final_task": 0.9198610782623291
+            },
+            "relu-35203": {
+              "block_1": 0.5240264534950256,
+              "block_2": 0.8154747486114502,
+              "final_task": 0.8064109683036804
+            },
+            "silu_gated-35201": {
+              "block_1": 0.32880985736846924,
+              "block_2": 0.683742880821228,
+              "final_task": 0.6804683804512024
+            },
+            "silu_gated-35202": {
+              "block_1": 0.2338567078113556,
+              "block_2": 0.8855581879615784,
+              "final_task": 0.8159968256950378
+            },
+            "silu_gated-35203": {
+              "block_1": 0.31274232268333435,
+              "block_2": 0.8830407857894897,
+              "final_task": 0.8137041330337524
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": 1.4572829008102417,
+            "gelu-35202": 2.070961892604828,
+            "gelu-35203": 1.394340693950653,
+            "relu-35201": 2.03324556350708,
+            "relu-35202": 2.343546748161316,
+            "relu-35203": 1.9090637564659119,
+            "silu_gated-35201": 1.9149628281593323,
+            "silu_gated-35202": 1.8815158307552338,
+            "silu_gated-35203": 2.156594693660736
+          },
+          "training_norm_readouts": 0,
+          "training_raw_ratio_max": 0,
+          "training_weighted_ratio_max": 0,
+          "worst_metrics": {
+            "output_rmse": 0.12070146948099136,
+            "sign_agreement": 0.9736328125,
+            "truth_accuracy_drop": 0.015625,
+            "activation_rmse": 0.13590165972709656,
+            "actual_rescue_rmse": 0.12070146948099136,
+            "rescue_prediction_rmse": 0.11544548720121384,
+            "internal_effect_median_error": 0.4687093496322632,
+            "internal_effect_p90": 1.0142695903778076,
+            "internal_effect_cosine": 0.9437850713729858,
+            "input_effect_p90": 0.3895030915737152
+          }
+        },
+        "selected_causal": {
+          "complete_cases": 9,
+          "case_passes": {
+            "gelu-35201": true,
+            "gelu-35202": true,
+            "gelu-35203": true,
+            "relu-35201": true,
+            "relu-35202": true,
+            "relu-35203": true,
+            "silu_gated-35201": true,
+            "silu_gated-35202": true,
+            "silu_gated-35203": true
+          },
+          "complete_cells": 108,
+          "total_cells": 108,
+          "stage_cells_passed": {
+            "block_1": 36,
+            "block_2": 36,
+            "final_task": 36
+          },
+          "behavior_cells_passed": 108,
+          "activation_cells_passed": 108,
+          "rescue_cells_passed": 108,
+          "input_effect_cells_passed": 108,
+          "negative_control_strata_passed": 36,
+          "representation_qualified_maps": 45,
+          "causal_qualified_maps": 24,
+          "total_maps": 45,
+          "aligned_snapshots_available": 9,
+          "aligned_snapshots_passed": 9,
+          "aligned_complete_cases_available": 0,
+          "aligned_complete_cases_passed": 0,
+          "ordinary_first_site_p90": {
+            "gelu-35201": {
+              "block_1": 0.07407137751579285,
+              "block_2": 0.10750172287225723,
+              "final_task": 0.07813544571399689
+            },
+            "gelu-35202": {
+              "block_1": 0.07526838779449463,
+              "block_2": 0.1530265212059021,
+              "final_task": 0.08999421447515488
+            },
+            "gelu-35203": {
+              "block_1": 0.09503711760044098,
+              "block_2": 0.10691753029823303,
+              "final_task": 0.06619042158126831
+            },
+            "relu-35201": {
+              "block_1": 0.32442283630371094,
+              "block_2": 0.2822175621986389,
+              "final_task": 0.23860208690166473
+            },
+            "relu-35202": {
+              "block_1": 0.3592400550842285,
+              "block_2": 0.4301949143409729,
+              "final_task": 0.3026409149169922
+            },
+            "relu-35203": {
+              "block_1": 0.4236273169517517,
+              "block_2": 0.27965492010116577,
+              "final_task": 0.267270565032959
+            },
+            "silu_gated-35201": {
+              "block_1": 0.19741809368133545,
+              "block_2": 0.2666139006614685,
+              "final_task": 0.2536635994911194
+            },
+            "silu_gated-35202": {
+              "block_1": 0.11268877983093262,
+              "block_2": 0.3295239806175232,
+              "final_task": 0.270844966173172
+            },
+            "silu_gated-35203": {
+              "block_1": 0.22892996668815613,
+              "block_2": 0.3116222023963928,
+              "final_task": 0.3102947473526001
+            }
+          },
+          "worst_gate_risks": {
+            "gelu-35201": 0.9006855579957728,
+            "gelu-35202": 0.9007907119282823,
+            "gelu-35203": 0.9003586469195702,
+            "relu-35201": 0.9021974142156299,
+            "relu-35202": 0.9036371235656824,
+            "relu-35203": 0.9017065936009055,
+            "silu_gated-35201": 0.9025355343425373,
+            "silu_gated-35202": 0.9403854608535767,
+            "silu_gated-35203": 0.9020732847368391
+          },
+          "training_norm_readouts": 30600,
+          "training_raw_ratio_max": 0.572797201777909,
+          "training_weighted_ratio_max": 0.5,
+          "worst_metrics": {
+            "output_rmse": 0.09403854608535767,
+            "sign_agreement": 0.9765625,
+            "truth_accuracy_drop": 0.0126953125,
+            "activation_rmse": 0.0976581797003746,
+            "actual_rescue_rmse": 0.09403854608535767,
+            "rescue_prediction_rmse": 0.0785587728023529,
+            "internal_effect_median_error": 0.13687866926193237,
+            "internal_effect_p90": 0.4301949143409729,
+            "internal_effect_cosine": 0.9959750175476074,
+            "input_effect_p90": 0.28966593742370605
+          }
+        }
+      },
+      "positive_control_strata_passed": 36,
+      "bindings": {
+        "result_sha256": "6f196a9e9d5ab71dc9fa70849dc41b2d9633c65abcbc8ff88183edd01c1a09c6",
+        "packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+        "confirmation_freeze_sha256": "e58f96fa57c39b523087602227c475ecbdbcd05b6f38b88de259b51d2f73f72c"
+      },
+      "provenance": {
+        "candidate_freeze_sha256": "8b2cb97d08d5b59045ada9ae8430c8ab46d6c78c391392b3f5d479669c745187",
+        "prediction_freeze_sha256": "6844ee5851da4eec395ebabc68986154c238b3438142b994b47019661d2a9b5a",
+        "challenge_fixture_sha256": "f0e0b38994b40e2667d177c2bd64b04d5633f452c27f11a057bf5341596d557a",
+        "preparation_identity_sha256": "eb0550c513a0ade8cd498d2010b24fb7eba8470212ff35d6bb995b4cb9beb749",
+        "oracle_binding_sha256": "1af0891659e55755394c2ca7229cd1e40c14d16d1b9a92b0ed5e8901b31570ca",
+        "artifact_manifest_sha256": "f0c10b49f2be8e8bde43a89b29f92e252c42274e0716d633663b6712f33ba5a7",
+        "primary_runtime_sha256": "3a8834cd8ee53e3cabd4fbdb84d023fff1ae4a3fa3757bb9a666c5cbe9afe4f9",
+        "runtime": {
+          "device": "cpu",
+          "dtype": "float32",
+          "machine": "arm64",
+          "packages": [
+            "filelock==4.0.9",
+            "fsspec==2026.9.0",
+            "jinja2==3.1.6",
+            "markupsafe==3.0.3",
+            "mpmath==1.3.0",
+            "networkx==3.7",
+            "numpy==2.4.6",
+            "setuptools==84.0.0",
+            "sympy==1.13.1",
+            "torch==2.6.0",
+            "typing-extensions==4.16.0"
+          ],
+          "platform": "macOS-26.6.1-arm64-arm-64bit",
+          "python": "3.12.13",
+          "site_packages": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v35/toolchains/primary/lib/python3.12/site-packages",
+          "sys_prefix": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v35/toolchains/primary",
+          "system_site_packages": false,
+          "threads": 1
+        },
+        "replica_runtime_sha256": "f1d7b4bd3f5546de0957d9671113a896d4a1125d9f911d54286550e9e768e126"
+      },
+      "globally_disjoint_new_input_rows": 118272,
+      "replica_rows_are_same_observations": true,
+      "result_digests": {
+        "primary": "6f196a9e9d5ab71dc9fa70849dc41b2d9633c65abcbc8ff88183edd01c1a09c6",
+        "replica": "12e302341ae362377c67c70fe19abf940a0d95891704ad0f078a9795b3569b6f"
+      },
+      "resources": {
+        "primary": {
+          "artifact_bytes": 111375404,
+          "energy": "NOT_MEASURED",
+          "monetary_cost_usd": 0,
+          "peak_rss_bytes": 477872128,
+          "wall_seconds": 274.43959762502345
+        },
+        "replica": {
+          "artifact_bytes": 111375404,
+          "energy": "NOT_MEASURED",
+          "monetary_cost_usd": 0,
+          "peak_rss_bytes": 481198080,
+          "wall_seconds": 282.0850127910089
+        }
+      },
+      "reconciliation_sha256": "418c4722e1058f884a7eedc3b1ef55a098460241fb83f34153d1d76d4d76bba3",
+      "validation_sha256": "90aa0845bc7403b518dc5157322a973de15d48b3882c654cd151e046e057798a",
+      "reconciliation_checks": {
+        "cases": true,
+        "challenge_binding": true,
+        "challenge_generated": true,
+        "confirmation_freeze_sha256": true,
+        "distinct_runtime": true,
+        "guide_qualification": true,
+        "oracle_binding": true,
+        "outcome_status": true,
+        "packet_sha256": true,
+        "phase": true,
+        "prediction_binding": true,
+        "preparation": true,
+        "protocol_id": true,
+        "selection": true,
+        "source_packet_unchanged": true,
+        "toolchain": true
+      },
+      "custody_validation": {
+        "primary": {
+          "final_artifact_bytes": 114813622,
+          "frozen_archive_files": 43,
+          "gradient_readouts": 91800,
+          "manifest_files": 816,
+          "native_cells": 648
+        },
+        "replica": {
+          "final_artifact_bytes": 114814370,
+          "frozen_archive_files": 43,
+          "gradient_readouts": 91800,
+          "manifest_files": 816,
+          "native_cells": 648
+        }
+      },
+      "assurance_level": "REPRODUCED_LOCAL",
+      "reviewer_status": "NOT_SUBMITTED"
+    }
+  },
+  "known_limitations": [
+    "Small synthetic feedforward models; three guide seeds per family; finite frozen challenges, shared across paired arms/cases; no powered population or superiority inference.",
+    "All 9 selected-method cases pass native gates; only 9 of 27 selected-method aligned snapshots are available. No case has complete all-stage mapping availability.",
+    "Stem and head are initially retained from the guide; both nonlinear blocks are independently initialized and progressively learned. Replaced prefixes remain trainable at later stages; final task tuning updates all candidate parameters.",
+    "Derivative arms have additional arithmetic and are not FLOP matched; Jacobian matching and causal distillation have prior art. Procedural CKA comparator is not a full Network of Theseus reproduction.",
+    "Baseline training checks RSS periodically and phase wall budget between arms; its delegated inner loop does not have a separate wall deadline. Actual phases were within budget; no hard timeout guarantee is claimed.",
+    "Same owner and host with distinct runtime prefixes and site packages; no independent authority or external blind replication."
+  ],
+  "next_scientific_obligation": "Freeze a separate corpus/intervention/adapter protocol for transferring the qualifying two-block derivative-supervised method to task-critical pretrained Transformer blocks, preserving fresh data and all-stage causal/rescue gates.",
+  "next_blocked_authority_gate": "Blind external replication and an authorized independent review for stronger scientific claims; human-calibrated alignment and production operations remain separate.",
+  "packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+  "freeze_sha256": "af4ebfd06f3b3e2c5481307fa5c0d344f3d61d8c29b9af5a0a50fe2d48c88b86",
+  "confirmation_freeze_sha256": "e58f96fa57c39b523087602227c475ecbdbcd05b6f38b88de259b51d2f73f72c",
+  "input_exclusion_sha256": "17a6c0aff07452a1704d93f8b27d8b066f57866a00c2937e7614a6bfe66fedc2",
+  "engineering_receipt_sha256": "3ddfb635744713b0950c7144c9dbf29cd93e8235b28af86a63a1c3fe4eef9661",
+  "frozen_source_members": 41,
+  "engineering": {
+    "assurance_level": "INTERNAL_PASS",
+    "tests_per_runtime": 32,
+    "primary_exit_code": 0,
+    "replica_exit_code": 0,
+    "primary_seconds": 8.264,
+    "replica_seconds": 8.273,
+    "prefreeze_failures": "Two test-contract/lock-byte errors fixed and recorded before scientific data; frozen scientific identity not repaired or retried."
+  },
+  "adaptation_diagnosis": {
+    "state_slice": "theseus-v34-adaptation-jacobian-audit-v1",
+    "outcome": "DIAGNOSTIC_SUPPORTS_ENDPOINT_OR_DERIVATIVE_HYPOTHESIS",
+    "assurance_level": "REPRODUCED_LOCAL",
+    "packet_sha256": "932443312451ba4e5cc67d7eac4f743e61ae8f1d97edb076f4633766a6ea9e84",
+    "validation_sha256": "f4aafce31e07979bb71bb6c97b28ef8aedcdecd1da46b5edb7824fd5f5edff1e",
+    "full_report": "docs/replacement-loss-v34-derivative-results.json",
+    "no_training_or_heldout_evaluation": true
+  },
+  "captured_exit_codes": {
+    "development_primary": 0,
+    "development_replica": 0,
+    "development_closeout": 0,
+    "confirmation_primary": 0,
+    "confirmation_replica": 0,
+    "confirmation_closeout": 0
+  }
+}
+

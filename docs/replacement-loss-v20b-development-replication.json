@@ -1,0 +1,72 @@
+{
+  "artifact_groups": {
+    "candidates": {
+      "byte_identical": true,
+      "primary_count": 10,
+      "primary_sha256": "999bf6f8df2ae6dd4f5db2c0804a43ecf69288fa8d3b3be500b2b4fdb420aff5",
+      "replica_count": 10,
+      "replica_sha256": "999bf6f8df2ae6dd4f5db2c0804a43ecf69288fa8d3b3be500b2b4fdb420aff5"
+    },
+    "captures": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "4188de58d71742b36c8d25e348c332efd407b7ef802ecbfe113ca6485d7f31a3",
+      "replica_count": 3,
+      "replica_sha256": "4188de58d71742b36c8d25e348c332efd407b7ef802ecbfe113ca6485d7f31a3"
+    },
+    "fixtures": {
+      "byte_identical": true,
+      "primary_count": 4,
+      "primary_sha256": "78ab30425ac9b839c907ce763e4cfc8b6ce5efd334b3a580e20baec556fb3abc",
+      "replica_count": 4,
+      "replica_sha256": "78ab30425ac9b839c907ce763e4cfc8b6ce5efd334b3a580e20baec556fb3abc"
+    },
+    "selection": {
+      "byte_identical": true,
+      "primary_count": 2,
+      "primary_sha256": "46edac28f1384bcb9d0e95e7757e7d22e3d35d6f6cf5a1649726fcc7d701450f",
+      "replica_count": 2,
+      "replica_sha256": "46edac28f1384bcb9d0e95e7757e7d22e3d35d6f6cf5a1649726fcc7d701450f"
+    },
+    "splits": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "1a80058af6ef07b1166c4620ebb4e4f055f937121daea271cfea732cf2d40721",
+      "replica_count": 3,
+      "replica_sha256": "1a80058af6ef07b1166c4620ebb4e4f055f937121daea271cfea732cf2d40721"
+    }
+  },
+  "assurance_level": "REPRODUCED_LOCAL",
+  "blind_status": "NOT_BLIND_SAME_OWNER_REPLAY",
+  "claim_ceiling": "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "prompt-bearing, row-level, capture, target, and candidate artifacts remain in external owner custody",
+  "next_blocked_authority_gate": "a new method packet is required; no confirmation data will be created",
+  "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+  "pre_challenge_eligible": null,
+  "protocol_id": "theseus-replacement-loss-v20b-development",
+  "protocol_slice": "theseus-replacement-loss-v20b-low-rank-causal-residual-continuation-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "report_sha256": "0153d88b998ed62196687d4f44aa6f38958b401fc46a4b18a8481607cb7b35d9",
+  "resource_caps_pass": true,
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2790785024,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 98.78879650001181
+    },
+    "replica": {
+      "peak_rss_bytes": 2939420672,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 101.47059362499567
+    }
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime_pins_match": true,
+  "same_host_and_owner": true,
+  "scientific_results_match": true,
+  "scientific_results_sha256": "f24b90241e4e06aa4bf54e92ec396afe8779b8f1a32d72ee54cde782fc3b44d1",
+  "separate_python_runtimes": true,
+  "state_slice": "theseus-lab-sandbox-v1"
+}

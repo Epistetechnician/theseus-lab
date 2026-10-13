@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-06",
+  "state_slice": "theseus-public-catalog-contract-audit-v1",
+  "known_baseline_metadata": {
+    "gpt2_reported_safe_parameter_count": 137022720,
+    "opt_safe_parameter_count": null
+  },
+  "comparisons": [
+    {
+      "diagnostic": "documented_max_suffix",
+      "ids": []
+    },
+    {
+      "diagnostic": "explicit_minimum",
+      "ids": []
+    },
+    {
+      "diagnostic": "no_server_parameter_filter",
+      "ids": [
+        "MobiusGaian/openai-community-gpt2-c567a2f1_FT_adapter",
+        "MobiusGaian/openai-community-gpt2-17944868_FT_adapter"
+      ]
+    }
+  ],
+  "interpretation": "Server-side parameter-filter catalogs did not provide usable coverage under the recorded queries. This is a metadata retrieval observation, not a global model-availability or mechanistic finding.",
+  "model_weights_loaded": false,
+  "model_outputs_queried": false,
+  "paid_execution_cost_usd": 0
+}

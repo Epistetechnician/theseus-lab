@@ -1,0 +1,228 @@
+{
+  "state_slice": "theseus-v32-row-disjointness-audit-v1",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v32-row-disjointness-audit-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "source_packet_sha256": "a50766c1611c72a444fa8213378761adaef84811f5f3afdc0181aafce7f11c67",
+  "source_files": [
+    {
+      "path": "gelu-3201/preparation-data.npz",
+      "sha256": "7fc97e2cb691e6c4cf5a2e06568e3b457474cdb928361358941d30d4328cefcb"
+    },
+    {
+      "path": "gelu-3202/preparation-data.npz",
+      "sha256": "8aec95509756b2ce936dafb63316386cedbdbbb7dffe717cc0cda3a3f5b1b268"
+    },
+    {
+      "path": "gelu-3203/preparation-data.npz",
+      "sha256": "806bdc296c340d1dbe77d2706a6cae5efd47ee2da726e7c57c9a4aae37f7f5fb"
+    },
+    {
+      "path": "relu-3201/preparation-data.npz",
+      "sha256": "581d892f7c896c6ca4be5ed280c5666cff0c0ab8807de42f95e9dc27838dc547"
+    },
+    {
+      "path": "relu-3202/preparation-data.npz",
+      "sha256": "8d5eb014ed6f7f58d0c55b59dba3e8685050dcaadd0477af7efa85e047f918c1"
+    },
+    {
+      "path": "relu-3203/preparation-data.npz",
+      "sha256": "8ef5716897958efdfbf117c968147171888abad8d8b4da0db40c900b62029694"
+    },
+    {
+      "path": "silu_gated-3201/preparation-data.npz",
+      "sha256": "dc4ba507b5d29f07dfd48d1b43ff71c06d5de6708c81c6ee9620dbf393d613e4"
+    },
+    {
+      "path": "silu_gated-3202/preparation-data.npz",
+      "sha256": "a45f2937e07373f5d39764f298b20521c3a05bd2115c11a8b7149e82efb7abce"
+    },
+    {
+      "path": "silu_gated-3203/preparation-data.npz",
+      "sha256": "5e5b946a09a12ce67628dcb5a39c5e40da776e718ec3809b4f6dadf8f45d28f8"
+    },
+    {
+      "path": "challenge.npz",
+      "sha256": "98cfa0c53c94e5660a799077e150263cd8bd3173532c54cf5f950d94e2d3af78"
+    }
+  ],
+  "within_case_overlap_pairs": 0,
+  "challenge_preparation_overlap_rows": 0,
+  "cross_case_overlap_pairs": 24,
+  "total_pairwise_shared_rows": 33792,
+  "cross_case_overlaps": [
+    {
+      "case_a": "gelu-3201",
+      "partition_a": "visible",
+      "case_b": "gelu-3202",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "gelu-3201",
+      "partition_a": "adapt",
+      "case_b": "gelu-3202",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "gelu-3201",
+      "partition_a": "adapt",
+      "case_b": "gelu-3203",
+      "partition_b": "train",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "gelu-3201",
+      "partition_a": "donor",
+      "case_b": "gelu-3202",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "gelu-3201",
+      "partition_a": "donor",
+      "case_b": "gelu-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "gelu-3202",
+      "partition_a": "visible",
+      "case_b": "gelu-3203",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "gelu-3202",
+      "partition_a": "adapt",
+      "case_b": "gelu-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "gelu-3202",
+      "partition_a": "donor",
+      "case_b": "gelu-3203",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "relu-3201",
+      "partition_a": "visible",
+      "case_b": "relu-3202",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "relu-3201",
+      "partition_a": "adapt",
+      "case_b": "relu-3202",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "relu-3201",
+      "partition_a": "adapt",
+      "case_b": "relu-3203",
+      "partition_b": "train",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "relu-3201",
+      "partition_a": "donor",
+      "case_b": "relu-3202",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "relu-3201",
+      "partition_a": "donor",
+      "case_b": "relu-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "relu-3202",
+      "partition_a": "visible",
+      "case_b": "relu-3203",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "relu-3202",
+      "partition_a": "adapt",
+      "case_b": "relu-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "relu-3202",
+      "partition_a": "donor",
+      "case_b": "relu-3203",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "silu_gated-3201",
+      "partition_a": "visible",
+      "case_b": "silu_gated-3202",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "silu_gated-3201",
+      "partition_a": "adapt",
+      "case_b": "silu_gated-3202",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "silu_gated-3201",
+      "partition_a": "adapt",
+      "case_b": "silu_gated-3203",
+      "partition_b": "train",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "silu_gated-3201",
+      "partition_a": "donor",
+      "case_b": "silu_gated-3202",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    },
+    {
+      "case_a": "silu_gated-3201",
+      "partition_a": "donor",
+      "case_b": "silu_gated-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "silu_gated-3202",
+      "partition_a": "visible",
+      "case_b": "silu_gated-3203",
+      "partition_b": "train",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "silu_gated-3202",
+      "partition_a": "adapt",
+      "case_b": "silu_gated-3203",
+      "partition_b": "visible",
+      "shared_rows": 1024
+    },
+    {
+      "case_a": "silu_gated-3202",
+      "partition_a": "donor",
+      "case_b": "silu_gated-3203",
+      "partition_b": "adapt",
+      "shared_rows": 2048
+    }
+  ],
+  "assurance_level": "INTERNAL_PASS",
+  "reviewer_status": "NOT_SUBMITTED",
+  "claim_ceiling": "EXACT_V32_ROW_OVERLAP_AUDIT_ONLY"
+}

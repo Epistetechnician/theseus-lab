@@ -1,0 +1,109 @@
+{
+  "acceptance": {
+    "dependency_manifest_check": "replica must match the V2-frozen Linux manifest; primary-versus-replica dependency equality is recorded but not gated",
+    "required_all_other_v9_checks": true,
+    "required_replicated_primary_outcome": "FAIL",
+    "success_assurance": "REPRODUCED_LOCAL",
+    "success_claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+    "thresholds_or_scientific_analysis_changes_allowed": false
+  },
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+  "created_at_utc": "2026-09-28T01:08:28Z",
+  "gman": {
+    "chip": "cpu-8",
+    "image": "ubuntu-24.04",
+    "max_node_rate_usd_per_minute": 0.00804,
+    "max_node_session_minutes": 65,
+    "mission": "theseus-v9-linux-runtime-reproduction-20260928-v2",
+    "node_id": "a48bae49-4fac-43ee-a6ee-e378e99fa51f",
+    "node_name": "theseus-v9-cloud-20260928",
+    "reuse_stopped_private_disk": true,
+    "total_task_spend_cap_usd": 1.0,
+    "v1_charged_usd": 0.2092,
+    "v2_max_spend_usd": 0.7908,
+    "v2_model_command_minutes": 60
+  },
+  "input": {
+    "archive_bytes": 1727986827,
+    "archive_member_count": 396,
+    "archive_sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+    "input_manifest_sha256": "8682b390b1c40306cf73157e9b9ca3098e5ed6c90f856f238ef23a756a8f340a",
+    "prior_fixture_bytes": 3829906,
+    "prior_fixture_count": 112,
+    "prior_fixture_inventory_sha256": "3b46ce7f74bd8b8a24f5324cd5aae5ef34933b71a3f8ce731dcb8488480c9421",
+    "primary_and_source_bytes": 2072547646,
+    "primary_and_source_file_count": 280,
+    "primary_and_source_inventory_sha256": "e31b70ed20278a974bf96f60a2217d94f3c695668ca288e1afc5580302c6e962",
+    "selected_total_bytes": 2076377552
+  },
+  "packet_document": {
+    "bytes": 3919,
+    "path": "docs/replacement-loss-v9-gman-linux-runtime-v2.md",
+    "sha256": "c5f73ebdc9a5c9bd21006da71a5bf27d8ee374d1460dba06db3991e6ca6cb0bd"
+  },
+  "packet_sha256": "6e2d83abcc1b54c2cc21f4c229924bc461d1351d809d807a55881c11e58ddf4f",
+  "prior_fixture_roots": [
+    "theseus-lab-sandbox-v1-replacement-loss-v3",
+    "theseus-lab-sandbox-v1-replacement-loss-v3-replicator",
+    "theseus-lab-sandbox-v1-replacement-loss-v4",
+    "theseus-lab-sandbox-v1-replacement-loss-v4-replicator",
+    "theseus-lab-sandbox-v1-replacement-loss-v5",
+    "theseus-lab-sandbox-v1-replacement-loss-v5-replicator",
+    "theseus-lab-sandbox-v1-replacement-loss-v5-replicator-failed-git-root",
+    "theseus-lab-sandbox-v1-replacement-loss-v6",
+    "theseus-lab-sandbox-v1-replacement-loss-v7",
+    "theseus-lab-sandbox-v1-replacement-loss-v8",
+    "theseus-lab-sandbox-v1-replacement-loss-v8-replica"
+  ],
+  "protocol_id": "theseus-replacement-loss-v9-linux-runtime-reproduction-v2",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime": {
+    "actual_distribution_count": 51,
+    "cpu_thread_count": 1,
+    "dependency_manifest_sha256": "0496a9c718bce898530689821630c5a4874823bfb152c672081b4c6779328bc4",
+    "expected_core_dependencies": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.6.0",
+      "transformers": "4.57.3"
+    },
+    "expected_distribution_count_in_v9_lock": 26,
+    "image": "ubuntu-24.04",
+    "machine": "x86_64",
+    "platform": "Linux-6.18.48-109.150.amzn2023.x86_64-x86_64-with-glibc2.39",
+    "preflight_receipt_sha256": "55454740858795bcd7027d43a070284684632f07abc58cfe56252f71801003ea",
+    "primary_dependency_manifest_sha256": "bea06dc458f522768a207ea383d8220ab3b9e0eda8c9de72c5f6468cafd3d94d",
+    "python": "3.12.13",
+    "v1_environment_status": "INCONCLUSIVE",
+    "version_mismatches_from_v9_lock": {
+      "packaging": {
+        "actual": "26.0",
+        "expected": "26.3"
+      }
+    }
+  },
+  "source_identity": {
+    "git_head": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "packet_file_count": 32,
+    "packet_source_sha256": "30ccf63209aa70ed8821b2614214114b010bd0c95f61bda772fa7e5ffbe548f4",
+    "patched_replicator_sha256": "6892b0a99bdfb7fed3950f06c9adc4b16dcaf87c9dcca890b25bec1829d2436e",
+    "replicator_sha256": "005ff243087001441c44eee22408c55a3202645eb2d9648e968417ecb5686923",
+    "runner_sha256": "4cd2f003df9c7a82846e71c394e13a7771c40e16bae9543496197333cb4262a1"
+  },
+  "state_slice": "theseus-replacement-loss-v9-gman-linux-runtime-reproduction-v2",
+  "target": {
+    "primary_outcome": "FAIL",
+    "primary_outcome_manifest_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "v1_cloud_packet_sha256": "f39c2f22e085df8f563b2f0f2a3b32a5aafcc4a3ef03bd0b09f1886dd4d5409c",
+    "v1_results_status": "INCONCLUSIVE",
+    "v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+  },
+  "wrapper": {
+    "bytes": 11072,
+    "path": "replacement_loss_v9_gman_linux_runtime_replicator_v2.py",
+    "sha256": "de315010f0aa9e71330034a832bb15fda3ddc4df977d61af9038f142ab3ed30b"
+  }
+}

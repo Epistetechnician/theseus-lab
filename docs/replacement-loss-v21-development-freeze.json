@@ -1,0 +1,174 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody_and_limits": {
+    "paid_or_remote_execution": false,
+    "prompt_and_model_artifacts": "external owner custody",
+    "rss_cap_bytes": 17179869184,
+    "runtime": "pinned Python 3.12.13; deterministic CPU; one Torch thread",
+    "wall_cap_seconds": 14400
+  },
+  "freeze_sha256": "5ca8b34a02ea8ae4c6bccd0a04fa45a378a00004e0d781c9d723951ee2c0c1f0",
+  "method": {
+    "adaptation_prompts_per_stratum": 64,
+    "batch_size": 128,
+    "confirmation_seeds": [
+      202611201,
+      202611202,
+      202611203
+    ],
+    "fit_prompts_per_stratum": 48,
+    "fits_both_teacher_endpoints": true,
+    "gradient_clip_norm": 1.0,
+    "kind": "paired_endpoint_value_supervision",
+    "learning_rate": 0.001,
+    "low_rank": 16,
+    "optimizer_updates_endpoint_residual": 1000,
+    "optimizer_updates_pointwise_base": 1000,
+    "seeds": [
+      202611101,
+      202611102,
+      202611103
+    ],
+    "strata": [
+      "ordinary",
+      "compositional",
+      "adversarial"
+    ],
+    "uses_finite_effect_targets_in_gradient": false,
+    "validation_prompts_per_stratum": 16,
+    "weight_decay": 0.0001
+  },
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 6204,
+      "path": "docs/causal-effect-identifiability-boundary-v1.md",
+      "sha256": "32f54b5d1af9ee52980b19bd1385ac9bedee303b99bbce599f0d45f0aedae784"
+    },
+    {
+      "bytes": 6233,
+      "path": "docs/replacement-loss-v21-paired-endpoint-supervision.md",
+      "sha256": "993c6300f240d9e1f84c949864be09da00b0f6de733cd373ba783f356c103977"
+    },
+    {
+      "bytes": 6526,
+      "path": "replacement_loss_v21_fixtures.py",
+      "sha256": "4ed5610b95c4f97cc606ebebbdc33b0d96f93512d1a2227d27cad17012bf69aa"
+    },
+    {
+      "bytes": 26515,
+      "path": "replacement_loss_v21_runner.py",
+      "sha256": "7b9c934dcd232c12f3661690d9aaa2b3170b0fbd9166868726b67900edd71487"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v21.lock.txt",
+      "sha256": "d92245f2fac7be7bf99b6a5cbc689af878032c29d634b1d77af391fcdad6c24f"
+    },
+    {
+      "bytes": 6167,
+      "path": "docs/replacement-loss-v20b-development-freeze.json",
+      "sha256": "25912df9fb0d442c165e28cea1299a8451cb2a29f7a5223a1731efbd019d8f16"
+    },
+    {
+      "bytes": 7215,
+      "path": "docs/replacement-loss-v20b-development-results.json",
+      "sha256": "538992bc6bc8afd0c26455892a5b4956cf1976f56f6b7c58ecc9bb078af00df2"
+    },
+    {
+      "bytes": 1983,
+      "path": "docs/replacement-loss-v20b-development-results.md",
+      "sha256": "c3688cfdbe4c0e0b65bc75a42f4811bb566252bfeb521f361419d731a97f0432"
+    },
+    {
+      "bytes": 3035,
+      "path": "docs/replacement-loss-v20b-development-replication.json",
+      "sha256": "fc13d3a332ad9c4b3bfb6d2503f1451ef5d0119944cdd9a4206f445b323682e9"
+    },
+    {
+      "bytes": 2992,
+      "path": "docs/replacement-loss-v20b-low-rank-causal-residual.md",
+      "sha256": "36c6e2d5df2dbf31107c08d7b99dc98b21d15bf4a0b1a9526abfc79a5b47fc7e"
+    },
+    {
+      "bytes": 2745,
+      "path": "replacement_loss_v20b_fixtures.py",
+      "sha256": "5bb0b8ff024d4ddcf6ed90496f750e4b5a0e9713043915365589127bec45c9f4"
+    },
+    {
+      "bytes": 17597,
+      "path": "replacement_loss_v20b_runner.py",
+      "sha256": "0af60dfe34ece9cf1d49c5bbf23a581005360d506c4262ca4620f9d364a66127"
+    },
+    {
+      "bytes": 550,
+      "path": "requirements-v20b.lock.txt",
+      "sha256": "4565c46269baae5417aa9405d294b31064f6c49a6d5a1005a7c291f6bd2bde6b"
+    },
+    {
+      "bytes": 7468,
+      "path": "docs/replacement-loss-v20-development-freeze.json",
+      "sha256": "fbb90096bccd39af09eef7b44482d42853045c4796dc49b8de39868e12198e8d"
+    },
+    {
+      "bytes": 6308,
+      "path": "docs/replacement-loss-v20-low-rank-causal-residual.md",
+      "sha256": "5aa14eadd0c1a32b5ef61a1117d0d4892e8316e1de4c1a4db90b339a99cc6d99"
+    },
+    {
+      "bytes": 6650,
+      "path": "replacement_loss_v20_fixtures.py",
+      "sha256": "79dfad79c162fd2a7eacb5696f6f2cf81660eff98815cec6ed57aaa1a9ecacf8"
+    },
+    {
+      "bytes": 72347,
+      "path": "replacement_loss_v20_runner.py",
+      "sha256": "53b69efca5cf7036531f1f7d94ea2f736549569acd109e60cb362a5437f360a9"
+    },
+    {
+      "bytes": 536,
+      "path": "requirements-v20.lock.txt",
+      "sha256": "e7eb5e9ecfb24f9c195931e1598402268f4dcec45f4786da06c4e160a7e6abec"
+    }
+  ],
+  "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+  "parent_negative_result": {
+    "freeze_sha256": "cab3df9f90de242be4ac4acce26853e39e9810fd492f42e1f637f79dffe29afe",
+    "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+    "protocol_id": "theseus-replacement-loss-v20b-development",
+    "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+    "replication_file_sha256": "fc13d3a332ad9c4b3bfb6d2503f1451ef5d0119944cdd9a4206f445b323682e9",
+    "replication_report_sha256": "0153d88b998ed62196687d4f44aa6f38958b401fc46a4b18a8481607cb7b35d9",
+    "reproducibility_status": "REPRODUCED_LOCAL",
+    "result_file_sha256": "538992bc6bc8afd0c26455892a5b4956cf1976f56f6b7c58ecc9bb078af00df2",
+    "result_sha256": "f24b90241e4e06aa4bf54e92ec396afe8779b8f1a32d72ee54cde782fc3b44d1",
+    "v20b_data_reused": false
+  },
+  "protocol_id": "theseus-replacement-loss-v21-development",
+  "protocol_slice": "theseus-replacement-loss-v21-paired-endpoint-supervision-v1",
+  "qualification": {
+    "all_cells_must_pass_primary_and_replica": true,
+    "cells": 9,
+    "challenge_entropy_before_qualification": false,
+    "continuation_ce_increase_max": 0.05,
+    "effect_ratio_max": 0.9,
+    "normalized_next_logit_error_max": 0.05,
+    "value_ratio_max": 1.25
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_identity": {
+    "fresh_checkpoint_claim": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "target_known_before_protocol": true,
+    "target_layer": 8,
+    "tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "weight_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132",
+    "wrong_layer": 9
+  }
+}

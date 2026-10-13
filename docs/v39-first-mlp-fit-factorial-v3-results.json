@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-07",
+  "protocol_id": "theseus-v39-first-mlp-fit-factorial-v3",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-first-mlp-fit-factorial-v3",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "scientific_outcome": "FAIL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "SAME_OWNER_SECOND_ISOLATED_RUNTIME",
+  "claim_ceiling": "LOCAL_REUSED_GPT2_FIRST_MLP_FIT_FACTOR_DIAGNOSIS_V3_ONLY",
+  "target": {
+    "model_id": "mrm8488/spanish-gpt2",
+    "revision": "fc396ce08c65ea334dcf541de7dc05cac89a29b2",
+    "architecture_family": "GPT-2/GELU",
+    "site": "first MLP, site 0",
+    "reuse_status": "reused V39 guide; not fresh or architecture-held-out",
+    "guide_site_sha256": "ecc47c1c4ac9d7147055edd6d259c34c7afea47d72a080e59da99e7c241ca059",
+    "checkpoint_manifest_sha256": "503b58912ec271f5c0c40adb3fc79f2331f31db3e37492f97b2efc3637af3942"
+  },
+  "design": {
+    "type": "paired 2x2 factorial within three candidate seeds",
+    "seeds": [37101, 37102, 37103],
+    "hidden_expansion_multipliers": [2, 4],
+    "optimizer_updates": [1024, 4096],
+    "candidate_count": 12,
+    "adaptation_prompts_per_seed": 128,
+    "donor_prompts_per_seed": 128,
+    "heldout_pairs_per_seed_per_stratum": 32,
+    "heldout_strata": ["ordinary", "input_composition", "interchange_composition", "adversarial"],
+    "new_heldout_pairs": 384,
+    "new_training_steps": 30720,
+    "objective": "unchanged V39 first-block JVP objective with V36 core.fit",
+    "optimizer": {
+      "name": "AdamW",
+      "batch": 64,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "gradient_norm_clip": 1.0,
+      "jvp_probes": 4,
+      "auxiliary_gradient_cap": "unchanged V36 core.fit"
+    },
+    "fixture_controls": "fresh adaptation and challenge streams; prior V2 identities exclusion-only; predictions sealed before oracle evaluation; disjoint from inherited exclusions and V39 fixtures"
+  },
+  "primary_metric": {
+    "name": "pooled training-direction JVP nRMSE on adaptation and donor tokens",
+    "direction": "lower is better",
+    "support_rule": "geometric-mean paired error ratio <= 0.80 and all three seed-level paired ratios favor the factor",
+    "population_significance_claim": false
+  },
+  "factorial_results": {
+    "optimizer_budget": {
+      "geometric_mean_error_ratio": 0.7764321927979442,
+      "relative_error_reduction": 0.22356780720205582,
+      "all_seed_directions_favor_factor": true,
+      "supported_under_frozen_rule": true
+    },
+    "capacity": {
+      "geometric_mean_error_ratio": 0.8800507649721147,
+      "relative_error_reduction": 0.11994923502788535,
+      "all_seed_directions_favor_factor": true,
+      "supported_under_frozen_rule": false
+    },
+    "interpretation": "Longer optimization improved adaptation training-direction fit under the frozen criterion. The capacity effect did not meet that criterion. Neither factor yielded held-out causal retention."
+  },
+  "heldout_gates": {
+    "source": "unchanged V39/V36 thresholds",
+    "output_nrmse_max": 0.1,
+    "top1_agreement_min": 0.95,
+    "nll_increase_max": 0.03,
+    "activation_nrmse_max": 0.15,
+    "actual_rescue_nrmse_max": 0.1,
+    "rescue_prediction_nrmse_max": 0.1,
+    "effect_median_relative_error_max": 0.2,
+    "effect_median_cosine_min": 0.9,
+    "effect_p90_relative_error_max": 0.5,
+    "effect_resolved_fraction_min": 0.9,
+    "control_error_margin_min": 0.1,
+    "controls": ["guide no-op positive", "zero module", "wrong seed module at matched capacity and update budget", "random module at matched capacity"],
+    "candidate_pass_rule": "all gates and all three control-sensitivity comparisons pass in every stratum for that seed",
+    "retention_pass_rule": "one predeclared factorial cell passes for all three seeds"
+  },
+  "heldout_results": {
+    "strata_evaluated": 48,
+    "factorial_cells_qualifying_across_all_three_seeds": 0,
+    "complete_candidate_strata": 0,
+    "output_nrmse_passes": 48,
+    "top1_agreement_passes": 17,
+    "nll_increase_passes": 12,
+    "activation_nrmse_passes": 37,
+    "actual_rescue_nrmse_passes": 48,
+    "rescue_prediction_nrmse_passes": 48,
+    "joint_causal_effect_passes": 0,
+    "all_controls_worse_by_required_margin": 5,
+    "all_four_factorial_cells_fail_across_seeds": true
+  },
+  "heldout_by_stratum": {
+    "aggregation": "median across the 12 candidate-by-seed rows in each stratum; control count is number of rows meeting all required margins",
+    "ordinary": {
+      "median_joint_effect_relative_error": 0.848874,
+      "median_joint_effect_cosine": 0.582487,
+      "median_top1_agreement": 0.953125,
+      "median_nll_increase": 0.002114,
+      "control_margin_passes": 1
+    },
+    "input_composition": {
+      "median_joint_effect_relative_error": 0.925482,
+      "median_joint_effect_cosine": 0.520728,
+      "median_top1_agreement": 0.84375,
+      "median_nll_increase": 0.150545,
+      "control_margin_passes": 1
+    },
+    "interchange_composition": {
+      "median_joint_effect_relative_error": 0.988943,
+      "median_joint_effect_cosine": 0.406852,
+      "median_top1_agreement": 1.0,
+      "median_nll_increase": 0.109815,
+      "control_margin_passes": 0
+    },
+    "adversarial": {
+      "median_joint_effect_relative_error": 0.876926,
+      "median_joint_effect_cosine": 0.561665,
+      "median_top1_agreement": 0.671875,
+      "median_nll_increase": 0.15299,
+      "control_margin_passes": 3
+    }
+  },
+  "best_factorial_cell_diagnostic": {
+    "cell": "4x capacity, 4096 updates",
+    "median_joint_effect_relative_error": 0.832477,
+    "median_joint_effect_cosine": 0.649106,
+    "top1_agreement_passes": 7,
+    "nll_increase_passes": 3,
+    "control_margin_passes": 2,
+    "interpretation": "best observed factorial cell, but it does not pass the predeclared all-seed retention rule"
+  },
+  "reproduction_closeout": {
+    "primary_replica_checks_passed": 15,
+    "probe_formula_cells_recomputed": 48,
+    "factorial_effect_formulas_recomputed": 4,
+    "heldout_seed_strata_recomputed_per_role": 12,
+    "heldout_and_control_arrays_checked_per_role": 72,
+    "deterministic_artifact_files_matched_per_role": 182,
+    "dependency_file_count_per_runtime": 18740,
+    "dependency_files_sha256": "5848cc0ba94e32acae3c4adfe8602a0d7e771fb0c2cc3c7f09e09818e12c1488",
+    "runtime": "Python 3.12.13, macOS 26.6.1 arm64, CPU, one thread; Torch 2.6.0, NumPy 2.4.6, Transformers 5.17.0"
+  },
+  "resources": {
+    "primary": {
+      "wall_seconds": 3594.3657427079743,
+      "peak_rss_bytes": 5241225216,
+      "artifact_bytes": 3688469678
+    },
+    "replica": {
+      "wall_seconds": 3576.349296791013,
+      "peak_rss_bytes": 5547606016,
+      "artifact_bytes": 3688469678
+    },
+    "paid_execution_usd": 0,
+    "energy": "NOT_MEASURED",
+    "full_economic_cost": "NOT_MEASURED"
+  },
+  "custody": {
+    "artifact_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-v39-first-mlp-fit-factorial-v3",
+    "runtime_root": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v37r1/toolchains",
+    "custody_statement": "Prompts, token IDs, guide assets, captures, candidates, predictions and oracle arrays remain on PrimaryED; runtimes remain on Backup ED. No raw experimental payloads are copied into this repository."
+  },
+  "digests": {
+    "frozen_packet_sha256": "bc233412da532b1eee72611febe7b510086dd0b8c5de90ec3e93769865b37f3d",
+    "candidate_freeze_sha256": "683f3c20589b07b6c4e4e51f237147b5e02c976325514a5e08086f2b9a6b09df",
+    "challenge_sha256": "b3ea5f8440beeb0f9219de4c2edb1b797fe2265f2e29aeb473210b6424b25832",
+    "prediction_freeze_sha256": "ca69481f74c6603e8534cda5bc000ff3b18ec2472e0cf0c1f2e3ec7b7c28d701",
+    "primary_result_sha256": "91baeac0c360581516919cc40580d3b9a4bcc7a5fce5e64031551fd339c5671f",
+    "replica_result_sha256": "65a722a94540c1c56b000ec771422bc7b34fd278ba25aad9968a3968f09b3be2",
+    "closeout_sha256": "9609077db5b56b4f934c1acb58b193943fbd6bb2ee1d0c56d8028b10d8a030b7"
+  },
+  "limitations": [
+    "same owner and physical host for primary and replica",
+    "one reused Spanish-trained GPT-2 guide and one MLP site",
+    "three candidate seeds are not independent guide checkpoints",
+    "no fresh checkpoint, architecture-held-out result, blind external replication, or independent review",
+    "energy and full economic cost were not measured"
+  ],
+  "nonclaims": [
+    "no architecture-general theorem or all-architecture result",
+    "no whole-model mechanistic identity beyond the measured local interventions",
+    "no novelty, consciousness, human-alignment equivalence, independent acceptance, or production authorization"
+  ],
+  "next_blocked_authority_gate": "Configured independent authority for stronger scientific acceptance; production requires separate operational authorization.",
+  "next_research_step": "Do not extend optimizer or width sweeps as a presumed fix. Any next local packet needs a distinct causal-transfer hypothesis, frozen predictions, fresh disjoint fixtures, and unchanged held-out gates."
+}

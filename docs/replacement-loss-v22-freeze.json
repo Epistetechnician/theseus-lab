@@ -1,0 +1,61 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "candidate_preparation_started": false,
+  "challenge_fixtures_generated": false,
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v22-fresh-checkpoint-replication-v1",
+  "created_at_utc": "2026-10-02T00:22:56.246054+00:00",
+  "freeze_state": "FROZEN_BEFORE_V22_CHECKPOINT_INVENTORY_OR_SELECTION",
+  "method": "exact_frozen_v8_runner_with_v22_fixtures_and_post_freeze_checkpoint_manifest",
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "whole-model identity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 4180,
+      "path": "docs/replacement-loss-v22-fresh-checkpoint-replication.md",
+      "sha256": "d13e091302a9b815efb6692e3068820a393a8927baab602b9563cef78d3f5151"
+    },
+    {
+      "bytes": 3109,
+      "path": "replacement_loss_v22_fixtures.py",
+      "sha256": "267722e033733bbabce9ef9b386565cb445d93222571b9f6b7e0b394192f3baf"
+    },
+    {
+      "bytes": 24596,
+      "path": "replacement_loss_v22_runner.py",
+      "sha256": "83977cc8b6edb04d684faf7ce26c586f3cefcbe72fb15d7c8cc04fdd22762fc6"
+    },
+    {
+      "bytes": 85,
+      "path": "requirements-v22.lock.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    }
+  ],
+  "packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "protocol_id": "theseus-replacement-loss-v22-fresh-checkpoint-replication",
+  "resource_caps": {
+    "max_case_wall_seconds": 7200,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_budget_usd": 0
+  },
+  "runtime": {
+    "clean_replica": "separate Python 3.12.13 environment with identical dependency inventory",
+    "dependencies": "requirements-v22.lock.txt",
+    "platform": "local macOS arm64 CPU only",
+    "python": "3.12.13"
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "treatment_thresholds_controls": "unchanged_frozen_v8_packet",
+  "upstream_v8_freeze_file_sha256": "9b1dc97081620fd4a85961186d026c675076788f8da5c40c4ab2f0f107dad66a",
+  "upstream_v8_packet_file_count": 24,
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

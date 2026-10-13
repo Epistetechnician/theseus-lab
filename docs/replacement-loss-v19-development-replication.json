@@ -1,0 +1,72 @@
+{
+  "artifact_groups": {
+    "candidates": {
+      "byte_identical": true,
+      "primary_count": 25,
+      "primary_sha256": "c381919dbc14ccb680f2cdcf1f3663c7e04f5f33caa71f67563c228fd2cf9fb6",
+      "replica_count": 25,
+      "replica_sha256": "c381919dbc14ccb680f2cdcf1f3663c7e04f5f33caa71f67563c228fd2cf9fb6"
+    },
+    "captures": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "26d803580d977b1c7d172a92c4dfbcb36a50605e5735436e8d9bab1f159010b5",
+      "replica_count": 3,
+      "replica_sha256": "26d803580d977b1c7d172a92c4dfbcb36a50605e5735436e8d9bab1f159010b5"
+    },
+    "fixtures": {
+      "byte_identical": true,
+      "primary_count": 4,
+      "primary_sha256": "7270d5d584ddde95ad40cc48edde44d2028d73363cce8c1184b43f39b97b4b19",
+      "replica_count": 4,
+      "replica_sha256": "7270d5d584ddde95ad40cc48edde44d2028d73363cce8c1184b43f39b97b4b19"
+    },
+    "selection": {
+      "byte_identical": true,
+      "primary_count": 2,
+      "primary_sha256": "ff170d2a5a7a817e9ff29637db5e24d396ecfb3785a2b6587b722e36a90cbf76",
+      "replica_count": 2,
+      "replica_sha256": "ff170d2a5a7a817e9ff29637db5e24d396ecfb3785a2b6587b722e36a90cbf76"
+    },
+    "splits": {
+      "byte_identical": true,
+      "primary_count": 3,
+      "primary_sha256": "ff2178fa5e570d935ec61b597e405db513d9149a5e8e907196c8502448763057",
+      "replica_count": 3,
+      "replica_sha256": "ff2178fa5e570d935ec61b597e405db513d9149a5e8e907196c8502448763057"
+    }
+  },
+  "assurance_level": "REPRODUCED_LOCAL",
+  "blind_status": "NOT_BLIND_SAME_OWNER_REPLAY",
+  "claim_ceiling": "LOCAL_CAUSAL_VALUE_PARETO_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "all prompt-bearing, row-level, capture, target, and candidate artifacts remain in external owner custody",
+  "next_blocked_authority_gate": "confirmation eligibility and then blind external replication and independent acceptance",
+  "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+  "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+  "protocol_slice": "theseus-replacement-loss-v19-causal-fit-qualification-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "report_sha256": "0e5272cd324bc8150fec38f3430e807620a46f8e3bc84314049bccf0574f4dca",
+  "resource_caps_pass": true,
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2417000448,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 341.5316376659903
+    },
+    "replica": {
+      "peak_rss_bytes": 2543992832,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 346.71379241700924
+    }
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime_pins_match": true,
+  "same_host_and_owner": true,
+  "scientific_results_match": true,
+  "scientific_results_sha256": "86df750504a56fe5f4a34a4b4dbaee5ed5370bccbd45d257a912586ff614d1ed",
+  "selected_lambda": null,
+  "separate_python_runtimes": true,
+  "state_slice": "theseus-lab-sandbox-v1"
+}

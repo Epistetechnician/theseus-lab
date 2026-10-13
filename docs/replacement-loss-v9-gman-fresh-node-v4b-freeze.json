@@ -1,0 +1,245 @@
+{
+  "acceptance": {
+    "all_frozen_replication_checks_must_pass": true,
+    "candidate_file_and_tensor_state_checks_before_challenge_reveal": true,
+    "held_out_predictions_sealed_before_outcome_evaluation": true,
+    "incomplete_status": "INCONCLUSIVE",
+    "measured_mismatch_status": "DIVERGED",
+    "one_attempt_only": true,
+    "replicated_primary_outcome": "FAIL",
+    "runtime_identity_must_match": true,
+    "success_reproducibility_status": "REPRODUCED_LOCAL",
+    "thresholds_or_scientific_analysis_changes_allowed": false
+  },
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "bootstrap": {
+    "bytes": 1092,
+    "path": "replacement_loss_v9_gman_bootstrap_v4.sh",
+    "sha256": "8390f1ef4523b7bff815f3629d9dd15f7cc1e6893ac958b176ac3d4762036ab7"
+  },
+  "budget": {
+    "aggregate_headroom_usd": 0.0055,
+    "aggregate_max_usd": 1.3345,
+    "max_rate_usd_per_minute": 0.00804,
+    "max_v4_node_minutes": 72.5,
+    "max_v4_node_usd": 0.5829,
+    "prior_theseus_gman_usd": 0.7516,
+    "prior_v1_usd": 0.2092,
+    "prior_v2_usd": 0.0,
+    "prior_v3_total_usd": 0.5424,
+    "run_command_max_minutes": 60,
+    "storage_cost": "no additional storage charge expected; current org snapshot storage is within its free allowance",
+    "user_authorized_aggregate_usd": 1.34,
+    "v3_recovery_and_export_actual_usd": 0.0958,
+    "v4_node_pre_evaluation_minutes": 8.23,
+    "v4_node_pre_evaluation_usd": 0.066
+  },
+  "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+  "created_at_utc": "2026-09-28T23:33:46.773501+00:00",
+  "custody_transfer": {
+    "artifact_count": 8,
+    "artifact_manifest_sha256": "658fdb6ae36c3ea9bf116992bd8a17ad3ea51572b03129831dacafa42cd2303c",
+    "artifacts": [
+      {
+        "artifact_id": "art-beb8f",
+        "destination": "input/gman-v9-input.tar.gz",
+        "format": "file",
+        "key": "input_archive",
+        "sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+        "size_bytes": 1727986827,
+        "source_path": "/home/dev/theseus-v9/input/gman-v9-input.tar.gz"
+      },
+      {
+        "artifact_id": "art-v7dz8",
+        "destination": "input/primary",
+        "format": "tar",
+        "key": "primary",
+        "sha256": "26efd0c8730d041cd2ab322aa75b82afbb13ef4e7cd82bda60b7894317cc5978",
+        "size_bytes": 2072340480,
+        "source_path": "/home/dev/theseus-v9/input/primary"
+      },
+      {
+        "artifact_id": "art-fzzez",
+        "destination": "input/metadata",
+        "format": "tar",
+        "key": "metadata",
+        "sha256": "b2c607b224fddacfd5e38d472e4c964f4d23a56047000d7c10c033dee1408b18",
+        "size_bytes": 112640,
+        "source_path": "/home/dev/theseus-v9/input/metadata"
+      },
+      {
+        "artifact_id": "art-jjqsg",
+        "destination": "input/prior-fixtures",
+        "format": "tar",
+        "key": "prior_fixtures",
+        "sha256": "23b22a317af40df063d629f8772eda9eb7fc9926beb67d36022f1e445d4cc6af",
+        "size_bytes": 3983360,
+        "source_path": "/home/dev/theseus-v9/input/prior-fixtures"
+      },
+      {
+        "artifact_id": "art-edubf",
+        "destination": "input/source-checkout",
+        "format": "tar",
+        "key": "source_checkout",
+        "sha256": "275dceb5b444fab9a531ac414b73cc5a4a1846c74bd59cc7ab2d7f3f3b9c2a48",
+        "size_bytes": 1792000,
+        "source_path": "/home/dev/theseus-v9/input/source-checkout"
+      },
+      {
+        "artifact_id": "art-bz3f7",
+        "destination": "v3",
+        "format": "tar",
+        "key": "v3_packet",
+        "sha256": "7cc03b650285c715b1239ab56c6d2ba932dbf6d2380f16b3be2b29b65ace1793",
+        "size_bytes": 81920,
+        "source_path": "/home/dev/theseus-v9/v3"
+      },
+      {
+        "artifact_id": "art-8te66",
+        "destination": "receipts",
+        "format": "tar",
+        "key": "receipts",
+        "sha256": "cd22dfd75b538ab20e28b69449251df153a7bcb0e4db3b4a3d3b98e8c75ed66c",
+        "size_bytes": 10240,
+        "source_path": "/home/dev/theseus-v9/receipts"
+      },
+      {
+        "artifact_id": "art-f7kfg",
+        "destination": "v3-stop/replication-v3-stop.json",
+        "format": "file",
+        "key": "v3_stop",
+        "sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+        "size_bytes": 499,
+        "source_path": "/home/dev/theseus-v9/replica-v3/replication-v3-stop.json"
+      }
+    ],
+    "downloaded_payloads_are_verified_before_extraction": true,
+    "extraction_rejects_links_special_files_and_path_traversal": true,
+    "method": "GMAN_PRIVATE_ARTIFACT_RELAY",
+    "urls_are_ephemeral_and_never_recorded_in_receipts": true
+  },
+  "experimental_design": {
+    "baseline": "bound local primary outcome and candidate state under frozen v9 packet",
+    "claim_ceiling": "LOCAL_CROSS_RUNTIME_REPRODUCTION_OF_FROZEN_V9_FAIL_UNDER_THE_DIGEST_BOUND_LINUX_RUNTIME",
+    "custody_transport": "The exact frozen V3 inputs and receipts are imported from the eight digest-bound GMan private artifacts listed in custody_transfer; URLs are passed only as secret command environment values and are not retained.",
+    "direction": "reproduce the exact primary FAIL verdict with every replication check equal",
+    "fixture_generation": "reuse exact frozen v9 challenge manifest and payloads; no entropy regeneration",
+    "full_cost_boundary": "Actual V1 and V3 Theseus charges are 0.7516 USD, including the completed V3 recovery and artifact export. The fresh V4 CPU-8 node is capped at 72.5 total minutes and 0.5829 USD, including 8.23 minutes already accrued before evaluation; total maximum is 1.3345 USD under the authorized 1.34 USD cap.",
+    "nonclaims": [
+      "blind external replication or independent scientific acceptance",
+      "novelty priority or full Network of Theseus reproduction",
+      "architecture-general validity or all AI systems",
+      "general mechanistic understanding or Theseus identity proof",
+      "consciousness or subjective experience",
+      "alignment, human equivalence, or production authorization"
+    ],
+    "paired_design": "same frozen checkpoints, family/seed trajectories, candidate rules, challenge bytes, and controls",
+    "primary_metric": "frozen v9 causal-effect prediction and retention gates across ridge, CKA, and logit distillation",
+    "repeat_count": 1,
+    "smallest_effect_size": "unchanged frozen v9 thresholds; no v4 threshold changes",
+    "stopping_rule": "stop before held-out evaluation on any packet, source, runtime, custody, or candidate integrity mismatch; after start, one attempt only",
+    "variance_sources": [
+      "CPU floating-point implementation",
+      "runtime and dependency identity",
+      "stochastic candidate fitting"
+    ]
+  },
+  "freeze_state": "FROZEN_BEFORE_V4B_EVALUATION_AFTER_ARTIFACTS_BOUND",
+  "implementation": {
+    "bytes": 29639,
+    "path": "replacement_loss_v9_gman_fresh_node_replicator_v4.py",
+    "sha256": "2ae1cd0f8b813c28d8815c1b1bfab01a46fcd65afa7d0da24aad81a78b22fc97"
+  },
+  "importer": {
+    "bytes": 5945,
+    "path": "replacement_loss_v9_gman_import_v4b.py",
+    "sha256": "cb463cd316748590fa6e360dd7eb2de23870165137f553ff4a113392d3574892"
+  },
+  "input": {
+    "archive_bytes": 1727986827,
+    "archive_sha256": "89af9ff9add82adbff199eda90d876653b041660f4bd1d6e2803fd47dcdb5bfe",
+    "input_manifest_sha256": "8682b390b1c40306cf73157e9b9ca3098e5ed6c90f856f238ef23a756a8f340a",
+    "primary_and_source_inventory_sha256": "e31b70ed20278a974bf96f60a2217d94f3c695668ca288e1afc5580302c6e962",
+    "prior_fixture_inventory_sha256": "3b46ce7f74bd8b8a24f5324cd5aae5ef34933b71a3f8ce731dcb8488480c9421"
+  },
+  "packet_document": {
+    "bytes": 5359,
+    "path": "docs/replacement-loss-v9-gman-fresh-node-v4b.md",
+    "sha256": "ff36180234fbfd40bfba404c0bec6c86b38bfa0ec99003b28200f6bbbff9d48a"
+  },
+  "packet_sha256": "f131e2b4e9a7fb194b26768ef2983d431a71ef18af66412f8ffbe8e92883ee3d",
+  "previous_unrun_packet_sha256": "d9e9c967e44ab0599417c95a03c95a4e8b1fe0404d1fd949069ccbe2e08004c2",
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4b",
+  "repository_state_slice": "theseus-lab-sandbox-v1",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runtime": {
+    "cpu_thread_count": 1,
+    "dependency_manifest_sha256": "0496a9c718bce898530689821630c5a4874823bfb152c672081b4c6779328bc4",
+    "expected_distribution_count": 51,
+    "machine": "x86_64",
+    "python": "3.12.13",
+    "v3_runtime_receipt_sha256": "0b980887e9d2299031ab0f92db175d6e71d8d7d5bb29f667621c8f03375781b5"
+  },
+  "source_identity": {
+    "git_head": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+    "packet_file_count": 32,
+    "packet_source_sha256": "30ccf63209aa70ed8821b2614214114b010bd0c95f61bda772fa7e5ffbe548f4",
+    "patched_replicator_sha256": "6892b0a99bdfb7fed3950f06c9adc4b16dcaf87c9dcca890b25bec1829d2436e",
+    "replicator_sha256": "005ff243087001441c44eee22408c55a3202645eb2d9648e968417ecb5686923",
+    "runner_sha256": "4cd2f003df9c7a82846e71c394e13a7771c40e16bae9543496197333cb4262a1"
+  },
+  "source_node_recovery": {
+    "final_node_usage_usd": 0.5424,
+    "node_id": "306cb242-38b3-424a-961b-a02128bcca66",
+    "node_name": "theseus-v9-linux-runtime-v3-cpu8-20260928",
+    "purpose": "Export the exact frozen V3 input components, packet, runtime receipt, and stop receipt to GMan private artifact custody, then stop the source node.",
+    "recovery_and_export_actual_usd": 0.0958,
+    "source_mission": "theseus-v9-linux-runtime-reproduction-20260928-v3",
+    "status_after_transfer": "STOPPING_BILLING_ENDED",
+    "total_theseus_pre_v4b_usd": 0.7516
+  },
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4b",
+  "superseded_packet_sha256": [
+    "53705b8feadbe173f37879295db476156049bb4a32c9ff7a1f308dc1a85c2035",
+    "1cae87f4dc4b96f62f82f9d260660325ce1386caf8ac49850b7d0e151ac30fdd",
+    "d9e9c967e44ab0599417c95a03c95a4e8b1fe0404d1fd949069ccbe2e08004c2"
+  ],
+  "target": {
+    "candidate_freeze_sha256": "309ed7dfde5a4277daa57ed21e77bc8d2e05307268789a79819e31b19f3f8443",
+    "challenge_manifest_sha256": "5de1335c01d3fd8bf0729977842067a002c83338cf58c223faf59fa0df7f5600",
+    "checkpoint_count": 3,
+    "checkpoint_manifest_sha256": "b52bd7b94eb1e14c0453ba9318fcec2b39f0a210ca4c35f88b070bd57cd8e277",
+    "controls": [
+      "wrong_module",
+      "random",
+      "no_op"
+    ],
+    "family_count": 3,
+    "fixture_seeds": [
+      202609271,
+      202609272,
+      202609273
+    ],
+    "methods": [
+      "ridge",
+      "cka",
+      "logit_distill"
+    ],
+    "post_error_report_sha256": "0753bfbef92562940e3aca07ec5cdbe497d1b1659b82f8d2e06d97c65c645b08",
+    "primary_outcome_manifest_sha256": "12e0befa4c329d3a6a18b14d19144ab6296e5ac5b82f0cb2326eaeff7c776431",
+    "replacement_stages": 3,
+    "required_primary_outcome": "FAIL",
+    "v9_freeze_file_sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6",
+    "v9_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959"
+  },
+  "v3_freeze_file_sha256": "23d438959a674295239ebb465728434b0760fc70f4718679d58ffc5b7b0dd82c",
+  "v3_packet_sha256": "f824c78811f3a1daa60c14eb496cd7364481a02fbc529f02248620228f1d0f93",
+  "v3_post_error_primary_report_sha256": "0753bfbef92562940e3aca07ec5cdbe497d1b1659b82f8d2e06d97c65c645b08",
+  "v3_runtime_receipt_sha256": "0b980887e9d2299031ab0f92db175d6e71d8d7d5bb29f667621c8f03375781b5",
+  "v3_stop_sha256": "5c823ee3578d845b782fb413739ac00bdfce916c6bc82b9ce2a0110d6145c90e",
+  "wrapper": {
+    "bytes": 3284,
+    "path": "replacement_loss_v9_gman_fresh_node_replicator_v4b.py",
+    "sha256": "7cabad0b9ee48445a0e6559292cc2fda782c792e99a5bd98fd7a4e35b056dadb"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "freeze_sha256": "216474211359c44a21ab1356f8d1d09de22bdf65ea390243392f90ac9d161747",
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 6308,
+      "path": "docs/replacement-loss-v20-low-rank-causal-residual.md",
+      "sha256": "5aa14eadd0c1a32b5ef61a1117d0d4892e8316e1de4c1a4db90b339a99cc6d99"
+    },
+    {
+      "bytes": 6650,
+      "path": "replacement_loss_v20_fixtures.py",
+      "sha256": "79dfad79c162fd2a7eacb5696f6f2cf81660eff98815cec6ed57aaa1a9ecacf8"
+    },
+    {
+      "bytes": 72347,
+      "path": "replacement_loss_v20_runner.py",
+      "sha256": "53b69efca5cf7036531f1f7d94ea2f736549569acd109e60cb362a5437f360a9"
+    },
+    {
+      "bytes": 536,
+      "path": "requirements-v20.lock.txt",
+      "sha256": "e7eb5e9ecfb24f9c195931e1598402268f4dcec45f4786da06c4e160a7e6abec"
+    },
+    {
+      "bytes": 3359,
+      "path": "docs/replacement-loss-v19-development-freeze.json",
+      "sha256": "f7b4f689b91dda411b4e4375053c1fc7613695b0960488bb0d1821251cf57fd1"
+    },
+    {
+      "bytes": 5202,
+      "path": "docs/replacement-loss-v19-development-results.json",
+      "sha256": "b8c31c7e675afea7ea6abc41de3400054ea4aa810a788f730c6c77772b9c1385"
+    },
+    {
+      "bytes": 3639,
+      "path": "docs/replacement-loss-v19-development-results.md",
+      "sha256": "bf2e140f1332fe0f94a8a804f00291a7f1140d4d09924c85492ded13547e3cd0"
+    },
+    {
+      "bytes": 3041,
+      "path": "docs/replacement-loss-v19-development-replication.json",
+      "sha256": "e041cf30c24668dff371bd69c9032cfdf1b2198a13aeb38128070982a3f8e2da"
+    },
+    {
+      "bytes": 4831,
+      "path": "docs/replacement-loss-v19-development.md",
+      "sha256": "a6a10704bd5f5cd747535d2dc77963f5d04f4746efb5d27ff7d92d9ff0f68def"
+    },
+    {
+      "bytes": 3895,
+      "path": "docs/replacement-loss-v19-confirmatory.md",
+      "sha256": "ef1f1ce6a368a345833f8b7cbb997d26eb8330c8788a459d211d7272699f576a"
+    },
+    {
+      "bytes": 6285,
+      "path": "replacement_loss_v19_fixtures.py",
+      "sha256": "ca1be80679221208248a34836a28f56b8026c73738f87948d27031b6d5468baf"
+    },
+    {
+      "bytes": 79893,
+      "path": "replacement_loss_v19_runner.py",
+      "sha256": "4ad6fc24cf6e3f812c52da964f27926d5547bf891fbda29bff0b560b17b7dd7b"
+    },
+    {
+      "bytes": 536,
+      "path": "requirements-v19.lock.txt",
+      "sha256": "f9cde34bbd3789891aaebeaca9c32b90af377ffa0b6a7dd25c3eee2bc1fca78c"
+    },
+    {
+      "bytes": 4354,
+      "path": "docs/replacement-loss-v18-freeze.json",
+      "sha256": "4da47f238cf1e64b32e7b1d67a49a0c53e66a60714b34549b47716390afc4c26"
+    },
+    {
+      "bytes": 7530,
+      "path": "docs/replacement-loss-v18-results.md",
+      "sha256": "326305a09ed302a2c2d68999b5cc2dc0fcfad055d5c03fe38a7705aa48d92115"
+    },
+    {
+      "bytes": 6921,
+      "path": "docs/replacement-loss-v18-projected-causal-refinement.md",
+      "sha256": "5571b584daff91b6e88c7c3dd5243fc9e7cb91b6af3f526e00d2c7702ba6b54d"
+    },
+    {
+      "bytes": 4672,
+      "path": "replacement_loss_v18_fixtures.py",
+      "sha256": "f68e616b55cb8270acc0df0512da85fe2ca276bce8b8fc1b5a94e2223fe1a01d"
+    },
+    {
+      "bytes": 84171,
+      "path": "replacement_loss_v18_runner.py",
+      "sha256": "5d644420f8554de6762f10401fb46f7682283d41a8bf3b78ff5df5d1f52a1c46"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v18.lock.txt",
+      "sha256": "50050efec220b3cdfbd31dea2c7e7cfe0948e4d6004454479bb955182d3fcb66"
+    },
+    {
+      "bytes": 3275,
+      "path": "docs/replacement-loss-v17-freeze.json",
+      "sha256": "3fb1103db160d95f81f12b2d623bf37a06bc70490270a900a85c653514903224"
+    },
+    {
+      "bytes": 7111,
+      "path": "docs/replacement-loss-v17-results.md",
+      "sha256": "d36a9a7ceb3155654650511b8a59354dcb75a551201f971fb0af9c6c3cd4de9c"
+    },
+    {
+      "bytes": 6298,
+      "path": "docs/replacement-loss-v17-causal-supervision.md",
+      "sha256": "053e9a328190914bf2d9ee0ed8eee99b128496379ad168b8910cbee0e3564274"
+    },
+    {
+      "bytes": 4712,
+      "path": "replacement_loss_v17_fixtures.py",
+      "sha256": "1a3a2f5aa3c4dd27fca71701692d7059ea757e4f22055c07347b561e0276ec8c"
+    },
+    {
+      "bytes": 67350,
+      "path": "replacement_loss_v17_runner.py",
+      "sha256": "a8bcf7a1fd84d54c678aef6b6cc3d554b5103b9854a2c23a65a6d36e59bf45ad"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v17.lock.txt",
+      "sha256": "ad85cdddd69146dfabc6f20d5b50882529964c2ebabe345bbc5f0e22f38c7861"
+    },
+    {
+      "bytes": 2999,
+      "path": "docs/replacement-loss-v16-freeze.json",
+      "sha256": "d5e4e73e3240c01ba0c93e7cad29889a3b01ff928553306f5042f2d465c3508d"
+    },
+    {
+      "bytes": 6618,
+      "path": "docs/replacement-loss-v16-results.md",
+      "sha256": "d0c0b89eb7d1af0e7655d539b20257b78a1ebafd16958389492898bd1ad804e3"
+    },
+    {
+      "bytes": 8034,
+      "path": "docs/replacement-loss-v16-whole-mlp.md",
+      "sha256": "fbc70a91e7e27ab9a70cce2af0dc0ba22e1a36b5cdc028b07d5e4235882de8ef"
+    },
+    {
+      "bytes": 5018,
+      "path": "replacement_loss_v16_fixtures.py",
+      "sha256": "61b911028a19304bf87d0674cea7a4521f45ea8b93d4777563856a1c6608a8d4"
+    },
+    {
+      "bytes": 88642,
+      "path": "replacement_loss_v16_runner.py",
+      "sha256": "d53ff80e1f35d6b4f2a65e946eca556109f684ed86a2fe7e7d418abb85977947"
+    },
+    {
+      "bytes": 545,
+      "path": "requirements-v16.lock.txt",
+      "sha256": "163ba7619c952086d25fba9dff1ec6c1df58172cc743d5622c167017a6ace803"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    }
+  ],
+  "packet_sha256": "7d32925486e70e7f3d8c0e2143974005a1b12fa1a9b17874fb11aeee8db7a85f",
+  "parent_protocol": {
+    "new_method": "rank-16 low-rank causal residual anchored to a separately trained pointwise base",
+    "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+    "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+    "v19_challenge_data_used_by_v20": false,
+    "v19_qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+    "v19_reproducibility_status": "REPRODUCED_LOCAL"
+  },
+  "protocol_id": "theseus-replacement-loss-v20-development",
+  "protocol_slice": "theseus-replacement-loss-v20-low-rank-causal-residual-v1",
+  "qualification": {
+    "cells": 9,
+    "continuation_ce_increase_max": 0.05,
+    "effect_ratio_max": 0.9,
+    "low_rank": 16,
+    "normalized_next_logit_error_max": 0.05,
+    "seeds": [
+      202610801,
+      202610802,
+      202610803
+    ],
+    "strata": [
+      "ordinary",
+      "compositional",
+      "adversarial"
+    ],
+    "updates_base_and_residual": 1000,
+    "value_ratio_max": 1.25
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_identity": {
+    "fresh_checkpoint_claim": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "selected_layer": 8,
+    "target_known_before_protocol": true,
+    "tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "weight_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132"
+  }
+}

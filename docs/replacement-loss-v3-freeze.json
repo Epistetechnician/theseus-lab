@@ -1,0 +1,40 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "challenge_fixtures_generated": false,
+  "checkpoint_identities_selected": false,
+  "created_at_utc": "2026-09-24T22:29:49.463418+00:00",
+  "freeze_state": "FROZEN_BEFORE_CHECKPOINT_SELECTION",
+  "packet_files": [
+    {
+      "path": "docs/replacement-loss-v3.md",
+      "sha256": "9ad83df229bc3f168193f47af35c885a21fb7b562fc46ad92b76af5d9c8d0ca7"
+    },
+    {
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "path": "tests/test_replacement_loss_v3.py",
+      "sha256": "e6098b01ade8424963274f624f9b0f896edb41b90ba390e4f0313a69b3fba395"
+    },
+    {
+      "path": "tests/test_replacement_loss_v3_runner.py",
+      "sha256": "d85ca37c0ea9aa5aaad94fa34b5970ac79403ec8983d442cc1880857a158f1b4"
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    }
+  ],
+  "packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+  "protocol_id": "theseus-replacement-loss-v3",
+  "state_slice": "theseus-lab-sandbox-v1"
+}

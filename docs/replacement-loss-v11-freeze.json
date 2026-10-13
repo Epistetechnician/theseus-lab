@@ -1,0 +1,110 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "challenge_fixtures_generated": false,
+  "claim_ceiling": "LOCAL_CAUSAL_FIT_REMEDIATION_ON_REUSED_V9_OPT_CHECKPOINT_WITH_NEW_SYNTHETIC_FIXTURES",
+  "created_at_utc": "2026-09-29T21:35:49.375985+00:00",
+  "fixture_seed_count": 3,
+  "freeze_state": "FROZEN_BEFORE_NEW_FIXTURES_AND_FITTING",
+  "methods": [
+    "activation_ridge",
+    "causal_fit"
+  ],
+  "packet_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "path": "docs/replacement-loss-v11.md",
+      "sha256": "0042dc858797eb6c64e63c330c55a353faafb4059cad691065f6f13078f9bb06"
+    },
+    {
+      "path": "docs/replacement-loss-v9.md",
+      "sha256": "4f63fd5023653da8b5ef6971f8882c694d2c61e55e1b3969aa7d1f74ea995fa5"
+    },
+    {
+      "path": "docs/replacement-loss-v9-results.md",
+      "sha256": "14fe646407cfdc56ca0a9120d14623ac9ba558de50a69fe94ca3d2fb0f5b2116"
+    },
+    {
+      "path": "docs/replacement-loss-v9-freeze.json",
+      "sha256": "45ba0c373b7f061ac54c4b04d217d2e80d42a5de193561d5a45245b7868ae4d6"
+    },
+    {
+      "path": "replacement_loss_v11_fixtures.py",
+      "sha256": "7c5a0dfb53da1195113809157d0e935ba7c26a58912f4017a18f2be7105c5d45"
+    },
+    {
+      "path": "replacement_loss_v11_runner.py",
+      "sha256": "2ac6904f11608876012e5a41608f3c50d6942f5a8f1c94e1ab7789731e85307d"
+    },
+    {
+      "path": "tests/test_replacement_loss_v11.py",
+      "sha256": "d3b6d93ce5efc58ebb4c3c0abb5b0c5b92200e85af04633929bf07ae84ef3249"
+    },
+    {
+      "path": "requirements-v11.lock.txt",
+      "sha256": "8cbfe8100f265d7c472c1ffc086df2d82be3b51cc96c9ef29c2f23951f055545"
+    },
+    {
+      "path": "docs/replacement-loss-v10.md",
+      "sha256": "32e5fc3683c761e3173fdc1135ae832be355279f67fa763bd988ffff66e807c2"
+    },
+    {
+      "path": "docs/replacement-loss-v10-freeze.json",
+      "sha256": "6e12cebeb3f2b1f9b1766c748b59b0233d3b249575f629d1c5ad4ce2254fcd74"
+    },
+    {
+      "path": "replacement_loss_v10_fixtures.py",
+      "sha256": "c32607428c840bdf07576e3b102e699114c473d79629097c802e71482576e6f2"
+    },
+    {
+      "path": "replacement_loss_v10_runner.py",
+      "sha256": "b715508f4367fb093120c863e34310586b7be892bdd83e5bae381535c4decbff"
+    },
+    {
+      "path": "requirements-v10.lock.txt",
+      "sha256": "0469ff6948f4866ea4df13d88c53a27adab3141ecb42af1325d31086ca8458d1"
+    },
+    {
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    }
+  ],
+  "packet_sha256": "2bd4e9903b2611ac454a0ff26ffabb051231bd2469f6895aee67504d8c99c582",
+  "protocol_id": "theseus-replacement-loss-v11-known-opt-causal-fit-remediation",
+  "protocol_slice": "theseus-replacement-loss-v11-known-opt-causal-fit-v1",
+  "resource_limits": {
+    "execution": "local_cpu_only",
+    "max_parameters": 200000000,
+    "max_rss_bytes": 17179869184,
+    "max_total_seconds": 14400,
+    "max_weight_bytes": 838860800,
+    "paid_or_remote_compute": false
+  },
+  "reused_target": {
+    "checkpoint_tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "fresh_checkpoint_generalization_claimed": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "raw_weight_file_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "source_checkpoint_manifest_canonical_sha256": "dc7e198ac55a27b3cffc1a45b9bb73b7006afc2e2bd689403e223eda1cb1dfc7",
+    "source_checkpoint_manifest_file_sha256": "b52bd7b94eb1e14c0453ba9318fcec2b39f0a210ca4c35f88b070bd57cd8e277",
+    "source_packet_sha256": "9366fa49da0513be2f405fdff7f8ecd685b4a29991a31ec4f1eac0b947aae959",
+    "source_protocol_id": "theseus-replacement-loss-v9-causal-ladder"
+  },
+  "selected_layers": [
+    0,
+    7
+  ],
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_predeclared_before_freeze": true
+}

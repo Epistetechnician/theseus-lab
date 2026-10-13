@@ -1,0 +1,154 @@
+{
+  "assurance_level": "REPRODUCED_LOCAL",
+  "behavior_and_mechanism_diverged": true,
+  "blind_status": "NOT_BLIND_SAME_OWNER_REPLAY",
+  "candidate_set_sha256": "1b85fec821551acf1e5bcea057bc3e2d1a98fea1b61c7e553a5e3f7b7acc4889",
+  "claim_ceiling": "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "prompts, continuations, intervention targets, captures, candidates, and row-level metrics remain on external owner custody",
+  "limitations": [
+    "single reused OPT/ReLU checkpoint and preselected block 8",
+    "synthetic prompts on one language-model family do not constitute architecture replication",
+    "validation effects are held out by prompt and independently generated direction, but remain local same-owner data",
+    "confirmation oracle restoration is a pipeline control, not learned activation rescue"
+  ],
+  "next_blocked_authority_gate": "new method packet required; do not create confirmation fixtures",
+  "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+  "protocol_id": "theseus-replacement-loss-v21-development",
+  "protocol_slice": "theseus-replacement-loss-v21-paired-endpoint-supervision-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "replication_report_sha256": "389095013138fd7b8ef357a2d6511fca6b1c0bba40a64ea5def5a6947716be85",
+  "repository_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2919186432,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 96.22669683299318
+    },
+    "replica": {
+      "peak_rss_bytes": 2724429824,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 95.77063995899516
+    }
+  },
+  "result_document_sha256": "cf380e03bd8a2fe4b02f63723f088ab30b575c96fdc61225acc5ca6af8120bce",
+  "reviewer_status": "NOT_SUBMITTED",
+  "scientific_results_sha256": "a8af01248ac55b71e9cc00fdf813fa08cf333b02b15ee3019180fc78d3865f42",
+  "selection": {
+    "cell_count": 9,
+    "cells": [
+      {
+        "effect_mse_ratio_zero": 1.0538282812387094,
+        "median_normalized_next_logit_error": 0.006973257423813184,
+        "seed_index": 0,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.037244975566864014,
+        "validation_effect_mse": 1.2925715359157763e-09,
+        "validation_value_mse": 0.00019544613132893573,
+        "value_mse_ratio_pointwise": 0.7667597112547334,
+        "zero_effect_validation_mse": 1.226548536348293e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0661476887106283,
+        "median_normalized_next_logit_error": 0.015912901480796774,
+        "seed_index": 0,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.01788473129272461,
+        "validation_effect_mse": 1.267184780717745e-09,
+        "validation_value_mse": 0.00030294788484752644,
+        "value_mse_ratio_pointwise": 0.7855616221610695,
+        "zero_effect_validation_mse": 1.188564018039795e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.002948109746511,
+        "median_normalized_next_logit_error": 0.004200249221023952,
+        "seed_index": 0,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": -0.030975759029388428,
+        "validation_effect_mse": 1.7013302572310707e-09,
+        "validation_value_mse": 0.00023438527296093525,
+        "value_mse_ratio_pointwise": 0.7414275437014711,
+        "zero_effect_validation_mse": 1.6963292923111162e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.050263286973682,
+        "median_normalized_next_logit_error": 0.013913590810238009,
+        "seed_index": 1,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.068916916847229,
+        "validation_effect_mse": 1.3142016086487018e-09,
+        "validation_value_mse": 0.00020978785778424935,
+        "value_mse_ratio_pointwise": 0.7222662567569582,
+        "zero_effect_validation_mse": 1.2513068151087658e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0659274596029722,
+        "median_normalized_next_logit_error": 0.010706669464151924,
+        "seed_index": 1,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.02653592824935913,
+        "validation_effect_mse": 1.2630040346905957e-09,
+        "validation_value_mse": 0.0002938566076409188,
+        "value_mse_ratio_pointwise": 0.7597557290575832,
+        "zero_effect_validation_mse": 1.184887417349234e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0043713442207065,
+        "median_normalized_next_logit_error": 0.006401160011841487,
+        "seed_index": 1,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": -0.018810510635375977,
+        "validation_effect_mse": 1.6998487062380718e-09,
+        "validation_value_mse": 0.00026831500235857675,
+        "value_mse_ratio_pointwise": 0.7183751959752643,
+        "zero_effect_validation_mse": 1.6924504228632564e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0566800913461134,
+        "median_normalized_next_logit_error": 0.009406535444873453,
+        "seed_index": 2,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.05505731701850891,
+        "validation_effect_mse": 1.3089661715648404e-09,
+        "validation_value_mse": 0.0002264395361635252,
+        "value_mse_ratio_pointwise": 0.7849150840357548,
+        "zero_effect_validation_mse": 1.2387535094915414e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0678654837322414,
+        "median_normalized_next_logit_error": 0.009235530505919432,
+        "seed_index": 2,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.018667489290237427,
+        "validation_effect_mse": 1.2737645660454433e-09,
+        "validation_value_mse": 0.00028795241451007314,
+        "value_mse_ratio_pointwise": 0.8124541519537505,
+        "zero_effect_validation_mse": 1.1928136881000917e-09
+      },
+      {
+        "effect_mse_ratio_zero": 0.9833734554780706,
+        "median_normalized_next_logit_error": 0.004806344486425094,
+        "seed_index": 2,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": -0.01971641182899475,
+        "validation_effect_mse": 1.654480080715004e-09,
+        "validation_value_mse": 0.00026086218349519186,
+        "value_mse_ratio_pointwise": 0.7934608608016556,
+        "zero_effect_validation_mse": 1.6824534682102765e-09
+      }
+    ],
+    "equal_cell_mean_effect_mse_ratio": 1.039045022338848,
+    "gates": {
+      "continuation_behavior_all_cells": true,
+      "effect_reduction_all_cells": false,
+      "next_logit_behavior_all_cells": true,
+      "nine_seed_stratum_cells": true,
+      "value_retention_all_cells": true
+    },
+    "qualified": false,
+    "worst_cell_effect_mse_ratio": 1.0678654837322414
+  },
+  "state_slice": "theseus-lab-sandbox-v1"
+}

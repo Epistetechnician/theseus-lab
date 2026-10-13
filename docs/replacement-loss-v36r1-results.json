@@ -1,0 +1,41 @@
+{
+  "protocol_id": "theseus-pretrained-whole-block-transfer-v36r1",
+  "date": "2026-10-06",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-pretrained-whole-block-transfer-v36r1",
+    "theseus-public-checkpoint-acquisition-v36r1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "packet_sha256": "81d58c3867fcae4a6b48549153d6b3b6769df49b8bdc04b382de5e53be270de7",
+  "source_freeze_sha256": "1459fef1a60951e36e35338a2e14f13a33c05cf0ec9ec06be55a864413b94a99",
+  "outcome_status": "NO_ELIGIBLE_CHECKPOINT_COHORT",
+  "assurance_level": "INTERNAL_PASS",
+  "assurance_scope": "29 engineering tests and bounded custody/metadata execution only",
+  "reviewer_status": "NOT_SUBMITTED",
+  "scientific_reproducibility_status": "NOT_RUN",
+  "model_weights_downloaded": 0,
+  "replacements_trained": 0,
+  "held_out_evaluations": 0,
+  "intake": {
+    "historical_files": 1613,
+    "quarantined_opaque_exports": 3,
+    "sha256": "ac7a8ab44d7944d7d8c183f34fd0a984bb4b8ed65be9c7137e4e68d6bcafabd6"
+  },
+  "catalog_counts": {
+    "opt_relu": 0,
+    "gpt2_gelu": 0,
+    "llama_silu_gated": 8
+  },
+  "qualified_families": 0,
+  "screen_sha256": "e959970e7d4897aa2bde33967ed57252f5c1bcd2e9a9682c22e32fbb9b1baed4",
+  "acquisition_result_sha256": "88d898c62854254430d8ae15c18ce01794d52fc6ecce8822f43c75f96859d130",
+  "claim_ceiling": "LOCAL_PRETRAINED_TWO_MLP_INTERFACE_REPLACEMENT_ONLY",
+  "known_limitation": "Empty filtered catalogs do not establish unavailable compatible models; a separate catalog-contract audit found materially different unfiltered returns.",
+  "paid_execution_cost_usd": 0,
+  "energy_amortization_and_network_economics": "NOT_MEASURED",
+  "custody": "All detailed metadata receipts remain under the V36R1 external artifact root.",
+  "retry_same_root_permitted": false,
+  "next_slice": "theseus-pretrained-whole-block-transfer-v36r2"
+}

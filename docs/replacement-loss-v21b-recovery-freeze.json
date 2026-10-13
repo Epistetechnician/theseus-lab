@@ -1,0 +1,193 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_PAIRED_ENDPOINT_SUPERVISION_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "execution_identity": {
+    "confirmation_primary_root": "theseus-lab-sandbox-v1-replacement-loss-v21b-confirmation-primary",
+    "confirmation_replica_root": "theseus-lab-sandbox-v1-replacement-loss-v21b-confirmation-replica",
+    "development_primary_root": "theseus-lab-sandbox-v1-replacement-loss-v21b-development-primary",
+    "development_replica_root": "theseus-lab-sandbox-v1-replacement-loss-v21b-development-replica",
+    "fresh_output_roots_required": true,
+    "v20b_primary_root": "theseus-lab-sandbox-v1-replacement-loss-v20b-development-primary",
+    "v21_scientific_packet_unchanged": true
+  },
+  "freeze_sha256": "51f7174b076eec2493517d24aad7cffc8f87483c4396dc0e02a76f9a0035721d",
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 6204,
+      "path": "docs/causal-effect-identifiability-boundary-v1.md",
+      "sha256": "32f54b5d1af9ee52980b19bd1385ac9bedee303b99bbce599f0d45f0aedae784"
+    },
+    {
+      "bytes": 6426,
+      "path": "docs/replacement-loss-v21-development-freeze.json",
+      "sha256": "5ad56e499664722fe244558b39b6263e85a03497fa443c8e80e4a371cdc73f9a"
+    },
+    {
+      "bytes": 6233,
+      "path": "docs/replacement-loss-v21-paired-endpoint-supervision.md",
+      "sha256": "993c6300f240d9e1f84c949864be09da00b0f6de733cd373ba783f356c103977"
+    },
+    {
+      "bytes": 6526,
+      "path": "replacement_loss_v21_fixtures.py",
+      "sha256": "4ed5610b95c4f97cc606ebebbdc33b0d96f93512d1a2227d27cad17012bf69aa"
+    },
+    {
+      "bytes": 26515,
+      "path": "replacement_loss_v21_runner.py",
+      "sha256": "7b9c934dcd232c12f3661690d9aaa2b3170b0fbd9166868726b67900edd71487"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v21.lock.txt",
+      "sha256": "d92245f2fac7be7bf99b6a5cbc689af878032c29d634b1d77af391fcdad6c24f"
+    },
+    {
+      "bytes": 1193,
+      "path": "docs/replacement-loss-v21b-run-recovery.md",
+      "sha256": "a89f63eecd83d528c28c7f653c77037ea004dc154344ae3a1d62e83bd96ef43f"
+    },
+    {
+      "bytes": 8893,
+      "path": "replacement_loss_v21b_recovery.py",
+      "sha256": "9ed68ce78c39d8333d8afcff8e8994a97d78781db58694926bdbefe2d98badbe"
+    }
+  ],
+  "packet_sha256": "e02d75bccf7dbaa50f561df85194298f808c8c22953371148e1671052ed69b24",
+  "parent_failed_attempt": {
+    "failed_root_archive_manifest_sha256": "50fbb7bab4e2616e5ffc973f3fbc0e91055c65302b7ccbe9f719f824d1dd3c02",
+    "failed_root_inventory": [
+      {
+        "bytes": 815,
+        "path": "frozen-packet/AGENTS.md",
+        "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+      },
+      {
+        "bytes": 6204,
+        "path": "frozen-packet/docs/causal-effect-identifiability-boundary-v1.md",
+        "sha256": "32f54b5d1af9ee52980b19bd1385ac9bedee303b99bbce599f0d45f0aedae784"
+      },
+      {
+        "bytes": 7468,
+        "path": "frozen-packet/docs/replacement-loss-v20-development-freeze.json",
+        "sha256": "fbb90096bccd39af09eef7b44482d42853045c4796dc49b8de39868e12198e8d"
+      },
+      {
+        "bytes": 6308,
+        "path": "frozen-packet/docs/replacement-loss-v20-low-rank-causal-residual.md",
+        "sha256": "5aa14eadd0c1a32b5ef61a1117d0d4892e8316e1de4c1a4db90b339a99cc6d99"
+      },
+      {
+        "bytes": 6167,
+        "path": "frozen-packet/docs/replacement-loss-v20b-development-freeze.json",
+        "sha256": "25912df9fb0d442c165e28cea1299a8451cb2a29f7a5223a1731efbd019d8f16"
+      },
+      {
+        "bytes": 3035,
+        "path": "frozen-packet/docs/replacement-loss-v20b-development-replication.json",
+        "sha256": "fc13d3a332ad9c4b3bfb6d2503f1451ef5d0119944cdd9a4206f445b323682e9"
+      },
+      {
+        "bytes": 7215,
+        "path": "frozen-packet/docs/replacement-loss-v20b-development-results.json",
+        "sha256": "538992bc6bc8afd0c26455892a5b4956cf1976f56f6b7c58ecc9bb078af00df2"
+      },
+      {
+        "bytes": 1983,
+        "path": "frozen-packet/docs/replacement-loss-v20b-development-results.md",
+        "sha256": "c3688cfdbe4c0e0b65bc75a42f4811bb566252bfeb521f361419d731a97f0432"
+      },
+      {
+        "bytes": 2992,
+        "path": "frozen-packet/docs/replacement-loss-v20b-low-rank-causal-residual.md",
+        "sha256": "36c6e2d5df2dbf31107c08d7b99dc98b21d15bf4a0b1a9526abfc79a5b47fc7e"
+      },
+      {
+        "bytes": 6426,
+        "path": "frozen-packet/docs/replacement-loss-v21-development-freeze.json",
+        "sha256": "5ad56e499664722fe244558b39b6263e85a03497fa443c8e80e4a371cdc73f9a"
+      },
+      {
+        "bytes": 6233,
+        "path": "frozen-packet/docs/replacement-loss-v21-paired-endpoint-supervision.md",
+        "sha256": "993c6300f240d9e1f84c949864be09da00b0f6de733cd373ba783f356c103977"
+      },
+      {
+        "bytes": 6650,
+        "path": "frozen-packet/replacement_loss_v20_fixtures.py",
+        "sha256": "79dfad79c162fd2a7eacb5696f6f2cf81660eff98815cec6ed57aaa1a9ecacf8"
+      },
+      {
+        "bytes": 72347,
+        "path": "frozen-packet/replacement_loss_v20_runner.py",
+        "sha256": "53b69efca5cf7036531f1f7d94ea2f736549569acd109e60cb362a5437f360a9"
+      },
+      {
+        "bytes": 2745,
+        "path": "frozen-packet/replacement_loss_v20b_fixtures.py",
+        "sha256": "5bb0b8ff024d4ddcf6ed90496f750e4b5a0e9713043915365589127bec45c9f4"
+      },
+      {
+        "bytes": 17597,
+        "path": "frozen-packet/replacement_loss_v20b_runner.py",
+        "sha256": "0af60dfe34ece9cf1d49c5bbf23a581005360d506c4262ca4620f9d364a66127"
+      },
+      {
+        "bytes": 6526,
+        "path": "frozen-packet/replacement_loss_v21_fixtures.py",
+        "sha256": "4ed5610b95c4f97cc606ebebbdc33b0d96f93512d1a2227d27cad17012bf69aa"
+      },
+      {
+        "bytes": 26515,
+        "path": "frozen-packet/replacement_loss_v21_runner.py",
+        "sha256": "7b9c934dcd232c12f3661690d9aaa2b3170b0fbd9166868726b67900edd71487"
+      },
+      {
+        "bytes": 536,
+        "path": "frozen-packet/requirements-v20.lock.txt",
+        "sha256": "e7eb5e9ecfb24f9c195931e1598402268f4dcec45f4786da06c4e160a7e6abec"
+      },
+      {
+        "bytes": 550,
+        "path": "frozen-packet/requirements-v20b.lock.txt",
+        "sha256": "4565c46269baae5417aa9405d294b31064f6c49a6d5a1005a7c291f6bd2bde6b"
+      },
+      {
+        "bytes": 539,
+        "path": "frozen-packet/requirements-v21.lock.txt",
+        "sha256": "d92245f2fac7be7bf99b6a5cbc689af878032c29d634b1d77af391fcdad6c24f"
+      },
+      {
+        "bytes": 3830,
+        "path": "frozen-packet-manifest.json",
+        "sha256": "50fbb7bab4e2616e5ffc973f3fbc0e91055c65302b7ccbe9f719f824d1dd3c02"
+      },
+      {
+        "bytes": 1280,
+        "path": "primary-runtime.log",
+        "sha256": "27a056ed2423dd0fd73763d5a07fb0d3d8ae5393f86356ea14e2229a28288b2c"
+      },
+      {
+        "bytes": 379,
+        "path": "run-stop.json",
+        "sha256": "41f84a3e41d24e1384a2acf9906a1dced30765c26e3f4cdfeeefc7b9bd386846"
+      }
+    ],
+    "failed_root_inventory_sha256": "570e4fa98944978d84898fa9ba62217364e111607644df07ab774f2f48106d02",
+    "failed_root_stop_sha256": "41f84a3e41d24e1384a2acf9906a1dced30765c26e3f4cdfeeefc7b9bd386846",
+    "freeze_sha256": "5ca8b34a02ea8ae4c6bccd0a04fa45a378a00004e0d781c9d723951ee2c0c1f0",
+    "no_v21_data_generated": true,
+    "packet_sha256": "8b95876077c15779b3c215872316e68a4fc52094ed23d0492672fbd3d4d6b7bd",
+    "protocol_id": "theseus-replacement-loss-v21-development",
+    "v20b_parent_packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+    "v20b_primary_root": "theseus-lab-sandbox-v1-replacement-loss-v20b-development-primary"
+  },
+  "protocol_id": "theseus-replacement-loss-v21b-run-recovery",
+  "protocol_slice": "theseus-replacement-loss-v21b-run-recovery-v1",
+  "state_slice": "theseus-lab-sandbox-v1"
+}

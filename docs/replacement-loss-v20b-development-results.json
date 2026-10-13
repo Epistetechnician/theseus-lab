@@ -1,0 +1,155 @@
+{
+  "assurance_level": "REPRODUCED_LOCAL",
+  "behavior_and_mechanism_diverged": true,
+  "blind_status": "NOT_BLIND_SAME_OWNER_REPLAY",
+  "candidate_set_sha256": "23def68ef96af73fcd29cba19291ed325799d352f361d1766495ea4deeaf5ee5",
+  "claim_ceiling": "LOCAL_LOW_RANK_CAUSAL_RESIDUAL_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "prompts, continuations, intervention targets, captures, candidates, and row-level metrics remain on external owner custody",
+  "limitations": [
+    "single reused OPT/ReLU checkpoint and preselected block 8",
+    "synthetic prompts on one language-model family do not constitute architecture replication",
+    "validation effects are held out by prompt and independently generated direction, but remain local same-owner data",
+    "confirmation oracle restoration is a pipeline control, not learned activation rescue"
+  ],
+  "next_blocked_authority_gate": "new method packet required; do not create confirmation fixtures",
+  "packet_sha256": "8431bade93a85ce559e34dac3d3d324da78663b96a21540ffbcf10ea54319196",
+  "protocol_id": "theseus-replacement-loss-v20b-development",
+  "protocol_slice": "theseus-replacement-loss-v20b-low-rank-causal-residual-continuation-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "replication_report_sha256": "0153d88b998ed62196687d4f44aa6f38958b401fc46a4b18a8481607cb7b35d9",
+  "repository_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2790785024,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 98.78879650001181
+    },
+    "replica": {
+      "peak_rss_bytes": 2939420672,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 101.47059362499567
+    }
+  },
+  "result_document_sha256": "6838f6cc9667df2bf29351a399e6b3a1509ed9f6c0cdf33d502f574c49fe7f40",
+  "reviewer_status": "NOT_SUBMITTED",
+  "scientific_results_sha256": "f24b90241e4e06aa4bf54e92ec396afe8779b8f1a32d72ee54cde782fc3b44d1",
+  "divergence_basis": "All 9 continuation-CE and next-logit behavior gates pass, while only 3 of 9 causal-effect gates pass; the six ordinary/compositional cells fail with effect ratios 1.0639 to 1.0755.",
+  "selection": {
+    "cell_count": 9,
+    "cells": [
+      {
+        "effect_mse_ratio_zero": 1.0639133810717532,
+        "median_normalized_next_logit_error": 0.010392607627745288,
+        "seed_index": 0,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.056960225105285645,
+        "validation_effect_mse": 1.2615837402529806e-09,
+        "validation_value_mse": 0.0006069274350011256,
+        "value_mse_ratio_pointwise": 1.9502009082509948,
+        "zero_effect_validation_mse": 1.185795538150014e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.075524176685923,
+        "median_normalized_next_logit_error": 0.008942259334381013,
+        "seed_index": 0,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.002012908458709717,
+        "validation_effect_mse": 1.235665826604393e-09,
+        "validation_value_mse": 0.0006704191691824235,
+        "value_mse_ratio_pointwise": 1.7505041202576685,
+        "zero_effect_validation_mse": 1.1488963738703895e-09
+      },
+      {
+        "effect_mse_ratio_zero": 0.26791503001254013,
+        "median_normalized_next_logit_error": 0.018396084811984133,
+        "seed_index": 0,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": -0.0385039746761322,
+        "validation_effect_mse": 4.3039900463059944e-10,
+        "validation_value_mse": 0.0006155985101941042,
+        "value_mse_ratio_pointwise": 1.7910377951368261,
+        "zero_effect_validation_mse": 1.6064757718536882e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0703316330602224,
+        "median_normalized_next_logit_error": 0.010171661857162732,
+        "seed_index": 1,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.0754421055316925,
+        "validation_effect_mse": 1.2740592469917544e-09,
+        "validation_value_mse": 0.0005815311233163811,
+        "value_mse_ratio_pointwise": 2.1505572714433447,
+        "zero_effect_validation_mse": 1.1903406454960574e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0713745729296218,
+        "median_normalized_next_logit_error": 0.012740090104062837,
+        "seed_index": 1,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.006371587514877319,
+        "validation_effect_mse": 1.230691618059332e-09,
+        "validation_value_mse": 0.0006329437128442805,
+        "value_mse_ratio_pointwise": 1.8495793542234098,
+        "zero_effect_validation_mse": 1.1487034032309218e-09
+      },
+      {
+        "effect_mse_ratio_zero": 0.27000305769059446,
+        "median_normalized_next_logit_error": 0.010294606671384324,
+        "seed_index": 1,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": -0.039661258459091187,
+        "validation_effect_mse": 4.277308628813925e-10,
+        "validation_value_mse": 0.0006228000493138097,
+        "value_mse_ratio_pointwise": 1.9707247172199716,
+        "zero_effect_validation_mse": 1.584170440660504e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.0697369180534775,
+        "median_normalized_next_logit_error": 0.013610172308049178,
+        "seed_index": 2,
+        "stratum": "ordinary",
+        "validation_cross_entropy_increase": -0.06418374180793762,
+        "validation_effect_mse": 1.2462485488029529e-09,
+        "validation_value_mse": 0.0006042970235284884,
+        "value_mse_ratio_pointwise": 2.0049082853459406,
+        "zero_effect_validation_mse": 1.1650047107569783e-09
+      },
+      {
+        "effect_mse_ratio_zero": 1.069906249589512,
+        "median_normalized_next_logit_error": 0.009650449436464873,
+        "seed_index": 2,
+        "stratum": "compositional",
+        "validation_cross_entropy_increase": 0.022041112184524536,
+        "validation_effect_mse": 1.229827829851704e-09,
+        "validation_value_mse": 0.0006448578023992013,
+        "value_mse_ratio_pointwise": 1.715657655370817,
+        "zero_effect_validation_mse": 1.1494725171701248e-09
+      },
+      {
+        "effect_mse_ratio_zero": 0.2789851453537169,
+        "median_normalized_next_logit_error": 0.00683838918280893,
+        "seed_index": 2,
+        "stratum": "adversarial",
+        "validation_cross_entropy_increase": 0.00045567750930786133,
+        "validation_effect_mse": 4.3875343115618026e-10,
+        "validation_value_mse": 0.0006624902744079009,
+        "value_mse_ratio_pointwise": 1.8041072759013377,
+        "zero_effect_validation_mse": 1.5726766763868305e-09
+      }
+    ],
+    "equal_cell_mean_effect_mse_ratio": 0.8041877960497068,
+    "gates": {
+      "continuation_behavior_all_cells": true,
+      "effect_reduction_all_cells": false,
+      "next_logit_behavior_all_cells": true,
+      "nine_seed_stratum_cells": true,
+      "value_retention_all_cells": false
+    },
+    "qualified": false,
+    "worst_cell_effect_mse_ratio": 1.075524176685923
+  },
+  "state_slice": "theseus-lab-sandbox-v1"
+}

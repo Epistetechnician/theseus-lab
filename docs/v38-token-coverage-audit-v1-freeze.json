@@ -1,0 +1,33 @@
+{
+  "claim_ceiling": "ADAPTATION_TOKEN_COVERAGE_DIAGNOSIS_ONLY",
+  "frozen_before_measurement": true,
+  "members": [
+    {
+      "bytes": 8089,
+      "path": "theseus_token_coverage_audit_v1.py",
+      "sha256": "7a610ac1c2fc59dff47d08ebe8bce158c6d96dce29e7db36610420b3ba986afc"
+    },
+    {
+      "bytes": 811,
+      "path": "tests/test_token_coverage_audit_v1.py",
+      "sha256": "5a9b9903df1b5cf10fcfc09f0d4ef661c1d4581dac75328c8d3d044616e697e7"
+    },
+    {
+      "bytes": 2744,
+      "path": "docs/v38-token-coverage-audit-v1.md",
+      "sha256": "7c24744f9a28c2e65e74e06208970a36d3fa4fe67a3624b8bc1ef197a3732e90"
+    },
+    {
+      "bytes": 7372,
+      "path": "docs/replacement-loss-v38-freeze.json",
+      "sha256": "0d43bdd69b113404bf89cffcc9cd95baf6a83fbaa9b55b6a224339a340630be3"
+    },
+    {
+      "bytes": 6267,
+      "path": "docs/replacement-loss-v38-results.json",
+      "sha256": "a2614c36a24ac83bfd27174d2b5024c8c479d74e50ea2bc7b7e5168158fd4a3b"
+    }
+  ],
+  "packet_sha256": "ae4fd5ae25807c194aa3b1dabfc2bcd6041b52def932cee72968d897ded92a40",
+  "protocol_id": "theseus-v38-token-coverage-audit-v1"
+}

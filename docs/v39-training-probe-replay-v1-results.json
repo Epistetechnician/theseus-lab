@@ -1,0 +1,165 @@
+{
+  "protocol_id": "theseus-v39-training-probe-replay-v1",
+  "date": "2026-10-07",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "Revision plus digest-bound uncommitted source",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-training-probe-replay-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "outcome_status": "TRAINING_DIRECTION_UNDERFIT_SUPPORTED",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "EXACT_PROJECTIONS_METRICS_TRACE_SUMMARIES_AND_DECISION_IN_SECOND_LOCKED_PREFIX",
+  "claim_ceiling": "ADAPTATION_TRAINING_DIRECTION_RESIDUAL_DIAGNOSIS_ONLY",
+  "packet_sha256": "952f46661f9eacf97ebddbef4a9827a94e38960f2bed0cbbbf14f6b67409d76e",
+  "source_freeze_sha256": "41c6606ecadef99edb83acd4d732892490e910831adfe4443ab3f653b7dabce8",
+  "parent_validation_sha256": "4dc4c04006b0a9740f5d17bc29f2722b53e2cc372a832fa060a2ba49035cccf1",
+  "parent_arrays_sha256": "b358c66c7b6e61be7fb16132813654ab3b37984d9f86a4036a34bdac612971e6",
+  "primary_result_sha256": "6d29bec2d1dff34bec5d7cb2aa3c4f254315cb9fe552bce40a6559de1908b676",
+  "replica_result_sha256": "f1157d6d8683cfe8141e6b3de174b665ae865cb5aa1805c254b82b9e9ad2cf3b",
+  "reconciliation_sha256": "910692bc6675767cdf34455122df88eb424c28f79515fca810a96f2319cd2685",
+  "validation_sha256": "8d4b08720d5209b203075ef72e8658b586086caea1beb7f6a6ca33521846ae5b",
+  "arrays_sha256": "726d07ee1fd9d59a02dbea071f1543f87cae7e05534e0c55640a943ea3798a6b",
+  "source_members": 5,
+  "engineering_contract_tests_passed_per_prefix": 3,
+  "reconciliation_checks": 8,
+  "projection_cells_per_role": 36,
+  "new_model_forwards": 0,
+  "new_training_steps": 0,
+  "new_heldout_queries": 0,
+  "paid_execution_usd": 0,
+  "paid_cap_usd": 0,
+  "primary_resources": {
+    "artifact_bytes": 14179150,
+    "energy": "NOT_MEASURED",
+    "paid_execution_usd": 0,
+    "peak_rss_bytes": 613826560,
+    "wall_seconds": 32.70098370802589
+  },
+  "replica_resources": {
+    "artifact_bytes": 14179150,
+    "energy": "NOT_MEASURED",
+    "paid_execution_usd": 0,
+    "peak_rss_bytes": 612122624,
+    "wall_seconds": 21.34201208304148
+  },
+  "trace_summaries": {
+    "gpt2_gelu-36101/endpoints": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 1,
+      "fraction_coefficient_below_one": 0
+    },
+    "gpt2_gelu-36101/jvp": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 0.3697612273115079,
+      "fraction_coefficient_below_one": 0.1474609375
+    },
+    "gpt2_gelu-36102/endpoints": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 1,
+      "fraction_coefficient_below_one": 0
+    },
+    "gpt2_gelu-36102/jvp": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 0.40545145368735724,
+      "fraction_coefficient_below_one": 0.1181640625
+    },
+    "gpt2_gelu-36103/endpoints": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 1,
+      "fraction_coefficient_below_one": 0
+    },
+    "gpt2_gelu-36103/jvp": {
+      "coefficient_max": 1,
+      "coefficient_median": 1,
+      "coefficient_min": 0.35350019724904014,
+      "fraction_coefficient_below_one": 0.1337890625
+    }
+  },
+  "known_limitations": [
+    "Saved Jacobians projected along reconstructed original directions; not an exact floating-point replay of original batch JVP targets or full optimizer loss.",
+    "Only fixed sampled adaptation points of one reused GPT-2 first MLP; no new retention, unseen architecture or semantic task result.",
+    "Projection residuals do not isolate optimizer, loss weighting, update budget or capacity as the unique cause.",
+    "The coefficient trace records norms and weights, not gradient angles or causal effects of changing the cap.",
+    "Same owner/host/shared source and libraries; no independent acceptance or production authorization.",
+    "Endpoint probes are a paired constructed reference; the endpoint arm did not use a derivative objective. The underfit decision applies to the JVP arm."
+  ],
+  "data_and_artifact_custody": "All projected vectors, original traces/captures and Jacobians remain on PrimaryED; locked runtimes on Backup ED; only code, metadata and scalar receipts in repository.",
+  "next_local_obligation": "Freeze a first-MLP pilot that separates longer optimization from greater student capacity while keeping the objective and held-out causal/behavior/rescue gates fixed. Use fresh fitting and held-out fixtures, preserve all failures.",
+  "next_blocked_authority_gate": "Configured independent authority for stronger science; separate operational authority for production.",
+  "jvp": {
+    "first": {
+      "training": [
+        0.666024814998997,
+        0.704221018632584
+      ],
+      "fresh": [
+        0.7999774312698626,
+        0.8539102416136172
+      ]
+    },
+    "middle_prefix": {
+      "training": [
+        0.8854018711751901,
+        0.9210647265650168
+      ],
+      "fresh": [
+        0.9439179739786365,
+        0.9474602460762057
+      ]
+    },
+    "final": {
+      "training": [
+        0.8328763130809367,
+        0.8865209452057724
+      ],
+      "fresh": [
+        0.8717408219923224,
+        0.8974272084512064
+      ]
+    }
+  },
+  "endpoints": {
+    "first": {
+      "training": [
+        1.0102169371053484,
+        1.0488996729522808
+      ],
+      "fresh": [
+        1.0679112198505778,
+        1.1341014586566482
+      ]
+    },
+    "middle_prefix": {
+      "training": [
+        1.1160214370532273,
+        1.1355927101403378
+      ],
+      "fresh": [
+        1.1253930135495127,
+        1.1266653501589896
+      ]
+    },
+    "final": {
+      "training": [
+        1.12835714736462,
+        1.2182459288066962
+      ],
+      "fresh": [
+        1.1449067660840404,
+        1.2142240967804068
+      ]
+    }
+  },
+  "jvp_gradient_cap_active_fraction_range": [
+    0.1181640625,
+    0.1474609375
+  ]
+}

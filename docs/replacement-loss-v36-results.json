@@ -1,0 +1,76 @@
+{
+  "protocol_id": "theseus-pretrained-whole-block-transfer-v36",
+  "date": "2026-10-06",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-pretrained-whole-block-transfer-v36",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "packet_sha256": "370a074309eeea6b57cf5b529892932d5d93474a9381b7ffd47bc1a6bb367458",
+  "scientific_outcome": "INCONCLUSIVE",
+  "assurance_level": "INTERNAL_PASS",
+  "assurance_scope": "previous engineering qualification only",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "NOT_RUN",
+  "checkpoint_selection_status": "NOT_SELECTED",
+  "replacements_trained": 0,
+  "held_out_assessments": 0,
+  "drives_mounted": true,
+  "parent_v35_custody_verified": true,
+  "parent_packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+  "failure": {
+    "stage": "historical_intake",
+    "exception_type": "JSONDecodeError",
+    "message": "Extra data",
+    "mutation_before_failure": false
+  },
+  "historical_json_audit": {
+    "counts": {
+      "invalid": 3,
+      "oversized": 0,
+      "valid": 1609
+    },
+    "opaque_records": [
+      {
+        "bytes": 550,
+        "column": 5,
+        "exception": "JSONDecodeError",
+        "line": 1,
+        "path": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v2/cloud-run-logs-final-v2.json",
+        "sha256": "2ee43ebd7db99520d6274cf5e0930df48b435749530d24ae69007e6d88d613de"
+      },
+      {
+        "bytes": 0,
+        "column": 1,
+        "exception": "JSONDecodeError",
+        "line": 1,
+        "path": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v2/cloud-run-logs-progress-v2.json",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 0,
+        "column": 1,
+        "exception": "JSONDecodeError",
+        "line": 1,
+        "path": "theseus-lab-sandbox-v1-replacement-loss-v8-cloud-run-replay-v2/cloud-run-task-start-v2.json",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "wall_seconds": 317.3726652499754
+  },
+  "monetary_cost_usd": 0,
+  "energy_and_amortization": "NOT_MEASURED",
+  "retry_same_identity_permitted": false,
+  "claim_ceiling": "LOCAL_PRETRAINED_TWO_MLP_INTERFACE_REPLACEMENT_ONLY",
+  "nonclaims": [
+    "successful pretrained replacement",
+    "novelty",
+    "universal identity",
+    "consciousness",
+    "alignment",
+    "independent science",
+    "production"
+  ],
+  "next_slice": "theseus-pretrained-whole-block-transfer-v36r1"
+}

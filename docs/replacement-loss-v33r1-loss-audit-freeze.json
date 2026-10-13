@@ -1,0 +1,19 @@
+{
+  "development_result_sha256": "0fec829d30ca4ad1e7a68917f18e370ea78b4b6ca1047fcf52dc59f53058197e",
+  "files": [
+    {
+      "bytes": 5936,
+      "path": "replacement_loss_v33r1_loss_audit.py",
+      "sha256": "99fcb80c3ac6778a593902e8d9bdf0230d684c893926e3fd03912ae1fa9aaa72"
+    },
+    {
+      "bytes": 1904,
+      "path": "docs/replacement-loss-v33r1-loss-audit.md",
+      "sha256": "ef6a8aec9d6e435d988b1593307039ff44cfee0094284c50b5d66991c0a9782e"
+    }
+  ],
+  "freeze_state": "FROZEN_BEFORE_ADAPTATION_GRADIENT_READOUT",
+  "packet_sha256": "abafc92e50de12e7ce12684e948b30f3f16bbd132f25be90a8cc6763256ece5d",
+  "parent_packet_sha256": "09422f3caeecea46614c5bf779ee5ae80740d685e0285dde89f399ec8e01f3ad",
+  "state_slice": "theseus-replacement-loss-v33r1-loss-scale-audit-v1"
+}

@@ -1,0 +1,136 @@
+{
+  "assurance_level": "REPRODUCED_LOCAL",
+  "candidate_set_sha256": "bef0758c80f9aeb165bd1114ee28c6edd0344dabfd7b50c7aece0f6a49770599",
+  "claim_ceiling": "LOCAL_CAUSAL_VALUE_PARETO_QUALIFICATION_ON_ONE_REUSED_OPT_CHECKPOINT",
+  "custody": "prompt-bearing and row-level artifacts remain on external PrimaryED custody",
+  "diagnostic_source_sha256": "5313eede571590a18e9134c6085aaf60eeed770ae30eb8d820f16437f869e6a7",
+  "limitations": [
+    "single reused OPT/ReLU checkpoint and preselected block 8",
+    "post-result method selection on fresh adaptation data",
+    "no held-out challenge opened at the development stage"
+  ],
+  "next_blocked_authority_gate": "No development weight passed the all-cell effect/value gate; a new method and packet are required before further training. Blind external replication and independent acceptance remain separate.",
+  "packet_sha256": "7cb5c149f9ad00e137c1bca47299d8dae1c5d992f40adb5d29a582502595bded",
+  "protocol_id": "theseus-replacement-loss-v19-causal-fit-development",
+  "protocol_slice": "theseus-replacement-loss-v19-causal-fit-qualification-v1",
+  "qualification_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "replication_report_sha256": "0e5272cd324bc8150fec38f3430e807620a46f8e3bc84314049bccf0574f4dca",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "repository_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "repository_worktree_dirty_at_execution": true,
+  "repository_dirty_entry_count_at_execution": 267,
+  "resource_measurements": {
+    "primary": {
+      "peak_rss_bytes": 2417000448,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 341.5316376659903
+    },
+    "replica": {
+      "peak_rss_bytes": 2543992832,
+      "rss_cap_bytes": 17179869184,
+      "wall_cap_seconds": 14400,
+      "wall_seconds": 346.71379241700924
+    }
+  },
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "macOS-26.6.1-arm64-arm-64bit",
+    "packages": {
+      "huggingface-hub": "0.36.2",
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.6.0",
+      "transformers": "4.57.3"
+    },
+    "package_inventory_sha256": "1a03631f1ec9139dfee2ee5a82280c27401387c01718fff2de4916b99199fda9",
+    "dependency_lock_sha256": "f9cde34bbd3789891aaebeaca9c32b90af377ffa0b6a7dd25c3eee2bc1fca78c",
+    "deterministic_algorithms": true,
+    "torch_num_threads": 1
+  },
+  "result_document_sha256": "d3be1bb0f2fabea2fed42b988116f32bf6b7170be0026058605a1cd8ec772b24",
+  "reviewer_status": "NOT_SUBMITTED",
+  "scientific_results_sha256": "86df750504a56fe5f4a34a4b4dbaee5ed5370bccbd45d257a912586ff614d1ed",
+  "selected_lambda": null,
+  "selection_summary": [
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.6717305092103361,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": true,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.05
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.6525836896755354,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": true,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.1
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.6465771868080751,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": true,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.2
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.6523456833220256,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": false,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.35
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.658062239067043,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": true,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.5
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.6777163897965626,
+      "gates": {
+        "continuation_behavior_all_cells": true,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": false,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 0.75
+    },
+    {
+      "equal_cell_mean_effect_mse_ratio": 0.8493063869567142,
+      "gates": {
+        "continuation_behavior_all_cells": false,
+        "effect_reduction_all_cells": false,
+        "next_logit_behavior_all_cells": false,
+        "nine_seed_stratum_cells": true,
+        "value_retention_all_cells": false
+      },
+      "loss_weight": 1.0
+    }
+  ],
+  "state_slice": "theseus-lab-sandbox-v1"
+}

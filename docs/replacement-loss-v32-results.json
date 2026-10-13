@@ -1,0 +1,190 @@
+{
+  "analysis_scope": "post-run descriptive aggregation of frozen scorer outputs; no new gates or inferred statistical superiority",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "cases_passed": 6,
+  "cases_total": 9,
+  "claim_ceiling": "LOCAL_SYNTHETIC_TRAINED_NONLINEAR_LADDER_CAUSAL_RETENTION_ONLY",
+  "families": {
+    "gelu": {
+      "cases_passed": 3,
+      "cases_total": 3,
+      "methods": {
+        "causal": {
+          "all_stage_cells_passed": 36,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 12,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 12
+        },
+        "cka": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "logit": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "pointwise": {
+          "all_stage_cells_passed": 21,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 5,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 5
+        }
+      }
+    },
+    "relu": {
+      "cases_passed": 0,
+      "cases_total": 3,
+      "methods": {
+        "causal": {
+          "all_stage_cells_passed": 20,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 10,
+          "final_cells_passed": 6,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 9
+        },
+        "cka": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 10,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "logit": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "pointwise": {
+          "all_stage_cells_passed": 8,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 1
+        }
+      }
+    },
+    "silu_gated": {
+      "cases_passed": 3,
+      "cases_total": 3,
+      "methods": {
+        "causal": {
+          "all_stage_cells_passed": 36,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 12,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 12
+        },
+        "cka": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 9,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "logit": {
+          "all_stage_cells_passed": 0,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        },
+        "pointwise": {
+          "all_stage_cells_passed": 12,
+          "all_stage_cells_total": 36,
+          "final_behavior_cells_passed": 12,
+          "final_cells_passed": 0,
+          "final_cells_total": 12,
+          "final_internal_effect_cells_passed": 0
+        }
+      }
+    }
+  },
+  "nonclaims": [
+    "pretrained transformer replacement",
+    "all architectures",
+    "novelty priority",
+    "metaphysical identity",
+    "consciousness",
+    "alignment",
+    "independent science",
+    "production readiness"
+  ],
+  "outcome_status": "FAIL",
+  "packet_sha256": "a50766c1611c72a444fa8213378761adaef84811f5f3afdc0181aafce7f11c67",
+  "protocol_id": "theseus-replacement-loss-v32-causal-ladder",
+  "reconciliation_checks": {
+    "cases": true,
+    "challenge_sha256": true,
+    "distinct_runtime": true,
+    "guide_qualification": true,
+    "oracle_array_digests": true,
+    "outcome_status": true,
+    "packet_sha256": true,
+    "prediction_sha256": true,
+    "preparation": true,
+    "protocol_id": true,
+    "revision": true,
+    "toolchain": true
+  },
+  "resources": {
+    "primary": {
+      "artifact_bytes": 46030238,
+      "energy": "NOT_MEASURED",
+      "final_artifact_bytes": 46919879,
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 308477952,
+      "wall_seconds": 68.80504041700624
+    },
+    "replica": {
+      "artifact_bytes": 46030238,
+      "energy": "NOT_MEASURED",
+      "final_artifact_bytes": 46920502,
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 308281344,
+      "wall_seconds": 68.22427166701527
+    }
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "scope_limitations": [
+    "Small trained feedforward guides, not pretrained OPT/GPT-2/Llama",
+    "Fixed-coordinate neural intervention contract; CKA can change coordinate basis",
+    "Causal objective uses extra guide-effect targets/forward passes; equal updates, not equal FLOPs",
+    "Six family-specific case passes do not change overall frozen FAIL",
+    "No independent authority or general Theseus proof"
+  ],
+  "source_receipts": {
+    "primary/candidate-freeze.json": "a62813f65846e984165a4a48e93f1155f0832288846011d18b39fe218ae943f1",
+    "primary/challenge-binding.json": "59fff16af5a3544b7f1103deb1fc6804d01cb19839b438f6514b4c3d4377783d",
+    "primary/prediction-freeze.json": "8d85417535ede28db3616d1dd6a3725800d7a24b4916c2f527ce66294c90db79",
+    "primary/result.json": "4a28af448478e15f0f4e50cb3bcb5c8d68c98da9a0a4865fb9565c2ad9af5000",
+    "replica/reconciliation.json": "28337ed9f46caf76df78877a0bb700e7ec7da31b1ad0525db7470a1b909f7992",
+    "replica/result.json": "a0efe594ee036d30761c3c85b6ced116db9d5e6ea30393d6a05c3af952ca6158"
+  },
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-replacement-loss-v32-causal-ladder-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ]
+}

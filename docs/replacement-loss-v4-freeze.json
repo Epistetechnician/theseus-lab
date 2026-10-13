@@ -1,0 +1,64 @@
+{
+  "checkpoint_identity": {
+    "model_id": "openai-community/gpt2-medium",
+    "reuse_scope": "same v3 target; no fresh-checkpoint or cross-checkpoint claim",
+    "revision": "6dcaa7a952f72f9298047fd5137cd6e4f05f41da"
+  },
+  "created_at_utc": "2026-09-25T04:15:43.275803+00:00",
+  "freeze_state": "FROZEN_BEFORE_V4_ADAPTATION_FIXTURES",
+  "packet_files": [
+    {
+      "bytes": 5063,
+      "path": "docs/replacement-loss-v4.md",
+      "sha256": "3e81ac5e83a7d4247dba73034377924584d9ddf562a68ad15975fc5a31780d66"
+    },
+    {
+      "bytes": 2980,
+      "path": "docs/replacement-loss-v3-failure-analysis.md",
+      "sha256": "a01969994c5152502ab82eed93e3019fa2dd9030440fe19aa11f5ac5c7b86990"
+    },
+    {
+      "bytes": 7551,
+      "path": "replacement_loss_v4.py",
+      "sha256": "ff7658d636e76a612dc0e6da0f4ae7b1112e949e0565deb25d74dd0e421a4d0b"
+    },
+    {
+      "bytes": 5555,
+      "path": "replacement_loss_v4_fixtures.py",
+      "sha256": "5ad58bb43de06591a1f291aa734f8c3723506bd3c18e66d63b5986ea5675980d"
+    },
+    {
+      "bytes": 38307,
+      "path": "replacement_loss_v4_runner.py",
+      "sha256": "e45db9a2af94e0968efb77f9af25ebe1c970217cdb493128b1005b76696fbf7d"
+    },
+    {
+      "bytes": 3462,
+      "path": "tests/test_replacement_loss_v4.py",
+      "sha256": "a5157a6e621eb90472d9f3c08f610e259d64dae4f93c9931dbe5e4de222970b1"
+    },
+    {
+      "bytes": 7969,
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 95959,
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "bytes": 85,
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    }
+  ],
+  "packet_sha256": "1006d4a861aa442a18307fb9e1e6e5ea6429df57b0c9fd57e2d766bdb4822be5",
+  "protocol_id": "theseus-replacement-loss-v4-compositional-support",
+  "state_slice": "theseus-lab-sandbox-v1"
+}

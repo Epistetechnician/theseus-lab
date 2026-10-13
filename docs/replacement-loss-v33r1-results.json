@@ -1,0 +1,647 @@
+{
+  "protocol_id": "theseus-replacement-loss-v33r1-relu-geometry",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-replacement-loss-v33r1-relu-geometry-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "plus digest-bound uncommitted packet",
+  "outcome_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "captured_replica_exit_code": 0,
+  "packet_sha256": "09422f3caeecea46614c5bf779ee5ae80740d685e0285dde89f399ec8e01f3ad",
+  "freeze_file_sha256": "0d049329ac3fec939182f2d7dc0a5fec32ebfa9d6e8f60053cd5afa530101088",
+  "primary_result_sha256": "0fec829d30ca4ad1e7a68917f18e370ea78b4b6ca1047fcf52dc59f53058197e",
+  "replica_result_sha256": "b09a358159e60b4ddfc180d3828b54890aa3baf615fe643e791388a97024ef8c",
+  "confirmation_status": "NOT_OPENED_NO_ELIGIBLE_VARIANT",
+  "selected_variant": null,
+  "complete_development_case_passes": 0,
+  "development_cases": 3,
+  "arms": {
+    "gelu_global": {
+      "case_passes": 0,
+      "native_cells_passed": 19,
+      "final_cells_passed": 7,
+      "stage_cells_passed": {
+        "block_1": 7,
+        "block_2": 5,
+        "final_task": 7
+      },
+      "risks": [
+        1.0947301387786865,
+        1.330534815788269,
+        1.7950764894485474
+      ],
+      "final_ordinary_effect0_p90": [
+        0.5313148498535156,
+        0.6466639041900635,
+        0.7617548704147339
+      ],
+      "final_adversarial_output_rmse": [
+        0.08225221931934357,
+        0.09793274104595184,
+        0.11380559206008911
+      ],
+      "final_adversarial_rescue0": [
+        0.09218963980674744,
+        0.1330534815788269,
+        0.1376114785671234
+      ],
+      "qualified_map_sites": 15,
+      "aligned_stages_available": 9,
+      "aligned_cells_passed": 1,
+      "negative_strata_passed": 12
+    },
+    "relu_global": {
+      "case_passes": 0,
+      "native_cells_passed": 29,
+      "final_cells_passed": 10,
+      "stage_cells_passed": {
+        "block_1": 9,
+        "block_2": 10,
+        "final_task": 10
+      },
+      "risks": [
+        1.0775301456451416,
+        1.2509112358093262,
+        1.4928278923034668
+      ],
+      "final_ordinary_effect0_p90": [
+        0.315253347158432,
+        0.6254556179046631,
+        0.6566306352615356
+      ],
+      "final_adversarial_output_rmse": [
+        0.05637436360120773,
+        0.06554805487394333,
+        0.05188799649477005
+      ],
+      "final_adversarial_rescue0": [
+        0.053652867674827576,
+        0.062230367213487625,
+        0.04480855539441109
+      ],
+      "qualified_map_sites": 15,
+      "aligned_stages_available": 9,
+      "aligned_cells_passed": 2,
+      "negative_strata_passed": 12
+    },
+    "gelu_row": {
+      "case_passes": 0,
+      "native_cells_passed": 0,
+      "final_cells_passed": 0,
+      "stage_cells_passed": {
+        "block_1": 0,
+        "block_2": 0,
+        "final_task": 0
+      },
+      "risks": [
+        6.370706558227539,
+        6.148229241371155,
+        6.887326240539551
+      ],
+      "final_ordinary_effect0_p90": [
+        1.007185697555542,
+        1.024524211883545,
+        1.2156598567962646
+      ],
+      "final_adversarial_output_rmse": [
+        0.3465554118156433,
+        0.3719067871570587,
+        0.4044206440448761
+      ],
+      "final_adversarial_rescue0": [
+        0.2319464385509491,
+        0.2636326551437378,
+        0.31233149766921997
+      ],
+      "qualified_map_sites": 8,
+      "aligned_stages_available": 2,
+      "aligned_cells_passed": 0,
+      "negative_strata_passed": 12
+    },
+    "relu_row": {
+      "case_passes": 0,
+      "native_cells_passed": 0,
+      "final_cells_passed": 0,
+      "stage_cells_passed": {
+        "block_1": 0,
+        "block_2": 0,
+        "final_task": 0
+      },
+      "risks": [
+        4.651109278202057,
+        4.893644452095032,
+        5.354858040809631
+      ],
+      "final_ordinary_effect0_p90": [
+        1.025334358215332,
+        1.0209676027297974,
+        1.1926617622375488
+      ],
+      "final_adversarial_output_rmse": [
+        0.369055837392807,
+        0.3540038764476776,
+        0.41605043411254883
+      ],
+      "final_adversarial_rescue0": [
+        0.2499350607395172,
+        0.26667550206184387,
+        0.2603200674057007
+      ],
+      "qualified_map_sites": 10,
+      "aligned_stages_available": 4,
+      "aligned_cells_passed": 0,
+      "negative_strata_passed": 12
+    }
+  },
+  "global_weighting_failed_cells": [
+    {
+      "case": "relu-33101",
+      "arm": "gelu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5024147033691406,
+      "effect0_median": 0.08809375762939453,
+      "rescue": {
+        "0": 0.050167568027973175
+      },
+      "output": 0.050167568027973175
+    },
+    {
+      "case": "relu-33101",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "adversarial",
+      "effect0_p90": 0.24808946251869202,
+      "effect0_median": 0.12048643827438354,
+      "rescue": {
+        "0": 0.10014410316944122,
+        "1": 0.08594722300767899
+      },
+      "output": 0.08594722300767899
+    },
+    {
+      "case": "relu-33101",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5473650693893433,
+      "effect0_median": 0.160665363073349,
+      "rescue": {
+        "0": 0.05019434168934822,
+        "1": 0.04160267859697342
+      },
+      "output": 0.04160267859697342
+    },
+    {
+      "case": "relu-33101",
+      "arm": "gelu_global",
+      "stage": "final_task",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5313148498535156,
+      "effect0_median": 0.1529543399810791,
+      "rescue": {
+        "0": 0.05087445676326752,
+        "1": 0.04167132079601288
+      },
+      "output": 0.04088001698255539
+    },
+    {
+      "case": "relu-33101",
+      "arm": "relu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5387650728225708,
+      "effect0_median": 0.0958450511097908,
+      "rescue": {
+        "0": 0.06465855240821838
+      },
+      "output": 0.06465855240821838
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "block_1",
+      "stratum": "adversarial",
+      "effect0_p90": 0.2540730834007263,
+      "effect0_median": 0.11343413591384888,
+      "rescue": {
+        "0": 0.11142788827419281
+      },
+      "output": 0.11142788827419281
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5264374017715454,
+      "effect0_median": 0.09670640528202057,
+      "rescue": {
+        "0": 0.05867842584848404
+      },
+      "output": 0.05867842584848404
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "adversarial",
+      "effect0_p90": 0.3022612929344177,
+      "effect0_median": 0.14070501923561096,
+      "rescue": {
+        "0": 0.1325901299715042,
+        "1": 0.09340961277484894
+      },
+      "output": 0.09340961277484894
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "ordinary",
+      "effect0_p90": 0.6430095434188843,
+      "effect0_median": 0.20113632082939148,
+      "rescue": {
+        "0": 0.06099683791399002,
+        "1": 0.04835145175457001
+      },
+      "output": 0.04835145175457001
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "final_task",
+      "stratum": "adversarial",
+      "effect0_p90": 0.29941830039024353,
+      "effect0_median": 0.1376390904188156,
+      "rescue": {
+        "0": 0.1330534815788269,
+        "1": 0.09578587114810944
+      },
+      "output": 0.09793274104595184
+    },
+    {
+      "case": "relu-33102",
+      "arm": "gelu_global",
+      "stage": "final_task",
+      "stratum": "ordinary",
+      "effect0_p90": 0.6466639041900635,
+      "effect0_median": 0.18693701922893524,
+      "rescue": {
+        "0": 0.06052296236157417,
+        "1": 0.046177275478839874
+      },
+      "output": 0.0475270114839077
+    },
+    {
+      "case": "relu-33102",
+      "arm": "relu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.6187286376953125,
+      "effect0_median": 0.09858143329620361,
+      "rescue": {
+        "0": 0.06345191597938538
+      },
+      "output": 0.06345191597938538
+    },
+    {
+      "case": "relu-33102",
+      "arm": "relu_global",
+      "stage": "block_2",
+      "stratum": "ordinary",
+      "effect0_p90": 0.530432939529419,
+      "effect0_median": 0.14843472838401794,
+      "rescue": {
+        "0": 0.052527375519275665,
+        "1": 0.05221930518746376
+      },
+      "output": 0.05221930518746376
+    },
+    {
+      "case": "relu-33102",
+      "arm": "relu_global",
+      "stage": "final_task",
+      "stratum": "ordinary",
+      "effect0_p90": 0.6254556179046631,
+      "effect0_median": 0.12654152512550354,
+      "rescue": {
+        "0": 0.048755478113889694,
+        "1": 0.048199549317359924
+      },
+      "output": 0.0494493693113327
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "block_1",
+      "stratum": "adversarial",
+      "effect0_p90": 0.26101863384246826,
+      "effect0_median": 0.12825070321559906,
+      "rescue": {
+        "0": 0.12983621656894684
+      },
+      "output": 0.12983621656894684
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5942487120628357,
+      "effect0_median": 0.12433852255344391,
+      "rescue": {
+        "0": 0.06720785796642303
+      },
+      "output": 0.06720785796642303
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "adversarial",
+      "effect0_p90": 0.30037498474121094,
+      "effect0_median": 0.15606385469436646,
+      "rescue": {
+        "0": 0.15740251541137695,
+        "1": 0.11200568079948425
+      },
+      "output": 0.11200568079948425
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "input_composition",
+      "effect0_p90": 0.5063768029212952,
+      "effect0_median": 0.1878843605518341,
+      "rescue": {
+        "0": 0.0745232030749321,
+        "1": 0.05268539860844612
+      },
+      "output": 0.05268539860844612
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "block_2",
+      "stratum": "ordinary",
+      "effect0_p90": 0.8975382447242737,
+      "effect0_median": 0.22990503907203674,
+      "rescue": {
+        "0": 0.07523920387029648,
+        "1": 0.05420680716633797
+      },
+      "output": 0.05420680716633797
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "final_task",
+      "stratum": "adversarial",
+      "effect0_p90": 0.3024730980396271,
+      "effect0_median": 0.14538609981536865,
+      "rescue": {
+        "0": 0.1376114785671234,
+        "1": 0.11214819550514221
+      },
+      "output": 0.11380559206008911
+    },
+    {
+      "case": "relu-33103",
+      "arm": "gelu_global",
+      "stage": "final_task",
+      "stratum": "ordinary",
+      "effect0_p90": 0.7617548704147339,
+      "effect0_median": 0.23001107573509216,
+      "rescue": {
+        "0": 0.06669533997774124,
+        "1": 0.05178748816251755
+      },
+      "output": 0.05301371589303017
+    },
+    {
+      "case": "relu-33103",
+      "arm": "relu_global",
+      "stage": "block_1",
+      "stratum": "ordinary",
+      "effect0_p90": 0.5308698415756226,
+      "effect0_median": 0.09662023186683655,
+      "rescue": {
+        "0": 0.05734732374548912
+      },
+      "output": 0.05734732374548912
+    },
+    {
+      "case": "relu-33103",
+      "arm": "relu_global",
+      "stage": "block_2",
+      "stratum": "ordinary",
+      "effect0_p90": 0.7464139461517334,
+      "effect0_median": 0.16753235459327698,
+      "rescue": {
+        "0": 0.043268896639347076,
+        "1": 0.04588303714990616
+      },
+      "output": 0.04588303714990616
+    },
+    {
+      "case": "relu-33103",
+      "arm": "relu_global",
+      "stage": "final_task",
+      "stratum": "ordinary",
+      "effect0_p90": 0.6566306352615356,
+      "effect0_median": 0.13423940539360046,
+      "rescue": {
+        "0": 0.038285136222839355,
+        "1": 0.04081592708826065
+      },
+      "output": 0.04123201221227646
+    }
+  ],
+  "positive_control_strata_passed": 12,
+  "positive_control_strata_total": 12,
+  "negative_control_arm_strata_passed": 48,
+  "negative_control_arm_strata_total": 48,
+  "engineering_tests": {
+    "primary": 17,
+    "replica": 17,
+    "failed": 0
+  },
+  "resources": {
+    "primary_frozen_phase_wall_seconds": 35.995605874981266,
+    "primary_peak_rss_bytes": 326189056,
+    "primary_artifact_bytes_before_terminal_receipt": 29780847,
+    "replica_resource_receipt": {
+      "artifact_bytes": 29780847,
+      "energy": "NOT_MEASURED",
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 323092480,
+      "wall_seconds": 37.08079258300131
+    },
+    "monetary_cost_usd": 0,
+    "energy": "NOT_MEASURED",
+    "primary_final_artifact_bytes": 30504048,
+    "replica_final_artifact_bytes": 30504796,
+    "replica_frozen_phase_wall_seconds": 37.08079258300131,
+    "replica_peak_rss_bytes": 323092480,
+    "loss_diagnostic": {
+      "artifact_bytes": 8621,
+      "energy": "NOT_MEASURED",
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 213729280,
+      "wall_seconds": 3.2296191250206903
+    },
+    "loss_diagnostic_final_artifact_bytes": 17804
+  },
+  "source_freeze_verification": {
+    "v32": true,
+    "v33": true,
+    "v33r1": true
+  },
+  "custody": {
+    "data": "OWNER_CONTROLLED_EXTERNAL_VOLUMES_AVAILABLE_AND_VERIFIED",
+    "root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v33r1",
+    "runtime_root": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v33r1"
+  },
+  "pending": [],
+  "claim_ceiling": "LOCAL_SYNTHETIC_RELU_GEOMETRY_WEIGHTING_AND_CAUSAL_LADDER_ONLY",
+  "nonclaims": [
+    "pretrained transformer replacement",
+    "all architectures",
+    "novelty priority",
+    "metaphysical identity",
+    "consciousness",
+    "alignment",
+    "independent science",
+    "production readiness"
+  ],
+  "closeout_date": "2026-10-03",
+  "reconciliation_sha256": "423c1300b18cbc66243254d58e7a9daf742c004dcec8fe721f40e42c202a8085",
+  "reconciliation_checks": {
+    "cases": true,
+    "challenge_binding": true,
+    "challenge_generated": true,
+    "confirmation_freeze_sha256": true,
+    "distinct_runtime": true,
+    "guide_qualification": true,
+    "oracle_binding": true,
+    "outcome_status": true,
+    "packet_sha256": true,
+    "phase": true,
+    "prediction_binding": true,
+    "preparation": true,
+    "protocol_id": true,
+    "selection": true,
+    "source_packet_unchanged": true,
+    "toolchain": true
+  },
+  "closeout_validation_sha256": "eb8cf13ed0cfe274da977cf66c58882fab9c954072dec1b8733f971ebaa91fef",
+  "closeout_validation_path": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v33r1/closeout-validation.json",
+  "artifact_checks": {
+    "primary": {
+      "manifest_files": 205,
+      "source_archive_files": 20,
+      "source_archive_unchanged": true,
+      "manifest_unchanged": true,
+      "final_artifact_bytes": 30504048,
+      "runtime": {
+        "device": "cpu",
+        "dtype": "float32",
+        "machine": "arm64",
+        "packages": [
+          "filelock==4.0.9",
+          "fsspec==2026.9.0",
+          "jinja2==3.1.6",
+          "markupsafe==3.0.3",
+          "mpmath==1.3.0",
+          "networkx==3.7",
+          "numpy==2.4.6",
+          "setuptools==84.0.0",
+          "sympy==1.13.1",
+          "torch==2.6.0",
+          "typing-extensions==4.16.0"
+        ],
+        "platform": "macOS-26.6.1-arm64-arm-64bit",
+        "python": "3.12.13",
+        "site_packages": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v33r1/toolchains/primary/lib/python3.12/site-packages",
+        "sys_prefix": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v33r1/toolchains/primary",
+        "system_site_packages": false,
+        "threads": 1
+      },
+      "frozen_phase_resources": {
+        "artifact_bytes": 29780847,
+        "energy": "NOT_MEASURED",
+        "monetary_cost_usd": 0,
+        "peak_rss_bytes": 326189056,
+        "wall_seconds": 35.995605874981266
+      }
+    },
+    "replica": {
+      "manifest_files": 205,
+      "source_archive_files": 20,
+      "source_archive_unchanged": true,
+      "manifest_unchanged": true,
+      "final_artifact_bytes": 30504796,
+      "runtime": {
+        "device": "cpu",
+        "dtype": "float32",
+        "machine": "arm64",
+        "packages": [
+          "filelock==4.0.9",
+          "fsspec==2026.9.0",
+          "jinja2==3.1.6",
+          "markupsafe==3.0.3",
+          "mpmath==1.3.0",
+          "networkx==3.7",
+          "numpy==2.4.6",
+          "setuptools==84.0.0",
+          "sympy==1.13.1",
+          "torch==2.6.0",
+          "typing-extensions==4.16.0"
+        ],
+        "platform": "macOS-26.6.1-arm64-arm-64bit",
+        "python": "3.12.13",
+        "site_packages": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v33r1/toolchains/replica/lib/python3.12/site-packages",
+        "sys_prefix": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v33r1/toolchains/replica",
+        "system_site_packages": false,
+        "threads": 1
+      },
+      "frozen_phase_resources": {
+        "artifact_bytes": 29780847,
+        "energy": "NOT_MEASURED",
+        "monetary_cost_usd": 0,
+        "peak_rss_bytes": 323092480,
+        "wall_seconds": 37.08079258300131
+      }
+    }
+  },
+  "diagnostic": {
+    "status": "COMPLETED",
+    "assurance_level": "INTERNAL_PASS",
+    "separate_reproduction": "NOT_RUN_SEPARATELY",
+    "packet_sha256": "abafc92e50de12e7ce12684e948b30f3f16bbd132f25be90a8cc6763256ece5d",
+    "freeze_sha256": "707c13f37650872c925ebb8bb9160bdbe53242280091ce30647fc8e1f1723fd3",
+    "result_sha256": "d8b42f7b45a465c15869fa63774dab0bfdaa9680978cba35f409ae1789af91da",
+    "result_internal_checks": "PASS",
+    "source_archive_unchanged": true,
+    "final_artifact_bytes": 17804,
+    "row_effect_to_anchor_gradient_ratio_range": [
+      31.94545216396098,
+      1009.8802446660229
+    ],
+    "global_effect_to_anchor_gradient_ratio_range": [
+      0.3913703746727071,
+      0.6080745176375345
+    ],
+    "claim_ceiling": "INITIAL_ADAPTATION_GRADIENT_SCALE_ONLY",
+    "limitation": "Read-only first-batch diagnostic, not a training-causation result or confirmation evidence."
+  },
+  "closeout_status": "COMPLETE_TO_LOCAL_EVIDENCE_CEILING",
+  "next_scientific_gate": "NEW_FROZEN_FRESH_DATA_DEVELOPMENT_FOR_BALANCED_CAUSAL_OBJECTIVE_AND_CAUSAL_MAP_QUALIFICATION"
+}

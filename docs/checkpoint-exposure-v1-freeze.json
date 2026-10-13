@@ -1,0 +1,43 @@
+{
+  "claim_ceiling": "RETAINED_CUSTODY_EXPOSURE_CLASSIFICATION_ONLY",
+  "frozen_before_classification": true,
+  "members": [
+    {
+      "bytes": 11360,
+      "path": "theseus_checkpoint_exposure_v1.py",
+      "sha256": "ef531320f18951e4012ce08e1f62a0cafcdc900805cc20a0a4c1da00c9d56c20"
+    },
+    {
+      "bytes": 2267,
+      "path": "tests/test_checkpoint_exposure_v1.py",
+      "sha256": "8724edc1b06d7ae7ee9a440341caa941cfe3b0a04ed82d290f6b6930e9cc1cba"
+    },
+    {
+      "bytes": 3181,
+      "path": "docs/checkpoint-exposure-v1.md",
+      "sha256": "d80b6701cb1776ae53f44ac8ed7275316878bf95516c911ee57fdee5b4ebaf6e"
+    },
+    {
+      "bytes": 4997,
+      "path": "docs/replacement-loss-v36r2-results.json",
+      "sha256": "4ba8aa4d81172fc8f045b7c70fdcb2b7c9b24c2bfeb45f75734cd8cfdad16530"
+    },
+    {
+      "bytes": 5310,
+      "path": "docs/replacement-loss-v36r2-freeze.json",
+      "sha256": "109b5ba4d39c94405157c0f2b373d5add1e60c0d69b2390ed8d4b953eca43f81"
+    },
+    {
+      "bytes": 5552,
+      "path": "checkpoint_manifests.json",
+      "sha256": "79f2bfa82afb139f6265acb43a15cd374aed704c8cc20e1cc37789668c65c104"
+    }
+  ],
+  "packet_sha256": "86a8d7ca23764f99a55a3db48d83c016594271ac0973f14b46a733772d12e633",
+  "protocol_id": "theseus-checkpoint-exposure-feasibility-v1",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-checkpoint-exposure-feasibility-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ]
+}

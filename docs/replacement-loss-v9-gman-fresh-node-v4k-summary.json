@@ -1,0 +1,14 @@
+{
+  "assurance_level": "INCONCLUSIVE",
+  "check_count": 12,
+  "created_at_utc": "2026-09-29T16:50:28.856735+00:00",
+  "model_prompts_outputs_weights_and_evaluation_data_exported": false,
+  "packet_sha256": "e030b23cf67a04793d464b669fbd285273d08a5e5c968f5b915e5d6781cfed2c",
+  "parent_v4h_packet_sha256": "1ddbc1571c61c588bfa3d9115d53983123c42f8678c9ace3d50c8aba7cc1456c",
+  "passing_check_count": 7,
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k",
+  "reproducibility_status": "DIVERGED",
+  "reviewer_status": "NOT_SUBMITTED",
+  "runner_receipt_sha256": "d070dc3bfe599ec6588cba3bea86259151951ecfad82719aa40638736cb759eb",
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4k"
+}

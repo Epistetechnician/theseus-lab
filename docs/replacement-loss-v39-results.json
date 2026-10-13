@@ -1,0 +1,229 @@
+{
+  "protocol_id": "theseus-reused-gpt2-all-token-ladder-v39",
+  "date": "2026-10-06",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "Revision plus digest-bound uncommitted source",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-reused-gpt2-all-token-ladder-v39",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "packet_sha256": "6fd6849dd663380b5bb2103a57f0989108c86c123ac9ef46759d48330c5a9f98",
+  "source_freeze_sha256": "8ce3a8dde536c31bd7a04d1e72e4250a58c1f2309c7b522692a206f2ee5116b0",
+  "source_members": 50,
+  "scientific_outcome": "FAIL",
+  "assurance_level": "REPRODUCED_LOCAL",
+  "reviewer_status": "NOT_SUBMITTED",
+  "reproducibility_status": "EXACT_CANDIDATES_CAPTURES_PREDICTIONS_ORACLES_SCORES_AND_VERDICTS_REPRODUCED",
+  "checkpoint": {
+    "model_id": "mrm8488/spanish-gpt2",
+    "revision": "fc396ce08c65ea334dcf541de7dc05cac89a29b2",
+    "freshness_scope": "REUSED_DEVELOPMENT",
+    "architecture_family": "gpt2_gelu",
+    "sites": [
+      0,
+      2
+    ]
+  },
+  "scope": {
+    "architecture_families": 1,
+    "seeds": [
+      36101,
+      36102,
+      36103
+    ],
+    "methods": [
+      "jvp",
+      "endpoints"
+    ],
+    "ladder_stages": 2,
+    "strata": 4,
+    "replacement_fit_operations_per_role": 12,
+    "native_cells_per_role": 48,
+    "treatment_cells_per_role": 24,
+    "full_three_family_nine_case_claim": "NOT_ESTABLISHED"
+  },
+  "controls": [
+    "actual_noop",
+    "random",
+    "wrong_module",
+    "zero"
+  ],
+  "candidate_freeze_before_challenge": true,
+  "all_predictions_sealed_before_guide_oracle": true,
+  "replica_candidates_matched_before_entropy_reveal": true,
+  "original_selected_parameters_absent_from_installed_candidate_graph": true,
+  "all_token_supervision": {
+    "source_adaptation_prompts_per_seed": 128,
+    "all_adaptation_tokens_once_per_fit": true,
+    "native_feature_width": 768,
+    "donor_pairing_rule": "floor(i*(Ld-1)/(La-1))",
+    "fit_updates": 1024,
+    "batch_size": 64,
+    "training_pool_and_normalization_changed_together": true,
+    "adaptation_tokens_per_seed": [
+      3776,
+      3759,
+      3738
+    ]
+  },
+  "jvp": {
+    "complete_cases_passed": 0,
+    "complete_cases_total": 3,
+    "complete_cells_passed": 0,
+    "cells_total": 24,
+    "behavior_cells_passed": 0,
+    "output_nrmse_cells_passed": 24,
+    "top1_cells_passed": 6,
+    "nll_cells_passed": 6,
+    "activation_cells_passed": 8,
+    "activation_rescue_cells_passed": 24,
+    "rescue_prediction_cells_passed": 24,
+    "joint_effect_cells_passed": 0,
+    "all_single_effect_cells_passed": 0,
+    "shared_positive_control_cells_passed": 12,
+    "negative_control_sensitivity_cells_passed": 1,
+    "output_nrmse_range": [
+      0.01641906930176799,
+      0.05197414063544743
+    ],
+    "top1_agreement_range": [
+      0.1875,
+      1
+    ],
+    "mean_nll_increase_range": [
+      -0.10431015491485596,
+      0.34400424361228943
+    ],
+    "joint_median_relative_error_range": [
+      0.8811974445285103,
+      1.1069022607388075
+    ],
+    "by_stage": {
+      "block_1": {
+        "cells": 12,
+        "complete_cells_passed": 0,
+        "joint_effect_cells_passed": 0
+      },
+      "block_2": {
+        "cells": 12,
+        "complete_cells_passed": 0,
+        "joint_effect_cells_passed": 0
+      }
+    }
+  },
+  "endpoints": {
+    "complete_cases_passed": 0,
+    "complete_cases_total": 3,
+    "complete_cells_passed": 0,
+    "cells_total": 24,
+    "behavior_cells_passed": 0,
+    "output_nrmse_cells_passed": 24,
+    "top1_cells_passed": 6,
+    "nll_cells_passed": 6,
+    "activation_cells_passed": 6,
+    "activation_rescue_cells_passed": 24,
+    "rescue_prediction_cells_passed": 24,
+    "joint_effect_cells_passed": 0,
+    "all_single_effect_cells_passed": 0,
+    "shared_positive_control_cells_passed": 12,
+    "negative_control_sensitivity_cells_passed": 0,
+    "output_nrmse_range": [
+      0.014343507607089979,
+      0.056079113610899886
+    ],
+    "top1_agreement_range": [
+      0.0625,
+      1
+    ],
+    "mean_nll_increase_range": [
+      -0.07834427058696747,
+      0.6580276787281036
+    ],
+    "joint_median_relative_error_range": [
+      1.0596550186321005,
+      1.3572058131615359
+    ],
+    "by_stage": {
+      "block_1": {
+        "cells": 12,
+        "complete_cells_passed": 0,
+        "joint_effect_cells_passed": 0
+      },
+      "block_2": {
+        "cells": 12,
+        "complete_cells_passed": 0,
+        "joint_effect_cells_passed": 0
+      }
+    }
+  },
+  "counts_note": "Paired stage/stratum aggregates within three seeds of one reused guide; replica is reproducibility evidence, not another independent experimental cohort. Both arms share the same twelve no-op cells.",
+  "intake_sha256": "93c4da6685a1b0c586c4ed1569137d4073d530085b6fb94843e401706d5d17d7",
+  "checkpoint_manifest_sha256": "503b58912ec271f5c0c40adb3fc79f2331f31db3e37492f97b2efc3637af3942",
+  "custody_preflight_sha256": "94a234176816ceb83adb6d3dc00307b58008bcd284f02331a0f969013681da9d",
+  "candidate_freeze_sha256": "c0b4d342b434066fd3fcc9fb9adff9756772a7f82be3cf233adf0cf81356d733",
+  "challenge_sha256": "fc40009ce52f6ca0fc13fd01547f438c8c5a516b9139a0b411ba58114afc42bf",
+  "prediction_freeze_sha256": "f4995d8f5cc884ec65dcdd5b45baebccbb7304cb47a36a6346963889061ccfe3",
+  "primary_result_sha256": "e2250d17c9bc81c23b0b2d3396619d788b0040bb06a65e46bf6adfb48bf8a23b",
+  "replica_result_sha256": "c40e5a459c2977d8bcfe7146e3060b0253dc94065c21a73089ee84d212478fc1",
+  "reconciliation_sha256": "b098cab25bc7e78748b08428e4289133478840e3b185eacb3b17813d69c40849",
+  "reconciliation_checks": 9,
+  "manifested_files_per_role": 98,
+  "gradient_readouts_per_role": 12288,
+  "primary_wall_seconds": 1373.2100889580324,
+  "replica_wall_seconds": 1245.944932124985,
+  "primary_peak_rss_bytes": 2490531840,
+  "replica_peak_rss_bytes": 2647130112,
+  "paid_execution_usd": 0,
+  "paid_cap_usd": 0,
+  "full_economic_cost": "Energy, amortization, operator/assistant cost and full initialization/hash/closeout time unmeasured; recorded study timers exclude some of those phases.",
+  "behavior_mechanism_status": "All-token candidates were fitted and installed. All JVP cells meet logit norm and rescue gates; native causal retention and complete behavior fail every cell.",
+  "data_and_artifact_custody": "All prompts, captures, guide/replacement weights, sealed predictions and row-level outcomes remain on PrimaryED; isolated runtimes remain on Backup ED. Repository contains source, public metadata and scalar receipts only.",
+  "claim_ceiling": "LOCAL_REUSED_GPT2_EARLY_ALL_TOKEN_REPLACEMENT_DEVELOPMENT_ONLY",
+  "known_limitations": [
+    "One reused Spanish-trained GPT-2 guide and two early MLPs; no whole-depth or three-family confirmation.",
+    "English procedural prompts and whole-prompt hash disjointness do not establish semantic novelty, task correctness or language competence.",
+    "Coverage and output normalization changed together. Larger token pools with fixed updates/batch also reduce exposure per token.",
+    "V38/V39 use different initialization/corpus/challenge streams; descriptive score differences are not a paired causal estimate of the coverage change.",
+    "Shared capture/intervention semantics, owner, physical host and system libraries can reproduce a common defect.",
+    "Original publisher-runtime equivalence remains unverified; unexpected masked_bias checkpoint buffers were reported.",
+    "No mapping equivalence, novelty, universal identity, consciousness, human alignment, independent acceptance or production claim."
+  ],
+  "next_local_obligation": "Freeze an adaptation-only diagnosis of local Jacobian and finite-patch errors for the first replacement, separating module error from downstream amplification, before another fitting hypothesis. Preserve V38/V39 and use fresh held-out fixtures in any next training packet.",
+  "next_blocked_authority_gate": "Configured independent authority for stronger scientific acceptance; separate operational authorization for production. Neither gate is required for a new bounded local diagnostic.",
+  "validation_sha256": "c19bd986b47b5f2cbf0eed0840738492862e8ae3f78159b44e2d2dc04776cb09",
+  "primary_final_artifact_bytes": 4782476856,
+  "replica_final_artifact_bytes": 4782477411,
+  "closeout": {
+    "manifested_files_across_roles": 196,
+    "native_cells_across_roles": 96,
+    "gradient_readouts_across_roles": 24576,
+    "capture_cells_across_roles": 24,
+    "numerical_and_token_coverage_validation": "PASS",
+    "same_owner_and_host": true
+  },
+  "engineering_checks": {
+    "primary_adapter_tests_passed": 9,
+    "replica_adapter_tests_passed": 9,
+    "prior_frozen_source_preserved": true
+  },
+  "descriptive_v38_comparison": {
+    "inference_status": "UNPAIRED_DIFFERENT_INITIALIZATION_CORPUS_AND_CHALLENGE_STREAMS",
+    "jvp_output_nrmse_cells_passed": [
+      13,
+      24
+    ],
+    "jvp_nll_cells_passed": [
+      0,
+      6
+    ],
+    "jvp_joint_effect_cells_passed": [
+      0,
+      0
+    ],
+    "jvp_complete_cases_passed": [
+      0,
+      0
+    ]
+  }
+}

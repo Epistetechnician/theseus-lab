@@ -1,0 +1,113 @@
+{
+  "protocol_id": "theseus-pretrained-whole-block-transfer-v36r2",
+  "date": "2026-10-06",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-pretrained-whole-block-transfer-v36r2",
+    "theseus-public-checkpoint-acquisition-v36r2",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "packet_sha256": "020f59238f0781538d68e617826b15deb4e68b7b8feed0b1f2f665e32e8b7755",
+  "source_freeze_sha256": "109b5ba4d39c94405157c0f2b373d5add1e60c0d69b2390ed8d4b953eca43f81",
+  "outcome_status": "NO_ELIGIBLE_CHECKPOINT_COHORT",
+  "assurance_level": "INTERNAL_PASS",
+  "assurance_scope": "31 engineering tests and verified custody/metadata execution only",
+  "reviewer_status": "NOT_SUBMITTED",
+  "scientific_reproducibility_status": "NOT_RUN",
+  "whole_mlp_retention_hypothesis_status": "NOT_ASSESSED",
+  "weights_downloaded": 0,
+  "trained_models_loaded": 0,
+  "replacements_trained": 0,
+  "held_out_evaluations": 0,
+  "scientific_runtime_bootstrap": "NOT_OPENED_NO_COMPLETE_COHORT",
+  "intake": {
+    "sha256": "64b62bba1a6d3e372a3700df75f87674b7657772b51da0da52622f11d41ef28d",
+    "historical_files": 1626,
+    "quarantined_exports": 3,
+    "current_bytes_verified": true
+  },
+  "engineering_qualification": {
+    "passed": 31,
+    "total": 31,
+    "suite_seconds": 2.737,
+    "environment": "existing local Python 3.12.13 environment; exact new pretrained reproduction not claimed"
+  },
+  "catalog_entries_per_family": 200,
+  "qualified_metadata_families": 1,
+  "metadata_nomination": [
+    {
+      "family": "gpt2_gelu",
+      "license": "apache-2.0",
+      "model_id": "yorukot/gpt2-traning",
+      "parameters": 124439808,
+      "revision": "124d79d892ea05279e43ab4882ffe5b3488a9fc3"
+    }
+  ],
+  "rejection_counts": {
+    "opt_relu": {
+      "ARCHITECTURE": 14,
+      "DERIVATIVE_OR_RANDOM_NAME": 1,
+      "RECORDED_IDENTITY": 185
+    },
+    "gpt2_gelu": {
+      "ARCHITECTURE": 7,
+      "DERIVATIVE_OR_RANDOM_NAME": 1,
+      "DERIVED_FROM_ANOTHER_CHECKPOINT": 3,
+      "LICENSE_NOT_IN_DECLARED_SET": 9,
+      "NOMINATED": 1,
+      "RECORDED_IDENTITY": 170
+    },
+    "llama_silu_gated": {
+      "ARCHITECTURE": 15,
+      "DERIVATIVE_OR_RANDOM_NAME": 90,
+      "DERIVED_FROM_ANOTHER_CHECKPOINT": 19,
+      "LICENSE_NOT_IN_DECLARED_SET": 32,
+      "RECORDED_IDENTITY": 44
+    }
+  },
+  "receipts": {
+    "screen_sha256": "1934dc0114b6139ba6c4f7375843f079541b479ac7a2fb365ffa3163c6ee86e5",
+    "result_sha256": "263c7630339663fc857f11091ea9afbf9b4c0d034fa7c9b20f9c2d0c3284c0b9",
+    "operator_runtime_sha256": "71249f056302eb84741c0237b5abb399a31b899f396ec09cfc2baf708c801908",
+    "catalog_digests": {
+      "gpt2_gelu-catalog.json": "6a1110dbc4d192c93127a91e969fc72640331798f51144fb46cfb99639737e2b",
+      "llama_silu_gated-catalog.json": "aae62c1cfd45121d0ca5176d697f22c321db30a0be89ff45060f7c95dd9524f0",
+      "opt_relu-catalog.json": "12c818c083fe71e73fa8397f309f7a20fa5a0bc0c6a0b834e3343b01e148d578"
+    }
+  },
+  "custody": {
+    "artifacts": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-pretrained-whole-block-transfer-v36r2",
+    "both_drives_mounted": true,
+    "parent_v35_artifacts_verified": true,
+    "raw_study_assets_in_repository": false,
+    "retention": "All source freezes, historical artifacts, metadata catalogs, nomination provenance and terminal receipts retained unchanged in external custody. No study weights or raw held-out data were generated."
+  },
+  "costs": {
+    "paid_execution_usd": 0,
+    "energy_amortization_network_economics": "NOT_MEASURED",
+    "monetary_cap_usd": 0
+  },
+  "claim_ceiling": "LOCAL_PRETRAINED_TWO_MLP_INTERFACE_REPLACEMENT_ONLY",
+  "limitations": [
+    "A metadata nomination is not confirmation of model behavior or replacement retention",
+    "The bounded catalogs do not establish unavailable compatible models globally",
+    "Previously recorded identity exclusions include screening records, not solely actual weight or behavioral exposure",
+    "Publisher from-scratch/license assertions are not independent authority",
+    "Opaque/unretained predecessor data and differently serialized checkpoint aliases are not completely audited"
+  ],
+  "nonclaims": [
+    "successful pretrained whole-MLP replacement",
+    "fresh all-family validation",
+    "novelty priority",
+    "mapping equivalence",
+    "universal or metaphysical identity",
+    "consciousness",
+    "human-equivalent alignment",
+    "independent science",
+    "production"
+  ],
+  "next_execution_gate": "A separately frozen checkpoint-source/exposure feasibility slice is needed to bind an eligible OPT/ReLU and Llama/SiLU cohort. Do not change or rerun terminal V36, V36R1 or V36R2.",
+  "next_authority_gate": "Configured independent reviewer for stronger scientific acceptance; human calibration and production operational authorization remain separate.",
+  "publish_boundary": "Local source and scalar reports only; no commit, merge, public release, cloud execution or review task."
+}

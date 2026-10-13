@@ -1,0 +1,98 @@
+{
+  "files": [
+    {
+      "bytes": 361926,
+      "path": "gelu-3201/preparation-data.npz",
+      "sha256": "7fc97e2cb691e6c4cf5a2e06568e3b457474cdb928361358941d30d4328cefcb",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "gelu-3202/preparation-data.npz",
+      "sha256": "8aec95509756b2ce936dafb63316386cedbdbbb7dffe717cc0cda3a3f5b1b268",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "gelu-3203/preparation-data.npz",
+      "sha256": "806bdc296c340d1dbe77d2706a6cae5efd47ee2da726e7c57c9a4aae37f7f5fb",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "relu-3201/preparation-data.npz",
+      "sha256": "581d892f7c896c6ca4be5ed280c5666cff0c0ab8807de42f95e9dc27838dc547",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "relu-3202/preparation-data.npz",
+      "sha256": "8d5eb014ed6f7f58d0c55b59dba3e8685050dcaadd0477af7efa85e047f918c1",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "relu-3203/preparation-data.npz",
+      "sha256": "8ef5716897958efdfbf117c968147171888abad8d8b4da0db40c900b62029694",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "silu_gated-3201/preparation-data.npz",
+      "sha256": "dc4ba507b5d29f07dfd48d1b43ff71c06d5de6708c81c6ee9620dbf393d613e4",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "silu_gated-3202/preparation-data.npz",
+      "sha256": "a45f2937e07373f5d39764f298b20521c3a05bd2115c11a8b7149e82efb7abce",
+      "source": "v32"
+    },
+    {
+      "bytes": 361926,
+      "path": "silu_gated-3203/preparation-data.npz",
+      "sha256": "5e5b946a09a12ce67628dcb5a39c5e40da776e718ec3809b4f6dadf8f45d28f8",
+      "source": "v32"
+    },
+    {
+      "bytes": 136604,
+      "path": "challenge.npz",
+      "sha256": "98cfa0c53c94e5660a799077e150263cd8bd3173532c54cf5f950d94e2d3af78",
+      "source": "v32"
+    },
+    {
+      "bytes": 427972,
+      "path": "relu-33101/preparation-data.npz",
+      "sha256": "840df49ffbecc97b3aa050c8281edfb0eb392ddef251c605e4f1abc87dcf88a6",
+      "source": "v33_partial"
+    },
+    {
+      "bytes": 427972,
+      "path": "relu-33101/preparation-data.npz",
+      "sha256": "5b596b2623092ff40b66c5a3dc834915a68bc5efe940995a7f2fa5719eb0846f",
+      "source": "v33r1"
+    },
+    {
+      "bytes": 427972,
+      "path": "relu-33102/preparation-data.npz",
+      "sha256": "a4f7b874044aa0f2cf0cb3648b4aaf008dd178b7b7f7a96680a1b7bdb1ecafa4",
+      "source": "v33r1"
+    },
+    {
+      "bytes": 427972,
+      "path": "relu-33103/preparation-data.npz",
+      "sha256": "c018807be70dc0cfe9611a50f8bd47dbbd55e4f8a12b3eeab645aeaa5f5caf6d",
+      "source": "v33r1"
+    },
+    {
+      "bytes": 136604,
+      "path": "challenge.npz",
+      "sha256": "dc94573f70a952b917812fb4f7bc7a386b6f5106bc4dafd484139642cb28f89e",
+      "source": "v33r1"
+    }
+  ],
+  "parent_audit_result_sha256": "d8b42f7b45a465c15869fa63774dab0bfdaa9680978cba35f409ae1789af91da",
+  "parent_packet_sha256": "09422f3caeecea46614c5bf779ee5ae80740d685e0285dde89f399ec8e01f3ad",
+  "parent_reconciliation_sha256": "423c1300b18cbc66243254d58e7a9daf742c004dcec8fe721f40e42c202a8085",
+  "parent_result_sha256": "0fec829d30ca4ad1e7a68917f18e370ea78b4b6ca1047fcf52dc59f53058197e"
+}

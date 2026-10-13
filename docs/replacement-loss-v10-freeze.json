@@ -1,0 +1,64 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "challenge_fixtures_generated": false,
+  "checkpoint_identities_selected": false,
+  "created_at_utc": "2026-09-29T20:43:47.644890+00:00",
+  "fixture_seed_count": 3,
+  "freeze_state": "FROZEN_BEFORE_CHECKPOINT_SELECTION",
+  "methods": [
+    "activation_ridge",
+    "causal_fit"
+  ],
+  "model_family_count": 1,
+  "packet_files": [
+    {
+      "path": "docs/replacement-loss-v10.md",
+      "sha256": "32e5fc3683c761e3173fdc1135ae832be355279f67fa763bd988ffff66e807c2"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "path": "replacement_loss_v10_fixtures.py",
+      "sha256": "c32607428c840bdf07576e3b102e699114c473d79629097c802e71482576e6f2"
+    },
+    {
+      "path": "replacement_loss_v10_runner.py",
+      "sha256": "b715508f4367fb093120c863e34310586b7be892bdd83e5bae381535c4decbff"
+    },
+    {
+      "path": "tests/test_replacement_loss_v10.py",
+      "sha256": "fb8604db677180eed086f582d08e50ef20afc584b91649412d8578cd1e4f267f"
+    },
+    {
+      "path": "requirements-v10.lock.txt",
+      "sha256": "0469ff6948f4866ea4df13d88c53a27adab3141ecb42af1325d31086ca8458d1"
+    },
+    {
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    }
+  ],
+  "packet_sha256": "02c20d0953c93d088887c1a0494131504e3f17f7018b9d5557ebc884b53d6475",
+  "protocol_id": "theseus-replacement-loss-v10-opt-causal-fit",
+  "protocol_slice": "theseus-replacement-loss-v10-opt-causal-fit-v1",
+  "resource_limits": {
+    "execution": "local_cpu_only",
+    "max_parameters": 200000000,
+    "max_rss_bytes": 17179869184,
+    "max_total_seconds": 14400,
+    "max_weight_bytes": 838860800,
+    "paid_or_remote_compute": false
+  },
+  "selected_layer_count": 2,
+  "state_slice": "theseus-lab-sandbox-v1"
+}

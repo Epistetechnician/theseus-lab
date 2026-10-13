@@ -1,0 +1,117 @@
+{
+  "assurance_overlay": "global-experiment-assurance-lifecycle-v1",
+  "claim_ceiling": "LOCAL_PROJECTED_CAUSAL_REFINEMENT_EFFECT_ON_WHOLE_MLP_REPLACEMENT_FOR_ONE_REUSED_OPT_CHECKPOINT",
+  "freeze_sha256": "68fb56d0b33ee47072f0eaefb161c54f6c7c2d4d8e561363f409e3abca5eec39",
+  "packet_files": [
+    {
+      "bytes": 815,
+      "path": "AGENTS.md",
+      "sha256": "351813acbf88f039eb03e41c5a937e101ded708707e4578b4a42932ba164bf58"
+    },
+    {
+      "bytes": 6921,
+      "path": "docs/replacement-loss-v18-projected-causal-refinement.md",
+      "sha256": "5571b584daff91b6e88c7c3dd5243fc9e7cb91b6af3f526e00d2c7702ba6b54d"
+    },
+    {
+      "bytes": 4672,
+      "path": "replacement_loss_v18_fixtures.py",
+      "sha256": "f68e616b55cb8270acc0df0512da85fe2ca276bce8b8fc1b5a94e2223fe1a01d"
+    },
+    {
+      "bytes": 84171,
+      "path": "replacement_loss_v18_runner.py",
+      "sha256": "5d644420f8554de6762f10401fb46f7682283d41a8bf3b78ff5df5d1f52a1c46"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v18.lock.txt",
+      "sha256": "50050efec220b3cdfbd31dea2c7e7cfe0948e4d6004454479bb955182d3fcb66"
+    },
+    {
+      "bytes": 3275,
+      "path": "docs/replacement-loss-v17-freeze.json",
+      "sha256": "3fb1103db160d95f81f12b2d623bf37a06bc70490270a900a85c653514903224"
+    },
+    {
+      "bytes": 7111,
+      "path": "docs/replacement-loss-v17-results.md",
+      "sha256": "d36a9a7ceb3155654650511b8a59354dcb75a551201f971fb0af9c6c3cd4de9c"
+    },
+    {
+      "bytes": 6298,
+      "path": "docs/replacement-loss-v17-causal-supervision.md",
+      "sha256": "053e9a328190914bf2d9ee0ed8eee99b128496379ad168b8910cbee0e3564274"
+    },
+    {
+      "bytes": 4712,
+      "path": "replacement_loss_v17_fixtures.py",
+      "sha256": "1a3a2f5aa3c4dd27fca71701692d7059ea757e4f22055c07347b561e0276ec8c"
+    },
+    {
+      "bytes": 67350,
+      "path": "replacement_loss_v17_runner.py",
+      "sha256": "a8bcf7a1fd84d54c678aef6b6cc3d554b5103b9854a2c23a65a6d36e59bf45ad"
+    },
+    {
+      "bytes": 539,
+      "path": "requirements-v17.lock.txt",
+      "sha256": "ad85cdddd69146dfabc6f20d5b50882529964c2ebabe345bbc5f0e22f38c7861"
+    },
+    {
+      "bytes": 2999,
+      "path": "docs/replacement-loss-v16-freeze.json",
+      "sha256": "d5e4e73e3240c01ba0c93e7cad29889a3b01ff928553306f5042f2d465c3508d"
+    },
+    {
+      "bytes": 6618,
+      "path": "docs/replacement-loss-v16-results.md",
+      "sha256": "d0c0b89eb7d1af0e7655d539b20257b78a1ebafd16958389492898bd1ad804e3"
+    },
+    {
+      "bytes": 8034,
+      "path": "docs/replacement-loss-v16-whole-mlp.md",
+      "sha256": "fbc70a91e7e27ab9a70cce2af0dc0ba22e1a36b5cdc028b07d5e4235882de8ef"
+    },
+    {
+      "bytes": 5018,
+      "path": "replacement_loss_v16_fixtures.py",
+      "sha256": "61b911028a19304bf87d0674cea7a4521f45ea8b93d4777563856a1c6608a8d4"
+    },
+    {
+      "bytes": 88642,
+      "path": "replacement_loss_v16_runner.py",
+      "sha256": "d53ff80e1f35d6b4f2a65e946eca556109f684ed86a2fe7e7d418abb85977947"
+    },
+    {
+      "bytes": 545,
+      "path": "requirements-v16.lock.txt",
+      "sha256": "163ba7619c952086d25fba9dff1ec6c1df58172cc743d5622c167017a6ace803"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    }
+  ],
+  "packet_sha256": "855b2c12d09edb0964845054991743ccb00c28a5d9c5583a6a0f7b2b65207739",
+  "parent_protocol": {
+    "packet_sha256": "e08b5664e8ebbc536f5ed8ff13ab0aa8b536caddb61a3540a5cb56a94f403869",
+    "post_result_follow_up": true,
+    "protocol_id": "theseus-replacement-loss-v17-causal-supervised-whole-mlp",
+    "reproducibility_status": "REPRODUCED_LOCAL",
+    "scientific_outcome": "FAIL",
+    "selected_layer": 8
+  },
+  "protocol_id": "theseus-replacement-loss-v18-projected-causal-refinement",
+  "protocol_slice": "theseus-replacement-loss-v18-projected-causal-refinement-v1",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "target_identity": {
+    "fresh_checkpoint_claim": false,
+    "model_id": "grushaprasad/opt125m-rootp-surprisal-curriculum",
+    "revision": "8af2a2926bc772599ccb3b4e7ad7b40b35259a63",
+    "target_known_before_protocol": true,
+    "tree_sha256": "6e4c3445311ab3d03830414693cc3c19c6ebfe85176a501629476cf7e2a81466",
+    "weight_sha256": "aadbd43968ed14753343d18042654e812970320b7194982b59f6d4aaa40c3132"
+  }
+}

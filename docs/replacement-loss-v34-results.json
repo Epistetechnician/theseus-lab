@@ -1,0 +1,475 @@
+{
+  "arms": {
+    "relu_balanced_row": {
+      "activation_cells_passed": 36,
+      "aligned_stages_available": 0,
+      "behavior_cells_passed": 36,
+      "causally_qualified_maps": 0,
+      "coefficient_medians_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 0.0004524640400450075,
+          "block_2": 0.0010959959719655217,
+          "final_task": 0.0013858835440932935
+        },
+        "relu-34102": {
+          "block_1": 0.0011984133695366337,
+          "block_2": 0.001444703659958027,
+          "final_task": 0.00175739366431655
+        },
+        "relu-34103": {
+          "block_1": 0.0007325660084722926,
+          "block_2": 0.001067300711577107,
+          "final_task": 0.0014316523425076501
+        }
+      },
+      "complete_case_passes": 0,
+      "final_adversarial_output_rmse": [
+        0.07230164855718613,
+        0.06753803789615631,
+        0.0697731077671051
+      ],
+      "input_effect_cells_passed": 36,
+      "internal_effect_cells_passed": 15,
+      "map_sites_total": 15,
+      "native_cells_passed": 15,
+      "native_cells_total": 36,
+      "negative_control_strata_passed": 12,
+      "ordinary_effect0_p90_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 0.7645218968391418,
+          "block_2": 0.8015999794006348,
+          "final_task": 0.7545939683914185
+        },
+        "relu-34102": {
+          "block_1": 0.8230177164077759,
+          "block_2": 0.8160265684127808,
+          "final_task": 0.772960901260376
+        },
+        "relu-34103": {
+          "block_1": 0.615183413028717,
+          "block_2": 0.767271876335144,
+          "final_task": 0.651893138885498
+        }
+      },
+      "representation_qualified_maps": 15,
+      "rescue_cells_passed": 36,
+      "stage_cells_passed": {
+        "block_1": 9,
+        "block_2": 2,
+        "final_task": 4
+      },
+      "training_norm_readouts": 10200,
+      "training_raw_ratio_max": 30165.65284187184,
+      "training_weighted_ratio_max": 0.5000000000000001,
+      "worst_gate_risks": [
+        1.7711564898490906,
+        1.8046364188194275,
+        1.649189293384552
+      ]
+    },
+    "relu_global": {
+      "activation_cells_passed": 36,
+      "aligned_stages_available": 0,
+      "behavior_cells_passed": 36,
+      "causally_qualified_maps": 4,
+      "coefficient_medians_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        },
+        "relu-34102": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        },
+        "relu-34103": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        }
+      },
+      "complete_case_passes": 0,
+      "final_adversarial_output_rmse": [
+        0.060903068631887436,
+        0.05678124353289604,
+        0.057660121470689774
+      ],
+      "input_effect_cells_passed": 36,
+      "internal_effect_cells_passed": 29,
+      "map_sites_total": 15,
+      "native_cells_passed": 29,
+      "native_cells_total": 36,
+      "negative_control_strata_passed": 12,
+      "ordinary_effect0_p90_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 0.6136032342910767,
+          "block_2": 0.5022509098052979,
+          "final_task": 0.4095510244369507
+        },
+        "relu-34102": {
+          "block_1": 1.0009663105010986,
+          "block_2": 0.6638866662979126,
+          "final_task": 0.6700121164321899
+        },
+        "relu-34103": {
+          "block_1": 0.5988909006118774,
+          "block_2": 0.5086895227432251,
+          "final_task": 0.42574694752693176
+        }
+      },
+      "representation_qualified_maps": 15,
+      "rescue_cells_passed": 36,
+      "stage_cells_passed": {
+        "block_1": 9,
+        "block_2": 9,
+        "final_task": 11
+      },
+      "training_norm_readouts": 10200,
+      "training_raw_ratio_max": 4.103101014185354,
+      "training_weighted_ratio_max": 4.103101014185354,
+      "worst_gate_risks": [
+        1.2272064685821533,
+        2.0019326210021973,
+        1.1977818012237549
+      ]
+    },
+    "relu_row": {
+      "activation_cells_passed": 0,
+      "aligned_stages_available": 0,
+      "behavior_cells_passed": 0,
+      "causally_qualified_maps": 0,
+      "coefficient_medians_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        },
+        "relu-34102": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        },
+        "relu-34103": {
+          "block_1": 1,
+          "block_2": 1,
+          "final_task": 1
+        }
+      },
+      "complete_case_passes": 0,
+      "final_adversarial_output_rmse": [
+        0.3796505331993103,
+        0.36113256216049194,
+        0.38350480794906616
+      ],
+      "input_effect_cells_passed": 0,
+      "internal_effect_cells_passed": 0,
+      "map_sites_total": 15,
+      "native_cells_passed": 0,
+      "native_cells_total": 36,
+      "negative_control_strata_passed": 12,
+      "ordinary_effect0_p90_by_case_and_stage": {
+        "relu-34101": {
+          "block_1": 1.4465467929840088,
+          "block_2": 1.1629011631011963,
+          "final_task": 1.0887556076049805
+        },
+        "relu-34102": {
+          "block_1": 1.400055170059204,
+          "block_2": 1.075648307800293,
+          "final_task": 1.079837441444397
+        },
+        "relu-34103": {
+          "block_1": 1.4232652187347412,
+          "block_2": 1.1408543586730957,
+          "final_task": 1.244271993637085
+        }
+      },
+      "representation_qualified_maps": 10,
+      "rescue_cells_passed": 0,
+      "stage_cells_passed": {
+        "block_1": 0,
+        "block_2": 0,
+        "final_task": 0
+      },
+      "training_norm_readouts": 10200,
+      "training_raw_ratio_max": 5734.6731559563095,
+      "training_weighted_ratio_max": 5734.6731559563095,
+      "worst_gate_risks": [
+        5.699838995933533,
+        4.3889158964157104,
+        4.8656246066093445
+      ]
+    }
+  },
+  "assurance_level": "REPRODUCED_LOCAL",
+  "captured_exit_codes": {
+    "closeout": 0,
+    "primary": 0,
+    "replica": 0
+  },
+  "claim_ceiling": "LOCAL_SYNTHETIC_GRADIENT_BALANCE_AND_CAUSAL_MAP_QUALIFICATION_ONLY",
+  "confirmation_custody_present": false,
+  "confirmation_freeze_present": false,
+  "confirmation_status": "NOT_OPENED_NO_ELIGIBLE_VARIANT",
+  "custody_validation": {
+    "primary": {
+      "final_artifact_bytes": 20404269,
+      "frozen_archive_files": 30,
+      "gradient_readouts": 30600,
+      "manifest_files": 167,
+      "native_cells": 108
+    },
+    "replica": {
+      "final_artifact_bytes": 20405017,
+      "frozen_archive_files": 30,
+      "gradient_readouts": 30600,
+      "manifest_files": 167,
+      "native_cells": 108
+    }
+  },
+  "development_guides": 3,
+  "energy": "NOT_MEASURED",
+  "engineering_receipt_sha256": "56c9d62d6da933f6b73f98ee9241bf48f51927e1004bc515cc4250a2d29747fa",
+  "engineering_tests_per_runtime": 28,
+  "freeze_file_sha256": "7b5b869ac99595e5d3e9bfd037908c9c3c95d16b861be99c27703a2522e49779",
+  "guide_cases": [
+    "relu-34101",
+    "relu-34102",
+    "relu-34103"
+  ],
+  "guide_qualification": {
+    "relu-34101": {
+      "block_removal_accuracy_drops": [
+        0.486572265625,
+        0.489013671875
+      ],
+      "guide_normalized_rmse": 0.046098608523607254,
+      "guide_sign_accuracy": 0.988525390625,
+      "passed": true
+    },
+    "relu-34102": {
+      "block_removal_accuracy_drops": [
+        0.498046875,
+        0.498046875
+      ],
+      "guide_normalized_rmse": 0.04345792531967163,
+      "guide_sign_accuracy": 0.98583984375,
+      "passed": true
+    },
+    "relu-34103": {
+      "block_removal_accuracy_drops": [
+        0.478271484375,
+        0.485595703125
+      ],
+      "guide_normalized_rmse": 0.05475573614239693,
+      "guide_sign_accuracy": 0.98095703125,
+      "passed": true
+    }
+  },
+  "input_custody": {
+    "current_unique_input_rows_per_runtime": 41472,
+    "exclusion_manifest_files": 15,
+    "owner_controlled_external": true,
+    "procedural_synthetic_only": true,
+    "raw_artifacts_in_repository": false,
+    "row_overlap_pairs": 0
+  },
+  "limitations": [
+    "Three ReLU synthetic guide seeds; nine-family/seed confirmation and noncausal comparators not opened.",
+    "Same-host same-owner isolated environments; not external blind replication.",
+    "Descriptive paired effects and correlated stage/row measurements; no powered statistical superiority or novelty claim.",
+    "Fixed cap only; gradient directions and generalization are not guaranteed.",
+    "No complete causally qualified aligned snapshot; comparator performance cannot be inferred.",
+    "Energy and machine amortization not measured."
+  ],
+  "map_qualification": {
+    "causally_qualified_sites": 4,
+    "complete_aligned_snapshots_available": 0,
+    "representation_qualified_sites": 40,
+    "total_sites": 45
+  },
+  "monetary_cost_usd": 0,
+  "next_gate": {
+    "local_method": "A separately frozen adaptation-only diagnosis of weak first-site secants or Jacobians, followed only if warranted by fresh globally disjoint derivative-supervised development. Preserve the unchanged all-stage retention contract.",
+    "other_authority": "Separate human alignment calibration and production authorization.",
+    "scientific_authority": "Blind external replication and authorized independent review for stronger scientific acceptance."
+  },
+  "nonclaims": [
+    "pretrained transformer replacement",
+    "all architectures",
+    "novelty priority",
+    "metaphysical identity",
+    "consciousness",
+    "alignment",
+    "independent science",
+    "production readiness"
+  ],
+  "outcome_status": "NO_QUALIFIED_DEVELOPMENT_CANDIDATE",
+  "packet_sha256": "91497500548479499d0f7de61d524adb9f215cd93118414e052644f67289ab91",
+  "paired_final_ordinary_first_site_p90": [
+    {
+      "balanced_relative_reduction_vs_global": -0.8424907358706564,
+      "balanced_relative_reduction_vs_row": 0.30692070550951567,
+      "case": "relu-34101",
+      "p90": {
+        "relu_balanced_row": 0.7545939683914185,
+        "relu_global": 0.4095510244369507,
+        "relu_row": 1.0887556076049805
+      }
+    },
+    {
+      "balanced_relative_reduction_vs_global": -0.15365212404872253,
+      "balanced_relative_reduction_vs_row": 0.2841877197493181,
+      "case": "relu-34102",
+      "p90": {
+        "relu_balanced_row": 0.772960901260376,
+        "relu_global": 0.6700121164321899,
+        "relu_row": 1.079837441444397
+      }
+    },
+    {
+      "balanced_relative_reduction_vs_global": -0.5311751327219105,
+      "balanced_relative_reduction_vs_row": 0.47608469673903564,
+      "case": "relu-34103",
+      "p90": {
+        "relu_balanced_row": 0.651893138885498,
+        "relu_global": 0.42574694752693176,
+        "relu_row": 1.244271993637085
+      }
+    }
+  ],
+  "positive_control_strata_passed": 12,
+  "protocol_id": "theseus-replacement-loss-v34-gradient-balance",
+  "reconciliation_checks": {
+    "cases": true,
+    "challenge_binding": true,
+    "challenge_generated": true,
+    "confirmation_freeze_sha256": true,
+    "distinct_runtime": true,
+    "guide_qualification": true,
+    "oracle_binding": true,
+    "outcome_status": true,
+    "packet_sha256": true,
+    "phase": true,
+    "prediction_binding": true,
+    "preparation": true,
+    "protocol_id": true,
+    "selection": true,
+    "source_packet_unchanged": true,
+    "toolchain": true
+  },
+  "reconciliation_sha256": "de1cedbfb54e9c0daa6e8c42d3f433c266b4369bac57b54656be8fc6dc05cd2d",
+  "reproducibility_status": "REPRODUCED_LOCAL",
+  "resources": {
+    "primary": {
+      "artifact_bytes": 19847579,
+      "energy": "NOT_MEASURED",
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 317292544,
+      "wall_seconds": 28.931305833015358
+    },
+    "replica": {
+      "artifact_bytes": 19847579,
+      "energy": "NOT_MEASURED",
+      "monetary_cost_usd": 0,
+      "peak_rss_bytes": 317505536,
+      "wall_seconds": 29.68580745800864
+    }
+  },
+  "result_digests": {
+    "primary": "119c68276383f4104fbe190bafb4ff77143fe5e03276ac06201ae8b5c1b2aa3b",
+    "replica": "934b4e332a6211f8b4235ffd17901bb199de8baf80bc53aa283e84fa3a3d3671"
+  },
+  "reviewer_status": "NOT_SUBMITTED",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "revision_scope": "plus digest-bound uncommitted packet",
+  "selection": {
+    "eligible_variants": [],
+    "eligible_worst_gate_risks": {},
+    "selected_variant": null
+  },
+  "source_packet_members": 29,
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-replacement-loss-v34-gradient-balance-v1",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "validation_sha256": "d0237561fed89f94eb8dc6f7eeecdf0e2253a2fd5098c7d512281df4ca8d107d",
+  "data_and_model_bindings": {
+    "case_preparation": {
+      "relu-34101": {
+        "candidate_sha256": {
+          "relu_balanced_row": {
+            "block_1": "9f7744ab7962d12c5a5a449d6be99a40fa4f05df22125d8a0bed6c4d8bd04f0a",
+            "block_2": "4ac30e5be0065373519b9642ecb88699f2e58c427e60a59e791949df284710f6",
+            "final_task": "442ea33932fb4222215eb3c42eb78b5769b6990c7f4ba445d612530fd665f704"
+          },
+          "relu_global": {
+            "block_1": "11f2d5c6ba7328bfcdd3e4eeaa0d2ac52350eceb54be3571f6c3f6c96be4f78f",
+            "block_2": "938cc6b0ffaaeec7fcbe78c5b8ea74ba91d11c5031b1d3ee7003a28740542754",
+            "final_task": "edc78a9a5917ba39c53e4b7846eac6c7208c1c2f6a09e6001a856a179ef2eb19"
+          },
+          "relu_row": {
+            "block_1": "f727055b20153b0d43412e7a704eaee44e08751ca4b0aec78a39d02ccf23b2f3",
+            "block_2": "98ff435da315509be567753678fd601bdd2b2b086feb1e09aefae6f0b861bccc",
+            "final_task": "d198a83d7bfb135aa7ac2b0449327dc33aa8f1657224850d3a9a1d7d0e6ed282"
+          }
+        },
+        "fixtures_sha256": "932625ce3be5c4f92b2eaae30c3f1706ec1d0833d5ac9e2e89e4ea2fc8e71088",
+        "guide_sha256": "328dabe37dc6c4ceeacc9e174f4a0d96d02ccabc790f06bde9c84c0c490ee10b",
+        "map_validation_inputs_sha256": "6b3ea8eaa28e5e428ba94f7a98db7061bd1cc8b29516fae7696d443b10f446d1"
+      },
+      "relu-34102": {
+        "candidate_sha256": {
+          "relu_balanced_row": {
+            "block_1": "73c194ebfa0fe2efa10dd01425130fa3ea75091a373c3e3363b2c77a43d225b9",
+            "block_2": "b8526407dd107a5e06a54addadb03dbbad25cfdd415a750eabfc73f93ae58475",
+            "final_task": "a887869eb8b8defdb503530456ae5bb8e42d9feb8073e074cbefde564ec7cc04"
+          },
+          "relu_global": {
+            "block_1": "1d69f75e4786213a36f3f97f5682879ef6add714603b1c6c6de90e16fe594c51",
+            "block_2": "2f502b13193d8bcfc48d664c2968a1add3abf08b0c982f3a2cf225477db4cfd4",
+            "final_task": "b18ca6310d940606010f7818ee5d5d4038ed5b990d0f4133a2c7b7bd87e997d5"
+          },
+          "relu_row": {
+            "block_1": "004e1f8e8b749534c28e4c255b8dc17362f9463702bf0089cad1bb553d625f49",
+            "block_2": "641d10468198a52a039ed603c3ad1c140d41f769c345bb71de7013c22ff115be",
+            "final_task": "2d02ea473aa5c314ed0a1b9dcbcc6dfc34836160b8e38c527cb259f881c6f4d8"
+          }
+        },
+        "fixtures_sha256": "038337f1edf55e78687b76b3a33ab92073f2ec23be0aa3f2ca366b5a1b55ccd8",
+        "guide_sha256": "bacb5b7ac250ad09212089ceda86bf96239c53d14d8d91a868d5478d98df8b52",
+        "map_validation_inputs_sha256": "7a0e9369ea189a1733346ba0995acd486e56b32fcc6ac34f5b951e49729b4f84"
+      },
+      "relu-34103": {
+        "candidate_sha256": {
+          "relu_balanced_row": {
+            "block_1": "0590ba4ae11406d914b35b75e97579a6a32172268e94b75ddaa594ba2cf4b020",
+            "block_2": "8deac2a639bcf0341620c40f1eeb27bf2c843c5a01eec6c09277c51c831c3862",
+            "final_task": "eb9f9edf6ac5e72a55e1419cc787d035bc76a432ee384d86ffbf966d205e7863"
+          },
+          "relu_global": {
+            "block_1": "07e085e18510d126e23c73b150484ff531b12efdd66fec9384398086bb9ba1d7",
+            "block_2": "f937c717534543b88b80efbdc496604a0801970a04d29cf2fb33845ba5857b76",
+            "final_task": "69ff3361cc25dfb1e132940dae74a1a9b38a5f7e2d26f2aed85491e3cf0a2155"
+          },
+          "relu_row": {
+            "block_1": "4f46e4822f71ad9aeecd71661d14e6ae60f5160ba011a747aec1e823ecf98d5b",
+            "block_2": "968d88f13b76d1699892e7b79c4e07f4bb5e59fe1bf800dc0135b88e99d2bc7e",
+            "final_task": "3abebedcc86513a39a2c5185fd1e6e1cfce20f2392e107f77a8f9c0d737e8afd"
+          }
+        },
+        "fixtures_sha256": "0fb0dbd6b8a7c9ebcbfc8940bb8438bee02cbbbc7edc42950454e6b57fd3e6e4",
+        "guide_sha256": "3794d3a6ebcd4615bad009c1d6a8d8874b2b030ad348c3f36b1a1eb4c51554d3",
+        "map_validation_inputs_sha256": "d288fe483c8c3e11717e1de91950ff2c1e20b2cf72b201007fc746df29e1e65d"
+      }
+    },
+    "challenge_fixture_sha256": "9aba302483c9ae7b7d1d037cf8946615a9ed1a34088402bc5f8e94eb4e6b68ff"
+  },
+  "custody_paths": {
+    "artifacts": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v34",
+    "runtimes": "/Volumes/Backup ED/ResearchRuntimes/theseus-lab-v34/toolchains"
+  }
+}
+

@@ -1,0 +1,28 @@
+{
+  "claim_ceiling": "REUSED_VISIBLE_TARGET_DIAGNOSIS_ONLY",
+  "frozen_before_all_layer_probes": true,
+  "members": [
+    {
+      "bytes": 5625,
+      "path": "theseus_gpt2_target_audit_v1.py",
+      "sha256": "a959ddfaa4201efc0590b8f935ca35c3ff663b9e487e17de1a958df87b1294aa"
+    },
+    {
+      "bytes": 2588,
+      "path": "docs/gpt2-visible-target-audit-v1.md",
+      "sha256": "838f796aee2f673ac13c0146395b3b4d5c5fa5958ddbeb916226c2aeed7e6aa8"
+    },
+    {
+      "bytes": 776,
+      "path": "tests/test_gpt2_target_audit_v1.py",
+      "sha256": "dcfa86a1c2f7639d6cd41f1b6e5e20b03ea95167d03fd8326683befb11c7e8b6"
+    },
+    {
+      "bytes": 6007,
+      "path": "docs/replacement-loss-v37r1-freeze.json",
+      "sha256": "9d667dd54ac878ab55cea1f3ff9a41d5329dce94ebd113f3ff734d09f2fd4a9d"
+    }
+  ],
+  "packet_sha256": "266cabc17fec751169eceacbfc5b0814cbae9022833726e84204f8d67a7fa5b8",
+  "protocol_id": "theseus-gpt2-visible-target-audit-v1"
+}

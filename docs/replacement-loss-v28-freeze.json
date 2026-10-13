@@ -1,0 +1,231 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget": {
+    "max_case_wall_seconds": 7200,
+    "max_model_bytes_each": 2200000000,
+    "max_model_bytes_total": 6600000000,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_usd": 0,
+    "search_limit_per_query": 10000
+  },
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v28-fresh-checkpoint-recovery-v1",
+  "created_at_utc": "2026-10-02T02:32:25.754420+00:00",
+  "custody_roots": {
+    "clean_replica": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v28-replicator",
+    "primary": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v28"
+  },
+  "dependency_inventory": {
+    "distribution_count": 27,
+    "packages": [
+      "certifi==2026.7.22",
+      "charset-normalizer==3.5.1",
+      "filelock==4.0.4",
+      "fsspec==2026.9.0",
+      "hf-xet==1.6.0",
+      "huggingface_hub==0.36.2",
+      "idna==3.20",
+      "jinja2==3.1.6",
+      "markupsafe==3.0.3",
+      "mpmath==1.3.0",
+      "networkx==3.7",
+      "numpy==2.4.6",
+      "packaging==26.3",
+      "pip==25.0.1",
+      "protobuf==5.29.6",
+      "pyyaml==6.0.3",
+      "regex==2026.9.10",
+      "requests==2.34.2",
+      "safetensors==0.8.0",
+      "setuptools==84.0.0",
+      "sympy==1.13.1",
+      "tokenizers==0.22.2",
+      "torch==2.6.0",
+      "tqdm==4.70.1",
+      "transformers==4.57.3",
+      "typing_extensions==4.16.0",
+      "urllib3==2.8.0"
+    ],
+    "primary_and_clean_replica_must_match": true
+  },
+  "dependency_manifest_sha256": "039cf82de4734acb725a7efc3c3257101a3ff21b6c061ef4bbb72c3c71f6f319",
+  "fixture_preflight_all_partitions_disjoint": true,
+  "fixture_preflight_receipt_body_sha256": "a024413ad96377746ec0aed17e0e8ec251f3a95ee545cb42c538bcb553822491",
+  "fixture_preflight_receipt_sha256": "d3a62dfb0a164690f38c19abab785f8b6fb71d815e0086ef9ea256eccdd56aa9",
+  "freeze_state": "FROZEN_AFTER_FIXTURE_DISJOINTNESS_AND_BEFORE_V28_HUB_QUERY_OR_TARGET_SELECTION",
+  "hub_queries_issued": false,
+  "model_weights_downloaded": false,
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "independently learned replacement",
+    "whole-model mechanistic identity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 4261,
+      "path": "docs/replacement-loss-v28-fresh-checkpoint-recovery.md",
+      "sha256": "d62537bd2d4cdf87722a1bbcaf837fefa5a4001d86ce32aec79a77ae22997039"
+    },
+    {
+      "bytes": 3056,
+      "path": "replacement_loss_v28_fixtures.py",
+      "sha256": "bd56fb4fb4086d35eb450299ed015ab9f8f6892acb956d5e69807d038d4475b2"
+    },
+    {
+      "bytes": 2212,
+      "path": "replacement_loss_v28_hub_adapter.py",
+      "sha256": "cbdd9b4800f40066c78be2cdd735cfd5df53f8832d0e3791739f0aa5b61c2a41"
+    },
+    {
+      "bytes": 28875,
+      "path": "replacement_loss_v28_runner.py",
+      "sha256": "2d9ed9b93c0d7c1cd51d96afa98a4e4585e81f86c6ba74bcb3b72f0b2d463597"
+    },
+    {
+      "bytes": 452,
+      "path": "requirements-v28.lock.txt",
+      "sha256": "039cf82de4734acb725a7efc3c3257101a3ff21b6c061ef4bbb72c3c71f6f319"
+    }
+  ],
+  "packet_sha256": "f341a7f8e673dd2248f38b73659da25dcf62088b29176e01e1b914f1e5925b08",
+  "pre_v28_excluded_identity_count": 11930,
+  "pre_v28_identity_ledger_sha256": "c238a3ea4fc1308580be35cd068b2630b7506b538ab759f8acf64418796391c6",
+  "protocol_id": "theseus-replacement-loss-v28-fresh-checkpoint-recovery",
+  "runtime": {
+    "auth": "token=False",
+    "clean_replica_runtime": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v28-replicator-toolchain",
+    "hosted_inference": false,
+    "hub_client": "huggingface_hub==0.36.2",
+    "isolation_contract": "distinct sys.prefix and site-packages; include-system-site-packages=false; shared base executable permitted",
+    "platform": "macOS arm64 local CPU only",
+    "primary_runtime": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v28-primary-toolchain",
+    "protobuf": "protobuf==5.29.6",
+    "python": "3.12.13",
+    "remote_workers": 0,
+    "telemetry": false
+  },
+  "source_identity_note": "git HEAD plus exact packet and upstream source digests; checkout contains unrelated pre-existing dirty files",
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "upstream_code_dependencies": [
+    {
+      "bytes": 4795,
+      "path": "docs/replacement-loss-v27-fresh-checkpoint-recovery.md",
+      "sha256": "0997188813a8edb599d7ba2de225f7c78c077e290526eff3227218c4419fb2e6"
+    },
+    {
+      "bytes": 2182,
+      "path": "replacement_loss_v27_hub_adapter.py",
+      "sha256": "dd72a67ce2090e4b7e88fd8e282df50e94a22a45e86e308465bdff779cd7c507"
+    },
+    {
+      "bytes": 41736,
+      "path": "replacement_loss_v27_runner.py",
+      "sha256": "feb5cdfef4dad2b3a37e3ada243e2b8880b159eaa1e21c2c021dca576dcb0133"
+    },
+    {
+      "bytes": 452,
+      "path": "requirements-v27.lock.txt",
+      "sha256": "039cf82de4734acb725a7efc3c3257101a3ff21b6c061ef4bbb72c3c71f6f319"
+    },
+    {
+      "bytes": 85,
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 95959,
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "bytes": 36282,
+      "path": "replacement_loss_v6_runner.py",
+      "sha256": "2f032a7384f4a70f9ad1216de2539ec09fcb338fbb8a458579e3c596a9162f6e"
+    },
+    {
+      "bytes": 21809,
+      "path": "replacement_loss_v7_runner.py",
+      "sha256": "92d617737e6c7726d071e9f545ef06cabe78e4d2673c4dc3f1eb72edd0cf7ccf"
+    },
+    {
+      "bytes": 3013,
+      "path": "replacement_loss_v8_fixtures.py",
+      "sha256": "ab7832ecd1fe252e6c1208e8c7f6b3a157b3be86cbcb69228836f639fb53626e"
+    },
+    {
+      "bytes": 27377,
+      "path": "replacement_loss_v8_runner.py",
+      "sha256": "0d87dff6a87949bd9b26bf915df57655c95189529bb3f7c112dca8284168c469"
+    },
+    {
+      "bytes": 3109,
+      "path": "replacement_loss_v22_fixtures.py",
+      "sha256": "267722e033733bbabce9ef9b386565cb445d93222571b9f6b7e0b394192f3baf"
+    },
+    {
+      "bytes": 24596,
+      "path": "replacement_loss_v22_runner.py",
+      "sha256": "83977cc8b6edb04d684faf7ce26c586f3cefcbe72fb15d7c8cc04fdd22762fc6"
+    },
+    {
+      "bytes": 25497,
+      "path": "replacement_loss_v23_runner.py",
+      "sha256": "07aa878aff972484d39754d1a6d1f4ee0629deb1d96ccfe6ebaa1c478f72e73c"
+    },
+    {
+      "bytes": 13444,
+      "path": "replacement_loss_v23_hub_adapter.py",
+      "sha256": "b6d2ec3519545613aae998fd44990d11a7238acc21c98ae21747ca5598bfd6b6"
+    },
+    {
+      "bytes": 38232,
+      "path": "replacement_loss_v25_runner.py",
+      "sha256": "567626a200c83a08db1381675ef04d7ed669f583cc8d3d3d67e3022c6e37e516"
+    },
+    {
+      "bytes": 10496,
+      "path": "replacement_loss_v25_hub_adapter.py",
+      "sha256": "5d22ed20949c67d28c85b2182e9e223f8fe48f21bea0bf4468bdf7d5c820fc42"
+    },
+    {
+      "bytes": 46109,
+      "path": "replacement_loss_v26_runner.py",
+      "sha256": "d3af6f722bd0886baca2c4c3fc1be7e22c2f34a11681c3571e1664b5aba5d8fa"
+    },
+    {
+      "bytes": 10546,
+      "path": "replacement_loss_v26_hub_adapter.py",
+      "sha256": "509cae24ce59cf886ec08553868fc6840712c8fa14b9723a7d3936e6a44d571d"
+    }
+  ],
+  "upstream_v22_packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "upstream_v27_packet_sha256": "3321cc188a83f8ae5a394f49747309c02c7ce0f5e8caf31cb7a21f12ab9dbc5b",
+  "upstream_v27_static_evidence": {
+    "candidate_preparation_started": false,
+    "packet_sha256": "3321cc188a83f8ae5a394f49747309c02c7ce0f5e8caf31cb7a21f12ab9dbc5b",
+    "selected_identity_artifacts_sha256": {
+      "checkpoints.json": "67b2e1f757069329e7a60a6471844e4fdde387b34e7a026d5eb217676ed04274",
+      "v27-checkpoint-selection.json": "913c0ff5f6efc5ce3126577c2b69eaacd25717147597bef51514c858cf915c63",
+      "v27-download-manifest.json": "7878e17ad62758e3af84d9f0a0e366e5726e0bda2d14c7380fe31ed9c382a9b7",
+      "v27-hub-screen.json": "6cacaf449419b80c7d2670ff1ac593c582ed8793fdd0b9625a7fb86f6169650b"
+    },
+    "terminal_phase": "PRIMARY_EVALUATION",
+    "terminal_report_sha256": "b596b62f05eca0aa4546df2733a16d9f89a275e121f48710f81dfcb1ff30b133",
+    "terminal_status": "INCONCLUSIVE_EXECUTION"
+  },
+  "upstream_v27_terminal_report_sha256": "b596b62f05eca0aa4546df2733a16d9f89a275e121f48710f81dfcb1ff30b133",
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

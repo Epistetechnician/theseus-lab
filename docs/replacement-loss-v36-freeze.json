@@ -1,0 +1,88 @@
+{
+  "claim_ceiling": "LOCAL_PRETRAINED_TWO_MLP_INTERFACE_REPLACEMENT_ONLY",
+  "members": [
+    {
+      "bytes": 13233,
+      "path": "replacement_loss_v36_core.py",
+      "sha256": "a34e1f668e1c35956e505622a2fd4f94843c4e7184fbd77c94d780b5863e944c"
+    },
+    {
+      "bytes": 2600,
+      "path": "replacement_loss_v36_fixtures.py",
+      "sha256": "f4dd51e70bb71d3342829cf4367f419356af60d7e32d7926f60a5d18c6c03085"
+    },
+    {
+      "bytes": 33094,
+      "path": "replacement_loss_v36_runner.py",
+      "sha256": "fb3650fcd99bb6df4e411069c6accd74220d49b83f1454ce6c10f0685220966f"
+    },
+    {
+      "bytes": 11086,
+      "path": "replacement_loss_v36_closeout.py",
+      "sha256": "773de67a2dc82cdc2f64f3848f9e5341008a4f74363d24ea44fc6d41dccd05d4"
+    },
+    {
+      "bytes": 17798,
+      "path": "tests/test_replacement_loss_v36.py",
+      "sha256": "0f22f18134d21ec58a53056bd9cdd787301eea3ca290036e1803da84ea1a1059"
+    },
+    {
+      "bytes": 14637,
+      "path": "docs/replacement-loss-v36-pretrained-transfer.md",
+      "sha256": "86ab6d980802c36ac3a861e3a6b228a4fa7be60b89fec9614c168e76f17a184f"
+    },
+    {
+      "bytes": 556,
+      "path": "requirements-v36.lock.txt",
+      "sha256": "d8ca46482cc3e43e61a1994ec0fd49584389267063720d4534da55c55a1b99b7"
+    },
+    {
+      "bytes": 50408,
+      "path": "docs/replacement-loss-v35-results.json",
+      "sha256": "6ae54cad83c7b8a193e191b86c94395bed6ebed2c50dc47d4c1a985644ff9b7a"
+    },
+    {
+      "bytes": 7923,
+      "path": "docs/replacement-loss-v35-freeze.json",
+      "sha256": "af4ebfd06f3b3e2c5481307fa5c0d344f3d61d8c29b9af5a0a50fe2d48c88b86"
+    },
+    {
+      "bytes": 5552,
+      "path": "checkpoint_manifests.json",
+      "sha256": "79f2bfa82afb139f6265acb43a15cd374aed704c8cc20e1cc37789668c65c104"
+    }
+  ],
+  "packet_sha256": "370a074309eeea6b57cf5b529892932d5d93474a9381b7ffd47bc1a6bb367458",
+  "protocol_id": "theseus-pretrained-whole-block-transfer-v36",
+  "date": "2026-10-05",
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "source_state": "digest-bound uncommitted packet",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-pretrained-whole-block-transfer-v36",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "source_freeze_state": "FROZEN_SOURCE_CUSTODY_PENDING",
+  "checkpoint_selection_status": "NOT_SELECTED",
+  "parent_packet_sha256": "2b5a23c1a7c1fd5979b384f559ae152cd6f4febd8c5f2d455db05a4abd569656",
+  "qualification_assurance_level": "INTERNAL_PASS",
+  "scientific_execution_status": "NOT_RUN_CUSTODY_UNAVAILABLE",
+  "reviewer_status": "NOT_SUBMITTED",
+  "budgets": {
+    "monetary_cap_usd": 0,
+    "seconds_per_runtime": 86400,
+    "max_rss_bytes": 6442450944,
+    "max_artifact_bytes_per_runtime": 25769803776,
+    "vocabulary_max": 65536
+  },
+  "nonclaims": [
+    "pretrained replacement success before actual execution",
+    "hidden-neuron identity or mapping-aligned equivalence",
+    "architecture-universal replacement",
+    "novelty priority",
+    "metaphysical identity or subjective experience",
+    "human-equivalent alignment",
+    "independent science",
+    "production authorization"
+  ]
+}

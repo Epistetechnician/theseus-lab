@@ -1,0 +1,12 @@
+{
+  "created_at_utc": "2026-09-29T14:19:10.406718+00:00",
+  "error": "in-memory V9 dependency adaptation differs from the frozen V3 patch",
+  "error_type": "ValueError",
+  "packet_sha256": "d35c9357c147f97e0857537232685a547418393d44e98c477759675fc5ff6fd1",
+  "protocol_id": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+  "state_slice": "theseus-replacement-loss-v9-gman-fresh-node-reproduction-v4j",
+  "stop_status": "INCONCLUSIVE",
+  "stopped_phase": "run",
+  "v4_stop_sha256": "9b05aef264a0650969d562fe7219d191a09cf731afd094b469adb90d8b316286"
+}
+

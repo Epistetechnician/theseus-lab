@@ -1,0 +1,81 @@
+{
+  "assurance_slice": "global-experiment-assurance-lifecycle-v1",
+  "budget": {
+    "max_case_wall_seconds": 7200,
+    "max_model_bytes_each": 2200000000,
+    "max_model_bytes_total": 6600000000,
+    "max_peak_rss_bytes": 25769803776,
+    "max_total_wall_seconds": 64800,
+    "monetary_usd": 0
+  },
+  "checkpoint_identities_selected": false,
+  "claim_ceiling": "FRESH_CHECKPOINT_REPLICATION_WITHIN_OPT_GPT2_LLAMA_FAMILIES",
+  "continuation_slice": "theseus-replacement-loss-v24-public-checkpoint-acquisition-v1",
+  "created_at_utc": "2026-10-02T01:13:45.494640+00:00",
+  "custody_roots": {
+    "clean_replica": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24-replicator",
+    "primary": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24"
+  },
+  "dependency_inventory": {
+    "distribution_count": 26,
+    "primary_and_clean_replica_match": true,
+    "sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609"
+  },
+  "dependency_manifest_sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609",
+  "freeze_state": "FROZEN_BEFORE_V24_PUBLIC_HUB_QUERY_OR_TARGET_SELECTION",
+  "hub_queries_issued": false,
+  "model_weights_downloaded": false,
+  "nonclaims": [
+    "unseen architecture families",
+    "all architectures",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "packet_files": [
+    {
+      "bytes": 4784,
+      "path": "docs/replacement-loss-v24-public-checkpoint-acquisition.md",
+      "sha256": "5166c55c62587a2e9228573a32eb20c93469ef3368f47852573dcd9c3a196dc0"
+    },
+    {
+      "bytes": 10115,
+      "path": "replacement_loss_v24_hub_adapter.py",
+      "sha256": "6819ccbcbec51c9ce69c38187ede42554cfbf748ed1380cabcabca5287ba4841"
+    },
+    {
+      "bytes": 35540,
+      "path": "replacement_loss_v24_runner.py",
+      "sha256": "627c7d28cd29f2d49bf049c56cb3197b783dd349b91a1684cbda47414c076255"
+    },
+    {
+      "bytes": 435,
+      "path": "requirements-v24.lock.txt",
+      "sha256": "cf90cf944be759e444dc187328b75b5e6632cd4c46401069c35cb90e5e6b2609"
+    }
+  ],
+  "packet_sha256": "1d1b99baa7dbe41f62a989a3653dc18b353f9d7fee5f8cbd6ed810796b162197",
+  "parameter_cap_method": "local exact safetensors metadata from frozen V23 checker; no unsupported list_models parameter",
+  "protocol_id": "theseus-replacement-loss-v24-public-checkpoint-acquisition",
+  "runtime": {
+    "auth": "token=False",
+    "execution": "local macOS arm64 CPU only",
+    "hosted_inference": false,
+    "hub_assets_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24/assets-cache",
+    "hub_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24/hub-cache",
+    "hub_client": "huggingface_hub==0.36.2",
+    "hub_home_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24/hf-home",
+    "hub_telemetry": false,
+    "hub_xet_cache_root": "/Volumes/PrimaryED/ResearchArtifacts/theseus-lab-sandbox-v1-replacement-loss-v24/xet-cache",
+    "python": "3.12.13",
+    "remote_workers": 0
+  },
+  "source_revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "upstream_v22_packet_sha256": "924be878356660c79ffc3ec4b0aa32f34b3a32926f381cc10a184db459e6179d",
+  "upstream_v23_freeze_file_sha256": "3af092b802580e36d24310c765e18effd7e8bb26a33e674baf3367083e32bd7c",
+  "upstream_v23_packet_sha256": "7600d653f906db5411a6ab3121e078f8134e311e8fe0ecb37ef05552bdbe890e",
+  "upstream_v23_setup_stop_sha256": "0bff6a0367ca5b39b1decc3bdcb229a38b7bd551891d80901f731c673b4123d9",
+  "upstream_v8_packet_sha256": "b6bc9563f242bbf20b9acf0decf40798481538930b17be1342cfca47f8158fc2"
+}

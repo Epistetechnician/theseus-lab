@@ -1,0 +1,38 @@
+{
+  "protocol_id": "theseus-v39-first-mlp-fit-factorial-v2",
+  "state_slice": "theseus-v39-first-mlp-fit-factorial-v2",
+  "state_slices": [
+    "theseus-lab-sandbox-v1",
+    "theseus-v39-first-mlp-fit-factorial-v2",
+    "global-experiment-assurance-lifecycle-v1"
+  ],
+  "revision": "202f459d6d89df9a038d78d58e0af825d287fcd8",
+  "packet_sha256": "f8d455412f6be813be91acf3bff3cb30cf6026bede98624e5072bd23d98078b7",
+  "execution_status": "INCONCLUSIVE",
+  "stop_reason": "V39 marked captures included one mask feature; fitter received 769 features for a 768-wide guide MLP",
+  "scientific_outcome": "NOT_ESTABLISHED",
+  "assurance_level": "INTERNAL_PASS",
+  "engineering_contract_tests": {
+    "primary_runtime_passed": 5,
+    "replica_runtime_passed": 5
+  },
+  "primary_execution": {
+    "runtime_preflight_passed": true,
+    "checkpoint_loaded": true,
+    "adaptation_prompts": 128,
+    "donor_prompts": 128,
+    "capture_forwards": 256,
+    "training_steps": 0,
+    "heldout_pairs": 0,
+    "candidate_initialized": false,
+    "heldout_generated": false
+  },
+  "replica_status": "NOT_RUN_AFTER_PRIMARY_PREFIT_STOP",
+  "reviewer_status": "NOT_SUBMITTED",
+  "data_and_artifact_custody": "PrimaryED; runtime on Backup ED",
+  "paid_execution_usd": 0,
+  "energy": "NOT_MEASURED",
+  "full_economic_cost": "NOT_MEASURED",
+  "claim_ceiling": "LOCAL_REUSED_GPT2_FIRST_MLP_FIT_FACTOR_DIAGNOSIS_V2_ONLY",
+  "next_action": "new V3 packet must strip the V39 mask feature and exclude every V2 prompt and token identity"
+}
