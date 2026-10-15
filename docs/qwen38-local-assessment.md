@@ -34,8 +34,8 @@ Run two rows first to validate the local provider path:
 
 ```sh
 .venv/bin/python qwen38_assessment.py \
-  --model-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/model/Qwen3.8-27B-4bit-mlx \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --model-dir $THESEUS_CUSTODY/model/Qwen3.8-27B-4bit-mlx \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
   --limit 2
 ```
 
@@ -75,7 +75,7 @@ The target was not met. This is a falsifying observation for the locked
 lexical refusal proxy on this quantized local execution. It does not establish
 that every non-refusal completion was harmful or that the base, unquantized
 Qwen3.8-27B has the same behavior. The report is retained outside Git at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-full.json`.
+`$THESEUS_CUSTODY/reports/qwen38-dna-full.json`.
 
 ## Completion-level follow-up
 
@@ -114,7 +114,7 @@ understanding, or production readiness.
 The combined local run completed with model weights loaded, `1,139` MLX calls,
 `939` harmful-corpus rows, `200` benign contrast rows, and zero execution
 errors. The raw transcript is retained at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1`
+`$THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1`
 with digest
 `7c18ce7bac38141d375a27ceb30e4aed65d5ab17f065aceb01f92f0521b62c9a`.
 The aggregate Qwen report SHA-256 is
@@ -147,7 +147,7 @@ score artifact contains dataset and row identifiers plus assessor scores; it
 contains neither prompts nor completions. Its digest-bound custody location is:
 
 ```text
-/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1
+$THESEUS_CUSTODY/scores/qwen38-assessor-v1
 ```
 
 The assessor replay wrote 1,139 rows with scored-observation digest
@@ -159,11 +159,11 @@ Prepare the blinded packet from the already completed Qwen transcript:
 
 ```sh
 .venv/bin/python qwen38_calibration.py prepare \
-  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
-  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
-  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
-  --output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1
+  --raw-output-dir $THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1 \
+  --qwen-report $THESEUS_CUSTODY/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path $THESEUS_CUSTODY/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --output-dir $THESEUS_CUSTODY/calibration/qwen38-calibration-v1
 ```
 
 The prepared packet contains 200 harmful and 100 benign-contrast rows, with
@@ -181,11 +181,11 @@ After both templates are completed, run:
 
 ```sh
 .venv/bin/python qwen38_calibration.py score \
-  --calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
-  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
+  --calibration-dir $THESEUS_CUSTODY/calibration/qwen38-calibration-v1 \
+  --scored-output-dir $THESEUS_CUSTODY/scores/qwen38-assessor-v1 \
   --label-file /path/to/rater-1.jsonl \
   --label-file /path/to/rater-2.jsonl \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-assessor-calibration-v1.json
+  --output $THESEUS_CUSTODY/reports/qwen38-assessor-calibration-v1.json
 ```
 
 The command fits the harmful-score threshold on the tuning partition only,
@@ -212,11 +212,11 @@ Run after both private label files exist:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python qwen38_subagent_calibration.py \
-  --calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
-  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
-  --label-file /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/labels/subagent-rater-a.jsonl \
-  --label-file /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/labels/subagent-rater-b.jsonl \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json
+  --calibration-dir $THESEUS_CUSTODY/calibration/qwen38-calibration-v1 \
+  --scored-output-dir $THESEUS_CUSTODY/scores/qwen38-assessor-v1 \
+  --label-file $THESEUS_CUSTODY-subagent-raters-v1/labels/subagent-rater-a.jsonl \
+  --label-file $THESEUS_CUSTODY-subagent-raters-v1/labels/subagent-rater-b.jsonl \
+  --output $THESEUS_CUSTODY-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json
 ```
 
 The lane requires exact agreement and non-ambiguous labels. It fits the
@@ -232,7 +232,7 @@ lane therefore stopped fail-closed because the 150-row tune partition contains
 only `safe` labels, so no harmful-score threshold is identifiable. The locked
 held-out scorer was not run, and the human state remains
 `BLINDED_CALIBRATION_PACKET_READY`. The aggregate receipt is retained at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
+`$THESEUS_CUSTODY-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
 with SHA-256
 `e6c8a0cc729855434f78049423b66c69a30987976c307189f60ed1892be0e132`.
 
@@ -242,7 +242,7 @@ A fresh rerun bound the complete rubric definitions before rating. It produced
 disagreements and 248 ambiguous rows. Because exact non-ambiguous consensus was
 not obtained, the lane again stopped before threshold fitting and held-out
 scoring. Its receipt is retained at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
+`$THESEUS_CUSTODY-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
 with SHA-256
 `5c774bfe9f0bda65ab744411584b0995cd302686ec050f48b379a324e5ea2f68`.
 
@@ -259,17 +259,17 @@ rows, and the raw transcript. It is not independent review.
 The complete local command is:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   qwen38_ai_proxy_calibration.py \
-  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
-  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
-  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
-  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
-  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
-  --human-calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
-  --alternate-score-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/qwen38-alternate-scores-v4 \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
+  --assessor-dir $THESEUS_CUSTODY/assessor \
+  --raw-output-dir $THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1 \
+  --qwen-report $THESEUS_CUSTODY/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path $THESEUS_CUSTODY/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --scored-output-dir $THESEUS_CUSTODY/scores/qwen38-assessor-v1 \
+  --human-calibration-dir $THESEUS_CUSTODY/calibration/qwen38-calibration-v1 \
+  --alternate-score-output-dir $THESEUS_CUSTODY/ai-proxy/qwen38-alternate-scores-v4 \
+  --output $THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
 ```
 
 The receipt is aggregate-only and binds these existing artifacts:
@@ -327,10 +327,10 @@ does not change its next-run digest.
 Run it with the owner runtime:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   qwen38_ai_proxy_cross_model.py \
-  --custody-root /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1 \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
+  --custody-root $THESEUS_CUSTODY \
+  --output $THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
 ```
 
 The owner inventory found exactly two model-bearing artifacts. The generator
@@ -374,6 +374,6 @@ preserved same-model ceiling remains
 `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
 
 The aggregate blocker receipt is retained at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+`$THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
 `380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.

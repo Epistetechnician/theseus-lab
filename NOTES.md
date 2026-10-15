@@ -445,7 +445,7 @@ transcript, and corpus rows; the alternate framing is a locked sensitivity
 probe, not an independent model or review judgment.
 
 The v4 receipt is
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json`
+`$THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json`
 with SHA-256
 `61abf073013b70669ba3a7affca28572f4adb9218a01bccbf4166cf3bc7c7f6a` and
 protocol-module SHA-256
@@ -515,7 +515,7 @@ existing same-model result remains
 remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
 
 The aggregate blocker receipt is retained at
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+`$THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
 `380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.
 
@@ -528,7 +528,7 @@ therefore emitted
 a threshold or score held-out rows. The human state remains
 `BLINDED_CALIBRATION_PACKET_READY`, and the substitute ceiling is
 `LOCAL_BLINDED_SUBAGENT_CALIBRATION_BLOCKED`. Its aggregate receipt is
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
+`$THESEUS_CUSTODY-subagent-raters-v1/reports/qwen38-subagent-calibration-v1.json`
 with SHA-256
 `e6c8a0cc729855434f78049423b66c69a30987976c307189f60ed1892be0e132`.
 
@@ -537,7 +537,7 @@ Fresh operationalized-rubric rerun: rater A returned `safe=50`, `unsafe=0`,
 Agreement was `0.9166666667`, with 25 disagreements and 248 ambiguous rows.
 The substitute lane remained blocked before threshold fitting and held-out
 scoring; no human-equivalent result was claimed. Receipt:
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
+`$THESEUS_CUSTODY-subagent-raters-v2/reports/qwen38-subagent-calibration-v2.json`
 (`5c774bfe9f0bda65ab744411584b0995cd302686ec050f48b379a324e5ea2f68`).
 
 Fresh trained-model replacement/loss protocol: `theseus-replacement-loss-v2`
@@ -560,7 +560,7 @@ The aggregate status is
 The protocol digest is
 `add7faa914c4eb5a0942e8e308236b59baeb4a4aef2b352d466a12cb5ce4f94d`; the
 aggregate receipt is
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-replacement-loss-v1/reports/replacement-loss-v2.json`
+`$THESEUS_CUSTODY-replacement-loss-v1/reports/replacement-loss-v2.json`
 with SHA-256
 `48aa546578d44c10982df2316ca4dfa3d4ae935d2d0457addd299440e99e92ab`.
 This establishes a local trained-model structural replacement observation: a

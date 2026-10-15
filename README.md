@@ -17,8 +17,8 @@ runtime described in [docs/qwen38-local-assessment.md](docs/qwen38-local-assessm
 
 ```sh
 .venv/bin/python qwen38_assessment.py \
-  --model-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/model/Qwen3.8-27B-4bit-mlx \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet
+  --model-dir $THESEUS_CUSTODY/model/Qwen3.8-27B-4bit-mlx \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet
 ```
 
 This is a real local model-load and real Hugging Face assessment-data path.
@@ -39,11 +39,11 @@ explicitly opt into owner-only raw-output custody:
 
 ```sh
 .venv/bin/python qwen38_assessment.py \
-  --model-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/model/Qwen3.8-27B-4bit-mlx \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
-  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
-  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json
+  --model-dir $THESEUS_CUSTODY/model/Qwen3.8-27B-4bit-mlx \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path $THESEUS_CUSTODY/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --raw-output-dir $THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1 \
+  --output $THESEUS_CUSTODY/reports/qwen38-dna-contrast-raw.json
 ```
 
 The contrast source is `axiotic/ogma-prompt-injection-benign`, pinned at
@@ -58,12 +58,12 @@ generation completes:
 
 ```sh
 .venv/bin/python qwen38_safety_assessment.py \
-  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
-  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
-  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
-  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-safety-assessment.json
+  --assessor-dir $THESEUS_CUSTODY/assessor \
+  --raw-output-dir $THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1 \
+  --qwen-report $THESEUS_CUSTODY/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path $THESEUS_CUSTODY/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --output $THESEUS_CUSTODY/reports/qwen38-safety-assessment.json
 ```
 
 This is a separate local safety signal, not human review or alignment
@@ -116,17 +116,17 @@ Run it against the already completed local custody with the owner-side
 runtime that contains PyArrow, Torch, and Transformers:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   qwen38_ai_proxy_calibration.py \
-  --assessor-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessor \
-  --raw-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/raw/qwen38-dna-contrast-v1 \
-  --qwen-report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/reports/qwen38-dna-contrast-raw.json \
-  --corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
-  --contrast-corpus-path /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
-  --scored-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/scores/qwen38-assessor-v1 \
-  --human-calibration-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/calibration/qwen38-calibration-v1 \
-  --alternate-score-output-dir /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/qwen38-alternate-scores-v4 \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
+  --assessor-dir $THESEUS_CUSTODY/assessor \
+  --raw-output-dir $THESEUS_CUSTODY/raw/qwen38-dna-contrast-v1 \
+  --qwen-report $THESEUS_CUSTODY/reports/qwen38-dna-contrast-raw.json \
+  --corpus-path $THESEUS_CUSTODY/assessment/LibrAI-do-not-answer/data/train-00000-of-00001-6ba0076b818accff.parquet \
+  --contrast-corpus-path $THESEUS_CUSTODY/assessment/ogma-prompt-injection-benign/data/train-00000-of-00001.parquet \
+  --scored-output-dir $THESEUS_CUSTODY/scores/qwen38-assessor-v1 \
+  --human-calibration-dir $THESEUS_CUSTODY/calibration/qwen38-calibration-v1 \
+  --alternate-score-output-dir $THESEUS_CUSTODY/ai-proxy/qwen38-alternate-scores-v4 \
+  --output $THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-calibration-v4.json
 ```
 
 The command never replays Qwen and writes only owner-only aggregate-safe
@@ -167,10 +167,10 @@ does not change its next-run digest.
 Run the audit in the owner runtime:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 /Users/shaanp/Documents/GitHub/theseus-lab/.venv/bin/python \
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   qwen38_ai_proxy_cross_model.py \
-  --custody-root /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1 \
-  --output /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
+  --custody-root $THESEUS_CUSTODY \
+  --output $THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json
 ```
 
 The audit found two model-bearing artifacts: the Qwen3.8-27B 4-bit
@@ -197,7 +197,7 @@ manifest and independent scoring contract. The same-model result remains
 remains `LOCAL_AI_PROXY_CALIBRATION_SIGNAL_ONLY`.
 
 The blocker receipt is
-`/Users/shaanp/.codex/custody/theseus-lab-sandbox-v1/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
+`$THESEUS_CUSTODY/ai-proxy/reports/qwen38-ai-proxy-cross-model-blocker-v1.json`
 with SHA-256
 `380f7d239c8adad27d74ed5e8f338b0f612a2508f507023234c03c6851ebf241`.
 
@@ -217,7 +217,7 @@ Run the out-of-family OPT adapter with:
 
 ```sh
 python opt_reference_check.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/opt-125m \
   --model-id opt-125m
 ```
 
@@ -231,7 +231,7 @@ Run the topology-diverse SmolLM-135M adapter with:
 
 ```sh
 python smollm_reference_check.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm-135m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/smollm-135m \
   --model-id smollm-135m
 ```
 
@@ -246,7 +246,7 @@ Run the independent SmolLM2-135M instance with its fresh probe contract:
 
 ```sh
 python smollm2_reference_check.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/smollm2-135m \
   --model-id smollm2-135m
 ```
 
@@ -260,7 +260,7 @@ activation-rescue experiment on SmolLM2 with:
 
 ```sh
 .venv/bin/python causal_prediction_check.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/smollm2-135m \
   --model-id smollm2-135m
 ```
 
@@ -293,7 +293,7 @@ activation-rescue protocol:
 
 ```sh
 python opt_causal_prediction_check.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/opt-125m \
   --model-id opt-125m
 ```
 
@@ -316,7 +316,7 @@ statistic without changing the v1 result:
 
 ```sh
 .venv/bin/python opt_causal_prediction_v2.py \
-  --model-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
+  --model-dir $AHCL_CUSTODY_ROOT/model/opt-125m \
   --model-id opt-125m
 ```
 
@@ -355,9 +355,9 @@ qualification protocol on both locally custodied checkpoints:
 python replication_check.py \
   --gpt2-dir /path/to/caller-owned/gpt2 \
   --distilgpt2-dir /path/to/caller-owned/distilgpt2 \
-  --opt-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
-  --smollm-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm-135m \
-  --smollm2-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m
+  --opt-dir $AHCL_CUSTODY_ROOT/model/opt-125m \
+  --smollm-dir $AHCL_CUSTODY_ROOT/model/smollm-135m \
+  --smollm2-dir $AHCL_CUSTODY_ROOT/model/smollm2-135m
 ```
 
 With the optional checkpoint directories, this cross-checks the NumPy logits against
@@ -409,9 +409,9 @@ SmolLM2-135M with three seeds per architecture:
 
 ```sh
 .venv/bin/python replacement_loss_experiment.py \
-  --opt-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/opt-125m \
-  --smollm2-dir /Users/shaanp/.codex/custody/ahcl-integrated-stack-v2/model/smollm2-135m \
-  --report /Users/shaanp/.codex/custody/theseus-lab-sandbox-v1-replacement-loss-v1/reports/replacement-loss-v2.json
+  --opt-dir $AHCL_CUSTODY_ROOT/model/opt-125m \
+  --smollm2-dir $AHCL_CUSTODY_ROOT/model/smollm2-135m \
+  --report $THESEUS_CUSTODY-replacement-loss-v1/reports/replacement-loss-v2.json
 ```
 
 The `theseus-replacement-loss-v2` treatment removes a visible-selected trained
@@ -484,3 +484,12 @@ Commands are `show`, `preserve OLD`, `replace OLD NEW`, `split OLD NEW_A
 NEW_B`, `probe`, `reset`, `help`, and `quit`.
 
 The durable question and current verdict live in [NOTES.md](NOTES.md).
+
+## Research report, testing, and project policy
+
+See [RESEARCH.md](RESEARCH.md) for the findings across all recorded runs. Run
+`PYTHON=.venv/bin/python scripts/run_public_tests.sh` after installing
+`requirements.txt`. Report vulnerabilities per [SECURITY.md](SECURITY.md);
+see [CONTRIBUTING.md](CONTRIBUTING.md). Licensed under [Apache-2.0](LICENSE).
+Model weights and assessment corpora are not included and keep their own
+licenses.
