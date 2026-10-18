@@ -1,12 +1,28 @@
 <!-- readme-v2:begin -->
 # Theseus Lab
 
-[![CI](https://github.com/Epistetechnician/theseus-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Epistetechnician/theseus-lab/actions/workflows/ci.yml) [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE) ![visibility: private staging](https://img.shields.io/badge/release-private%20staging-lightgrey) ![claims: bounded](https://img.shields.io/badge/claims-bounded%20local-orange)
+[![CI](https://github.com/Epistetechnician/theseus-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/Epistetechnician/theseus-lab/actions/workflows/ci.yml) [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE) ![claims: bounded](https://img.shields.io/badge/claims-bounded%20local-orange)
 
 > An isolated terminal prototype for testing the Ship of Theseus thesis: behavior can remain stable while the mechanism changes, splits, or disappears.
 
+## Start here
+
+**Question.** When a learned module replaces part of a language model, does behavior match while the mechanism changes? Can mechanism claims survive a change of representation?
+
+**Headline result.** In GPT-2, a function-preserving MLP permutation changed 100% of selected positions while preserving top-1 behavior (mean relative logit error 3e-7). The same-label ablation looked unrelated (cosine -0.983); the inverse-mapped ablation matched (0.9999996). Positional labels are not causal identity. Whole nonlinear-block replacement did **not** replicate under frozen gates; the one narrow learned positive is an affine output projection (9/9 fresh cases).
+
+**What it does not show.** No interpretability method that works on whole blocks, and no independent retraining. Several experiments are negative by design and are kept.
+
+**Reproduce.** Public tests run from a clean checkout; three modules need the owner's frozen runtime pins or private custody directory and report `SKIPPED-OWNER-ENV` elsewhere.
+
+```sh
+pip install -r requirements.txt
+PYTHON=python3 scripts/run_public_tests.sh
+```
+
 ## Contents
 
+- [Start here](#start-here)
 - [At a glance](#at-a-glance)
 - [Key findings](#key-findings)
 - [Verification and CI/CD acceptance](#verification-and-cicd-acceptance)
@@ -20,7 +36,7 @@
 | | |
 |---|---|
 | Stack | Python 3.12 (PyTorch/Transformers pinned in `requirements.txt`) |
-| Release stage | Private staging for research release; not yet public |
+| Release stage | Public research release |
 | License | Apache-2.0 (see [LICENSE](LICENSE), [NOTICE](NOTICE)) |
 | Research report | [RESEARCH.md](RESEARCH.md) |
 | Last full acceptance run | 2026-10-14 |
