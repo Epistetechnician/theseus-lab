@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 # Runs every test module in its own process (several modules set process-global
-# torch thread counts and cannot share an interpreter). Three modules need the
+# torch thread counts and cannot share an interpreter). Four modules need the
 # owner's frozen runtime pins or private custody directory and are reported as
+# (test_replacement_loss_v36r1 requires Python 3.12.13 plus the exact 34-package
+# inventory of requirements-v36.lock.txt in an isolated venv on external runtime
+# custody; the public CI image cannot satisfy that by design.)
 # SKIPPED-OWNER-ENV outside that environment rather than as failures.
 set -u
 cd "$(dirname "$0")/.."
 PY="${PYTHON:-python3}"
-OWNER_ENV_ONLY="test_qwen38_ai_proxy_cross_model test_replacement_loss_v10 test_replacement_loss_v32_recovery"
+OWNER_ENV_ONLY="test_qwen38_ai_proxy_cross_model test_replacement_loss_v10 test_replacement_loss_v32_recovery test_replacement_loss_v36r1"
 fail=0; ok=0; skipped=0
 for f in tests/test_*.py; do
   m=$(basename "$f" .py)
