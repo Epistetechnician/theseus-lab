@@ -2,10 +2,10 @@
 # Runs every test module in its own process (several modules set process-global
 # torch thread counts and cannot share an interpreter). Four modules need the
 # owner's frozen runtime pins or private custody directory and are reported as
+# SKIPPED-OWNER-ENV outside that environment rather than as failures.
 # (test_replacement_loss_v36r1 requires Python 3.12.13 plus the exact 34-package
 # inventory of requirements-v36.lock.txt in an isolated venv on external runtime
 # custody; the public CI image cannot satisfy that by design.)
-# SKIPPED-OWNER-ENV outside that environment rather than as failures.
 set -u
 cd "$(dirname "$0")/.."
 PY="${PYTHON:-python3}"
