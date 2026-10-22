@@ -4,7 +4,7 @@ State slice: `theseus-lab-sandbox-v1` (continuation; scale-up authorized by the 
 
 Protocol ID: `theseus-replacement-loss-v8-scale-ridge-primary-causal`.
 
-Status: preselection preregistration, DRAFT. Nothing here is frozen or run. v3-v8 remain immutable; the v8 `PASS` is the reference result and is not retuned.
+Status: preselection preregistration; frozen by `docs/replacement-loss-v8s-freeze.json` before any checkpoint is selected. v3-v8 remain immutable; the v8 `PASS` is the reference result and is not retuned.
 
 ## Question and claim ceiling
 
@@ -16,7 +16,8 @@ A pass supports only this local replacement procedure for one projection per che
 
 - Parameter ceiling raised from 500M to 9B, with two bands: Band A 500M-3B, Band B 3B-9B. One checkpoint per family (OPT/ReLU, GPT-2/GELU, Llama/SiLU-gated) per band where an eligible public checkpoint exists; a family with no eligible checkpoint in a band is reported `NO_ELIGIBLE_FRESH_TARGET` for that band, not substituted.
 - Full 40-character immutable revisions, `trust_remote_code=False`, absent from all v3-v8 checkpoint identities.
-- Compute: one H100 per case via `gman job`, bf16 weights, fp32 ridge solve. Compute location is not part of the scientific claim; outputs must still match the v8 digests procedure.
+- Compute: CPU only, fp32 throughout, exactly as the pinned v3 pipeline (no GPU port, so numerics match v8). Runs on an owner GCP spot high-memory VM in project `secops1219`; compute location is not part of the claim.
+- Standalone chain: the v3-v8 sources are pinned by their repository freeze manifests, not by external v7 custody. Disjointness from v3, v6, v7 and v8 is checked against fixtures regenerated from code (visible and adaptation); challenge fixtures use the new namespace and fresh entropy. Earlier challenge text is not rechecked, which weakens the overlap check relative to v8 and is disclosed here.
 - Fixture namespace `v8-scale`, new seeds `20261401`-`20261403`, visible seed `20261400`. Counts, strata, prompts-per-stratum unchanged.
 - Thresholds, ridge value `1e-6`, controls, cluster bootstrap and `1e-4` permutation tolerances: unchanged from v3/v8. No post-selection retuning.
 
@@ -26,10 +27,9 @@ A pass supports only this local replacement procedure for one projection per che
 
 ## Budget and stop rule
 
-Cap $300 on gman. Stop at the first `INCONCLUSIVE` resource failure and record it.
+Cap $100 on GCP (spot high-memory VM). Stop at the first `INCONCLUSIVE` resource failure and record it.
 
-## Work remaining before freeze
+## Sequence
 
-1. Thin runner: override `MAX_PARAMETER_COUNT`, device and dtype in the v3 chain, add scale fixtures namespace, tests.
-2. Freeze packet with pinned v7/v8 hashes (new freeze file, no edits to v8's).
-3. Only then select checkpoints.
+1. Freeze this packet (runner `replacement_loss_v8s_runner.py`, fixtures, tests, pinned v3-v8 sources).
+2. Only then select checkpoints; Band A and Band B run as separate custody roots against the same frozen packet.
