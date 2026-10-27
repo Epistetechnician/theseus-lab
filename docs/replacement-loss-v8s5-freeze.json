@@ -1,7 +1,7 @@
 {
   "challenge_fixtures_generated": false,
   "checkpoint_identities_selected": false,
-  "created_at_utc": "2026-10-27T20:40:12.445226+00:00",
+  "created_at_utc": "2026-10-27T20:41:21.595630+00:00",
   "freeze_state": "FROZEN_BEFORE_V8S5_CHECKPOINT_SELECTION",
   "packet_files": [
     {
@@ -15,9 +15,9 @@
       "sha256": "bf0e29d5239ff8e2ede58b2dc68dbe136a0dab2c7bdba60897398a17e7679ef6"
     },
     {
-      "bytes": 34694,
+      "bytes": 35334,
       "path": "replacement_loss_v8s5_runner.py",
-      "sha256": "88062f9b4f18bf4065a0f8335216c89ce23fcd9b845b9f8afdcbe0f0d04ae4a3"
+      "sha256": "58d4bc28b22765d8331e6a7b17a7419248bbcbdc4c51842832b966cba5233898"
     },
     {
       "bytes": 10325,
@@ -28,6 +28,56 @@
       "bytes": 85,
       "path": "requirements.txt",
       "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    },
+    {
+      "bytes": 3700,
+      "path": "docs/replacement-loss-v8-scale-r4.md",
+      "sha256": "f2e6aaee518eee455cb7c8046e322fd06a54004a35e8a389e52d5975795b8e18"
+    },
+    {
+      "bytes": 8371,
+      "path": "docs/replacement-loss-v8s4-freeze.json",
+      "sha256": "298bc6b672d75a4dc1be734b6ba682d8d8238f05470d18263deffdafb10f8ae2"
+    },
+    {
+      "bytes": 3037,
+      "path": "replacement_loss_v8s4_fixtures.py",
+      "sha256": "1240bfdad38a1398c992e7774f447ef4c8e8b502d4f74319c9cc3fc86ba8e6a8"
+    },
+    {
+      "bytes": 36249,
+      "path": "replacement_loss_v8s4_runner.py",
+      "sha256": "786c4b7f30518bb738ec623777ece92ca7485939010b79680df3093c86383455"
+    },
+    {
+      "bytes": 8884,
+      "path": "tests/test_replacement_loss_v8s4.py",
+      "sha256": "2b4d3b6b7e232b002e5e3126bc91e9cf48653864620e04606936e4996eccd837"
+    },
+    {
+      "bytes": 3258,
+      "path": "docs/replacement-loss-v8-scale-r3.md",
+      "sha256": "5fc00f5a2ecfc5887efebc334d84385aa0bb72c7fea9e088ff225ff94862611c"
+    },
+    {
+      "bytes": 7519,
+      "path": "docs/replacement-loss-v8s3-freeze.json",
+      "sha256": "63f3063508c191549a017714d9c10864fa4d5341f3d39a296f66911f0d748318"
+    },
+    {
+      "bytes": 3034,
+      "path": "replacement_loss_v8s3_fixtures.py",
+      "sha256": "ea8ff1edcf6e6d03219a202e497a9863bfab771696aae71effcfaee1f09b5fd2"
+    },
+    {
+      "bytes": 34673,
+      "path": "replacement_loss_v8s3_runner.py",
+      "sha256": "1d9d6a8878379561d43deae823c84e00b914e86cbb904e71dbae10dba4b727ce"
+    },
+    {
+      "bytes": 8252,
+      "path": "tests/test_replacement_loss_v8s3.py",
+      "sha256": "5bcf59d35e55df80952acb734bd942df46cb2fa6098976c409910b6d58526e4a"
     },
     {
       "bytes": 3419,
@@ -200,7 +250,7 @@
       "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf"
     }
   ],
-  "packet_sha256": "7ce7510e75ef0dcb9b8f4c44c907b0d5de191d19d0b21bd496181331426cc533",
+  "packet_sha256": "8d4b6be42f34ce0a7bd5c685fde4d1ef064d2d78249e69be9e2fe1b84396171b",
   "pinned_v7_created_at_utc": "2026-09-25T19:06:27.148229+00:00",
   "pinned_v7_freeze_sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf",
   "protocol_id": "theseus-replacement-loss-v8-scale-r5-natural-text",

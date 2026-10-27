@@ -24,6 +24,8 @@ import replacement_loss_v7_fixtures as v7_fixtures
 import replacement_loss_v8_fixtures as v8_fixtures
 import replacement_loss_v8s_fixtures as v8s_fixtures
 import replacement_loss_v8s2_fixtures as v8s2_fixtures
+import replacement_loss_v8s3_fixtures as v8s3_fixtures
+import replacement_loss_v8s4_fixtures as v8s4_fixtures
 import replacement_loss_v7_runner as v7_core
 import replacement_loss_v8s5_fixtures as fixtures
 
@@ -41,6 +43,16 @@ V8S5_PACKET_FILES = tuple(dict.fromkeys((
     "replacement_loss_v8s5_runner.py",
     "tests/test_replacement_loss_v8s5.py",
     "requirements.txt",
+    "docs/replacement-loss-v8-scale-r4.md",
+    "docs/replacement-loss-v8s4-freeze.json",
+    "replacement_loss_v8s4_fixtures.py",
+    "replacement_loss_v8s4_runner.py",
+    "tests/test_replacement_loss_v8s4.py",
+    "docs/replacement-loss-v8-scale-r3.md",
+    "docs/replacement-loss-v8s3-freeze.json",
+    "replacement_loss_v8s3_fixtures.py",
+    "replacement_loss_v8s3_runner.py",
+    "tests/test_replacement_loss_v8s3.py",
     "docs/replacement-loss-v8-scale-r2.md",
     "docs/replacement-loss-v8s2-freeze.json",
     "replacement_loss_v8s2_fixtures.py",
@@ -147,7 +159,7 @@ def _verify_pinned_v7() -> dict[str, Any]:
         raise ValueError("pinned v7 packet identity changed")
     if v7_freeze.get("v3_packet_sha256") != V3_PACKET_SHA256 or v7_freeze.get("v6_packet_sha256") != V6_PACKET_SHA256:
         raise ValueError("pinned v7 dependency identity changed")
-    for freeze_name in ("replacement-loss-v7-freeze.json", "replacement-loss-v8-freeze.json", "replacement-loss-v8s-freeze.json", "replacement-loss-v8s2-freeze.json"):
+    for freeze_name in ("replacement-loss-v7-freeze.json", "replacement-loss-v8-freeze.json", "replacement-loss-v8s-freeze.json", "replacement-loss-v8s2-freeze.json", "replacement-loss-v8s3-freeze.json", "replacement-loss-v8s4-freeze.json"):
         freeze = _read_json(_root() / "docs" / freeze_name)
         for row in freeze["packet_files"]:
             if _sha(_root() / str(row["path"])) != row["sha256"]:
@@ -159,7 +171,7 @@ def _generated_prior_payloads(_custody_roots: list[str | Path]) -> tuple[list[di
     """Regenerate v3, v6, v7 and v8 visible and adaptation fixtures for overlap checks."""
 
     payloads: dict[str, dict[str, Any]] = {}
-    for module in (v3_fixtures, v6_fixtures, v7_fixtures, v8_fixtures, v8s_fixtures, v8s2_fixtures):
+    for module in (v3_fixtures, v6_fixtures, v7_fixtures, v8_fixtures, v8s_fixtures, v8s2_fixtures, v8s3_fixtures, v8s4_fixtures):
         batches = [(module.generate_visible_fixture(), "visible")]
         batches += [(module.generate_adaptation_fixture(index), f"adaptation_{index}") for index in range(3)]
         for records, kind in batches:
