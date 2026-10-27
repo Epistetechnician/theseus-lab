@@ -1,0 +1,1448 @@
+{
+  "all_treatment_case_gates_pass": false,
+  "arm": "R0",
+  "arm_settings": {
+    "adaptation_multiplier": 1,
+    "intervention_scale": 1,
+    "ridge_alpha": 1.0
+  },
+  "assurance_level": "INCONCLUSIVE",
+  "budget_and_resource_measurements": {
+    "case_wall_cap_blockers": [],
+    "limits": {
+      "max_case_wall_seconds": 7200,
+      "max_peak_rss_bytes": 32212254720,
+      "max_total_wall_seconds": 64800
+    },
+    "stage_peak_rss_bytes": 19995459584,
+    "total_process_cpu_seconds": 42980.663587,
+    "total_protocol_stage_wall_seconds": 4288.918359829026
+  },
+  "candidate_files_sha256": "23c8fe0cb0dae6a6ad8ad94daa00d71dfefd75c2f2147d735a1cef70b34f1203",
+  "candidate_freeze_sha256": "094bff4406bc3c427505bbd4604ddff99492d4a4db2f3d25be120d0dbb62371c",
+  "candidate_preparation_sha256": "28156818f37e20909d3fb88026a7ea717ddf586f5704ae4667d0a6499d4baf4b",
+  "cases": [
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "739bdc53a0fd004cd91ee11406c442912e91fd25f97005e1273933f712255b97",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "61f02e9f2ace8adab4f56a83632c533c93020e5cf9946abae2ca00e55c2ddc86",
+        "raw_index_permutation": "739bdc53a0fd004cd91ee11406c442912e91fd25f97005e1273933f712255b97",
+        "treatment": "8e9c4bbcea2e81a225a74d455b6cc66e39b6e4f4f2b4d42481fd6b0adf497010",
+        "wrong_module": "c44c0c04b42d5066cca0716c3d835ee2a52360884afc0e6de1e9ca9c945d9c09"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 0.9833333333333333,
+        "no_op": 0.0,
+        "random": 0.25,
+        "raw_index_permutation": 0.45,
+        "treatment": 0.9833333333333333,
+        "wrong_module": 0.23333333333333334
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 676.3498879900096,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "c323c9638ef3947984446a182b6679bc12db961c7667cd5511be76cb9eb083cf",
+      "prediction_array_sha256": "19cbcd422a69295658c566da837300cf03ce0e617f3016d740a4f393025a8b3c",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261701,
+      "seed_index": 0,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.971215009689331,
+        "median_normalized_error": 0.24078364670276642,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.9716124832630157,
+            "median_normalized_error": 0.23971079289913177
+          },
+          "compositional": {
+            "median_cosine": 0.9720647037029266,
+            "median_normalized_error": 0.23653306812047958
+          },
+          "ordinary": {
+            "median_cosine": 0.9687705338001251,
+            "median_normalized_error": 0.2500647082924843
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 622,
+        "cross_entropy_delta_nats_per_token": 0.056481398186882976,
+        "mean_cross_entropy_nats_per_token": 5.0106483816717216,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.954166983484838,
+        "paired_next_token_normalized_logit_error_max": 0.052878037095069885,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.035736465454101564,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.052878037095069885
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.09130317038232154,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.050627827644348145
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.04968750476837158,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.04783379286527634
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 0.9833333333333333,
+          "median_cosine": 0.47380223167849017,
+          "median_normalized_error": 1.3860775070879886e-05,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.3518990346157451,
+          "median_normalized_error": 8.232808207909054e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.7968734695966713,
+              "median_normalized_error": 1.3154537799854156e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.7694041488810774,
+              "median_normalized_error": 5.116280256196929e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3925899571503635,
+              "median_normalized_error": 1.433136276035359e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.34313269183285033,
+              "median_normalized_error": 8.410769935296334e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.95,
+              "median_cosine": 0.3639210405638157,
+              "median_normalized_error": 1.4431923947617149e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.33324846612883063,
+              "median_normalized_error": 8.296823934853878e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7648,
+        "fitted_replacement_digest": "8e6ac4835e138b534cee84930ea004779278d651c8cb73737790f4d3c9cf86a1",
+        "initialization_digest": "c08fe0e3938741f430edf16c18cb63e4b048ca51a8634b357cfa7e20441bb5e5",
+        "method": "dual_ridge_least_squares",
+        "ridge": 512.4484736937679,
+        "seed": 20261701
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "683ab800199dfaf62dcfeaeda517929f895989809d67f24b0405ecbe6135ba4e",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "ea9a5117fc0a20bd55f1e6f613269c2cf99a6b408bae23b30380113a4f417114",
+        "raw_index_permutation": "683ab800199dfaf62dcfeaeda517929f895989809d67f24b0405ecbe6135ba4e",
+        "treatment": "4cf5150fbb882a4f62343edab4066cbbc0e93243b231dd57ad619771d6bd55f6",
+        "wrong_module": "990c913f0990470d96a415d4670e31e4f57e0b9349b73cba32c8fbc18b266636"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.7666666666666667,
+        "raw_index_permutation": 0.4,
+        "treatment": 1.0,
+        "wrong_module": 0.35
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 681.598974541989,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "23d36993b75d1768098254c19b8c7079d68348aadd24a8d1d2634a22e511add2",
+      "prediction_array_sha256": "ed9a3fba69827ef0197abb89d912f84b33abbcf9bd39aba581fe2c3edbd5f262",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261702,
+      "seed_index": 1,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.9706589877605438,
+        "median_normalized_error": 0.24133016169071198,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.9717660546302795,
+            "median_normalized_error": 0.23775418102741241
+          },
+          "compositional": {
+            "median_cosine": 0.9658105075359344,
+            "median_normalized_error": 0.2595802843570709
+          },
+          "ordinary": {
+            "median_cosine": 0.9715224802494049,
+            "median_normalized_error": 0.23749951273202896
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 623,
+        "cross_entropy_delta_nats_per_token": 0.0430307908769978,
+        "mean_cross_entropy_nats_per_token": 4.957700717889287,
+        "next_token_top1_agreement": 0.9666666666666667,
+        "original_mean_cross_entropy_nats_per_token": 4.914669927012289,
+        "paired_next_token_normalized_logit_error_max": 0.06168252229690552,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.020586657524108886,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.05045564845204353
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.06510841390474247,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.06168252229690552
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.049762725830078125,
+            "next_token_top1_agreement": 0.9,
+            "paired_next_token_normalized_logit_error_max": 0.04330488666892052
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.4091961379425333,
+          "median_normalized_error": 1.335497612929065e-05,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.3456373884187427,
+          "median_normalized_error": 8.196695543289143e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.8166064656334477,
+              "median_normalized_error": 1.2556067967181699e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.7596670947008073,
+              "median_normalized_error": 5.119329716223948e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3233820621092614,
+              "median_normalized_error": 1.4008117482400092e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3396200372912933,
+              "median_normalized_error": 8.348567711956921e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3726953326445065,
+              "median_normalized_error": 1.3919199345157243e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.32299908833791213,
+              "median_normalized_error": 8.288831328525634e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7652,
+        "fitted_replacement_digest": "2490704dbc3fdd3dabb8f5dfef53d8ddd1b2e0371c763de44cad698bce2ceb1c",
+        "initialization_digest": "3b0b3e8b414f90d6211517f4ead4ae1454b4f907bbebb79ab65a252736987ad9",
+        "method": "dual_ridge_least_squares",
+        "ridge": 507.67073818421795,
+        "seed": 20261702
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "12ce22390ad4b5060012d488d370f3d1b21fbd841ee91a73f8279fe706664c2c",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "2cddcbd4b6b8c8a6cafae999397b2a35926c7b828fe5cb6e5e86e5c1b4a4510c",
+        "raw_index_permutation": "12ce22390ad4b5060012d488d370f3d1b21fbd841ee91a73f8279fe706664c2c",
+        "treatment": "185f3f709bcdf7383468c1bfcbb21d80c294641906afec2d663478b2b9698b5e",
+        "wrong_module": "c7bb7f396c1e9ca030e0ff6c048c712bc2c713b369ca36c9bc561611260bc446"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 0.9833333333333333,
+        "no_op": 0.0,
+        "random": 0.3333333333333333,
+        "raw_index_permutation": 0.5333333333333333,
+        "treatment": 0.9833333333333333,
+        "wrong_module": 0.4166666666666667
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 678.8609731249987,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "fc47a15b3cb9e4f4b077a8a3fdbc08dd1608c85a1eda67b3cfe1ddb9bc6ff7ee",
+      "prediction_array_sha256": "a6b0b53984a738393f5a9489399d5da8c348b053e8736499b4ec9c812db5f9cc",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261703,
+      "seed_index": 2,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.972610354423523,
+        "median_normalized_error": 0.23553470522165298,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.9716485440731049,
+            "median_normalized_error": 0.238202765583992
+          },
+          "compositional": {
+            "median_cosine": 0.9762296080589294,
+            "median_normalized_error": 0.21822573989629745
+          },
+          "ordinary": {
+            "median_cosine": 0.9728336334228516,
+            "median_normalized_error": 0.23337628692388535
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 621,
+        "cross_entropy_delta_nats_per_token": 0.04175084954106673,
+        "mean_cross_entropy_nats_per_token": 4.9553735605568505,
+        "next_token_top1_agreement": 0.9666666666666667,
+        "original_mean_cross_entropy_nats_per_token": 4.913622711015784,
+        "paired_next_token_normalized_logit_error_max": 0.04792360961437225,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.024939846992492676,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.04792360961437225
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.06790595054626465,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.04137478023767471
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.038401209892918224,
+            "next_token_top1_agreement": 0.9,
+            "paired_next_token_normalized_logit_error_max": 0.0475185364484787
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 0.9833333333333333,
+          "median_cosine": 0.403321266847417,
+          "median_normalized_error": 1.331004836823925e-05,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.3420393124044594,
+          "median_normalized_error": 8.255938193270246e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.829066994304916,
+              "median_normalized_error": 1.2155242343584834e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.7611742328506067,
+              "median_normalized_error": 5.1414462126049145e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3044233187901587,
+              "median_normalized_error": 1.3999729864569203e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3311768408597816,
+              "median_normalized_error": 8.455923846167565e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.95,
+              "median_cosine": 0.3391646685625989,
+              "median_normalized_error": 1.3766304550890215e-05,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3265482103858043,
+              "median_normalized_error": 8.4149664762701e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7671,
+        "fitted_replacement_digest": "3f94280fed3d22cfc49f0387f2f4feff7fb30117a955f60a37eacd4de77e0b25",
+        "initialization_digest": "0239b0fece46c6152a3f2b5273a76338d2f72a25034c2c5a14a7e1a65c8c947a",
+        "method": "dual_ridge_least_squares",
+        "ridge": 508.0182132290964,
+        "seed": 20261703
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "e409bd76f6ab35bb1093e8a3cbb8cd7816f29772c914384a0a67ce46334aa4da",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "f7bf91d9c8d28a7c1b39ac5179d6a71142930943e92340dab61e91fc692d5f6a",
+        "raw_index_permutation": "e409bd76f6ab35bb1093e8a3cbb8cd7816f29772c914384a0a67ce46334aa4da",
+        "treatment": "0ed958f214aacff1520bdd8278bb62ffb79b800efab927d8fa5b234012590e66",
+        "wrong_module": "21b172880def51ed73623fc0445be0be8567ee4d30d06ed504682e19facff85f"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.3,
+        "raw_index_permutation": 0.36666666666666664,
+        "treatment": 1.0,
+        "wrong_module": 0.7
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 431.83674938567367,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "5153e9f69d1daa993b745095df63fdc6d70e07bf747e641c0b3b2d0c714cae0f",
+      "prediction_array_sha256": "4a380b36a3eaf21f38ee8e92f6950e6ee7fc33420a3e4c2e62df41e911d0294b",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261701,
+      "seed_index": 0,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.9753672182559967,
+        "median_normalized_error": 0.225273959338665,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.9754847288131714,
+            "median_normalized_error": 0.225273959338665
+          },
+          "compositional": {
+            "median_cosine": 0.9847925007343292,
+            "median_normalized_error": 0.17850759625434875
+          },
+          "ordinary": {
+            "median_cosine": 0.9555317163467407,
+            "median_normalized_error": 0.29954694211483
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 621,
+        "cross_entropy_delta_nats_per_token": 0.05847959779502881,
+        "mean_cross_entropy_nats_per_token": 5.0796858707679835,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.021206272972955,
+        "paired_next_token_normalized_logit_error_max": 0.01574856787919998,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.10422132015228272,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.013663481920957565
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.03473584651947022,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.011415361426770687
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.025125676719703484,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.01574856787919998
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.44688487308899766,
+          "median_normalized_error": 3.037421936034402e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.4665045024492221,
+          "median_normalized_error": 3.6930526942731376e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4736599155766954,
+              "median_normalized_error": 1.5242344467280409e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9708597365457742,
+              "median_normalized_error": 3.635515468549947e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4288098353035577,
+              "median_normalized_error": 3.037421936034402e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4265309441743228,
+              "median_normalized_error": 4.171186738795657e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.42798631960183187,
+              "median_normalized_error": 3.828789845778891e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4472909150571077,
+              "median_normalized_error": 3.608871667006469e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7520,
+        "fitted_replacement_digest": "329871d3e8210793a58bce328a0d5b691929297bb16d4ac2c9fe393cb414c700",
+        "initialization_digest": "c64fe1e76028b3b38b396b44fbd9d4510e5660bff3c1a0ed62edaccc120c3c71",
+        "method": "primal_ridge_least_squares",
+        "ridge": 434.4555533768548,
+        "seed": 20261701
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "ea0de9c16163870089f0ea10e23767b04c7f2b870ecf7ed91ef326a8e9975bff",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "801bb9d4f92d426565cd580961965bb414775b5d976c2393cd03fe994e69770a",
+        "raw_index_permutation": "ea0de9c16163870089f0ea10e23767b04c7f2b870ecf7ed91ef326a8e9975bff",
+        "treatment": "cf0dd8efa4c98b2f2c65fb470300dcf8170864b11a320ab4d0290123fba5fce6",
+        "wrong_module": "26ef24b61e4d9a99256f23c5391b3df927254d4e4cd267fd7232c42b8e740a18"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.5833333333333334,
+        "raw_index_permutation": 0.36666666666666664,
+        "treatment": 1.0,
+        "wrong_module": 0.6833333333333333
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 425.10800926567265,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "24fb7ca7975030e0fac43fb346e502e87e2e684aa50b96f34c79f0c3f79df863",
+      "prediction_array_sha256": "f4dd71db81f4806d956d7adb93688f6da0a1592e6f262b53a238d011599b66d4",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261702,
+      "seed_index": 1,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.9802062511444092,
+        "median_normalized_error": 0.20156865566968918,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.9802062511444092,
+            "median_normalized_error": 0.20156865566968918
+          },
+          "compositional": {
+            "median_cosine": 0.9882831871509552,
+            "median_normalized_error": 0.15571270138025284
+          },
+          "ordinary": {
+            "median_cosine": 0.968294769525528,
+            "median_normalized_error": 0.262671634554863
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 624,
+        "cross_entropy_delta_nats_per_token": 0.04983878899843265,
+        "mean_cross_entropy_nats_per_token": 5.086069673299789,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.036230884301356,
+        "paired_next_token_normalized_logit_error_max": 0.014515826478600502,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.09456179141998292,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.012182086706161499
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.03387339822538606,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.010025312192738056
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.011087207510919855,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.014515826478600502
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.3907026411244441,
+          "median_normalized_error": 2.9663985623967788e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.4531132318850668,
+          "median_normalized_error": 3.9305705513753115e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.35861922846555255,
+              "median_normalized_error": 1.6861942262450647e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9682926350968701,
+              "median_normalized_error": 3.901486829939495e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4373999704422662,
+              "median_normalized_error": 2.9663985623967788e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4355037590120021,
+              "median_normalized_error": 4.169149785303279e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.39804887653777565,
+              "median_normalized_error": 3.5892528908769125e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.41796116344285184,
+              "median_normalized_error": 3.6685510019972914e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7524,
+        "fitted_replacement_digest": "c6e389a7a347ac424931871d06772c31ca6d9e6bcc488c080d7b48598e1c1a2a",
+        "initialization_digest": "d840ed2c9e9f4beffd74c86d6e3b12c532eefceb7e975de663a1d50f4d10a0b3",
+        "method": "primal_ridge_least_squares",
+        "ridge": 433.4036489874414,
+        "seed": 20261702
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "83553a420349af039218ae8e6a63e8de62087dd81f1ec0a248968fefdb50380c",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "edc03abb3acf65146d8f34275842bbf4f0c052c16577dec370efd25f1133428b",
+        "raw_index_permutation": "83553a420349af039218ae8e6a63e8de62087dd81f1ec0a248968fefdb50380c",
+        "treatment": "4edfcfc7675fb6cc3ddd799bf8437feb25f1620b0c9f180405c99b3eb6f0fd61",
+        "wrong_module": "ee27e52561dce79902458828e3eb1a3b1dae24ebc0fe0a8a8e9592cc899fc9c4"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.36666666666666664,
+        "raw_index_permutation": 0.2833333333333333,
+        "treatment": 1.0,
+        "wrong_module": 0.75
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 423.95845767364756,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "f50123b5c4fd3bea8dfff35315fb05ff317a8ab5cb87811634521d07203f331b",
+      "prediction_array_sha256": "cfb03dc087ce366f70772fd86ea19ace22c1432dbd05300ae0a078c61de5de8c",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261703,
+      "seed_index": 2,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.9794942140579224,
+        "median_normalized_error": 0.205219104886055,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.980270266532898,
+            "median_normalized_error": 0.20048409700393677
+          },
+          "compositional": {
+            "median_cosine": 0.9868072867393494,
+            "median_normalized_error": 0.16443174332380295
+          },
+          "ordinary": {
+            "median_cosine": 0.9704724252223969,
+            "median_normalized_error": 0.2513650506734848
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 623,
+        "cross_entropy_delta_nats_per_token": 0.058836579514162116,
+        "mean_cross_entropy_nats_per_token": 5.049673828229093,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.99083724871493,
+        "paired_next_token_normalized_logit_error_max": 0.013959766365587711,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.10009510517120361,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.012429827824234962
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.03260764970884218,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.01088729128241539
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.03332224651355648,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.013959766365587711
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.392145206271113,
+          "median_normalized_error": 2.9670693447201492e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.4431432653588541,
+          "median_normalized_error": 3.926839224383052e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3833255112975167,
+              "median_normalized_error": 1.7004966861401112e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9676359963215682,
+              "median_normalized_error": 3.9358962904291515e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3938138651167879,
+              "median_normalized_error": 2.9670693447201492e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4075046561877157,
+              "median_normalized_error": 4.166502228632998e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.4139725437701355,
+              "median_normalized_error": 3.5136790133127067e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.414163381296444,
+              "median_normalized_error": 3.6103988356110567e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 7543,
+        "fitted_replacement_digest": "46ac703946f3b3bae7d2b602c10225b5f24dc2c3f58cbf93f43209e1ef091f77",
+        "initialization_digest": "0a3982e4bee8ec35640d5627be0e3434893fc166c115dc40e0f5ea140979bcc6",
+        "method": "primal_ridge_least_squares",
+        "ridge": 438.4155624564686,
+        "seed": 20261703
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "d80808af1332d5a4b9af98ceedcf88d6c14517a37d44690bbaa6a06789666741",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "9b0294f6d7b1c23289c67aa779b6a0d81e1ad714470488425719ff75b2c26fa4",
+        "raw_index_permutation": "d80808af1332d5a4b9af98ceedcf88d6c14517a37d44690bbaa6a06789666741",
+        "treatment": "122197e8ed0f80fc363c0c1900f9e296332fd4401f6fce402894c93a6adeca4b",
+        "wrong_module": "c9704a10f8f016cf5e3a8a36b6793258282763624f5ded7076fa11b7ae57e204"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 0.48333333333333334,
+        "no_op": 0.0,
+        "random": 0.4166666666666667,
+        "raw_index_permutation": 0.45,
+        "treatment": 0.6333333333333333,
+        "wrong_module": 0.4
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 503.8202663543294,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "9c1885829b0e9781f21fc63559309225c5b5e0d4eca4c2f0afd2d2a85e3c33fc",
+      "prediction_array_sha256": "0fbfa97e192c7940be1670454264055dbbd65692788ec9cc770ce367f833c716",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261701,
+      "seed_index": 0,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.4546167254447937,
+        "median_normalized_error": 0.9041876494884491,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.5131451189517975,
+            "median_normalized_error": 0.877956748008728
+          },
+          "compositional": {
+            "median_cosine": 0.3316715806722641,
+            "median_normalized_error": 0.9464174807071686
+          },
+          "ordinary": {
+            "median_cosine": 0.4925336688756943,
+            "median_normalized_error": 0.8880213499069214
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -0.024905977646509807,
+        "mean_cross_entropy_nats_per_token": 4.880475205580393,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.905381183226903,
+        "paired_next_token_normalized_logit_error_max": 0.23979385197162628,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.10436762571334839,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.23979385197162628
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -0.1155897855758667,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.1693406105041504
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -0.08549151420593262,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.23495572805404663
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 0.6333333333333333,
+          "median_cosine": 0.12527712982425443,
+          "median_normalized_error": 4.6965851804867975e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 0.9166666666666666,
+          "median_cosine": 0.0837783768638629,
+          "median_normalized_error": 4.7665534126702904e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.7,
+              "median_cosine": 0.11546648954282113,
+              "median_normalized_error": 3.3990228691435414e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.36120339596436446,
+              "median_normalized_error": 3.822888454734371e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.6,
+              "median_cosine": 0.1186438553283976,
+              "median_normalized_error": 4.294187687132092e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 0.9,
+              "median_cosine": 0.051539212592003295,
+              "median_normalized_error": 5.073922012777095e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.6,
+              "median_cosine": 0.17122715999343777,
+              "median_normalized_error": 6.766426266983552e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 0.85,
+              "median_cosine": 0.0702823232544635,
+              "median_normalized_error": 4.789922445938059e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 9021,
+        "fitted_replacement_digest": "47521813b4adec6ee1be297cce973a063119c020bdf7226c333a1d3f32cb82a9",
+        "initialization_digest": "226da53caa6d7dab2377975e8b3999571c1eae0dc68e6989492c3254c1d69486",
+        "method": "primal_ridge_least_squares",
+        "ridge": 109562.63536493607,
+        "seed": 20261701
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "bc02459d8d19d0b832f77e906688f4db2993543795261e8c3d808b6651527ec8",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "679334335f551b13603b8da4ee295e2b3f02696c477ef3cb1d02321fb34fd2b4",
+        "raw_index_permutation": "bc02459d8d19d0b832f77e906688f4db2993543795261e8c3d808b6651527ec8",
+        "treatment": "5b6cbb7e213006c02f218016914d782f687c166bf1fa884aed65dd545040b8b7",
+        "wrong_module": "8b2dc632c1c2a953282123e4ed217a78504875992fb5ee49c3218d187701f9ce"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 0.5166666666666667,
+        "no_op": 0.0,
+        "random": 0.55,
+        "raw_index_permutation": 0.4166666666666667,
+        "treatment": 0.4666666666666667,
+        "wrong_module": 0.5333333333333333
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 505.66055049933004,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "f5058124681d6961b0d9d2dcbd118685d555d597bf410f9ddcaa695083f7de8a",
+      "prediction_array_sha256": "2a29d1dc570fce1f117ff1aacf514a0f3b889686324c1574cfdcc5045d700e34",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261702,
+      "seed_index": 1,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.4555666446685791,
+        "median_normalized_error": 0.9048782587051392,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.48381371796131134,
+            "median_normalized_error": 0.8849547803401947
+          },
+          "compositional": {
+            "median_cosine": 0.328594833612442,
+            "median_normalized_error": 0.9472610354423523
+          },
+          "ordinary": {
+            "median_cosine": 0.5285106897354126,
+            "median_normalized_error": 0.8699842691421509
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -0.006860238711039225,
+        "mean_cross_entropy_nats_per_token": 4.867947669823964,
+        "next_token_top1_agreement": 0.9833333333333333,
+        "original_mean_cross_entropy_nats_per_token": 4.874807908535003,
+        "paired_next_token_normalized_logit_error_max": 0.259844034910202,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.09734599590301514,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.18761929869651794
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -0.057039737701416016,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.17125818133354187
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -0.07632554769515991,
+            "next_token_top1_agreement": 0.95,
+            "paired_next_token_normalized_logit_error_max": 0.259844034910202
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 0.4666666666666667,
+          "median_cosine": -0.021400560453279337,
+          "median_normalized_error": 5.365974815127577e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 0.9166666666666666,
+          "median_cosine": 0.07720125571944426,
+          "median_normalized_error": 4.503952902443104e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.45,
+              "median_cosine": -0.014107252621626098,
+              "median_normalized_error": 4.149796416409855e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3495240332149405,
+              "median_normalized_error": 3.879858912141658e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.45,
+              "median_cosine": -0.03273688380944566,
+              "median_normalized_error": 5.365974815127577e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 0.85,
+              "median_cosine": 0.05002401103147629,
+              "median_normalized_error": 4.982568758223128e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.5,
+              "median_cosine": 0.03212119569843854,
+              "median_normalized_error": 8.138720574941994e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 0.9,
+              "median_cosine": 0.05575173893405675,
+              "median_normalized_error": 4.678275001637398e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 9017,
+        "fitted_replacement_digest": "a110c44911f814a225404e81721d114d5657ed56794b6ea1e6caf54846b92d1b",
+        "initialization_digest": "e814f762bf1273b01004d32e69fda3a73057a0b1e6caa4e7167ddbf56c595231",
+        "method": "primal_ridge_least_squares",
+        "ridge": 109535.64218087649,
+        "seed": 20261702
+      }
+    },
+    {
+      "blockers": [
+        "primary_treatment_thresholds",
+        "stratum_primary_thresholds",
+        "heldout_behavior_thresholds",
+        "activation_rescue_thresholds"
+      ],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "ded585fd043cd90c5566892e7900d7c3b0e61eb44c21dfcca1fb520b76b0db19",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "b5d97e8ebecd64c706e45ed9e5e4fff21bce7f336aa74aae30820cbb3b86ef79",
+        "raw_index_permutation": "ded585fd043cd90c5566892e7900d7c3b0e61eb44c21dfcca1fb520b76b0db19",
+        "treatment": "43b526379cbc5439d64f6c6d4d375c2623bc15201dcc4e1326f4eecedd174281",
+        "wrong_module": "3a7cfdb0fcc06d1aa4644f0858ab91ef6c4b37deb79f472e889c98d592e176c7"
+      },
+      "case_status": "FAIL",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 0.5666666666666667,
+        "no_op": 0.0,
+        "random": 0.4166666666666667,
+        "raw_index_permutation": 0.5333333333333333,
+        "treatment": 0.43333333333333335,
+        "wrong_module": 0.5
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 515.5692840123326,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "75aa3f337cf69d0c336e89eab262489562a1391db53178065195b59ef76c37c5",
+      "prediction_array_sha256": "51454da180c2155f3a6a5aa406e481f582af720cf8f441fb8288fb5081bbd4d2",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261703,
+      "seed_index": 2,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 0.4540185332298279,
+        "median_normalized_error": 0.9041744470596313,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 0.47338971495628357,
+            "median_normalized_error": 0.8912614583969116
+          },
+          "compositional": {
+            "median_cosine": 0.3199850916862488,
+            "median_normalized_error": 0.9512464702129364
+          },
+          "ordinary": {
+            "median_cosine": 0.5075092017650604,
+            "median_normalized_error": 0.8798916935920715
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -0.04045905192693074,
+        "mean_cross_entropy_nats_per_token": 4.890177611509959,
+        "next_token_top1_agreement": 0.9833333333333333,
+        "original_mean_cross_entropy_nats_per_token": 4.930636663436889,
+        "paired_next_token_normalized_logit_error_max": 0.27565014362335205,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.08408422470092773,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.1677594631910324
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -0.11816639900207519,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.26077625155448914
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -0.10752004384994507,
+            "next_token_top1_agreement": 0.95,
+            "paired_next_token_normalized_logit_error_max": 0.27565014362335205
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 0.43333333333333335,
+          "median_cosine": -0.04933725556340397,
+          "median_normalized_error": 5.058500266790209e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 0.9666666666666667,
+          "median_cosine": 0.0856022666160507,
+          "median_normalized_error": 4.4515492624217875e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.55,
+              "median_cosine": 0.08306110890909998,
+              "median_normalized_error": 3.4558080690197413e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.3690409980101394,
+              "median_normalized_error": 3.8925106304340114e-06,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.45,
+              "median_cosine": -0.05935602655869628,
+              "median_normalized_error": 4.742993667615901e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.06370377611799756,
+              "median_normalized_error": 5.341675424939046e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 0.3,
+              "median_cosine": -0.15071986073856308,
+              "median_normalized_error": 9.69687586699133e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 0.9,
+              "median_cosine": 0.06087841409831175,
+              "median_normalized_error": 4.44325660214663e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 9020,
+        "fitted_replacement_digest": "b3d4300d554c2c383b4927683a7926600452e38f7aa0a5796febcdf08578bcb2",
+        "initialization_digest": "e263072b47acf49ebbc8a99ee21c9ee67c7fb2647d330dacf1c1f5511b6793ac",
+        "method": "primal_ridge_least_squares",
+        "ridge": 109542.95584636246,
+        "seed": 20261703
+      }
+    }
+  ],
+  "challenge_manifest_sha256": "5ee6ff61670178530f801aec3b75292d8e611b9b36c42709407948661d6309d5",
+  "checkpoint_manifest_sha256": "e2e47c950e98dd7a64c2b5053d731860210bd90e4b6d44628709e91f77859302",
+  "claim_ceiling": "LOCAL_INDEPENDENT_AFFINE_PROJECTION_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION",
+  "created_at_utc": "2026-10-27T19:32:47.869877+00:00",
+  "data_and_artifact_custody": "weights, prompts, captures, candidates, predictions, outcomes, and row-level diagnostics remain in external owner custody",
+  "disjointness_receipt_sha256": "afbcfa1e47495ecf189332aaf308f4ed292fe5e56cd360bfccbdefbfa8451e74",
+  "energy": "NOT_MEASURED",
+  "gates_pass_ignoring_resources": false,
+  "known_limitations": [
+    "one MLP output projection per fresh checkpoint",
+    "synthetic prompts and one checkpoint per architecture family",
+    "same-owner local replication is not independent scientific authority",
+    "monetary cost and energy are not measured"
+  ],
+  "monetary_cost": "NOT_MEASURED",
+  "next_blocked_authority_gate": "configured external reviewer with independent authority; no review task submitted",
+  "nonclaims": [
+    "all architectures",
+    "whole-model mechanistic identity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "outcome_status": "FAIL",
+  "packet_sha256": "521689af884fc7e73e6516b869fd6e92531dca4ce8f1e97699d0baa2c7e05294",
+  "pinned_v3_packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+  "pinned_v6_packet_sha256": "9b7b669195bb4fb9153e872d42f3cb4fd235e9784fdc978ec936037eb176bc5a",
+  "pinned_v7_packet_sha256": "39737cbef36a9eb84ed23a236de3f6c5de7c4a4168715f06d11203d6d5918918",
+  "protocol_id": "theseus-replacement-loss-v8-scale-r4-ridge-doubledescent",
+  "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+  "resource_blockers": [],
+  "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+  "runtime": {
+    "cuda_available": false,
+    "dependency_inventory_count": 51,
+    "dependency_inventory_sha256": "df5325adb8c7e120a6192ae9989661b75b4e7b9c0a2f71458d63b3ee6f8c8a24",
+    "package_manifest_sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d",
+    "packages": {
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.6.0",
+      "transformers": "4.57.3"
+    },
+    "peak_rss_bytes": 19995459584,
+    "platform": "Linux-6.18.54-121.166.amzn2023.x86_64-x86_64-with-glibc2.39",
+    "process_cpu_seconds": 28971.602629,
+    "python": "3.12.3",
+    "python_executable": "/home/dev/venv/bin/python",
+    "python_prefix": "/home/dev/venv",
+    "python_real_executable": "/usr/bin/python3.12",
+    "runtime_identity_sha256": "ceeb691da6a3c808d220c1bffb398ea7be3bf9270ff386322046b4373117e799",
+    "torch_threads": 8
+  },
+  "source_identity": {
+    "git_revision": "9a043a0765e5904f6f06b949366c04dc65166f91",
+    "worktree_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "treatment_fit_uses_target_weights": false,
+  "treatment_method": "pinned_v3_closed_form_output_ridge_from_adaptation_pairs",
+  "v3_evaluator_outcome_status": "FAIL"
+}
