@@ -1,7 +1,7 @@
 {
   "challenge_fixtures_generated": false,
   "checkpoint_identities_selected": false,
-  "created_at_utc": "2026-10-28T18:32:29.715979+00:00",
+  "created_at_utc": "2026-10-28T18:35:36.875631+00:00",
   "freeze_state": "FROZEN_BEFORE_V8SB_CHECKPOINT_SELECTION",
   "packet_files": [
     {
@@ -15,14 +15,14 @@
       "sha256": "c8f7c824ecbf60d4c4405b9d304bf92dc09786479b8c3444fb4bcca940faff35"
     },
     {
-      "bytes": 40029,
+      "bytes": 40062,
       "path": "replacement_loss_v8sb_runner.py",
-      "sha256": "87b8a19b750f31527abc54adac43b6b5e3acfa0ec5db05c5dcd1e2fd14864ae0"
+      "sha256": "01bc8be8033f8977242e391df81dd89f04dd4acb971ee840ca52d2c9011627d1"
     },
     {
-      "bytes": 11407,
+      "bytes": 11519,
       "path": "tests/test_replacement_loss_v8sb.py",
-      "sha256": "de7560872660ce2eccf36f6698f090c6b822e6953704a4d8b05b7286bcfab917"
+      "sha256": "46e0b3d594637fa636b3c2ee6a2260cb6103b2c22be69365cf6e440f0d3c6e5a"
     },
     {
       "bytes": 85,
@@ -280,7 +280,7 @@
       "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf"
     }
   ],
-  "packet_sha256": "d9679430078d86bf67e42713a67295a047d894808462f25f8d1574f28bd380fe",
+  "packet_sha256": "6205046016f130b6cbaf98e9e13611f93ff5c7dde1a6b16b12da8dc412dc27ba",
   "pinned_v7_created_at_utc": "2026-09-25T19:06:27.148229+00:00",
   "pinned_v7_freeze_sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf",
   "protocol_id": "theseus-replacement-loss-v8-scale-bandb-natural-text",

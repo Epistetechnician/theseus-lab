@@ -319,7 +319,7 @@ def _patched_v3_function(name: str) -> Any:
 def _device_shim() -> Iterator[None]:
     global _ORIGINAL_FIT_CASE
     device = device_name()
-    if device == "cpu":
+    if device == "cpu" or "_V8SB_DEVICE" in v3.__dict__:
         yield
         return
     if not torch.cuda.is_available():

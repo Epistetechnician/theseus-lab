@@ -167,6 +167,8 @@ class ReplacementLossV8ScaleBandBTests(unittest.TestCase):
         if torch.cuda.is_available():
             with runner._device_shim():
                 self.assertIsNot(v3._run_projection, before[2])
+                with runner._device_shim():
+                    self.assertIsNot(v3._run_projection, before[2])
             self.assertEqual(before, (v3._load_local_model, v3._fit_case, v3._run_projection, v3._set_projection, runner._ORIGINAL_FIT_CASE))
 
     def _inner(self, peak_gib: float, **overrides):
