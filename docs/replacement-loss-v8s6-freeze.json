@@ -1,7 +1,7 @@
 {
   "challenge_fixtures_generated": false,
   "checkpoint_identities_selected": false,
-  "created_at_utc": "2026-10-28T18:32:40.393011+00:00",
+  "created_at_utc": "2026-10-28T20:03:24.494350+00:00",
   "freeze_state": "FROZEN_BEFORE_V8S6_CHECKPOINT_SELECTION",
   "packet_files": [
     {
@@ -10,19 +10,19 @@
       "sha256": "a9704ac45efac09690ecf8af20608e743239f1fca28f9b0ea32fec5bb452f9f0"
     },
     {
-      "bytes": 6483,
+      "bytes": 6969,
       "path": "replacement_loss_v8s6_fixtures.py",
-      "sha256": "39ebcd8aedf68bfa2a9eafae83980c8e5b0da6888aae3d3edec85c2dc9f59186"
+      "sha256": "4882d99034f6da59170fc4c62ee3fd96639310cf25f2ba0b7014005b505f0725"
     },
     {
-      "bytes": 35890,
+      "bytes": 35938,
       "path": "replacement_loss_v8s6_runner.py",
-      "sha256": "92ff14341ecb0660d01731f70d88a0b5dacaeed1dea1c579a2de2681f08509d1"
+      "sha256": "7ae790474617015c3238da0317ccf1b317b559cef76deab120003d8940fd4947"
     },
     {
-      "bytes": 14850,
+      "bytes": 15479,
       "path": "tests/test_replacement_loss_v8s6.py",
-      "sha256": "946a11d0afd829e33e02bff8b4f863f554d5e4f9d41ae69ae8dd465d762c97ca"
+      "sha256": "a39fbd783729b616f2fb474f8f3302e821da86b4d942599fe714a32a26faa985"
     },
     {
       "bytes": 85,
@@ -275,7 +275,7 @@
       "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf"
     }
   ],
-  "packet_sha256": "8205e12753bdfe11c3200576ed12544bd8e37a8105dfe6e371a3cad0a3d9f6be",
+  "packet_sha256": "30e1c6c492733bcbca03ec137521a57dd66b8ef2dc5c35c4fd92d21c0f08b0f8",
   "pinned_v7_created_at_utc": "2026-09-25T19:06:27.148229+00:00",
   "pinned_v7_freeze_sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf",
   "protocol_id": "theseus-replacement-loss-v8-scale-r6-natural-challenge",

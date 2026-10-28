@@ -71,8 +71,17 @@ def _pool(paragraphs: list[str], seed_index: int) -> list[str]:
     ]
 
 
+# Challenge prompts already issued in this process. v3 validates every challenge payload
+# (all families and seeds) as mutually disjoint, and the three families share each seed's pool.
+USED_CHALLENGE_PROMPTS: set[str] = set()
+
+
 def select_natural_challenge_prompts(
-    paragraphs: list[str], seed_index: int, entropy: bytes, per_stratum: int = CHALLENGES_PER_STRATUM
+    paragraphs: list[str],
+    seed_index: int,
+    entropy: bytes,
+    per_stratum: int = CHALLENGES_PER_STRATUM,
+    exclude: set[str] | frozenset[str] = frozenset(),
 ) -> list[tuple[str, str]]:
     """Pick held-out (stratum, prompt) pairs from this seed's third, outside the adaptation ranking.
 
@@ -85,7 +94,7 @@ def select_natural_challenge_prompts(
         _pool(paragraphs, seed_index),
         key=lambda text: hashlib.sha256(f"{r5.PROTOCOL_ID}\0{seed}\0{text}".encode("utf-8")).hexdigest(),
     )
-    remaining = ranked_adaptation[MAX_NATURAL_ADAPTATION:]
+    remaining = [text for text in ranked_adaptation[MAX_NATURAL_ADAPTATION:] if " ".join(text.split()[:NATURAL_WORDS]) not in exclude]
     ranked = sorted(
         remaining,
         key=lambda text: hashlib.sha256(entropy + str(seed_index).encode("ascii") + text.encode("utf-8")).hexdigest(),
@@ -102,7 +111,9 @@ def natural_challenge_records(
 ) -> list[Any]:
     paragraphs = r5.eligible_paragraphs(r5._load_wikitext_lines() if lines is None else lines)
     rows = []
-    for index, (stratum, prompt) in enumerate(select_natural_challenge_prompts(paragraphs, seed_index, entropy)):
+    picks = select_natural_challenge_prompts(paragraphs, seed_index, entropy, exclude=USED_CHALLENGE_PROMPTS)
+    USED_CHALLENGE_PROMPTS.update(prompt for _, prompt in picks)
+    for index, (stratum, prompt) in enumerate(picks):
         material = f"{PROTOCOL_ID}\0challenge-natural\0{SEEDS[seed_index]}\0{index}\0{prompt}"
         example_id = hashlib.sha256(material.encode("utf-8")).hexdigest()[:24]
         rows.append(v3.PromptRecord(example_id, f"v8s6-challenge-natural-{seed_index}", stratum, prompt, " Continued."))

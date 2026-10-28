@@ -104,6 +104,7 @@ def _arm_profile(arm: str) -> Iterator[None]:
     settings = ARMS[arm]
     saved = (dict(fixtures.ADAPTATION_PROMPTS), fixtures.ADAPTATION_MODE, fixtures.NATURAL_PROMPTS, fixtures.CHALLENGE_MODE)
     try:
+        fixtures.USED_CHALLENGE_PROMPTS.clear()
         fixtures.ADAPTATION_MODE = str(settings["mode"])
         fixtures.CHALLENGE_MODE = str(settings["challenge"])
         if settings["mode"] == "natural":

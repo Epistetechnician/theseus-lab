@@ -188,6 +188,19 @@ class ReplacementLossV8ScaleR6Tests(unittest.TestCase):
         visible = fixtures.fixture_payload(fixtures.generate_visible_fixture(), fixture_kind="visible_selection")
         fixtures.validate_partition_disjointness(visible, payload)
 
+    def test_repeated_challenge_draws_across_families_are_mutually_disjoint(self) -> None:
+        lines = [" ".join(f"w{i}_{j}" for j in range(70)) for i in range(3 * 1500)]
+        fixtures.USED_CHALLENGE_PROMPTS.clear()
+        try:
+            payloads = [
+                fixtures.fixture_payload(fixtures.natural_challenge_records(seed, bytes([family]) * 32, lines=lines), fixture_kind="challenge")
+                for family in range(3)
+                for seed in range(3)
+            ]
+            fixtures.validate_partition_disjointness(*payloads)
+        finally:
+            fixtures.USED_CHALLENGE_PROMPTS.clear()
+
     def test_challenge_mode_selects_the_challenge_source(self) -> None:
         template = fixtures.generate_challenge_fixture(0, secret_seed=b"t" * 32)
         self.assertTrue(all(row.input_text.startswith("V8S6 ") for row in template))
