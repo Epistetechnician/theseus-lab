@@ -1,0 +1,28 @@
+{"protocol_id": "theseus-replacement-loss-v8-scale-r3-coverage-confirm", "state_slice": "theseus-lab-sandbox-v1", "v8s3_packet_sha256": "655e7f21c7c27e04b0da58659ea62a964dff0dcd4dfc5882983dc9e76a5fdbdc", "checkpoint_manifest_sha256": "4e986cf67732bc1a76018c6e17d73a547932728888f25733197c1b77b23312ef", "checkpoint_count": 3}
+Traceback (most recent call last):
+  File "/home/shaanp/th3/replacement_loss_v8s3_runner.py", line 737, in <module>
+    raise SystemExit(_cli())
+                     ^^^^^^
+  File "/home/shaanp/th3/replacement_loss_v8s3_runner.py", line 729, in _cli
+    result = run_primary(args.custody_root, args.checkpoint_manifest, args.arm, args.prior_custody_root)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaanp/th3/replacement_loss_v8s3_runner.py", line 557, in run_primary
+    result = _run_primary_inner(custody_root, checkpoint_manifest, prior_custody_roots)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaanp/th3/replacement_loss_v8s3_runner.py", line 608, in _run_primary_inner
+    v3.prepare_candidates(root, manifest_path)
+  File "/home/shaanp/th3/replacement_loss_v3_runner.py", line 820, in prepare_candidates
+    case = _fit_case(
+           ^^^^^^^^^^
+  File "/home/shaanp/th3/replacement_loss_v8s3_runner.py", line 395, in _fit_case_v8s3
+    case = _ORIGINAL_FIT_CASE(model, tokenizer, checkpoint, layer, seed_index, fixture_records, custody)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shaanp/th3/replacement_loss_v3_runner.py", line 704, in _fit_case
+    _save_npz_deterministic(
+  File "/home/shaanp/th3/replacement_loss_v3_runner.py", line 146, in _save_npz_deterministic
+    archive.writestr(info, buffer.getvalue(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+  File "/usr/lib/python3.12/zipfile/__init__.py", line 1914, in writestr
+    dest.write(data)
+  File "/usr/lib/python3.12/zipfile/__init__.py", line 1232, in write
+    self._fileobj.write(data)
+OSError: [Errno 28] No space left on device

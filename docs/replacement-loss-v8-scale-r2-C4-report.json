@@ -1,0 +1,1403 @@
+{
+  "all_treatment_case_gates_pass": true,
+  "arm": "C4",
+  "arm_settings": {
+    "adaptation_multiplier": 4,
+    "intervention_scale": 1
+  },
+  "assurance_level": "INCONCLUSIVE",
+  "budget_and_resource_measurements": {
+    "case_wall_cap_blockers": [],
+    "limits": {
+      "max_case_wall_seconds": 7200,
+      "max_peak_rss_bytes": 25769803776,
+      "max_total_wall_seconds": 64800
+    },
+    "stage_peak_rss_bytes": 27127738368,
+    "total_process_cpu_seconds": 89717.667325,
+    "total_protocol_stage_wall_seconds": 6229.004934486999
+  },
+  "candidate_files_sha256": "141d77b6a058396dabf4cb43f410956cc586a1a57b380c61e72c5006c28c69bc",
+  "candidate_freeze_sha256": "9461a56f0e110db32392ca28b214706f29df5b130ac319524652ff083f12acf8",
+  "candidate_preparation_sha256": "53995a6c2fc7b6254b0ddb28ce66eeae385d529253cb692770ccf22995cb8ee0",
+  "cases": [
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "b8cde447c423f992e6c03215e3ebda09a018efd7de4c3268fe9a7311dededfd0",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "40434a5602d9b1cca554cf012892bc9886498e295fcb8142e1f1821eb7a28a39",
+        "raw_index_permutation": "b8cde447c423f992e6c03215e3ebda09a018efd7de4c3268fe9a7311dededfd0",
+        "treatment": "6a2f3746dc2e07dba8eea80b22e39bd9747c2a069810ed00582b9be61957c4ac",
+        "wrong_module": "2d35fea4b7236422fa9c7e8e8ba6a1018bb6991efb691620d354b91a3f3c72b9"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.7,
+        "raw_index_permutation": 0.5666666666666667,
+        "treatment": 1.0,
+        "wrong_module": 0.3
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 1274.900547334666,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "c301876b313742e43ce11f0f8b3828ed73c83e9fc81386de520bc73006875a29",
+      "prediction_array_sha256": "def32f44eaa5f3eadfecd8a58b1797b31b88a5ea97323d29b1078ae18b0261d6",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261501,
+      "seed_index": 0,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 2.6317170522816014e-06,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.530354549890035e-06
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.9609374223582563e-06
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.6317170522816014e-06
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 622,
+        "cross_entropy_delta_nats_per_token": 0.0032897371187854043,
+        "mean_cross_entropy_nats_per_token": 5.014612499157332,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.011322762038547,
+        "paired_next_token_normalized_logit_error_max": 4.97752262162976e-05,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.004146599769592285,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 4.97752262162976e-05
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -1.0466707345530474e-05,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.8269885913468897e-05
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.005238442871701065,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.8497328710509464e-05
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9928621322069022,
+          "median_normalized_error": 1.766331726345137e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9934974807015968,
+          "median_normalized_error": 9.910359503496074e-07,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9995281455060292,
+              "median_normalized_error": 6.373123186541386e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999994696625621,
+              "median_normalized_error": 7.997535922202652e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9907647335327006,
+              "median_normalized_error": 1.8563075515812953e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9928352439242816,
+              "median_normalized_error": 1.0385673368204058e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9916886313788682,
+              "median_normalized_error": 2.0376412545478187e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9926654681808766,
+              "median_normalized_error": 1.0583723279466796e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30643,
+        "fitted_replacement_digest": "c224410b2599962857184205b44e3704740afc6b166bf30b2764e68087e20545",
+        "initialization_digest": "83d31f2473194fc925099d3a55357ddccd6f12ecb37c2702f5ac2eca6596c1f4",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261501
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "c9d91a59e5dfef6e88848f385d6114afa4f13a318330c8aad0f6ef4cb05c66e7",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "8aefc1b168a938fbf4228302369168a674707a52578abe53415abca5fac5740b",
+        "raw_index_permutation": "c9d91a59e5dfef6e88848f385d6114afa4f13a318330c8aad0f6ef4cb05c66e7",
+        "treatment": "0e24197a6dae99b348d38529a006c1f81143de34ac24d6e76d53680b4941d7ee",
+        "wrong_module": "adca697dea9f5d3fac0df48c2d41f93fb6b9edd76916a31a844b556058b431f5"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.5333333333333333,
+        "raw_index_permutation": 0.35,
+        "treatment": 1.0,
+        "wrong_module": 0.4666666666666667
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 1281.4960461006674,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "bde130fea949e9397a3cbba748292895e9954627bc2ef9fdb13bb6deeaf197ad",
+      "prediction_array_sha256": "626f91a94ace7dfa2f5cfdec2b6838dd7a196c993585a3dec031ea6044e536b9",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261502,
+      "seed_index": 1,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 1.6850610791152576e-06,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 1.5442698781953368e-06
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 1.920256806897669e-06
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 1.7714667706059117e-06
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 622,
+        "cross_entropy_delta_nats_per_token": 0.003596216152718596,
+        "mean_cross_entropy_nats_per_token": 5.044513683993717,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.040917467840998,
+        "paired_next_token_normalized_logit_error_max": 0.0002396956697339192,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.0035498380661010743,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.0002396956697339192
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -5.936622619628906e-06,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 4.9579826736589894e-05
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.006861157936624961,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 2.476721965649631e-05
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9922387222357718,
+          "median_normalized_error": 1.9345680366966683e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9925204844457836,
+          "median_normalized_error": 1.0603082753966612e-06,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9995648932659098,
+              "median_normalized_error": 6.414482809944807e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999995025223553,
+              "median_normalized_error": 7.728563682623772e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9901740841172066,
+              "median_normalized_error": 2.0682828533930992e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9912178031112381,
+              "median_normalized_error": 1.118146764443047e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.990604975318027,
+              "median_normalized_error": 2.0850651002360628e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9922694354102655,
+              "median_normalized_error": 1.077156522439947e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30711,
+        "fitted_replacement_digest": "3eee9db4a731a91429fb351dc13256ce79a8c5eca9e362bbc60e1a288c434948",
+        "initialization_digest": "2fc720a8d9eb660effa5a9d5ba281210a3d1711c488074c8988fa1a772260779",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261502
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "cf87400e543734558564d991d3eeaa5dad3f2e99d42ce991071f33a155c2501c",
+        "no_op": "2eb962d3fe467f0b49b7bbf1d6ec73b840101ad05b31dd7916ff610e90bdfdb6",
+        "random": "4c67cf499a3e1b6b2a86b98dae6222665f088caa2dee84d6e79617740fea6747",
+        "raw_index_permutation": "cf87400e543734558564d991d3eeaa5dad3f2e99d42ce991071f33a155c2501c",
+        "treatment": "ece4ab862b1e374129b388b04e4b9167ef0ad7ade5c72d7f28530d6ec1e79946",
+        "wrong_module": "350540f16d7cb4cc864d104877c4cde88a9874417befd6d1c33ee12168fab707"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.43333333333333335,
+        "raw_index_permutation": 0.38333333333333336,
+        "treatment": 1.0,
+        "wrong_module": 0.48333333333333334
+      },
+      "family": "opt_relu",
+      "full_case_elapsed_wall_seconds": 1283.7966084506663,
+      "model_id": "facebook/opt-2.7b",
+      "outcome_array_sha256": "3064eaeddb634ded1d4e4ca2950602b8ddb2061007fef1462a28e775f3125b54",
+      "prediction_array_sha256": "647ff2bc9b44fde65a7dd8333b78a9454d80afb5e5d352bd7bbae0e37dce55a9",
+      "revision": "905a4b602cda5c501f1b3a2650a4152680238254",
+      "seed": 20261503,
+      "seed_index": 2,
+      "selected_layer": 30,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 2.593919020910107e-06,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.523051875868987e-06
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.7440113399279653e-06
+          },
+          "ordinary": {
+            "median_cosine": 0.9999999701976776,
+            "median_normalized_error": 2.5505386247459683e-06
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 623,
+        "cross_entropy_delta_nats_per_token": 0.0025970480415258516,
+        "mean_cross_entropy_nats_per_token": 4.9275157332994395,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.924918685257913,
+        "paired_next_token_normalized_logit_error_max": 0.0019041127525269985,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 0.002884221076965332,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 0.0019041127525269985
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -3.8199661845001724e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.3413430679065641e-05
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 0.004583252538548838,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 3.867908162646927e-05
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9933113549333843,
+          "median_normalized_error": 1.8197896412250468e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.994058438193304,
+          "median_normalized_error": 9.826343632251095e-07,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9995356919640993,
+              "median_normalized_error": 6.723331237316597e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999995076774408,
+              "median_normalized_error": 7.882148492521258e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.990914746295761,
+              "median_normalized_error": 1.9337834616368392e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9926838439959147,
+              "median_normalized_error": 1.0583846679453996e-06,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9920174512829034,
+              "median_normalized_error": 1.9686663132005312e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.993033874795836,
+              "median_normalized_error": 1.025653965813219e-06,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30677,
+        "fitted_replacement_digest": "c12626691fd13daf716b55a0c53575b628534e84d1c30a0b11a7649dc8cf2e9c",
+        "initialization_digest": "5157887c33f6b9c4d00090474d4a2540ce08ed61f64d8854abf2944497de3928",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261503
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "440e70ab47b7e5df796bdbc6dc55f40d06a8b744687243e87af9175e15f5c9f5",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "6d0528ac4b942f44fd431888fd039692245ec3f4bab018ac6d48be0cca2a9bd6",
+        "raw_index_permutation": "440e70ab47b7e5df796bdbc6dc55f40d06a8b744687243e87af9175e15f5c9f5",
+        "treatment": "d37f284cb4374a8ea6f2b2c7a3618b3284190baac317cb3f056caba3cff26283",
+        "wrong_module": "f5539a85c6517bd8d3a3e84d083861fe2ae31f382b409800503bd0bdea3d7882"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.6166666666666667,
+        "raw_index_permutation": 0.43333333333333335,
+        "treatment": 1.0,
+        "wrong_module": 0.6
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 721.7612504343339,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "caa603468d667fda179cd11bfbe33dc858471f90b9687262326bf83eacd8763f",
+      "prediction_array_sha256": "9bbb9228eac71d8b601a058546357aaf4d11aa4123429d96eac273642296b885",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261501,
+      "seed_index": 0,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 3.861283488504341e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.7242728012643056e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.0201093181858596e-07
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 4.550772416678228e-07
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 622,
+        "cross_entropy_delta_nats_per_token": 5.442996500389369e-08,
+        "mean_cross_entropy_nats_per_token": 5.028052489473889,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.028052435043923,
+        "paired_next_token_normalized_logit_error_max": 1.7243228001007083e-07,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 4.76837158203125e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.5865354896504869e-07
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 4.4539734557434753e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.7243228001007083e-07
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": 7.152557373046875e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.3610798532681656e-07
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9991057858307649,
+          "median_normalized_error": 1.3415830863948185e-07,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.99999245366967,
+          "median_normalized_error": 1.5406827264042816e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9947752344543209,
+              "median_normalized_error": 1.352235623379613e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999998743477877,
+              "median_normalized_error": 4.249479725747371e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.999164665825774,
+              "median_normalized_error": 1.3199356846487485e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999891506415254,
+              "median_normalized_error": 2.065941251260581e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9994422092419635,
+              "median_normalized_error": 1.366172746048069e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.999992100771032,
+              "median_normalized_error": 1.5480659638977567e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30131,
+        "fitted_replacement_digest": "a5c568afcafff073edf8d02c9f455feb313307c19ecaffcaec78f0ef8c86b331",
+        "initialization_digest": "5c98094332aec138e02d430766426bf15d27e10734394fe7b9189f2b7a1827d4",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261501
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "712872d573633af5cec8368a3c7ea5cf22ecb42b0bd31388cdd1b7f20966d834",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "f38e8ec46d9a5f5cd3023736b8eb79dfed65c4f58da8ed457fd22235c5d7c6d4",
+        "raw_index_permutation": "712872d573633af5cec8368a3c7ea5cf22ecb42b0bd31388cdd1b7f20966d834",
+        "treatment": "e70014bd7fd0a18b5c8b8152665f03cd2820f377ee786570cf841265f6ab3fac",
+        "wrong_module": "716c155e99c4f9b2c9866190787912eed6eb730d9a30efb62d076576d02fb15b"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.6833333333333333,
+        "raw_index_permutation": 0.31666666666666665,
+        "treatment": 1.0,
+        "wrong_module": 0.6333333333333333
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 718.5662816963328,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "3b2cc5bff35665b0fab5c17a2203445ab159404abda835f319ef8dc206288059",
+      "prediction_array_sha256": "9b969c1cecd7f193f33a63cc84896180d711518011fd651759da70caea6da313",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261502,
+      "seed_index": 1,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 3.5322727853781544e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.385529367960771e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.1781428333488293e-07
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 4.179985069185932e-07
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 626,
+        "cross_entropy_delta_nats_per_token": -3.046882800019968e-09,
+        "mean_cross_entropy_nats_per_token": 4.962509955080172,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.962509958127055,
+        "paired_next_token_normalized_logit_error_max": 1.681704873135459e-07,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 4.76837158203125e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.681704873135459e-07
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -2.0732050356657608e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.2694243878286215e-07
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -4.7211599822091586e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.4185889085638337e-07
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9991151209480797,
+          "median_normalized_error": 1.3469472805794038e-07,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9999926338482974,
+          "median_normalized_error": 1.636485273747352e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9946133958742274,
+              "median_normalized_error": 1.3655648850676257e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999998447189234,
+              "median_normalized_error": 4.624103789861271e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9991391963580689,
+              "median_normalized_error": 1.345166696749474e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999883028323673,
+              "median_normalized_error": 2.2422995298980538e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9993804798265,
+              "median_normalized_error": 1.336620537563518e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999913918133063,
+              "median_normalized_error": 1.7086277001059126e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30199,
+        "fitted_replacement_digest": "fb35025743f9fe22a1c60fa4ed4c9c6b99c39753b3b94c078797df7f7221f2f7",
+        "initialization_digest": "8c5f73188db240d0d9a9de41de13c945e7e54c64efc67f5acb2c74d52143c0eb",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261502
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "35f6308e0039aca66db1e568e2070f0f851e3bbb5df7b4fbca39419c46172e05",
+        "no_op": "dd4d52367e3f863e2f3ef199839f7d71e1a1575bcc70271b93f2b2bb3cd3e3c9",
+        "random": "a601d8ef36f44f58b7b33b1e8855b3b63bdb5ac60c6da954958abe43d47d06b1",
+        "raw_index_permutation": "35f6308e0039aca66db1e568e2070f0f851e3bbb5df7b4fbca39419c46172e05",
+        "treatment": "f1b70e2cbe713f4a1c4b7e84e1f29b77a40621ce4f378648878277c9d903a841",
+        "wrong_module": "3283733927fb283b7f924d28d80dd4e952d776479d3fa43e94882ae07df64389"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.7,
+        "raw_index_permutation": 0.7,
+        "treatment": 1.0,
+        "wrong_module": 0.65
+      },
+      "family": "gpt2_gelu",
+      "full_case_elapsed_wall_seconds": 718.7364408533341,
+      "model_id": "openai-community/gpt2-xl",
+      "outcome_array_sha256": "d9e5be3ef7f369c1a920b3935a61af6d6a4663aec16abe6baec14e0229e71ded",
+      "prediction_array_sha256": "383c6554ac94883ee5ba10029b35d7cd2e6f3ea1bc376f0242dbd7fe302c01f0",
+      "revision": "15ea56dee5df4983c59b2538573817e1667135e2",
+      "seed": 20261503,
+      "seed_index": 2,
+      "selected_layer": 45,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 3.315826688776724e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.2810233108193643e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 2.833103707189366e-07
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 3.517296676136539e-07
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 624,
+        "cross_entropy_delta_nats_per_token": -7.488788702549078e-08,
+        "mean_cross_entropy_nats_per_token": 5.004672419566375,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 5.004672494454262,
+        "paired_next_token_normalized_logit_error_max": 1.6472492347929801e-07,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": -1.1920928955078125e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.032974736858705e-07
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -7.11304048148308e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.6472492347929801e-07
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -2.5838466700661947e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.455145621775955e-07
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9990883377078341,
+          "median_normalized_error": 1.3507384930151196e-07,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9999925421522802,
+          "median_normalized_error": 1.5922418855013195e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9950145486568021,
+              "median_normalized_error": 1.3400646496124264e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999998773054508,
+              "median_normalized_error": 3.790926611886172e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9991920453244343,
+              "median_normalized_error": 1.2749125481147996e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999891065100727,
+              "median_normalized_error": 2.1150450219452517e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9993456445076733,
+              "median_normalized_error": 1.361975047175249e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999912608132213,
+              "median_normalized_error": 1.62966809507043e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 30165,
+        "fitted_replacement_digest": "c67726f95f25806a80c1198b7b1e8b87124bcdd925b7f473a5d8341a4fb4d039",
+        "initialization_digest": "f1e48c05537e1ae5dec8133d9b4c5458e8acd22ecf27a4fddfb208ef8144aeba",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261503
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "b3f975bdd6fd3903d1bd182db3bfdd16692427832c369a67a1d79410ccbaf523",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "fce45ef2c6e03df5fb784ca95c5683d58f8ec80b85f67ccb59c1d35c2489d764",
+        "raw_index_permutation": "b3f975bdd6fd3903d1bd182db3bfdd16692427832c369a67a1d79410ccbaf523",
+        "treatment": "6c42683766d157e25ffb5b08d58ca546e7db2ee512619ec38468d40b7b9430b3",
+        "wrong_module": "5809ae54e58f9973ccc4e6b108b9c3363a2973c7c1053eb029a7a8b119a60075"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.4166666666666667,
+        "raw_index_permutation": 0.6166666666666667,
+        "treatment": 1.0,
+        "wrong_module": 0.5166666666666667
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 911.0412847399999,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "1f1c12b739f8415941862e1da50a7952d1b372dcdef2e4c6efc38d13ea59daba",
+      "prediction_array_sha256": "3298bceaf38a125dd65da40ac0266956050b9e7841f0ecf5fdb94ce6de0e7947",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261501,
+      "seed_index": 0,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 8.323845293034537e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 6.599750577152008e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 1.2011468584205431e-06
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 8.50640304861372e-07
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -2.5192896525065104e-07,
+        "mean_cross_entropy_nats_per_token": 4.935331803957621,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.935332055886587,
+        "paired_next_token_normalized_logit_error_max": 1.647068756938097e-06,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": -2.86102294921875e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.1603750635913457e-06
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": -3.5762786865234375e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.3139651855453849e-06
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -1.1920928955078125e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.647068756938097e-06
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9841403782612554,
+          "median_normalized_error": 1.0046741192357728e-06,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9999896676922868,
+          "median_normalized_error": 2.0786044073619074e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9723556798401699,
+              "median_normalized_error": 9.03274905025923e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.999999736020809,
+              "median_normalized_error": 3.2014472937547884e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9707955785187554,
+              "median_normalized_error": 1.0895629295410328e-06,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999886322583933,
+              "median_normalized_error": 2.4476052690651144e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9946904223564403,
+              "median_normalized_error": 9.923919239421747e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.999989197711523,
+              "median_normalized_error": 2.1985694116826256e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 36038,
+        "fitted_replacement_digest": "e4ee667610943676875676768e337ee9b1b50525b329808e977f0f62e430a307",
+        "initialization_digest": "65d8c7b699b121296ee09c9cb9bdd7709c29fa4121035c855d33826e5c129279",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261501
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "94ae1169dad1210d092934587ac52ac20d787d072866496f8bc12eec517ab60a",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "2bc8db24128cb88bda838968c746c444033d0ce0b507d9839b30e756baafacdc",
+        "raw_index_permutation": "94ae1169dad1210d092934587ac52ac20d787d072866496f8bc12eec517ab60a",
+        "treatment": "fb32032e43eac66a09f6c30e55ccef716422740611f23aa930c0a84b03ac328a",
+        "wrong_module": "40c37fb28f316b8935a2f2a8a72d958911595c10b7e4588334d3bced1e9c6905"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.5833333333333334,
+        "raw_index_permutation": 0.5,
+        "treatment": 1.0,
+        "wrong_module": 0.4166666666666667
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 907.6367441149984,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "ffcebcb7b2b5704ccc8597e6be4b3d4687625cf8bd89a1737db439316c9c9aed",
+      "prediction_array_sha256": "617a15bf65afc0531f6d033e1a635d5472a8420730fcaf9d4fc405f39398dafb",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261502,
+      "seed_index": 1,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 8.389442882617004e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 7.776277755056071e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 9.40229597290454e-07
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 1.1009490776814346e-06
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -4.688898722330729e-08,
+        "mean_cross_entropy_nats_per_token": 4.876233854293823,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.87623390118281,
+        "paired_next_token_normalized_logit_error_max": 1.286201722905389e-06,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": -7.152557373046875e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 8.129447905957932e-07
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 1.430511474609375e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.1787261655626935e-06
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -1.9073486328125e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.286201722905389e-06
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9816547497261265,
+          "median_normalized_error": 9.253726430749174e-07,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9999896506521666,
+          "median_normalized_error": 2.106689619628979e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9658203552776232,
+              "median_normalized_error": 8.125935702026724e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999997405252077,
+              "median_normalized_error": 2.9651765685019686e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9851389680172866,
+              "median_normalized_error": 9.729134861084224e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999884911058279,
+              "median_normalized_error": 2.504423768083512e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.991947610395987,
+              "median_normalized_error": 9.54943681124081e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999892839780002,
+              "median_normalized_error": 2.166506450925922e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 36118,
+        "fitted_replacement_digest": "bfebc48c4a14eb1646f40f8694f1af3d3eae3783cc71e1314670ff45a57b6ed8",
+        "initialization_digest": "73ea0cd1ba804c38d641178c0965265b4bc9ffc9dcbd4302de50bab6d3cdf211",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261502
+      }
+    },
+    {
+      "blockers": [],
+      "candidate_state_digests": {
+        "mapping_aligned_permutation": "42bd3641e91bde67d60904509f5b5c18c3c62225885e84728bb69b9430837010",
+        "no_op": "480b7557c9d52bfc67ab448476c358a7deb269c47ef388ef0ceebb9bd8c37f2b",
+        "random": "381222be31223580c3a8d4f7640a3dd5fed78748d939c66c3744e309e62f698a",
+        "raw_index_permutation": "42bd3641e91bde67d60904509f5b5c18c3c62225885e84728bb69b9430837010",
+        "treatment": "365c95f9c740f795481d54fb5f08a14aad204b8ff9c69bb02035e75b5f55b3ef",
+        "wrong_module": "de2f971fd26542c4f099a0f5b5ad113cc8dc0a280528e49643f07c8a7bc9f3d4"
+      },
+      "case_status": "PASS",
+      "control_direction_accuracy": {
+        "mapping_aligned_permutation": 1.0,
+        "no_op": 0.0,
+        "random": 0.55,
+        "raw_index_permutation": 0.4666666666666667,
+        "treatment": 1.0,
+        "wrong_module": 0.4666666666666667
+      },
+      "family": "llama_silu_gated",
+      "full_case_elapsed_wall_seconds": 927.2384537799995,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "outcome_array_sha256": "618328875315019fc18864204b47e56e477590e43e6e7e6a379ce69ffbd3d172",
+      "prediction_array_sha256": "86860c9f4738a47ff459e71d553661a9004ee8a53931328c2d2abbfad47ed741",
+      "revision": "effd688a12921b4cc83e3312b6feb579f70f9c71",
+      "seed": 20261503,
+      "seed_index": 2,
+      "selected_layer": 7,
+      "treatment_activation_rescue": {
+        "median_cosine": 1.0,
+        "median_normalized_error": 7.870397098486137e-07,
+        "per_stratum": {
+          "adversarial": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 9.497523194568203e-07
+          },
+          "compositional": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 7.259786798385903e-07
+          },
+          "ordinary": {
+            "median_cosine": 1.0,
+            "median_normalized_error": 7.773457468829292e-07
+          }
+        }
+      },
+      "treatment_behavior": {
+        "continuation_token_count": 600,
+        "cross_entropy_delta_nats_per_token": -5.7220458984375e-08,
+        "mean_cross_entropy_nats_per_token": 4.913886907895406,
+        "next_token_top1_agreement": 1.0,
+        "original_mean_cross_entropy_nats_per_token": 4.913886965115865,
+        "paired_next_token_normalized_logit_error_max": 1.3497074178303592e-06,
+        "per_stratum": {
+          "adversarial": {
+            "cross_entropy_delta_nats_per_token": 7.152557373046875e-08,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.105379055843514e-06
+          },
+          "compositional": {
+            "cross_entropy_delta_nats_per_token": 0.0,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.1610120509430999e-06
+          },
+          "ordinary": {
+            "cross_entropy_delta_nats_per_token": -2.5033950805664064e-07,
+            "next_token_top1_agreement": 1.0,
+            "paired_next_token_normalized_logit_error_max": 1.3497074178303592e-06
+          }
+        }
+      },
+      "treatment_effects": {
+        "logits": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9863864742247959,
+          "median_normalized_error": 9.179500665690065e-07,
+          "resolvable_count": 60
+        },
+        "module_boundary": {
+          "count": 60,
+          "direction_accuracy": 1.0,
+          "median_cosine": 0.9999899916008559,
+          "median_normalized_error": 2.1400369647361346e-08,
+          "resolvable_count": 60
+        },
+        "per_stratum": {
+          "adversarial": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9854471572740046,
+              "median_normalized_error": 9.169499550906564e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999997444040567,
+              "median_normalized_error": 3.1337023775111044e-09,
+              "resolvable_count": 20
+            }
+          },
+          "compositional": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9825169506788057,
+              "median_normalized_error": 9.188691630397325e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999888701506443,
+              "median_normalized_error": 2.4845291905638113e-08,
+              "resolvable_count": 20
+            }
+          },
+          "ordinary": {
+            "logits": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.991860560413153,
+              "median_normalized_error": 9.192372891511207e-07,
+              "resolvable_count": 20
+            },
+            "module_boundary": {
+              "count": 20,
+              "direction_accuracy": 1.0,
+              "median_cosine": 0.9999894313883448,
+              "median_normalized_error": 2.1400369647361346e-08,
+              "resolvable_count": 20
+            }
+          }
+        }
+      },
+      "treatment_fit": {
+        "adaptation_row_count": 36057,
+        "fitted_replacement_digest": "3470bf5dfa9afdf96d61e146dac9e09703cf8e606cc2cbf6f34daa2efbc3a98a",
+        "initialization_digest": "e7ed7b69f68fef2a8b406bf22dbaa323ee4a9db7b01310008b943e0ca3e0f497",
+        "method": "primal_ridge_least_squares",
+        "ridge": 1e-06,
+        "seed": 20261503
+      }
+    }
+  ],
+  "challenge_manifest_sha256": "2dde094b1970e679f7b45edae2bf35e2972729ad02c6dfd759105188e47fe7e9",
+  "checkpoint_manifest_sha256": "1e2b029d5c125023cd8443324e88fda019fbe948cbf0062d0af6f66ba24e5288",
+  "claim_ceiling": "LOCAL_INDEPENDENT_AFFINE_PROJECTION_REPLACEMENT_CAUSAL_PREDICTION_OBSERVATION",
+  "created_at_utc": "2026-10-26T16:36:57.015580+00:00",
+  "data_and_artifact_custody": "weights, prompts, captures, candidates, predictions, outcomes, and row-level diagnostics remain in external owner custody",
+  "disjointness_receipt_sha256": "5c8168c7ca4a0efae2b7e4644a30008b7cad84fd8f6672d75d5b82ff91413a23",
+  "energy": "NOT_MEASURED",
+  "known_limitations": [
+    "one MLP output projection per fresh checkpoint",
+    "synthetic prompts and one checkpoint per architecture family",
+    "same-owner local replication is not independent scientific authority",
+    "monetary cost and energy are not measured"
+  ],
+  "monetary_cost": "NOT_MEASURED",
+  "next_blocked_authority_gate": "configured external reviewer with independent authority; no review task submitted",
+  "nonclaims": [
+    "all architectures",
+    "whole-model mechanistic identity",
+    "independent science",
+    "consciousness",
+    "alignment",
+    "production readiness"
+  ],
+  "outcome_status": "INCOMPLETE",
+  "packet_sha256": "ca3d2143f99f8fe02266503ae9b2d5528dd71805f6d5652ffe0a31aedbf1d673",
+  "pinned_v3_packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+  "pinned_v6_packet_sha256": "9b7b669195bb4fb9153e872d42f3cb4fd235e9784fdc978ec936037eb176bc5a",
+  "pinned_v7_packet_sha256": "39737cbef36a9eb84ed23a236de3f6c5de7c4a4168715f06d11203d6d5918918",
+  "protocol_id": "theseus-replacement-loss-v8-scale-r2-snr-coverage",
+  "reproducibility_status": "PENDING_SEPARATE_REPLICATOR",
+  "resource_blockers": [
+    "process_peak_rss_exceeded_24_GiB"
+  ],
+  "reviewer_status": "EXTERNAL_REVIEW_UNAVAILABLE",
+  "runtime": {
+    "cuda_available": false,
+    "dependency_inventory_count": 51,
+    "dependency_inventory_sha256": "df5325adb8c7e120a6192ae9989661b75b4e7b9c0a2f71458d63b3ee6f8c8a24",
+    "package_manifest_sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d",
+    "packages": {
+      "numpy": "2.4.6",
+      "safetensors": "0.8.0",
+      "tokenizers": "0.22.2",
+      "torch": "2.6.0",
+      "transformers": "4.57.3"
+    },
+    "peak_rss_bytes": 27127738368,
+    "platform": "Linux-6.18.54-121.166.amzn2023.x86_64-x86_64-with-glibc2.39",
+    "process_cpu_seconds": 40533.154603,
+    "python": "3.12.3",
+    "python_executable": "/home/dev/venv/bin/python",
+    "python_prefix": "/home/dev/venv",
+    "python_real_executable": "/usr/bin/python3.12",
+    "runtime_identity_sha256": "ceeb691da6a3c808d220c1bffb398ea7be3bf9270ff386322046b4373117e799",
+    "torch_threads": 8
+  },
+  "source_identity": {
+    "git_revision": "0b1cf0efa6ddef027704aae08eb5fa7b1a6a27e8",
+    "worktree_status_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "state_slice": "theseus-lab-sandbox-v1",
+  "treatment_fit_uses_target_weights": false,
+  "treatment_method": "pinned_v3_closed_form_output_ridge_from_adaptation_pairs",
+  "v3_evaluator_outcome_status": "INCOMPLETE"
+}

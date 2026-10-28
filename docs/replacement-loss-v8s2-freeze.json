@@ -1,0 +1,188 @@
+{
+  "challenge_fixtures_generated": false,
+  "checkpoint_identities_selected": false,
+  "created_at_utc": "2026-10-26T14:14:46.286645+00:00",
+  "freeze_state": "FROZEN_BEFORE_V8S2_CHECKPOINT_SELECTION",
+  "packet_files": [
+    {
+      "bytes": 3419,
+      "path": "docs/replacement-loss-v8-scale-r2.md",
+      "sha256": "0dcd421400ad8d8e13c4b241fcc1eb21689ee3c576b8feae351cea5d7f2a1361"
+    },
+    {
+      "bytes": 3030,
+      "path": "replacement_loss_v8s2_fixtures.py",
+      "sha256": "40f65d2e628693bfa346b8c15261a44796efa28966acc1beb4d631f1e91422c0"
+    },
+    {
+      "bytes": 32325,
+      "path": "replacement_loss_v8s2_runner.py",
+      "sha256": "afb7bfa5d809c8bc156bd3591427e487066fe3fd1a76a42b5ce7e9a03e2b0b93"
+    },
+    {
+      "bytes": 5282,
+      "path": "tests/test_replacement_loss_v8s2.py",
+      "sha256": "2f4bab9182480a48c1438dcd12a2c42c6b0715c21c104c64911bbe244d14e4bd"
+    },
+    {
+      "bytes": 85,
+      "path": "requirements.txt",
+      "sha256": "7f8769a3acdacbfa9103b603751b028196ccdae3ef16420e7c9288ac079a064d"
+    },
+    {
+      "bytes": 3058,
+      "path": "docs/replacement-loss-v8-scale.md",
+      "sha256": "c3cea204ebf7e51e4e482771306d9b69a1f922191b6a7c19b23b802b3065a04e"
+    },
+    {
+      "bytes": 5822,
+      "path": "docs/replacement-loss-v8s-freeze.json",
+      "sha256": "3cac3f60b5bac0fb3a72dd05e1b305274ec3abf1a1a8ba0eb5c7d12972286069"
+    },
+    {
+      "bytes": 3027,
+      "path": "replacement_loss_v8s_fixtures.py",
+      "sha256": "e7aa7abf9382ed3593f91b9cefa5fa82d11201cb264086ff93a80dcf425b9c0d"
+    },
+    {
+      "bytes": 28372,
+      "path": "replacement_loss_v8s_runner.py",
+      "sha256": "08f3e7d247bb3102517abf7b68f4e0e75e3d25b0e67743e1cc4424d524b937ac"
+    },
+    {
+      "bytes": 3613,
+      "path": "tests/test_replacement_loss_v8s.py",
+      "sha256": "9f1482a0a2d186fdadd0b704b32d02fa3ea7cf79043b89eb7f4c3a83852348a2"
+    },
+    {
+      "bytes": 5107,
+      "path": "docs/replacement-loss-v8.md",
+      "sha256": "a1568874241ba4ddd609355857675ebad8e49f8d427a90e9029ce52f4750bfed"
+    },
+    {
+      "bytes": 4974,
+      "path": "docs/replacement-loss-v8-freeze.json",
+      "sha256": "9b1dc97081620fd4a85961186d026c675076788f8da5c40c4ab2f0f107dad66a"
+    },
+    {
+      "bytes": 3013,
+      "path": "replacement_loss_v8_fixtures.py",
+      "sha256": "ab7832ecd1fe252e6c1208e8c7f6b3a157b3be86cbcb69228836f639fb53626e"
+    },
+    {
+      "bytes": 27377,
+      "path": "replacement_loss_v8_runner.py",
+      "sha256": "0d87dff6a87949bd9b26bf915df57655c95189529bb3f7c112dca8284168c469"
+    },
+    {
+      "bytes": 2658,
+      "path": "tests/test_replacement_loss_v8.py",
+      "sha256": "585ae98a035275742fe1686b4c7e01ea6b83086c62e5512dfba2bac500fb3e10"
+    },
+    {
+      "bytes": 6425,
+      "path": "docs/replacement-loss-v7.md",
+      "sha256": "ab065d5a3d63af02b30b4e682dbce4d37ce3d610e86dc81554b159f23eb51c7a"
+    },
+    {
+      "bytes": 7918,
+      "path": "replacement_loss_v7.py",
+      "sha256": "090110df236fe9fd7615e4dec7b24a89670a4400d125d226393d4c76c508a680"
+    },
+    {
+      "bytes": 3044,
+      "path": "replacement_loss_v7_fixtures.py",
+      "sha256": "e8faa16a2bc68aaa21ce66666ab2dc4ba213d6d71bd57878a300841a3164f180"
+    },
+    {
+      "bytes": 21809,
+      "path": "replacement_loss_v7_runner.py",
+      "sha256": "92d617737e6c7726d071e9f545ef06cabe78e4d2673c4dc3f1eb72edd0cf7ccf"
+    },
+    {
+      "bytes": 7026,
+      "path": "tests/test_replacement_loss_v7.py",
+      "sha256": "94892b26730dd12a31bb730bdceb72df9c685c9a829244a62edca7e9339637ba"
+    },
+    {
+      "bytes": 9007,
+      "path": "docs/replacement-loss-v6.md",
+      "sha256": "6d8c91402d3d3c4145ba320cd5c4f8c442a6acf42c3686007a632c0a4ef94a16"
+    },
+    {
+      "bytes": 7560,
+      "path": "replacement_loss_v6.py",
+      "sha256": "3a9c2029eb4b61deaba33ba4ebb45a68d7d24e0932ea98e12dd1369ede81568d"
+    },
+    {
+      "bytes": 3265,
+      "path": "replacement_loss_v6_fixtures.py",
+      "sha256": "9aea10c8db4ba21d5178fa3ea255dac7a3b88ea8e6604d3f7d5afa607e2ab2a3"
+    },
+    {
+      "bytes": 36282,
+      "path": "replacement_loss_v6_runner.py",
+      "sha256": "2f032a7384f4a70f9ad1216de2539ec09fcb338fbb8a458579e3c596a9162f6e"
+    },
+    {
+      "bytes": 9314,
+      "path": "tests/test_replacement_loss_v6.py",
+      "sha256": "8787359fdc8a7beedd2754347f0a67f61d34f511ae7bcfac780f3f3d1081c8fe"
+    },
+    {
+      "bytes": 2644,
+      "path": "docs/replacement-loss-v6-freeze.json",
+      "sha256": "98af93852a1abeadf3d77315cd11a02a3f3d4a7325e69c1bb58f8e613e946f09"
+    },
+    {
+      "bytes": 16985,
+      "path": "docs/replacement-loss-v3.md",
+      "sha256": "9ad83df229bc3f168193f47af35c885a21fb7b562fc46ad92b76af5d9c8d0ca7"
+    },
+    {
+      "bytes": 7969,
+      "path": "replacement_loss_v3.py",
+      "sha256": "d0543988ca048edcdb5ee94d58b710ddb50b1de5567f1813e222979e93eff379"
+    },
+    {
+      "bytes": 8402,
+      "path": "replacement_loss_v3_fixtures.py",
+      "sha256": "521612e305884ff5d47689853e51d41be00b3fda60dbe0188e98bf7e47687ab0"
+    },
+    {
+      "bytes": 95959,
+      "path": "replacement_loss_v3_runner.py",
+      "sha256": "d6a2c14da6ad82f6d9624d460fc3531c7e8e8c956464607b2d1da3abfcdc3278"
+    },
+    {
+      "bytes": 5343,
+      "path": "tests/test_replacement_loss_v3.py",
+      "sha256": "e6098b01ade8424963274f624f9b0f896edb41b90ba390e4f0313a69b3fba395"
+    },
+    {
+      "bytes": 17678,
+      "path": "tests/test_replacement_loss_v3_runner.py",
+      "sha256": "d85ca37c0ea9aa5aaad94fa34b5970ac79403ec8983d442cc1880857a158f1b4"
+    },
+    {
+      "bytes": 1464,
+      "path": "docs/replacement-loss-v3-freeze.json",
+      "sha256": "6cdca458e70338ca6ad59caef0d02aa47786b61ff504defcf64953055c74aa2f"
+    },
+    {
+      "bytes": 3734,
+      "path": "docs/replacement-loss-v7-freeze.json",
+      "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf"
+    }
+  ],
+  "packet_sha256": "ca3d2143f99f8fe02266503ae9b2d5528dd71805f6d5652ffe0a31aedbf1d673",
+  "pinned_v7_created_at_utc": "2026-09-25T19:06:27.148229+00:00",
+  "pinned_v7_freeze_sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf",
+  "protocol_id": "theseus-replacement-loss-v8-scale-r2-snr-coverage",
+  "state_slice": "theseus-lab-sandbox-v1",
+  "threshold_source": "pinned_v3_causal_behavior_activation_and_control_gates",
+  "treatment_method": "pinned_v3_closed_form_output_ridge_from_adaptation_pairs",
+  "v3_packet_sha256": "d9cf01d6caa2ac6145c0b4a7e5ddb9c2b105978993d77c1d58b5d0ad4dfc9b83",
+  "v6_packet_sha256": "9b7b669195bb4fb9153e872d42f3cb4fd235e9784fdc978ec936037eb176bc5a",
+  "v7_packet_sha256": "39737cbef36a9eb84ed23a236de3f6c5de7c4a4168715f06d11203d6d5918918"
+}
