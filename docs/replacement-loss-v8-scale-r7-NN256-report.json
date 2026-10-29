@@ -1,0 +1,79 @@
+{
+  "arm": "NN256",
+  "cases": [
+    {
+      "family": "llama_silu_gated",
+      "float32": {
+        "logit_effect_max_abs_error": 4.76837158203125e-05,
+        "module_effect_max_abs_error": 0.0001220703125
+      },
+      "float64": {
+        "logit_effect_max_abs_error": 5.194386229590009e-06,
+        "module_effect_max_abs_error": 2.2737367544323206e-13
+      },
+      "max_abs_boundary_output": 1614.2337610995467,
+      "median_boundary_output_l2": 41.117315172056564,
+      "median_module_input_l2": 7.608130081034294,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "relative_fp32_module_error": 7.562121140178047e-08,
+      "seed_index": 0,
+      "selected_layer": 7
+    },
+    {
+      "family": "llama_silu_gated",
+      "float32": {
+        "logit_effect_max_abs_error": 4.38690185546875e-05,
+        "module_effect_max_abs_error": 2.288818359375e-05
+      },
+      "float64": {
+        "logit_effect_max_abs_error": 5.882346931329607e-06,
+        "module_effect_max_abs_error": 9.947598300641403e-14
+      },
+      "max_abs_boundary_output": 30.035138984094818,
+      "median_boundary_output_l2": 41.76473134283709,
+      "median_module_input_l2": 7.7132263180847165,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "relative_fp32_module_error": 7.6204686803249e-07,
+      "seed_index": 1,
+      "selected_layer": 7
+    },
+    {
+      "family": "llama_silu_gated",
+      "float32": {
+        "logit_effect_max_abs_error": 4.00543212890625e-05,
+        "module_effect_max_abs_error": 0.0006103515625
+      },
+      "float64": {
+        "logit_effect_max_abs_error": 6.6190921677034e-06,
+        "module_effect_max_abs_error": 9.094947017729282e-13
+      },
+      "max_abs_boundary_output": 1955.5074936828837,
+      "median_boundary_output_l2": 40.186133046040126,
+      "median_module_input_l2": 7.394736185494132,
+      "model_id": "HuggingFaceTB/SmolLM2-1.7B",
+      "relative_fp32_module_error": 3.1211926544474704e-07,
+      "seed_index": 2,
+      "selected_layer": 7
+    }
+  ],
+  "classification": {
+    "P1_float64_all_within_1e-4": true,
+    "P2_float64_reduction_ge_100x_where_fp32_over": false,
+    "P3_scale": "SCALE_CONSISTENT",
+    "case_count": 3,
+    "cases_float32_over_threshold": 2,
+    "outcome": "PARTIAL",
+    "r6_arm_outcomes_unchanged": {
+      "NN256": "FAIL",
+      "NN512": "FAIL"
+    },
+    "spearman_fp32_error_vs_max_abs_boundary_output": 1.0
+  },
+  "created_at_utc": "2026-10-29T06:22:38.613509+00:00",
+  "diagnostic_only": true,
+  "inputs": "original r6 custody (same fitted modules, same challenge prompts and interventions)",
+  "protocol_id": "theseus-replacement-loss-v8-scale-r7-equivalence-float64-diagnostic",
+  "r6_report_packet_sha256": "30e1c6c492733bcbca03ec137521a57dd66b8ef2dc5c35c4fd92d21c0f08b0f8",
+  "r7_packet_sha256": "6fbcbbde939a748d44f28d3fe5cb8259b4275fa126ec7605983e167255321ce7",
+  "state_slice": "theseus-lab-sandbox-v1"
+}
