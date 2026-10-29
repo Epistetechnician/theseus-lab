@@ -2,7 +2,7 @@
 
 State slice: `theseus-lab-sandbox-v1`. Protocol ID: `theseus-replacement-loss-v8-scale-r7-equivalence-float64-diagnostic`.
 
-Status: preregistration, frozen by `docs/replacement-loss-v8s7-freeze.json` before any run. This is a **separate, diagnostic-only** packet. It does not re-score, reclassify or replace any r6 arm. **The r6 NN256 and NN512 arm outcomes remain `FAIL` whatever r7 finds.** No frozen constant (including `EQUIVALENCE_MAX_ABS_ERROR = 1e-4`) and no gate is changed; r6 files are pinned unmodified in the chain.
+Status: preregistration, frozen by `docs/replacement-loss-v8s7-freeze.json` before any run. (Pre-run amendment: the first r7 freeze, commit `8a5c4c8`, lacked the read-only `diagnose` mode and described regenerated inputs; found r6 custody intact before any run and refroze. Both freezes are in Git history.) This is a **separate, diagnostic-only** packet. It does not re-score, reclassify or replace any r6 arm. **The r6 NN256 and NN512 arm outcomes remain `FAIL` whatever r7 finds.** No frozen constant (including `EQUIVALENCE_MAX_ABS_ERROR = 1e-4`) and no gate is changed; r6 files are pinned unmodified in the chain.
 
 ## Question
 
@@ -13,7 +13,7 @@ The diagnostic compares the same fitted treatment module run through the model t
 ## Design
 
 - Arms NN256 and NN512, SmolLM2-1.7B only in the diagnostic, all three seeds (6 cases). Adaptation fits, seeds, natural-prompt selection and challenge construction reuse the pinned r6 code unchanged (r6 runner stages up to challenge generation); the r6 outcome pass is not run.
-- **Custody caveat:** challenge secret entropy is regenerated per run, so challenge prompts are fresh draws from the same r6 distribution unless the original r6 custody is found intact on a node (then it is used and stated). To make the comparison like-for-like, each case is measured in float32 *and* float64 on the identical fresh inputs and weights within r7. The r6 float32 errors are not assumed to reproduce exactly.
+- **Inputs (primary mode `diagnose`):** the original r6 custody on the r5 nodes (`custody/r6-NN256`, `custody/r6-NN512`), read-only: the same fitted treatment/mapping-aligned modules and the same challenge prompts and interventions as r6. If an arm's custody turns out to be missing, the fallback is `run`, which regenerates fits and challenges with the pinned r6 code (challenge entropy then differs from r6; stated in the results doc). Each case is measured in float32 *and* float64 in r7, so float32 reproduction of the r6 miss is itself checked rather than assumed.
 - Per case, on the 180 challenge prompts with their interventions: compute the treatment and mapping-aligned module-effect and logit-effect predictions with model and replacement module in float32 (as r6), then cast the same weights exactly to float64 (`model.double()`, module `.double()`, deltas double) and repeat. Report max-abs errors (module, logit) for both precisions.
 - Activation scale per case: max |treatment boundary output|, median L2 norm of module input and of boundary output. Relative fp32 error = fp32 module error / max |boundary output|.
 - Nothing in r7 touches original-model outcomes, thresholds, or gates.

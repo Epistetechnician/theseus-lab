@@ -189,6 +189,37 @@ def diagnose_case(model, tokenizer, checkpoint, case, custody: Path, challenge_r
     return result
 
 
+def diagnose_existing(custody_root: str, out_path: str) -> dict[str, Any]:
+    """Read-only: re-measure an existing r6 custody (exact fitted modules and challenge inputs)."""
+
+    freeze = verify_packet()
+    root = Path(custody_root).expanduser().resolve()
+    manifest_path = root / "checkpoints.json"
+    cm = v3._load_json(root / "challenge-manifest.json")
+    checkpoint = {c.family: c for c in v3._load_checkpoints(manifest_path, root)}[DIAGNOSTIC_FAMILY]
+    prep = v3._load_json(root / "candidate-preparation.json")
+    model, tokenizer = v3._load_local_model(checkpoint)
+    rows = []
+    for crow in cm["cases"]:
+        if crow["family"] != DIAGNOSTIC_FAMILY:
+            continue
+        case = next(c for c in prep["cases"] if c["family"] == DIAGNOSTIC_FAMILY and c["seed_index"] == crow["seed_index"])
+        rows.append(diagnose_case(model, tokenizer, checkpoint, case, root, crow))
+        print(json.dumps(rows[-1], sort_keys=True), flush=True)
+    summary = classify(rows)
+    summary["spearman_fp32_error_vs_max_abs_boundary_output"] = spearman(
+        [r["float32"]["module_effect_max_abs_error"] for r in rows], [r["max_abs_boundary_output"] for r in rows])
+    r6_report = r6._read_json(root / "replacement-loss-v8s6-report.json")
+    report = {
+        "protocol_id": PROTOCOL_ID, "state_slice": STATE_SLICE, "arm": r6_report.get("arm"),
+        "inputs": "original r6 custody (same fitted modules, same challenge prompts and interventions)",
+        "r7_packet_sha256": freeze["packet_sha256"], "r6_report_packet_sha256": r6_report.get("packet_sha256"),
+        "diagnostic_only": True, "cases": rows, "classification": summary, "created_at_utc": r6._now(),
+    }
+    r6._write_json(Path(out_path), report)
+    return {"arm": report["arm"], "classification": summary}
+
+
 def run(custody_root: str, checkpoint_manifest: str, arm: str, prior_custody_roots: list[str] | None = None) -> dict[str, Any]:
     if arm not in ARMS:
         raise ValueError(f"unknown arm: {arm}")
@@ -247,9 +278,18 @@ def _cli() -> int:
     r.add_argument("--checkpoint-manifest", required=True)
     r.add_argument("--arm", required=True, choices=ARMS)
     r.add_argument("--prior-custody-root", action="append", default=[])
+    d = sub.add_parser("diagnose")
+    d.add_argument("--custody-root", required=True)
+    d.add_argument("--out", required=True)
     a = p.parse_args()
-    out = freeze_packet() if a.command == "freeze" else verify_packet() if a.command == "verify" else run(
-        a.custody_root, a.checkpoint_manifest, a.arm, a.prior_custody_root)
+    if a.command == "freeze":
+        out = freeze_packet()
+    elif a.command == "verify":
+        out = verify_packet()
+    elif a.command == "diagnose":
+        out = diagnose_existing(a.custody_root, a.out)
+    else:
+        out = run(a.custody_root, a.checkpoint_manifest, a.arm, a.prior_custody_root)
     print(json.dumps(out, sort_keys=True))
     return 0
 
