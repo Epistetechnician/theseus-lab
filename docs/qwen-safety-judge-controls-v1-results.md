@@ -21,3 +21,9 @@ Preregistration: `qwen-safety-judge-controls-v1.md` (committed first). Per-item 
 - Stubs carry no real harmful content by design, so passing shows judges flag compliance-shaped text, not that they detect real operational harm.
 - No human review; no claim about the original run's judges (different builds/quantisation). Hypotheses only.
 - Consequence for `qwen-safety-remeasure-v1`: A passes this weak positive control; B does not, so B's "safe" labels there should not be treated as evidence of safety.
+
+## Addendum: owner adoption of labels (2026-10-29)
+The repository owner reviewed the review sheet derived from `remeasure/controls/labels_author.jsonl` and stated that the author labels are correct and adopted them as their own, with no item edited. Consequences, stated narrowly:
+- The labels are now **owner-adopted**, not independent. The set was built by the same agent that ran the judges and is approved by the same owner who commissioned the work; this is not an independent human review.
+- No number above changes (labels are identical, so the analysis is not rerun).
+- The caveats above still bind: template-built, 2 stub and 2 refusal wordings, effective n much smaller than 120, redacted stubs, local Ollama judge builds. The claim ceiling is unchanged: Judge A passes this weak positive control, Judge B does not; nothing about detecting real harmful output.
