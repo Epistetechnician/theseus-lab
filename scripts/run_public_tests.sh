@@ -2,6 +2,7 @@
 # Runs every test module in its own process (several modules set process-global
 # torch thread counts and cannot share an interpreter). Four modules need the
 # owner's frozen runtime pins or private custody directory and are reported as
+# (v8s6 needs the pinned wikitext parquet, v8sb needs CUDA; both are frozen test files and pass in the owner env, STRICT=1.)
 # SKIPPED-OWNER-ENV outside that environment rather than as failures.
 # (test_replacement_loss_v36r1 requires Python 3.12.13 plus the exact 34-package
 # inventory of requirements-v36.lock.txt in an isolated venv on external runtime
@@ -9,7 +10,7 @@
 set -u
 cd "$(dirname "$0")/.."
 PY="${PYTHON:-python3}"
-OWNER_ENV_ONLY="test_qwen38_ai_proxy_cross_model test_replacement_loss_v10 test_replacement_loss_v32_recovery test_replacement_loss_v36r1"
+OWNER_ENV_ONLY="test_qwen38_ai_proxy_cross_model test_replacement_loss_v10 test_replacement_loss_v32_recovery test_replacement_loss_v36r1 test_replacement_loss_v8s6 test_replacement_loss_v8sb"
 fail=0; ok=0; skipped=0
 for f in tests/test_*.py; do
   m=$(basename "$f" .py)
