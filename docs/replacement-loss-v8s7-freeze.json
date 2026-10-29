@@ -1,17 +1,17 @@
 {
-  "created_at_utc": "2026-10-29T06:08:30.096139+00:00",
+  "created_at_utc": "2026-10-29T06:09:20.942893+00:00",
   "diagnostic_only": true,
   "freeze_state": "FROZEN_BEFORE_V8S7_RUN",
   "packet_files": [
     {
-      "bytes": 4316,
+      "bytes": 4488,
       "path": "docs/replacement-loss-v8-scale-r7.md",
-      "sha256": "b3e422c3d78878a10a0b798827d750563bbdef77047ab138d6ea6b9b70f5785d"
+      "sha256": "1eec5be2a84a0cd466d75cf355f7207b3f378bdd55884e2026c36a9e0ad85b04"
     },
     {
-      "bytes": 13935,
+      "bytes": 13969,
       "path": "replacement_loss_v8s7_runner.py",
-      "sha256": "50dd36bbb725e4a0c124a714901721a8be3fb0b485b042e750889e9df0f7082b"
+      "sha256": "83623c446e186564b49fb0eb91b4315523845b7b1f27ad16f8239082ce4dce0d"
     },
     {
       "bytes": 3197,
@@ -294,7 +294,7 @@
       "sha256": "0533f46a702731c4bf2e162c69fcf93bfba0ffa5eadb92c788e2a922172a6cbf"
     }
   ],
-  "packet_sha256": "02a6d67db8da923de4aed8d8c40ab9d37da1b07cae3482da92afd9dd486aa3c1",
+  "packet_sha256": "6fbcbbde939a748d44f28d3fe5cb8259b4275fa126ec7605983e167255321ce7",
   "pinned_v8s6_packet_sha256": "30e1c6c492733bcbca03ec137521a57dd66b8ef2dc5c35c4fd92d21c0f08b0f8",
   "protocol_id": "theseus-replacement-loss-v8-scale-r7-equivalence-float64-diagnostic",
   "r6_arm_outcomes_unchanged": {

@@ -198,7 +198,8 @@ def diagnose_existing(custody_root: str, out_path: str) -> dict[str, Any]:
     cm = v3._load_json(root / "challenge-manifest.json")
     checkpoint = {c.family: c for c in v3._load_checkpoints(manifest_path, root)}[DIAGNOSTIC_FAMILY]
     prep = v3._load_json(root / "candidate-preparation.json")
-    model, tokenizer = v3._load_local_model(checkpoint)
+    with r6._activate_v8s6():
+        model, tokenizer = v3._load_local_model(checkpoint)
     rows = []
     for crow in cm["cases"]:
         if crow["family"] != DIAGNOSTIC_FAMILY:

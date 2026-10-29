@@ -2,7 +2,7 @@
 
 State slice: `theseus-lab-sandbox-v1`. Protocol ID: `theseus-replacement-loss-v8-scale-r7-equivalence-float64-diagnostic`.
 
-Status: preregistration, frozen by `docs/replacement-loss-v8s7-freeze.json` before any run. (Pre-run amendment: the first r7 freeze, commit `8a5c4c8`, lacked the read-only `diagnose` mode and described regenerated inputs; found r6 custody intact before any run and refroze. Both freezes are in Git history.) This is a **separate, diagnostic-only** packet. It does not re-score, reclassify or replace any r6 arm. **The r6 NN256 and NN512 arm outcomes remain `FAIL` whatever r7 finds.** No frozen constant (including `EQUIVALENCE_MAX_ABS_ERROR = 1e-4`) and no gate is changed; r6 files are pinned unmodified in the chain.
+Status: preregistration, frozen by `docs/replacement-loss-v8s7-freeze.json` before any run. (Pre-run amendment: the first r7 freeze, commit `8a5c4c8`, lacked the read-only `diagnose` mode and described regenerated inputs; found r6 custody intact before any run and refroze; a second pre-run refreeze added the pinned r6 parameter-ceiling profile that the model load needs after the first launch attempt crashed at load, producing no measurements. All freezes are in Git history.) This is a **separate, diagnostic-only** packet. It does not re-score, reclassify or replace any r6 arm. **The r6 NN256 and NN512 arm outcomes remain `FAIL` whatever r7 finds.** No frozen constant (including `EQUIVALENCE_MAX_ABS_ERROR = 1e-4`) and no gate is changed; r6 files are pinned unmodified in the chain.
 
 ## Question
 
