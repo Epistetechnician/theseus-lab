@@ -7,7 +7,7 @@ Median logit-effect cosine per stratum (gate 0.90), 3 seeds, and module-boundary
 
 | arm | model | adversarial | compositional | ordinary | module-boundary cos |
 |---|---|---:|---:|---:|---:|
-| N256 | opt-6.7b | 0.98 | 0.79-0.81 | 0.79-0.79 | 0.880-0.888 |
+| N256 | opt-6.7b | 0.98 | 0.79-0.81 | 0.79 | 0.880-0.888 |
 | N512 | opt-6.7b | 1.00 | 0.99 | 0.99 | 0.99994 |
 | N256 | open_llama_7b_v2 | 0.98 | 0.76-0.78 | 0.85-0.88 | 0.99993-0.99996 |
 | N512 | open_llama_7b_v2 | 0.98-0.99 | 0.80-0.85 | 0.91-0.93 | 0.99996-0.99997 |
