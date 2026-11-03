@@ -43,19 +43,24 @@ POOL_PROTOCOL_ID = PROTOCOL_ID
 
 
 def eligible_paragraphs(lines: Iterable[str]) -> list[str]:
-    """Same filter as r5: whitespace-normalized, at least NATURAL_MIN_WORDS words, not a '=' heading, de-duplicated.
+    """Same filter as r5 (whitespace-normalized, at least NATURAL_MIN_WORDS words, not a '=' heading, de-duplicated), plus de-duplication on the 45-word prompt.
 
     For this corpus one row (article) is one paragraph; no newline splitting is applied.
     """
 
     seen: set[str] = set()
+    seen_prompts: set[str] = set()
     result = []
     for line in lines:
         text = " ".join(str(line).split())
         if len(text.split()) < NATURAL_MIN_WORDS or text.startswith("="):
             continue
-        if text not in seen:
+        # Also de-duplicate on the emitted prompt (first NATURAL_WORDS words): syndicated news
+        # articles share ledes, which would make fixtures collide. No-op on wikitext-2.
+        prompt = " ".join(text.split()[:NATURAL_WORDS])
+        if text not in seen and prompt not in seen_prompts:
             seen.add(text)
+            seen_prompts.add(prompt)
             result.append(text)
     return result
 

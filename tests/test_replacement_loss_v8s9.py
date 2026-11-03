@@ -201,6 +201,18 @@ class ReplacementLossV8ScaleR6Tests(unittest.TestCase):
         self.assertEqual(fixtures.eligible_paragraphs(lines), r5.eligible_paragraphs(lines))
         self.assertEqual(fixtures.SEEDS, r5.SEEDS)
 
+    def test_filter_also_deduplicates_on_the_truncated_prompt(self) -> None:
+        head = " ".join(f"h{j}" for j in range(45))
+        lines = [head + " tail one " + " ".join(["a"] * 20), head + " tail two " + " ".join(["b"] * 20)]
+        self.assertEqual(len(fixtures.eligible_paragraphs(lines)), 1)
+
+    def test_real_corpus_shape_adaptation_arms_are_cross_seed_disjoint(self) -> None:
+        shared = " ".join(f"s{j}" for j in range(50))
+        lines = self.LINES + [shared + f" x{i}" for i in range(3)]
+        paragraphs = fixtures.eligible_paragraphs(lines)
+        picks = [p for i in range(3) for p in fixtures.select_natural_prompts(paragraphs, i, 100)]
+        self.assertEqual(len(picks), len(set(picks)))
+
     def test_r9_adaptation_differs_from_wikitext_namespace(self) -> None:
         import replacement_loss_v8s5_fixtures as r5
 
