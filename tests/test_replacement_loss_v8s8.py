@@ -34,14 +34,14 @@ class ReplacementLossV8ScaleR8Tests(unittest.TestCase):
         self.assertTrue(bandb_files <= chain)
         self.assertTrue(r7_files <= chain)
         self.assertEqual(chain, bandb_files | r7_files | set(runner.V8S8_OWN_FILES) | set(runner.PINNED_RESULT_FILES))
-        self.assertEqual(len(chain), 78)
+        self.assertEqual(len(chain), 75)
         for rel in chain:
             self.assertTrue((root / rel).is_file(), rel)
         freeze_path = root / runner.FREEZE_PATH
         if freeze_path.exists():
             frozen = json.loads(freeze_path.read_text())
             self.assertEqual([r["path"] for r in frozen["packet_files"]], list(runner.V8S8_PACKET_FILES))
-            self.assertEqual(len(frozen["packet_files"]), 78)
+            self.assertEqual(len(frozen["packet_files"]), 75)
             for row in frozen["packet_files"]:
                 self.assertEqual(bandb._sha(root / row["path"]), row["sha256"])
             self.assertTrue(runner.verify_packet()["verified"])

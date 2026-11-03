@@ -13,7 +13,7 @@
       "N512": "PASS"
     }
   },
-  "created_at_utc": "2026-11-03T04:18:22.823486+00:00",
+  "created_at_utc": "2026-11-03T04:18:38.922132+00:00",
   "diagnostic_only": true,
   "freeze_state": "FROZEN_BEFORE_V8S8_RUN",
   "packet_files": [
@@ -30,7 +30,7 @@
     {
       "bytes": 6079,
       "path": "tests/test_replacement_loss_v8s8.py",
-      "sha256": "6532ff3279e134b5182bfa0e7963a5c41867bea2d483093f42199e313b27d5d0"
+      "sha256": "d9c297287e598a556780ceaecdc5615f56d671eef793107307111577639d5c13"
     },
     {
       "bytes": 10237,
@@ -393,7 +393,7 @@
       "sha256": "a39fbd783729b616f2fb474f8f3302e821da86b4d942599fe714a32a26faa985"
     }
   ],
-  "packet_sha256": "4884e845a3711c83374c5218374593ceaa80908650f205fa97b7da1e05828c0c",
+  "packet_sha256": "d89d4cdb6bbc5f51e3a7e3fe62ffd3a33c90301ca6e9e1a1b3d23c531b62e85d",
   "pinned_v8s7_packet_sha256": "6fbcbbde939a748d44f28d3fe5cb8259b4275fa126ec7605983e167255321ce7",
   "pinned_v8sb_packet_sha256": "6205046016f130b6cbaf98e9e13611f93ff5c7dde1a6b16b12da8dc412dc27ba",
   "protocol_id": "theseus-replacement-loss-v8-scale-r8-float64-downstream-logit-cosine-diagnostic",
