@@ -43,3 +43,6 @@ The 256+/512 natural-text replacement result is not specific to wikitext-2: it a
 - Corpus: validation split of one dataset, English news with wire/byline boilerplate left in; articles truncated to their first 45 words; first-45-words prompts over-represent ledes. Same three checkpoints, 3 seeds, CPU fp32, one projection each, synthetic intervention directions, same owner, no independent review. Hypotheses until independently validated.
 - r6's own test `test_natural_adaptation_reuses_r5_prompts_exactly` needs `THESEUS_WIKITEXT_PARQUET` and errors without it; unrelated to r9.
 - Spend (from `gman usage`): r5-n256 $3.14 + r5-n512 $0.22 = $3.36 for r9, within the $15 cap. Billing balance moved $506.77 -> $499.91, which also includes other sessions' nodes running concurrently.
+
+## Addendum: CI note (added when landing)
+`tests/test_replacement_loss_v8s9.py::test_pinned_chain_covers_r5_to_r7_and_band_b_and_matches_the_freeze` asserts that no r8 files are tracked (true on the branch the packet was frozen from, where r8 had no files on main). r8 was merged to main before r9, so that scope guard fails on the merged tree. The test and the frozen packet were not changed. `scripts/run_public_tests.sh` reports the module as SKIPPED-OWNER-ENV; run it on the r9 branch snapshot (or with `STRICT=1` there) to exercise it. The r9 chain therefore does not include r8's files.
