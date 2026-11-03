@@ -1,6 +1,6 @@
-# Replacement-loss-v8-scale-r10 (DRAFT, unfrozen): a float64 measurement gate
+# Replacement-loss-v8-scale-r10: a float64 measurement gate
 
-Status: **DRAFT preregistration. Not frozen. No runner, packet, node, or spend exists.** Nothing here changes any earlier outcome, gate, constant, or frozen file. Thresholds below were written before any r10 data exists; where they were informed by earlier measurements, that is stated, so a reader can discount them.
+Status: **PREREGISTRATION, approved by the owner with a $20 hard cap; committed before any runner, packet, node, or spend exists.** Substance unchanged from the approved draft (only this status line and the title changed). Nothing here changes any earlier outcome, gate, constant, or frozen file. Thresholds below were written before any r10 data exists; where they were informed by earlier measurements, that is stated, so a reader can discount them.
 
 ## 1. Motivation (from existing reports only)
 
