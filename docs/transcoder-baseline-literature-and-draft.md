@@ -31,8 +31,16 @@ Does the float32 instrument floor that limited our affine replacements (r6 to r1
 
 One model family, one owner, a handful of layers, synthetic interventions, no independent review. Transcoder results do not transfer to other releases (Gemma Scope itself shows GPT-2 findings did not transfer). Even a clean result only concerns measurement; it supports no mechanistic or alignment claim. Hypotheses until independently validated.
 
+## 4b. Refinements from the model card (checked 2026-11-09)
+
+- **License:** CC-BY-4.0 on `google/gemma-scope-2b-pt-transcoders`.
+- **Module boundary (matters for the design):** the transcoder reads activations *just after the pre-MLP RMSNorm* and reconstructs the MLP output *after the post-MLP RMSNorm*; pre-MLP RMSNorm gain is folded into the MLP input matrices. The card carries an explicit clarification because this was misread before. Consequence: the replaced module is `post_norm(MLP(pre_norm(x)))`, and the affine ridge arm must be fitted on exactly that input/output pair, or the head-to-head is invalid. The paper's Figure 12 (TransformerLens) shows the weight folding; the runner must reproduce it and a test must show the unmodified model plus folded weights reproduces original logits to float32 tolerance *before* any replacement is applied.
+- **Loading:** the card shows only placeholder SAELens code; a verified `sae_id` for this repo was not found. Layer/width/L0 file layout is not on the card page. Both must be read from the repo file tree before the layer set is fixed, so "3 layers spread early/mid/late" stays a proposal, not a commitment.
+- **dtype:** not stated. The float64 cast is of the stored parameters (exact upcast); no refit.
+- **Fallback if loading proves unreliable:** report `NOT_RUN: transcoder loading unverified` rather than substituting another checkpoint.
+
 ## 5. Open items before freezing
 
-1. Confirm the transcoder loading path (SAELens support was reported incomplete for Gemma Scope transcoders) and checkpoint license.
+1. Read the repo file tree for layer/width/L0 layout and the sae_id; verify the loading path with the logit-reproduction test (license is CC-BY-4.0, done).
 2. A real literature review (SAEBench loss-recovered handling, any epsilon-aware fidelity work).
 3. Owner approval of layers, gate, cap.
