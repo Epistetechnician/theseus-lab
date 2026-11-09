@@ -56,6 +56,10 @@ Layout: `layer_N/width_16k/average_l0_X/params.npz`; 26 layers (0 to 25); width 
 
 For each transcoder and affine arm-layer, also estimate the logit-effect rounding floor without relying on the float32-vs-float64 comparison: re-run the float32 forward K times (K=8) with independent random perturbations of the last bit of MLP-input activations (relative size 2^-23) and report the spread of the logit-effect vector and of its cosine with the float64 effect. Reported, not gated. It tests whether the float32 floor seen via float64 matches an independently estimated floor. A mismatch is reported, not explained away. (A full stochastic-arithmetic library, as in arXiv 2605.25991, is an option if the simple perturbation proves too crude; this is stated as a weaker substitute.)
 
+## 4f. Implementation status
+
+`transcoder_baseline_core.py` (model-free: JumpReLU forward, ridge affine fit, epsilon-unit effect size, perturbation noise floor, gate, P1/P2 checks) and `tests/test_transcoder_baseline_core.py` (9 tests, toy tensors) exist. **Not written:** the Gemma 2 2B model glue (weight folding, hook at the pre-/post-MLP-norm boundary, downstream logit-effect forward, delta LM loss) and the runner. It cannot be tested without the model, so **the packet is deliberately not frozen**: freezing code that has not run against the model would freeze untested glue. P3 (delta-loss agreement) is evaluated in the glue, not the core.
+
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
