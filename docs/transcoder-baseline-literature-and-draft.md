@@ -52,6 +52,10 @@ Layout: `layer_N/width_16k/average_l0_X/params.npz`; 26 layers (0 to 25); width 
 - arXiv 2605.25991 uses stochastic arithmetic in PyTorch to estimate numerical variability without changing the model: a candidate way to measure a noise floor independent of the float32-vs-float64 comparison. It is not an interpretability paper.
 - **Still not found:** work that ties a machine-epsilon-based tolerance to patching or logit-effect fidelity. Absence in a few searches is weak evidence; do not claim novelty without a proper review.
 
+## 4e. Added arm: stochastic-arithmetic noise floor (approved by owner)
+
+For each transcoder and affine arm-layer, also estimate the logit-effect rounding floor without relying on the float32-vs-float64 comparison: re-run the float32 forward K times (K=8) with independent random perturbations of the last bit of MLP-input activations (relative size 2^-23) and report the spread of the logit-effect vector and of its cosine with the float64 effect. Reported, not gated. It tests whether the float32 floor seen via float64 matches an independently estimated floor. A mismatch is reported, not explained away. (A full stochastic-arithmetic library, as in arXiv 2605.25991, is an option if the simple perturbation proves too crude; this is stated as a weaker substitute.)
+
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
