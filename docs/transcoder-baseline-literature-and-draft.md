@@ -60,6 +60,14 @@ For each transcoder and affine arm-layer, also estimate the logit-effect roundin
 
 `transcoder_baseline_core.py` (model-free: JumpReLU forward, ridge affine fit, epsilon-unit effect size, perturbation noise floor, gate, P1/P2 checks) and `tests/test_transcoder_baseline_core.py` (9 tests, toy tensors) exist. **Not written:** the Gemma 2 2B model glue (weight folding, hook at the pre-/post-MLP-norm boundary, downstream logit-effect forward, delta LM loss) and the runner. It cannot be tested without the model, so **the packet is deliberately not frozen**: freezing code that has not run against the model would freeze untested glue. P3 (delta-loss agreement) is evaluated in the glue, not the core.
 
+## 4g. Model glue status and a convention caveat
+
+`transcoder_baseline_model.py` (capture MLP input/target at the Gemma 2 norm boundaries, block replacement hook, delta LM loss, variance explained) and `tests/test_transcoder_baseline_model.py` exist; 15 tests (glue + core) pass on a **tiny random Gemma2 on CPU**, including identity replacement reproducing logits (1e-10 in float64, 1e-4 in float32). This validates the plumbing only, not the real checkpoint.
+
+**Convention caveat:** the paper's appendix says input and target are "divided by the RMS of the input activations", and does not say whether the target is before or after the post-MLP norm; the model card says after. The glue applies no extra scaling. The gating check on the real model is therefore: transcoder **variance explained of the post-norm MLP output at the chosen layers must be at least 0.8** under the model-card convention; otherwise that layer is `NOT_RUN: convention unverified` (no silent convention search). Other conventions may be tried as diagnostics only.
+
+**Access blocker:** `google/gemma-2-2b` is gated on Hugging Face, so a run needs the owner's accepted licence and a token on the node. A token must never be pasted into chat or committed. No ungated mirror is used without owner approval (provenance).
+
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
