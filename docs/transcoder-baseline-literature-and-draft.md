@@ -39,8 +39,21 @@ One model family, one owner, a handful of layers, synthetic interventions, no in
 - **dtype:** not stated. The float64 cast is of the stored parameters (exact upcast); no refit.
 - **Fallback if loading proves unreliable:** report `NOT_RUN: transcoder loading unverified` rather than substituting another checkpoint.
 
+## 4c. Repo layout and layer rule (read from the repo file tree, 2026-11-09)
+
+Layout: `layer_N/width_16k/average_l0_X/params.npz`; 26 layers (0 to 25); width 16k only; 198 files of about 302 MB each (Git LFS); 3 to 10 L0 variants per layer (3 to 5 for layers 0 to 10, 10 for layers 11 to 22, 9 for layers 23 to 25; L0 range 3 to 1797). No `sae_id` is needed if the `params.npz` files are loaded directly; the SAELens path stays unverified.
+
+**Layer rule, fixed here before any data:** layers 5, 12, 20 (early, middle, late of 26). For each layer use the available `average_l0_X` closest to 100 (ties go to the smaller L0). The L0 target of 100 is an arbitrary round choice and is stated as such; it is not tuned. Three files, about 0.9 GB.
+
+## 4d. Added literature (searched 2026-11-09, still not a systematic review)
+
+- A LessWrong post by Gabriel Goh argues exact input/output determinism is nearly impossible under floating point and proposes "effectively identical IO" as the working standard for interpretable replacements.
+- The compact-proofs paper (arXiv 2406.11779) explicitly leaves the floating-point-to-real gap to future work, and notes its models are 32-bit.
+- arXiv 2605.25991 uses stochastic arithmetic in PyTorch to estimate numerical variability without changing the model: a candidate way to measure a noise floor independent of the float32-vs-float64 comparison. It is not an interpretability paper.
+- **Still not found:** work that ties a machine-epsilon-based tolerance to patching or logit-effect fidelity. Absence in a few searches is weak evidence; do not claim novelty without a proper review.
+
 ## 5. Open items before freezing
 
-1. Read the repo file tree for layer/width/L0 layout and the sae_id; verify the loading path with the logit-reproduction test (license is CC-BY-4.0, done).
-2. A real literature review (SAEBench loss-recovered handling, any epsilon-aware fidelity work).
+1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
+2. A real literature review (SAEBench loss-recovered handling, any epsilon-aware fidelity work); consider adding a stochastic-arithmetic noise-floor arm.
 3. Owner approval of layers, gate, cap.
