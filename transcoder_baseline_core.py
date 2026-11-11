@@ -43,7 +43,7 @@ def ridge_affine(x: torch.Tensor, y: torch.Tensor, ridge: float = RIDGE) -> tupl
     x64, y64 = x.double(), y.double()
     xm, ym = x64.mean(0), y64.mean(0)
     xc, yc = x64 - xm, y64 - ym
-    gram = xc.T @ xc + ridge * torch.eye(xc.shape[1], dtype=torch.float64)
+    gram = xc.T @ xc + ridge * torch.eye(xc.shape[1], dtype=torch.float64, device=xc.device)
     w = torch.linalg.solve(gram, xc.T @ yc)
     return w, ym - xm @ w
 
@@ -76,6 +76,31 @@ def perturbation_noise_floor(fn, x: torch.Tensor, k: int = NOISE_K, rel: float =
     scale = float(np.median(np.linalg.norm(stack.reshape(k, -1), axis=1)))
     spread = float(max(np.linalg.norm(stack[i] - stack[j]) for i in range(k) for j in range(i + 1, k)))
     return {"max_pairwise_deviation": spread, "scale": scale, "relative": spread / scale if scale else float("nan")}
+
+
+NONBOS_COSINE_MIN = 0.5
+CONTROL_BLEND = 0.5  # negative control: fixed interpolation toward random weights (draft section 3)
+
+
+def convention_check(ve_model_card: float, ve_alternatives: Mapping[str, float], nonbos_cosine: float) -> dict[str, Any]:
+    """Amended convention gate (draft 4i): model-card scaling must beat every alternative scaling in variance
+    explained AND have non-BOS cosine >= 0.5. Variance explained itself is reported, never gated."""
+
+    beats = bool(ve_alternatives) and all(ve_model_card > v for v in ve_alternatives.values())
+    cos_ok = (not np.isnan(nonbos_cosine)) and nonbos_cosine >= NONBOS_COSINE_MIN
+    return {"beats_alternatives": beats, "nonbos_cosine_ok": bool(cos_ok), "passes": bool(beats and cos_ok)}
+
+
+def blend_with_random(params: Mapping[str, Any], t: float = CONTROL_BLEND, seed: int = 0) -> dict[str, torch.Tensor]:
+    """Negative-control transcoder: (1-t)*W + t*N(0, std(W)) for W_enc and W_dec; biases and threshold unchanged."""
+
+    g = torch.Generator().manual_seed(seed)
+    out = {k: torch.as_tensor(params[k]).clone() for k in GEMMA_SCOPE_KEYS}
+    for k in ("W_enc", "W_dec"):
+        w = out[k]
+        noise = torch.randn(w.shape, generator=g, dtype=torch.float32).to(w.dtype) * w.float().std().to(w.dtype)
+        out[k] = (1 - t) * w + t * noise
+    return out
 
 
 def case_gate(strata_cosines: Mapping[str, float | None]) -> dict[str, Any]:

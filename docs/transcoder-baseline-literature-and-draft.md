@@ -82,10 +82,25 @@ Gemma 2 2B (fetched through the stored `huggingface` gman connection, 9.8 GiB) a
 - **The preregistered VE >= 0.8 gate fails at all three layers**, so under the draft as written every layer is `NOT_RUN: convention unverified`. I did not run anything past the smoke test.
 - **Why that gate looks wrong, and what I am not claiming.** The two alternative input scalings are far worse (VE -0.15 to -290000), BOS positions have 2 to 4 times larger targets and are poorly reconstructed (cos 0.12 and -0.08 at layers 12 and 20), and non-BOS cosine is 0.76 to 0.89. That is consistent with the model-card convention being right and the 0.8 threshold being a guess that these L0 ~ 100 transcoders do not reach. It does not prove it.
 - **Delta loss is nearly uninformative on this text.** Zero-ablating the whole block moves CE by only 0.018 to 0.149 nats (the Gemma residual stream is large), so loss-recovered ratios here are noise (2.6 at layer 5). Delta LM loss needs a much larger sample before it is a usable number; it should stay reported, not gated.
-- **Proposed amendment (pending owner approval; informed by this smoke data, so not blind):** replace the VE >= 0.8 gate by a convention check that the model-card convention beats both alternative input scalings in VE and has non-BOS cosine >= 0.5, with VE reported, not gated. Exclude BOS positions from all effect statistics, stated up front. Until approved, the layers stay `NOT_RUN` and the packet unfrozen.
+- **Amendment (approved by owner 2026-11-10, see 4i; informed by this smoke data, so not blind):** replace the VE >= 0.8 gate by a convention check that the model-card convention beats both alternative input scalings in VE and has non-BOS cosine >= 0.5, with VE reported, not gated. Exclude BOS positions from all effect statistics, stated up front. Until approved, the layers stay `NOT_RUN` and the packet unfrozen.
+
+## 4i. Amendment adopted (owner approved 2026-11-10; informed by smoke data, so not blind)
+
+Replaces the "VE >= 0.8" gate of 4g. Everything else in 4g stands.
+
+- **Convention check per layer (gates whether the layer is run):** with BOS positions excluded, the model-card input scaling must beat both alternative scalings (x*sqrt(d), x/sqrt(d)) in variance explained, and non-BOS cosine(pred, target) must be >= 0.5. Fail means `NOT_RUN: convention unverified` for that layer. Implemented as `convention_check` in the core.
+- **VE is reported, not gated.** Observed smoke values 0.56 to 0.67 are not evidence of a good replacement, only of a plausible convention.
+- **BOS excluded from all effect statistics and the affine fit**, stated before the run.
+- **Disclosure:** the 0.5 cosine threshold and the exclusion rule were chosen after seeing 176-token smoke data (non-BOS cosine 0.76 to 0.89). They are loose by design, but the choice is not blind and is reported as such in the results.
+- **Negative control fixed:** `blend_with_random` at t = 0.5 (W_enc and W_dec blended with Gaussian noise of equal std; biases and thresholds unchanged). It must fail the float64 case gate (all strata median cosine >= 0.90); otherwise the instrument is reported as unable to distinguish good from bad replacements.
+- **Interventions (runner `transcoder_baseline_run.py`):** add `scale * u` to the un-gained MLP input at one non-BOS position, `u` a fixed-seed random unit-RMS direction; scales 1e-3 / 1e-1 / 1 form three strata. Effect = logits(with) minus logits(without) within each arm (original block; replacement block); the compared quantity is the cosine of the two flattened effects, median over cases per stratum.
+- **Data:** the corpus path is a runner argument and must be fixed (with a hash) in the frozen packet; not chosen yet. Fit/eval split is by document.
+- **P3 caveat:** no published Gemma Scope transcoder delta-loss figure has been located, so P3 is reported "not evaluable" unless one is found before freezing.
 
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
 2. A real literature review (SAEBench loss-recovered handling, any epsilon-aware fidelity work); consider adding a stochastic-arithmetic noise-floor arm.
-3. Owner approval of layers, gate, cap.
+3. Owner approval of layers, gate, cap. (Gate amendment approved 2026-11-10; layers/cap still to confirm at freeze.)
+4. Choose and hash the evaluation corpus (runner argument; not chosen). Needs enough documents of at least 64 tokens; the smoke text was far too small for delta loss.
+5. `transcoder_baseline_run.py` is written and structure-tested on a tiny random Gemma2 (20 tests pass); it has **not** run on the real model, so it is not frozen. Run it once as an unfrozen dry run on a small corpus before freezing.
