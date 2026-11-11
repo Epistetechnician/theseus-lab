@@ -68,6 +68,22 @@ For each transcoder and affine arm-layer, also estimate the logit-effect roundin
 
 **Access blocker:** `google/gemma-2-2b` is gated on Hugging Face, so a run needs the owner's accepted licence and a token on the node. A token must never be pasted into chat or committed. No ungated mirror is used without owner approval (provenance).
 
+## 4h. Real-model smoke test (2026-11-10, `theseus-bandb-v8sb`, H100; smoke only, not a result)
+
+Gemma 2 2B (fetched through the stored `huggingface` gman connection, 9.8 GiB) and the three transcoder files (public, fetched directly on the node, no token) were run on 8 fixed sentences truncated to 22 tokens each (176 tokens, BOS included). Code: `transcoder_baseline_smoke.py` plus two throwaway diagnostics (not committed). Numbers are smoke values from a tiny text; they say nothing about the later protocol.
+
+| layer (L0) | identity logit diff (f32) | VE all | VE excl. BOS | non-BOS cos(pred, target) | delta CE: transcoder / zero-abl / mean-abl |
+|---|---:|---:|---:|---:|---|
+| 5 (87) | 1.2e-4 | 0.54 | 0.63 | 0.89 | -0.028 / 0.018 / 0.004 |
+| 12 (111) | 1.1e-4 | 0.26 | 0.56 | 0.76 | 0.024 / 0.056 / 0.031 |
+| 20 (88) | 5.2e-5 | 0.61 | 0.67 | 0.89 | 0.032 / 0.149 / 0.062 |
+
+- **Plumbing works.** Identity replacement reproduces the logits to about 1e-4 (float32) on the real model; input RMS is 1.000 after un-gaining (matches the card).
+- **The preregistered VE >= 0.8 gate fails at all three layers**, so under the draft as written every layer is `NOT_RUN: convention unverified`. I did not run anything past the smoke test.
+- **Why that gate looks wrong, and what I am not claiming.** The two alternative input scalings are far worse (VE -0.15 to -290000), BOS positions have 2 to 4 times larger targets and are poorly reconstructed (cos 0.12 and -0.08 at layers 12 and 20), and non-BOS cosine is 0.76 to 0.89. That is consistent with the model-card convention being right and the 0.8 threshold being a guess that these L0 ~ 100 transcoders do not reach. It does not prove it.
+- **Delta loss is nearly uninformative on this text.** Zero-ablating the whole block moves CE by only 0.018 to 0.149 nats (the Gemma residual stream is large), so loss-recovered ratios here are noise (2.6 at layer 5). Delta LM loss needs a much larger sample before it is a usable number; it should stay reported, not gated.
+- **Proposed amendment (pending owner approval; informed by this smoke data, so not blind):** replace the VE >= 0.8 gate by a convention check that the model-card convention beats both alternative input scalings in VE and has non-BOS cosine >= 0.5, with VE reported, not gated. Exclude BOS positions from all effect statistics, stated up front. Until approved, the layers stay `NOT_RUN` and the packet unfrozen.
+
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
