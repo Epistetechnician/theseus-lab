@@ -66,10 +66,17 @@ def _med(v: list[float]) -> float:
     return float(np.median(v)) if v else float("nan")
 
 
+def capture_batched(model, layer: int, ids: torch.Tensor, bs: int = 8) -> tuple[torch.Tensor, torch.Tensor]:
+    """capture_mlp_io in small batches: a full-corpus forward materialises [docs, seq, vocab] logits (26 GB on Gemma 2 at 250 x 32)."""
+
+    xs, ys = zip(*(tm.capture_mlp_io(model, layer, ids[i:i + bs]) for i in range(0, ids.shape[0], bs)))
+    return torch.cat(xs), torch.cat(ys)
+
+
 def convention(model32, layer: int, eval_ids: torch.Tensor, fn: Callable) -> dict[str, Any]:
     """Amended gate (4i): BOS (position 0) excluded; VE reported not gated."""
 
-    x, y = tm.capture_mlp_io(model32, layer, eval_ids)
+    x, y = capture_batched(model32, layer, eval_ids)
     d = x.shape[-1]
     nb = lambda t: t[:, 1:]
     ve = tm.variance_explained(fn(x)[:, 1:], nb(y))
@@ -91,7 +98,7 @@ def run_layer(model32, model64, layer: int, params: dict[str, torch.Tensor], fit
         row["status"] = "NOT_RUN: convention unverified"
         return row
 
-    x, y = tm.capture_mlp_io(model32, layer, fit_ids)
+    x, y = capture_batched(model32, layer, fit_ids)
     w, b = core.ridge_affine(x[:, 1:].reshape(-1, d), y[:, 1:].reshape(-1, d))  # BOS excluded from the fit
     affine = lambda xx: (xx.double() @ w + b).to(xx.dtype)
     arms = {"transcoder": tc(params), "affine": affine, "control_blend": tc(core.blend_with_random(params))}
@@ -171,23 +178,42 @@ def _ids(tok, text_path: str) -> tuple[torch.Tensor, torch.Tensor, str]:
     return t(enc[:cut]), t(enc[cut:]), hashlib.sha256(raw).hexdigest()
 
 
-def main(model_dir: str, params_root: str, corpus: str, out_path: str, layers: dict[int, int] | None = None) -> None:
+def main(model_dir: str, params_root: str, corpus: str, out_path: str, device: str = "cuda", float32_only: bool = False,
+         n_cases: int | None = None, seq: int | None = None, layers: dict[int, int] | None = None) -> None:
+    """float32_only: DRY-RUN mode for machines that cannot hold both models. The float64 model is the float32 one, so
+    every float32-vs-float64 gap is 0 by construction and the precision ladder is NOT tested; output is flagged."""
+
+    global N_CASES, SEQ
     from transformers import AutoModelForCausalLM, AutoTokenizer
+    if n_cases:
+        N_CASES = n_cases
+    if seq:
+        SEQ = seq
     layers = layers or {5: 87, 12: 111, 20: 88}
     tok = AutoTokenizer.from_pretrained(model_dir)
-    m32 = AutoModelForCausalLM.from_pretrained(model_dir, torch_dtype=torch.float32).to("cuda").eval()
-    m64 = AutoModelForCausalLM.from_pretrained(model_dir, torch_dtype=torch.float64).to("cuda").eval()
+    m32 = AutoModelForCausalLM.from_pretrained(model_dir, torch_dtype=torch.float32).to(device).eval()
+    m64 = m32 if float32_only else AutoModelForCausalLM.from_pretrained(model_dir, torch_dtype=torch.float64).to(device).eval()
     fit, ev, corpus_sha = _ids(tok, corpus)
-    out: dict[str, Any] = {"corpus_sha256": corpus_sha, "n_fit_docs": int(fit.shape[0]), "n_eval_docs": int(ev.shape[0]), "layers": {}}
+    out: dict[str, Any] = {"corpus_sha256": corpus_sha, "n_fit_docs": int(fit.shape[0]), "n_eval_docs": int(ev.shape[0]),
+                           "device": device, "float32_only_dry_run": float32_only, "n_cases": N_CASES, "seq": SEQ, "layers": {}}
     for layer, l0 in layers.items():
         path = Path(params_root) / f"layer_{layer}/width_16k/average_l0_{l0}/params.npz"
         raw = np.load(path)
-        params = {k: torch.from_numpy(raw[k]).to("cuda") for k in core.GEMMA_SCOPE_KEYS}
+        params = {k: torch.from_numpy(raw[k]).to(device) for k in core.GEMMA_SCOPE_KEYS}
         out["layers"][str(layer)] = {"l0": l0, "params_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
-                                     **run_layer(m32, m64, layer, params, fit.to("cuda"), ev)}
+                                     **run_layer(m32, m64, layer, params, fit.to(device), ev)}
+        Path(out_path).write_text(json.dumps(out, indent=1))  # partial results survive a crash
     out["summary"] = summarize(out["layers"])
     Path(out_path).write_text(json.dumps(out, indent=1))
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:5])
+    import argparse
+    a = argparse.ArgumentParser()
+    a.add_argument("model_dir"); a.add_argument("params_root"); a.add_argument("corpus"); a.add_argument("out_path")
+    a.add_argument("--device", default="cuda"); a.add_argument("--float32-only", action="store_true")
+    a.add_argument("--n-cases", type=int); a.add_argument("--seq", type=int)
+    a.add_argument("--layers", help="layer:l0,... (default 5:87,12:111,20:88)")
+    g = a.parse_args()
+    lay = {int(x.split(":")[0]): int(x.split(":")[1]) for x in g.layers.split(",")} if g.layers else None
+    main(g.model_dir, g.params_root, g.corpus, g.out_path, g.device, g.float32_only, g.n_cases, g.seq, lay)

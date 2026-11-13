@@ -97,10 +97,29 @@ Replaces the "VE >= 0.8" gate of 4g. Everything else in 4g stands.
 - **Data:** the corpus path is a runner argument and must be fixed (with a hash) in the frozen packet; not chosen yet. Fit/eval split is by document.
 - **P3 caveat:** no published Gemma Scope transcoder delta-loss figure has been located, so P3 is reported "not evaluable" unless one is found before freezing.
 
+## 4j. Local dry run of the runner (2026-11-12, Apple CPU, float32-only; unfrozen, not a result)
+
+Gemma 2 2B and the three transcoders (layers 5/12/20) on a laptop that cannot hold both precisions: the "float64" model was the float32 one (`--float32-only`), so **every float32-vs-float64 gap is 0 by construction and the precision ladder is untested**. Throwaway corpus (833 paragraphs from this repo's docs; sha256 27744aed...), 3 cases, 32 tokens. Purpose: does the code run on the real checkpoint. Numbers are not evidence about transcoders.
+
+| layer | convention check | VE non-BOS | non-BOS cos | float64-gate median cos, transcoder (3 strata) | affine | control blend |
+|---|---|---:|---:|---|---|---|
+| 5 | pass | 0.56 | 0.89 | 0.59 / 0.61 / 0.82 | 0.20 / 0.23 / 0.46 | 0.17 / 0.26 / 0.60 |
+| 12 | pass | 0.55 | 0.79 | 0.01 / 0.07 / 0.67 | 0.39 / 0.37 / 0.37 | 0.08 / 0.25 / 0.34 |
+| 20 | pass | 0.66 | 0.89 | 0.15 / 0.30 / 0.41 | 0.26 / 0.25 / 0.09 | -0.13 / 0.14 / 0.09 |
+
+- **The runner works end to end** on the real model: convention check, ridge fit, three strata, noise-floor arm, control, delta loss, summary. Alternative input scalings again lose by orders of magnitude (VE down to about -3e5).
+- **Bug found and fixed by the dry run:** capturing activations for the whole eval set in one forward pass materialised [docs, seq, vocab] logits (26 GB peak; killed with exit 137 at layers 12 and 20). `capture_batched` now captures 8 documents at a time.
+- **No arm reaches the 0.90 gate at any layer, including the real transcoder.** So "negative control fails the gate" (reported true at all layers) is **vacuous**: it cannot show the instrument separates good from bad when the good arm also fails. Before freezing, the control needs a second condition (the real transcoder must be measurably above the control) or the gate threshold needs revisiting; either is a change informed by data and must be disclosed. Not changed here.
+- **P1 (transcoder beats affine at every layer) is false on this tiny sample** (layer 12 small-effect strata: affine 0.37 vs transcoder 0.01-0.07; layer 20 largest stratum: 0.41 vs 0.09 is the other way). With 3 cases per stratum this is noise-level evidence; reported as observed, not as a finding.
+- **P2 shows True only vacuously** (all gaps are 0 here). P3 stays not evaluable.
+- **Noise-floor arm:** at the smallest effect size (about 200-370 float32-epsilon units) the perturbed float32 effect has cosine 0.974-0.9999 to the unperturbed reference; at larger effects it is above 0.99999. Consistent with the draft's effect-size story, but this is perturbation vs reference in one precision, not the float64 comparison.
+- **Delta CE** is within about 0.05 nats of baseline for every arm on 32-token text and is not informative at this size.
+- **Open before freezing:** a real run needs a GPU (or a machine holding both precisions) for the float32/float64 ladder; a larger case count; a corpus chosen and hashed; and a decision on the vacuous control.
+
 ## 5. Open items before freezing
 
 1. Verify direct `params.npz` loading with the logit-reproduction test (layout and license done; layers and L0 rule fixed in 4c).
 2. A real literature review (SAEBench loss-recovered handling, any epsilon-aware fidelity work); consider adding a stochastic-arithmetic noise-floor arm.
 3. Owner approval of layers, gate, cap. (Gate amendment approved 2026-11-10; layers/cap still to confirm at freeze.)
 4. Choose and hash the evaluation corpus (runner argument; not chosen). Needs enough documents of at least 64 tokens; the smoke text was far too small for delta loss.
-5. `transcoder_baseline_run.py` is written and structure-tested on a tiny random Gemma2 (20 tests pass); it has **not** run on the real model, so it is not frozen. Run it once as an unfrozen dry run on a small corpus before freezing.
+5. `transcoder_baseline_run.py` ran on the real model in a float32-only local dry run (4j); the float64 path is still untested on the real checkpoint. Not frozen.
