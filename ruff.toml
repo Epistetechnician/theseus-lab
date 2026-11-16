@@ -1,0 +1,16 @@
+line-length = 100
+target-version = "py312"
+# Frozen, hash-pinned experiment code is never linted or reformatted (see scripts/check_frozen.py).
+extend-exclude = ["replacement_loss_v[0-9]*.py", "theseus_v[0-9]*.py", "tests/test_replacement_loss_v*.py", "cloud_run_v8_replay"]
+[lint]
+select = ["E9", "F"]
+# Legacy files that docs may cite by content hash: do not edit just to satisfy lint.
+[lint.per-file-ignores]
+"scripts/r7_samplecount_probe.py" = ["F541"]
+"scripts/r7_two_site_toy.py" = ["F541"]
+"scripts/v8sb_toy_device_check.py" = ["F401"]
+"tests/test_additive_module_validity.py" = ["F841"]
+"tests/test_r7_chained_f32_toy.py" = ["F401"]
+"tests/test_r7_summ_order_toy.py" = ["F401"]
+"theseus_gpt2_target_audit_v1.py" = ["F401"]
+"transcoder_baseline_run.py" = ["F401"]

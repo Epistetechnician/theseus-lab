@@ -9,7 +9,7 @@
 
 **Question.** When a learned module replaces part of a language model, does behavior match while the mechanism changes? Can mechanism claims survive a change of representation?
 
-**Headline result.** In GPT-2, a function-preserving MLP permutation changed 100% of selected positions while preserving top-1 behavior (mean relative logit error 3e-7). The same-label ablation looked unrelated (cosine -0.983); the inverse-mapped ablation matched (0.9999996). Positional labels are not causal identity. Whole nonlinear-block replacement did **not** replicate under frozen gates; the one narrow learned positive is an affine output projection (9/9 fresh cases).
+**Headline result.** In GPT-2, a function-preserving MLP permutation changed 100% of selected positions while preserving top-1 behavior (mean relative logit error 3e-7). The same-label ablation looked unrelated (cosine -0.983); the inverse-mapped ablation matched (0.9999996). These figures are recorded in `NOTES.md`; the raw run output is in owner-only custody and is not in this repository. Positional labels are not causal identity. Whole nonlinear-block replacement did **not** replicate under frozen gates; the one narrow learned positive is an affine output projection (9/9 fresh cases).
 
 **What it does not show.** No interpretability method that works on whole blocks, and no independent retraining. Several experiments are negative by design and are kept.
 

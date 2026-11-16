@@ -10,5 +10,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install ruff
+      - run: scripts/check
       - run: pip install -r requirements.txt
       - run: PYTHON=python3 scripts/run_public_tests.sh
