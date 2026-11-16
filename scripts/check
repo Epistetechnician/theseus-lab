@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Fast gate for hooks: frozen-file guard + lint. The full suite runs in CI (scripts/run_public_tests.sh).
+set -euo pipefail
+cd "$(dirname "$0")/.."
+python3 scripts/check_frozen.py
+ruff check .
+echo "check ok"

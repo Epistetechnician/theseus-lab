@@ -11,7 +11,6 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ruff
-      - run: ruff check .
-      - run: python scripts/check_frozen.py
+      - run: scripts/check
       - run: pip install -r requirements.txt
       - run: PYTHON=python3 scripts/run_public_tests.sh
